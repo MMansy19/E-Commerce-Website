@@ -1,0 +1,7 @@
+{
+  "dependencies": {
+    "@emotion/styled": "^11.11.5",
+    "@mui/material": "^5.15.15",
+    "react-i18next": "^14.1.0"
+  }
+}
