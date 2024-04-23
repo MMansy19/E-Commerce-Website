@@ -33,9 +33,9 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
     transition: theme.transitions.create("width"),
     width: "100%",
     [theme.breakpoints.up("sm")]: {
-      width: "12ch",
+      width: "20ch",
       "&:focus": {
-        width: "20ch",
+        width: "30ch",
       },
     },
   },
@@ -43,7 +43,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 
 export default function SearchAppBar() {
   return (
-    <Search>
+    <Search className="md:px-6">
       <SearchIconWrapper>
         <svg
           width="24"
@@ -62,7 +62,7 @@ export default function SearchAppBar() {
       </SearchIconWrapper>
 
       <StyledInputBase
-        placeholder=" Search…"
+        placeholder="Search…"
         inputProps={{ "aria-label": "search" }}
       />
     </Search>

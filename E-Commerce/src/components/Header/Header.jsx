@@ -9,10 +9,12 @@ const Header = () => {
       <div className="flex justify-around items-center mt-10 mb-4">
         <Logo />
         <Navigations />
-        <SearchAppBar />
-        <Profile />
+        <div className="flex">
+          <SearchAppBar />
+          <Profile />
+        </div>
       </div>
-      <hr className="w-full border-gray-300 my-4" /> {/* Horizontal line */}
+      <hr className="w-full border-gray-300 my-4" />
     </>
   );
 };

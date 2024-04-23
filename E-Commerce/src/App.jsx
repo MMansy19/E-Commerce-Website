@@ -8,7 +8,9 @@ import Home from "./Pages/Home";
 import Contact from "./Pages/Contact";
 import About from "./Pages/About";
 import SignUp from "./Pages/SignUp";
+import LogIn from "./Pages/LogIn";
 import NotFound from "./Pages/NotFound";
+import Footer from "./components/Footer/Footer";
 
 function App() {
   return (
@@ -22,8 +24,10 @@ function App() {
             <Route path="/contact" element={<Contact />} />
             <Route path="/about" element={<About />} />
             <Route path="/signup" element={<SignUp />} />
+            <Route path="/login" element={<LogIn />} />
             <Route path="/*" element={<NotFound />} />
           </Routes>
+          <Footer />
         </LangProvider>
       </div>
     </Router>

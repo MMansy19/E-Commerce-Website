@@ -1,9 +1,11 @@
 import React from "react";
-import { Tabs, Tab } from "@mui/material";
+import { Tabs, Tab, useMediaQuery, useTheme } from "@mui/material";
 import { Link, useLocation } from "react-router-dom";
 
 const Navigations = () => {
   const location = useLocation();
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
 
   // Map routes to their corresponding labels
   const routes = [
@@ -19,13 +21,24 @@ const Navigations = () => {
   );
 
   return (
-    <Tabs value={currentRouteIndex !== -1 ? currentRouteIndex : false}>
+    <Tabs
+      variant={isMobile ? "scrollable" : "standard"}
+      indicatorColor="primary"
+      textColor="primary"
+      left
+      value={currentRouteIndex !== -1 ? currentRouteIndex : false}
+    >
       {routes.map((route, index) => (
         <Tab
           sx={{
             textTransform: "none",
             fontSize: "16px",
-            color: "black",
+            "&.Mui-selected": {
+              color: "black",
+            },
+            "&:hover": {
+              color: "inherit",
+            },
           }}
           key={index}
           label={route.label}
