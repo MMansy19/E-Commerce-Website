@@ -12,7 +12,7 @@ const PaginationIndicator = ({ activeIndex, onClick, data }) => {
   const indicatorsToShow = allIndicators.slice(0, -2);
 
   return (
-    <div className="flex justify-center align-center mt-4">
+    <div className="flex justify-center align-center mb-8  md:my-4 ">
       {indicatorsToShow}
     </div>
   );

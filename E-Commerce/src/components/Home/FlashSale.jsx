@@ -45,83 +45,99 @@ const FlashSale = ({ items }) => {
   });
 
   return (
-    <div className="py-12 md:ml-32 px-4">
-      <RedTitle title="Today’s" />
-      <div className="flex md:justify-between items-center md:mr-6 md:mb-4">
-        <div className="flex gap-20 flex-col md:flex-row ">
-          <h2 className="text-3xl font-semibold ">Flash Sales</h2>
-          <div className="font-inter font-bold text-3xl">
-            <span className=" absolute text-sm">Days</span>
-            {timeLeft.days} <span className="text-red-500">:</span>{" "}
-            <span className=" absolute text-sm">Hours</span>
-            {timeLeft.hours} <span className="text-red-500">:</span>{" "}
-            <span className=" absolute text-sm">Minutes</span>
-            {timeLeft.minutes} <span className="text-red-500">:</span>{" "}
-            <span className=" absolute text-sm">Seconds</span>
-            {timeLeft.seconds}
+    <>
+      <div className="py-12 md:ml-32 px-4">
+        <RedTitle title="Today’s" />
+        <div className="flex md:justify-between items-center md:mr-6 md:mb-4">
+          <div className="flex gap-20 flex-col md:flex-row ">
+            <h2 className="text-3xl font-semibold ">Flash Sales</h2>
+            <div className="font-inter font-bold text-3xl">
+              <span className=" absolute text-xs font-poppins bottom-10 ">
+                Days
+              </span>
+              <span> {timeLeft.days}</span>
+              <span className="text-red-400  mx-4">:</span>
+              <span className=" absolute text-xs font-poppins bottom-10">
+                Hours
+              </span>
+              <span>{timeLeft.hours}</span>
+              <span className="text-red-400  mx-4">:</span>
+              <span className=" absolute text-xs font-poppins bottom-10">
+                Minutes
+              </span>
+              <span>{timeLeft.minutes}</span>
+              <span className="text-red-400  mx-4">:</span>
+              <span className=" absolute text-xs font-poppins bottom-10">
+                Seconds
+              </span>
+              <span> {timeLeft.seconds}</span>
+            </div>
+          </div>
+          <div className="absolute right-4 md:flex gap-2">
+            <button
+              onClick={handlePrevItem}
+              className="bg-white rounded-full shadow-lg p-2 hover:bg-gray-200 focus:outline-none"
+            >
+              <svg
+                width="18"
+                height="16"
+                viewBox="0 0 18 16"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M8 1L1 8L8 15M1 8H17"
+                  stroke="black"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+            </button>
+            <button
+              onClick={handleNextItem}
+              className="bg-white rounded-full shadow-lg p-2 hover:bg-gray-200 focus:outline-none"
+            >
+              <svg
+                width="19"
+                height="16"
+                viewBox="0 0 19 16"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M1.5 8H18M18 8L11 1M18 8L11 15"
+                  stroke="black"
+                  strokeWidth="1.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+            </button>
           </div>
         </div>
-        <div className="absolute right-4 md:flex gap-2">
-          <button
-            onClick={handlePrevItem}
-            className="bg-white rounded-full shadow-lg p-2 hover:bg-gray-200 focus:outline-none"
-          >
-            <svg
-              width="18"
-              height="16"
-              viewBox="0 0 18 16"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M8 1L1 8L8 15M1 8H17"
-                stroke="black"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
+        <div className="relative mt-10 ">
+          <div className="flex flex-row gap-2 md:gap-12  overflow-x-hidden hover:overflow-x-auto transition-transform duration-300 transform  focus:outline-none ">
+            {items.slice(currentIndex, currentIndex + 5).map((item, index) => (
+              <FlashSaleItem
+                key={item.title}
+                item={item}
+                index={index}
+                totalItems={items.length}
+                stars={item.stars}
+                rates={item.rates}
               />
-            </svg>
-          </button>
-          <button
-            onClick={handleNextItem}
-            className="bg-white rounded-full shadow-lg p-2 hover:bg-gray-200 focus:outline-none"
-          >
-            <svg
-              width="19"
-              height="16"
-              viewBox="0 0 19 16"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M1.5 8H18M18 8L11 1M18 8L11 15"
-                stroke="black"
-                strokeWidth="1.5"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
-          </button>
-        </div>
-      </div>
-      <div className="relative">
-        <div className="flex flex-row gap-2 md:gap-8 overflow-x-auto">
-          {items.slice(currentIndex, currentIndex + 4).map((item, index) => (
-            <FlashSaleItem
-              key={item.title}
-              item={item}
-              index={index}
-              totalItems={items.length}
-            />
-          ))}
+            ))}
+          </div>
         </div>
       </div>
       <div className="mt-8 flex justify-center">
-        <button className="bg-red-600 text-white px-6 py-3 rounded-lg hover:bg-red-500">
+        <button className="bg-red-600 text-white px-6 py-3 rounded-lg hover:bg-red-500 transition-transform duration-300 transform hover:translate-y-1 hover:scale-105">
           View All Products
         </button>
       </div>
-    </div>
+      <hr className="mx-40 border-gray-300 md:mt-16" />
+    </>
   );
 };
 

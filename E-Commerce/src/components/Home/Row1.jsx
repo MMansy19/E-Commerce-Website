@@ -22,31 +22,31 @@ const Row1 = () => {
       <div className=" text-gray-700 w-64 flex-shrink-0 hidden md:block">
         <nav className="py-6">
           <ul>
-            <li className="px-4 py-2 hover:bg-gray-400 cursor-pointer">
+            <li className="px-4 py-2 cursor-pointer hover:underline hover:underline-offset-8   ease-in-out  duration-300 transform hover:translate-x-4">
               Women's Fashion
             </li>
-            <li className="px-4 py-2 hover:bg-gray-400 cursor-pointer">
+            <li className="px-4 py-2 cursor-pointer hover:underline hover:underline-offset-8   ease-in-out  duration-300 transform hover:translate-x-4">
               Men's Fashion
             </li>
-            <li className="px-4 py-2 hover:bg-gray-400 cursor-pointer">
+            <li className="px-4 py-2 cursor-pointer hover:underline hover:underline-offset-8   ease-in-out  duration-300 transform hover:translate-x-4">
               Electronics
             </li>
-            <li className="px-4 py-2 hover:bg-gray-400 cursor-pointer">
+            <li className="px-4 py-2 cursor-pointer hover:underline hover:underline-offset-8   ease-in-out  duration-300 transform hover:translate-x-4">
               Home & Lifestyle
             </li>
-            <li className="px-4 py-2 hover:bg-gray-400 cursor-pointer">
+            <li className="px-4 py-2 cursor-pointer hover:underline hover:underline-offset-8   ease-in-out  duration-300 transform hover:translate-x-4">
               Medicine
             </li>
-            <li className="px-4 py-2 hover:bg-gray-400 cursor-pointer">
+            <li className="px-4 py-2 cursor-pointer hover:underline hover:underline-offset-8   ease-in-out  duration-300 transform hover:translate-x-4">
               Sports & Outdoor
             </li>
-            <li className="px-4 py-2 hover:bg-gray-400 cursor-pointer">
+            <li className="px-4 py-2 cursor-pointer hover:underline hover:underline-offset-8   ease-in-out  duration-300 transform hover:translate-x-4">
               Baby's & Toys
             </li>
-            <li className="px-4 py-2 hover:bg-gray-400 cursor-pointer">
+            <li className="px-4 py-2 cursor-pointer hover:underline hover:underline-offset-8   ease-in-out  duration-300 transform hover:translate-x-4">
               Groceries & Pets
             </li>
-            <li className="px-4 py-2 hover:bg-gray-400 cursor-pointer">
+            <li className="px-4 py-2 cursor-pointer hover:underline hover:underline-offset-8   ease-in-out  duration-300 transform hover:translate-x-4">
               Health & Beauty
             </li>
           </ul>
@@ -93,10 +93,10 @@ const Row1 = () => {
           <h2 className="text-2xl md:text-5xl leading-10">
             Up to 10% off Voucher
           </h2>
-          <button className="mb-8 md:mb-0 flex gap-2 underline underline-offset-8 py-2 px-6 hover:underline-offset-2 transition-all duration-300 ease-in-out">
+          <button className="mb-8 md:mb-0 flex gap-2 underline underline-offset-8 py-2 px-6 focus:underline-offset-2  ease-in-out  duration-300 transform hover:translate-x-4">
             <span>Shop Now</span>
             <svg
-              className="mt-1"
+              className="mt-1 "
               width="24"
               height="24"
               viewBox="0 0 24 24"
@@ -113,9 +113,14 @@ const Row1 = () => {
             </svg>
           </button>
         </div>{" "}
-        <div className=" relative overflow-hidden mt-4">
+        <div className=" relative overflow-hidden mt-4 ">
           {images.slice(startIndex, startIndex + 1).map((image, index) => (
-            <div key={index}>{image}</div>
+            <div
+              className="transition-transform duration-300 transform hover:translate-y-1 hover:scale-105"
+              key={index}
+            >
+              {image}
+            </div>
           ))}
           <PaginationIndicator onClick={setStartIndex} data={images} />
         </div>

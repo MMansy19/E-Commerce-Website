@@ -3,7 +3,7 @@ const Product = () => {
     <svg
       width="490"
       height="310"
-      className="w-96 md:w-full"
+      className="w-80 md:w-full"
       viewBox="0 0 496 328"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
