@@ -3,6 +3,7 @@ import { useState } from "react";
 import { Box } from "@mui/material";
 import Person1 from "./Person1";
 import Person2 from "./Person2";
+import PaginationIndicator from "../common/PaginationIndicator";
 
 const teamMembersData = [
   { name: "Tom Cruise", role: "Founder & Chairman", image: <Person1 /> },
@@ -17,7 +18,7 @@ const teamMembersData = [
 const TeamMember = ({ name, role, image }) => {
   return (
     <Box className="flex gap-4 flex-col ">
-      <Box className="bg-gray-200 rounded-xl  w-100% md:w-96 flex items-center justify-center">
+      <Box className="bg-gray-200 rounded-xl w-full md:w-96 flex items-center justify-center">
         {image}
       </Box>
       <Box className="flex gap-4 items-center md:items-start flex-col">
@@ -73,31 +74,8 @@ const TeamMember = ({ name, role, image }) => {
   );
 };
 
-const PaginationIndicator = ({ activeIndex, onClick }) => {
-  const allIndicators = teamMembersData.map((_, index) => (
-    <button
-      key={index}
-      onClick={() => onClick(index)}
-      className={`w-3 h-3 rounded-full mx-1 ${
-        activeIndex === index ? "bg-red-500" : "bg-gray-300"
-      }`}
-    ></button>
-  ));
-  const indicatorsToShow = allIndicators.slice(0, -2);
-
-  return (
-    <div className="flex justify-center align-center mt-4">
-      {indicatorsToShow}
-    </div>
-  );
-};
-
 const TeamMembers = () => {
   const [startIndex, setStartIndex] = useState(0);
-
-  const handleIndicatorClick = (index) => {
-    setStartIndex(index);
-  };
 
   return (
     <div>
@@ -112,7 +90,8 @@ const TeamMembers = () => {
       <div className="mx-8 md:mx-32 mt-8">
         <PaginationIndicator
           activeIndex={startIndex}
-          onClick={handleIndicatorClick}
+          onClick={setStartIndex}
+          data={teamMembersData}
         />
       </div>
     </div>

@@ -1,20 +1,23 @@
+/* eslint-disable react-hooks/rules-of-hooks */
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import IconButton from "@mui/material/IconButton";
 import { useState } from "react";
+import { useCart } from "../../context/CartContext";
 
 const Profile = () => {
+  const { cartItems } = useCart();
   const [anchorEl, setAnchorEl] = useState(null);
-  const [open, setOpen] = useState(false); // Define the 'open' state variable
+  const [open, setOpen] = useState(false);
 
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
-    setOpen(true); // Open the menu
+    setOpen(true);
   };
 
   const handleClose = () => {
     setAnchorEl(null);
-    setOpen(false); // Close the menu
+    setOpen(false);
   };
 
   return (
@@ -50,6 +53,14 @@ const Profile = () => {
           aria-haspopup="true"
           aria-expanded={open ? "true" : undefined}
         >
+          <span
+            className={`absolute ml-5 mb-5 px-2 rounded-full ${
+              cartItems.length == 0 ? "hidden " : "bg-red-500"
+            }`}
+          >
+            {cartItems.length}
+          </span>
+
           <svg
             width="32"
             height="32"
@@ -87,7 +98,6 @@ const Profile = () => {
             />
           </svg>
         </IconButton>
-
         <IconButton
           onClick={handleClick}
           size="small"

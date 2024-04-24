@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import StatsCardExported from "../components/About/StatsCard.jsx";
 import TeamMembers from "../components/About/TeamMembers";
-import Services from "../components/About/Services";
+import Services from "../components/common/Services";
 const About = () => {
   return (
     <>
@@ -57,9 +57,7 @@ const About = () => {
       <div className="flex flex-col items-center justify-center gap-8 mt-24 ">
         <TeamMembers />
       </div>
-      <div className="flex flex-col items-center justify-center gap-8  ">
-        <Services />
-      </div>
+      <Services />
     </>
   );
 };
