@@ -1,8 +1,5 @@
-import Avatar from "@mui/material/Avatar";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
-import ListItemIcon from "@mui/material/ListItemIcon";
-import Divider from "@mui/material/Divider";
 import IconButton from "@mui/material/IconButton";
 import { useState } from "react";
 
@@ -22,11 +19,10 @@ const Profile = () => {
 
   return (
     <div>
-      <div className="flex justify-around items-center ">
+      <div className="flex justify-around items-center gap-1 md:gap-4 ml-4 ">
         <IconButton
           onClick={handleClick}
           size="small"
-          sx={{ ml: 2 }}
           aria-controls={open ? "account-menu" : undefined}
           aria-haspopup="true"
           aria-expanded={open ? "true" : undefined}
@@ -50,7 +46,6 @@ const Profile = () => {
         <IconButton
           onClick={handleClick}
           size="small"
-          sx={{ ml: 2 }}
           aria-controls={open ? "account-menu" : undefined}
           aria-haspopup="true"
           aria-expanded={open ? "true" : undefined}
@@ -96,7 +91,6 @@ const Profile = () => {
         <IconButton
           onClick={handleClick}
           size="small"
-          sx={{ ml: 2 }}
           aria-controls={open ? "account-menu" : undefined}
           aria-haspopup="true"
           aria-expanded={open ? "true" : undefined}

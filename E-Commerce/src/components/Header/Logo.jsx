@@ -1,6 +1,6 @@
 const Logo = () => {
   return (
-    <div className="flex items-center justify-center gap-2">
+    <div className=" items-center justify-center gap-4 hidden md:flex">
       <a href="#">
         <svg
           width="38"
@@ -26,9 +26,7 @@ const Logo = () => {
           />
         </svg>
       </a>
-      <h1 className="font-inter font-bold text-2xl hidden md:flex">
-        Exclusive
-      </h1>
+      <h1 className="font-inter font-bold text-2xl ">Exclusive</h1>
     </div>
   );
 };

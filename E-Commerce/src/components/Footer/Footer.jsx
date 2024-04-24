@@ -2,7 +2,7 @@ import { Container, Grid, Link, Typography } from "@mui/material";
 import QRCode from "./QRCode";
 const Footer = () => {
   return (
-    <footer className="bg-black text-white py-8 bottom-0 w-full">
+    <footer className="bg-black text-white py-8 mt-24 bottom-0 w-full">
       <Container>
         <Grid
           container

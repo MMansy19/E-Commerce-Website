@@ -43,7 +43,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 
 export default function SearchAppBar() {
   return (
-    <Search className="md:px-6">
+    <Search className="pl-2 md:px-6">
       <SearchIconWrapper>
         <svg
           width="24"
