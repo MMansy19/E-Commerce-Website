@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import Arrows from "../common/Arrows";
 
 const Category = ({ icon, name }) => (
-  <div className="flex gap-4 items-center justify-center flex-col bg-white px-16 py-8 rounded-lg border border-gray-300 transition duration-300 hover:bg-cyan-400 hover:invert  hover:shadow-xl  ">
+  <div className="flex gap-4 items-center justify-center flex-col bg-white md:px-24 py-8 rounded-lg border border-gray-300 transition duration-300 hover:bg-cyan-400 hover:invert  hover:shadow-xl  ">
     <div>{icon}</div>
     <div className="text-lg">{name}</div>
   </div>
@@ -314,7 +314,7 @@ const CategoryList = () => {
 
 const Categories = () => {
   return (
-    <div className="py-12 md:ml-32 px-4 ">
+    <div className="py-12 px-4">
       <RedTitle title="Categories" />
       <div className="flex md:justify-between items-center md:mr-6 mb-12">
         <div className="flex gap-20 flex-col md:flex-row ">
@@ -324,7 +324,7 @@ const Categories = () => {
         </div>
         <Arrows />
       </div>
-      <div className=" md:mr-16  grid grid-cols-1 lg:grid-cols-6 gap-8">
+      <div className="   grid grid-cols-1 lg:grid-cols-6 gap-8 md:gap-16">
         <CategoryList />
       </div>
     </div>

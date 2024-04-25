@@ -17,7 +17,7 @@ const Row1 = () => {
   ];
 
   return (
-    <div className="flex flex-row md:mx-32 ">
+    <div className="flex flex-row  ">
       {/* Left Sidebar */}
       <div className=" text-gray-700 w-64 flex-shrink-0 hidden md:block">
         <nav className="py-6">

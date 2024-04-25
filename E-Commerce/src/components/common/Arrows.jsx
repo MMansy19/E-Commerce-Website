@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 const Arrows = ({ handlePrevItem, handleNextItem }) => {
   return (
-    <div className="absolute right-8 md:right-24  md:flex gap-2">
+    <div className="absolute  right-8 md:right-32 gap-2">
       <button
         onClick={handlePrevItem}
         className="bg-white rounded-full shadow-lg p-2 hover:bg-gray-200 focus:outline-none"

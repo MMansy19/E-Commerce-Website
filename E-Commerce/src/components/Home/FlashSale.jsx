@@ -48,31 +48,31 @@ const FlashSale = ({ items }) => {
 
   return (
     <>
-      <div className="py-12 md:ml-32 px-4">
+      <div className="py-12   px-4">
         <RedTitle title="Today’s" />
         <div className="flex md:justify-between items-center md:mr-6 md:mb-4">
           <div className="flex gap-20 flex-col md:flex-row ">
             <h2 className="text-2xl md:text-3xl font-semibold ">Flash Sales</h2>
-            <div className="font-inter font-bold text-2xl md:text-3xl">
-              <span className=" absolute text-xs font-poppins bottom-10 ">
+            <div className="font-inter font-bold text-2xl md:text-3xl relative">
+              <span className="absolute text-xs font-poppins bottom-full left-0.5">
                 Days
               </span>
-              <span> {timeLeft.days}</span>
-              <span className="text-red-400  mx-4">:</span>
-              <span className=" absolute text-xs font-poppins bottom-10">
+              <span>{timeLeft.days}</span>
+              <span className="text-red-400 mx-4">:</span>
+              <span className="absolute text-xs font-poppins bottom-full left-1/4">
                 Hours
               </span>
               <span>{timeLeft.hours}</span>
-              <span className="text-red-400  mx-4">:</span>
-              <span className=" absolute text-xs font-poppins bottom-10">
+              <span className="text-red-400 mx-4">:</span>
+              <span className="absolute text-xs font-poppins bottom-full left-1/2">
                 Minutes
               </span>
               <span>{timeLeft.minutes}</span>
-              <span className="text-red-400  mx-4">:</span>
-              <span className=" absolute text-xs font-poppins bottom-10">
+              <span className="text-red-400 mx-4">:</span>
+              <span className="absolute text-xs font-poppins bottom-full left-3/4">
                 Seconds
               </span>
-              <span> {timeLeft.seconds}</span>
+              <span>{timeLeft.seconds}</span>
             </div>
           </div>
           <Arrows

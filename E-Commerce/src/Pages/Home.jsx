@@ -3,6 +3,7 @@ import FlashSale from "../components/Home/FlashSale";
 import BestSelling from "../components/Home/BestSelling";
 import Categories from "../components/Home/Categories";
 import Services from "../components/common/Services";
+import AllProducts from "../components/Home/AllProducts";
 const ITEMS = [
   {
     imageSrc: "./assets/car.svg",
@@ -127,13 +128,14 @@ const ITEMS = [
 ];
 const Home = () => {
   return (
-    <>
+    <div className="flex flex-col md:mx-32">
       <Row1 />
       <FlashSale items={ITEMS} />
       <Categories />
       <BestSelling items={ITEMS} />
       <Services />
-    </>
+      <AllProducts items={ITEMS} />
+    </div>
   );
 };
 export default Home;
