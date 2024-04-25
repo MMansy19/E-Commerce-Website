@@ -1,5 +1,7 @@
 import Row1 from "../components/Home/Row1";
 import FlashSale from "../components/Home/FlashSale";
+import BestSelling from "../components/Home/BestSelling";
+import Categories from "../components/Home/Categories";
 import Services from "../components/common/Services";
 const ITEMS = [
   {
@@ -128,6 +130,8 @@ const Home = () => {
     <>
       <Row1 />
       <FlashSale items={ITEMS} />
+      <Categories />
+      <BestSelling items={ITEMS} />
       <Services />
     </>
   );

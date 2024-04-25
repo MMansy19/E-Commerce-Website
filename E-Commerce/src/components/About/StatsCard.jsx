@@ -3,9 +3,9 @@ import { Box } from "@mui/material";
 
 const StatsCard = ({ icon, value, description }) => {
   return (
-    <Box className="flex max-w-xs gap-4 items-center justify-center flex-col bg-white px-4 py-8 rounded-lg border border-gray-300 transition duration-300  hover:bg-red-600 hover:shadow-xl hover:text-white ">
+    <Box className="flex max-w-xs gap-4 items-center justify-center flex-col bg-white px-4 py-8 rounded-lg border border-gray-300 transition duration-300 hover:invert hover:bg-cyan-400  hover:shadow-xl">
       <Box className="p-2 rounded-full bg-gray-300">
-        <Box className="text-4xl  hover:invert  p-2 rounded-full bg-white  ">
+        <Box className="text-4xl  invert  p-2 rounded-full bg-white  ">
           {icon}
         </Box>
       </Box>
