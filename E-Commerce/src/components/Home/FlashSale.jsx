@@ -4,34 +4,18 @@ import { useState, useEffect } from "react";
 import RedTitle from "../common/RedTitle";
 import Arrows from "../common/Arrows";
 import RedButton from "../common/RedButton";
+import calculateTimeLeft from "../common/calculateTimeLeft";
+
 const FlashSale = ({ items }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [timeLeft, setTimeLeft] = useState(calculateTimeLeft());
+  const [timeLeft, setTimeLeft] = useState(
+    calculateTimeLeft(new Date("2024-05-27T00:00:00"))
+  );
 
-  // Function to calculate time left until sale ends
-  function calculateTimeLeft() {
-    const deadline = new Date("2024-05-27T00:00:00"); // Set your deadline date here
-    const difference = +deadline - +new Date();
-    let timeLeft = {};
-
-    if (difference > 0) {
-      timeLeft = {
-        days: Math.floor(difference / (1000 * 60 * 60 * 24)),
-        hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
-        minutes: Math.floor((difference / 1000 / 60) % 60),
-        seconds: Math.floor((difference / 1000) % 60),
-      };
-    }
-
-    return timeLeft;
-  }
-
-  // Function to handle next item navigation
   const handleNextItem = () => {
     setCurrentIndex((prevIndex) => (prevIndex + 1) % items.length);
   };
 
-  // Function to handle previous item navigation
   const handlePrevItem = () => {
     setCurrentIndex(
       (prevIndex) => (prevIndex - 1 + items.length) % items.length
@@ -40,7 +24,7 @@ const FlashSale = ({ items }) => {
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      setTimeLeft(calculateTimeLeft());
+      setTimeLeft(calculateTimeLeft(new Date("2024-05-27T00:00:00")));
     }, 1000);
 
     return () => clearTimeout(timer);
@@ -108,12 +92,3 @@ FlashSale.propTypes = {
 };
 
 export default FlashSale;
-
-// items.map((item, index) => (
-//   <FlashSaleItem
-//     key={item.title}
-//     item={item}
-//     index={index}
-//     totalItems={items.length}
-//   />
-// ));

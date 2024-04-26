@@ -1,4 +1,5 @@
 import Row1 from "../components/Home/Row1";
+import Deal from "../components/Home/Deal";
 import FlashSale from "../components/Home/FlashSale";
 import BestSelling from "../components/Home/BestSelling";
 import Categories from "../components/Home/Categories";
@@ -134,6 +135,7 @@ const Home = () => {
       <Categories />
       <BestSelling items={ITEMS} />
       <Services />
+      <Deal />
       <AllProducts items={ITEMS} />
     </div>
   );

@@ -15,8 +15,7 @@ const FlashSaleItem = ({ item }) => {
   // Function to render stars
   const renderStars = () => {
     const stars = [];
-    const totalStars = 5; // Total number of stars
-    for (let i = 0; i < totalStars; i++) {
+    for (let i = -2; i < 3; i++) {
       // Determine star color based on index and item.stars
       const starColor = i < item.stars ? "#FFAD33" : "#D1D5DB"; // Orange if index < item.stars, gray otherwise
       stars.push(
