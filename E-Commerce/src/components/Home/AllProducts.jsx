@@ -35,7 +35,7 @@ const AllProducts = ({ items }) => {
           />
         </div>
         <div className="relative mt-10 flex flex-row gap-2 md:gap-12 overflow-x-hidden  transition-transform duration-300 transform focus:outline-none">
-          <div className="grid grid-rows-2 grid-cols-4 gap-2 md:gap-12 ">
+          <div className="grid grid-rows-2 md:grid-cols-4 gap-2 md:gap-12 ">
             {items.slice(0, 8).map((item, index) => (
               <FlashSaleItem
                 key={item.title}
@@ -52,7 +52,6 @@ const AllProducts = ({ items }) => {
       <div className="mt-8 flex justify-center">
         <RedButton name="View All Products" />
       </div>
-      <hr className="mx-40 border-gray-300 md:mt-16" />
     </>
   );
 };

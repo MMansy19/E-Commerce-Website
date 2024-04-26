@@ -5,6 +5,7 @@ import BestSelling from "../components/Home/BestSelling";
 import Categories from "../components/Home/Categories";
 import Services from "../components/common/Services";
 import AllProducts from "../components/Home/AllProducts";
+import Featured from "../components/Home/Featured";
 const ITEMS = [
   {
     imageSrc: "./assets/car.svg",
@@ -134,9 +135,10 @@ const Home = () => {
       <FlashSale items={ITEMS} />
       <Categories />
       <BestSelling items={ITEMS} />
-      <Services />
       <Deal />
       <AllProducts items={ITEMS} />
+      <Featured />
+      <Services />
     </div>
   );
 };

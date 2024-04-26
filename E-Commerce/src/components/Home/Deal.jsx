@@ -14,10 +14,10 @@ const Deal = () => {
   });
 
   return (
-    <div className="flex md:my-10 items-center justify-around flex-col-reverse md:flex-row  min-h-[500px] bg-black text-white">
+    <div className=" flex gap-10 md:my-10 items-center justify-center flex-col-reverse md:flex-row  min-h-[500px] bg-black text-white">
       <div className="flex flex-col gap-5 items-center md:items-start  md:mx-12">
-        <h3 className="text-green-400 text-sm">Categories</h3>
-        <h2 className="w-[500px] text-2xl md:text-5xl font-semibold font-inter">
+        <h3 className="text-green text-sm">Categories</h3>
+        <h2 className="md:w-[500px] text-center md:text-start text-xl md:text-5xl font-semibold font-inter">
           Enhance Your Listening Experience
         </h2>
         <div className="font-semibold text-base flex flex-row gap-6 text-black">
@@ -46,7 +46,7 @@ const Deal = () => {
             </span>
           </div>
         </div>
-        <button className="bg-green-500 hover:bg-green-400 mb-8 py-4 px-12 rounded  ease-in-out  duration-300 transform hover:scale-105">
+        <button className="bg-green  mb-8 py-4 px-12 rounded  ease-in-out  duration-300 transform hover:scale-105">
           <span>Buy Now!</span>
         </button>
       </div>

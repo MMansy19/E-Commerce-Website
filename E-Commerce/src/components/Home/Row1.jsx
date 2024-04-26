@@ -112,7 +112,7 @@ const Row1 = () => {
               />
             </svg>
           </button>
-        </div>{" "}
+        </div>
         <div className=" relative overflow-hidden mt-4 ">
           {images.slice(startIndex, startIndex + 1).map((image, index) => (
             <div
