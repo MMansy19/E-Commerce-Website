@@ -4,6 +4,7 @@ import TopHeader from "./components/TopHeader/TopHeader.jsx";
 import { LangProvider } from "./components/TopHeader/LangContext.jsx";
 import i18n from "./components/TopHeader/LangConfig.jsx";
 import Home from "./Pages/Home";
+import Wishlist from "./Pages/Wishlist.jsx";
 import Contact from "./Pages/Contact";
 import About from "./Pages/About";
 import SignUp from "./Pages/SignUp";
@@ -22,14 +23,17 @@ function App() {
             <WishlistProvider>
               <TopHeader />
               <Header />
-              <Routes>
-                <Route path="/" element={<Home />} />
-                <Route path="/contact" element={<Contact />} />
-                <Route path="/about" element={<About />} />
-                <Route path="/signup" element={<SignUp />} />
-                <Route path="/login" element={<LogIn />} />
-                <Route path="/*" element={<NotFound />} />
-              </Routes>
+              <div className="mt-32">
+                <Routes>
+                  <Route path="/" element={<Home />} />
+                  <Route path="/contact" element={<Contact />} />
+                  <Route path="/about" element={<About />} />
+                  <Route path="/signup" element={<SignUp />} />
+                  <Route path="/login" element={<LogIn />} />
+                  <Route path="/wishlist" element={<Wishlist />} />
+                  <Route path="/*" element={<NotFound />} />
+                </Routes>
+              </div>
               <Footer />
             </WishlistProvider>
           </CartProvider>

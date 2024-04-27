@@ -16,7 +16,7 @@ const BestSelling = ({ items }) => {
           <div className="mb:24 absolute right-8 md:right-24"></div>
         </div>
         <div className="relative mt-10">
-          <div className="flex flex-row gap-2 md:gap-4 overflow-x-hidden hover:overflow-x-auto md:hover:overflow-x-hidden  transition-transform duration-300 transform  focus:outline-none ">
+          <div className="flex flex-row gap-2 md:gap-8 overflow-x-hidden hover:overflow-x-auto md:hover:overflow-x-hidden  transition-transform duration-300 transform  focus:outline-none ">
             {items.slice(0, 4).map((item, index) => (
               <FlashSaleItem
                 key={item.title}

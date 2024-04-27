@@ -25,6 +25,15 @@ export const WishlistProvider = ({ children }) => {
     localStorage.setItem("wishlistItems", JSON.stringify(updatedWishlistItems));
   };
 
+  const removeFromWishlist = (itemId) => {
+    const updatedWishlistItems = wishlistItems.filter(
+      (item) => item.id !== itemId
+    );
+    setWishlistItems(updatedWishlistItems);
+    // Save updated Wishlist items to local storage
+    localStorage.setItem("wishlistItems", JSON.stringify(updatedWishlistItems));
+  };
+
   // Function to check if an item is in the wishlist
   const isInWishlist = (itemId) => {
     return wishlistItems.some((item) => item.id === itemId);
@@ -32,7 +41,7 @@ export const WishlistProvider = ({ children }) => {
 
   return (
     <WishlistContext.Provider
-      value={{ wishlistItems, addToWishlist, isInWishlist }}
+      value={{ wishlistItems, addToWishlist, removeFromWishlist, isInWishlist }}
     >
       {children}
     </WishlistContext.Provider>

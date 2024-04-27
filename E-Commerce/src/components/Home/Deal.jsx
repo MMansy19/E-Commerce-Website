@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
 import calculateTimeLeft from "../common/calculateTimeLeft";
+import dealImage from "../../assets/custom/JBL_BOOMBOX.svg";
+
 const Deal = () => {
   const [timeLeft, setTimeLeft] = useState(
     calculateTimeLeft(new Date("2024-05-27T00:00:00"))
@@ -51,7 +53,7 @@ const Deal = () => {
         </button>
       </div>
       <div className="mt-4 transition-transform duration-300 transform hover:translate-y-1 hover:scale-105">
-        <img src="../../src/assets/custom/JBL_BOOMBOX.svg" alt="JBL_BOOMBOX" />
+        <img src={dealImage} alt="JBL_BOOMBOX" />
       </div>
     </div>
   );

@@ -5,6 +5,7 @@ import IconButton from "@mui/material/IconButton";
 import { useState } from "react";
 import { useCart } from "../../context/CartContext";
 import { useWishlist } from "../../context/WishlistContext";
+import { Link } from "react-router-dom";
 
 const Profile = () => {
   const { cartItems } = useCart();
@@ -24,6 +25,38 @@ const Profile = () => {
 
   return (
     <div className="flex justify-around items-center gap-1 md:gap-4 ml-4 ">
+      <Link to="/wishlist">
+        <IconButton
+          size="small"
+          aria-controls={open ? "account-menu" : undefined}
+          aria-haspopup="true"
+          aria-expanded={open ? "true" : undefined}
+        >
+          <span
+            className={`absolute ml-5 mb-5 px-1 rounded-full text-white text-sm ${
+              wishlistItems.length == 0 ? "hidden " : "bg-red-500"
+            }`}
+          >
+            {wishlistItems.length}
+          </span>
+          <svg
+            className="hover:bg-red-500 rounded-full"
+            width="32"
+            height="32"
+            viewBox="0 0 32 32"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M11 7C8.239 7 6 9.216 6 11.95C6 14.157 6.875 19.395 15.488 24.69C15.6423 24.7839 15.8194 24.8335 16 24.8335C16.1806 24.8335 16.3577 24.7839 16.512 24.69C25.125 19.395 26 14.157 26 11.95C26 9.216 23.761 7 21 7C18.239 7 16 10 16 10C16 10 13.761 7 11 7Z"
+              stroke="black"
+              strokeWidth="1.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+          </svg>
+        </IconButton>
+      </Link>
       <IconButton
         onClick={handleClick}
         size="small"
@@ -32,38 +65,7 @@ const Profile = () => {
         aria-expanded={open ? "true" : undefined}
       >
         <span
-          className={`absolute ml-5 mb-5 px-2 rounded-full ${
-            wishlistItems.length == 0 ? "hidden " : "bg-red-500"
-          }`}
-        >
-          {wishlistItems.length}
-        </span>
-        <svg
-          className="hover:bg-red-500 rounded-full"
-          width="32"
-          height="32"
-          viewBox="0 0 32 32"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M11 7C8.239 7 6 9.216 6 11.95C6 14.157 6.875 19.395 15.488 24.69C15.6423 24.7839 15.8194 24.8335 16 24.8335C16.1806 24.8335 16.3577 24.7839 16.512 24.69C25.125 19.395 26 14.157 26 11.95C26 9.216 23.761 7 21 7C18.239 7 16 10 16 10C16 10 13.761 7 11 7Z"
-            stroke="black"
-            strokeWidth="1.5"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          />
-        </svg>
-      </IconButton>
-      <IconButton
-        onClick={handleClick}
-        size="small"
-        aria-controls={open ? "account-menu" : undefined}
-        aria-haspopup="true"
-        aria-expanded={open ? "true" : undefined}
-      >
-        <span
-          className={`absolute ml-5 mb-5 px-2 rounded-full ${
+          className={`absolute ml-5 mb-5 px-1 rounded-full text-white text-sm ${
             cartItems.length == 0 ? "hidden " : "bg-red-500"
           }`}
         >

@@ -32,7 +32,7 @@ const FlashSale = ({ items }) => {
 
   return (
     <>
-      <div className="py-12   px-4">
+      <div className="py-12 px-4">
         <RedTitle title="Today’s" />
         <div className="flex md:justify-between items-center md:mr-6 md:mb-4">
           <div className="flex gap-20 flex-col md:flex-row ">
