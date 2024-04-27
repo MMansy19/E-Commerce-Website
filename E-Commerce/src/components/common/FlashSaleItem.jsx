@@ -66,11 +66,9 @@ const FlashSaleItem = ({ item }) => {
         {isHovered && (
           <button
             onClick={handleAddToCart}
-            className={`absolute bottom-0 left-0 right-0 bg-black text-white py-2 px-4 hover:bg-gray-800 focus:outline-none ${
-              isInCart ? "bg-red-500" : ""
-            }`}
+            className="absolute bottom-0 left-0 right-0 bg-black text-white py-2 px-4 hover:bg-red-500 duration-300 focus:outline-none"
           >
-            {isInCart ? "Added to Cart" : "Add to Cart"}
+            Add to Cart
           </button>
         )}
         {item.discount && (
@@ -79,11 +77,7 @@ const FlashSaleItem = ({ item }) => {
           </div>
         )}
         <img src={item.imageSrc} alt={item.title} />
-        <div
-          className={`absolute top-3 right-3 hover:bg-red-300 rounded-full ${
-            isInWishlist ? "bg-red-500" : "bg-zinc-200"
-          }`}
-        >
+        <div className="absolute top-3 right-3 bg-zinc-200 hover:bg-red-500 rounded-full">
           <IconButton onClick={handleAddToWishlist} size="small">
             <svg
               width="32"

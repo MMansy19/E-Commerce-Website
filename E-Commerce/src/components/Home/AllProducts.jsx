@@ -21,7 +21,7 @@ const AllProducts = ({ items }) => {
 
   return (
     <>
-      <div className="py-12  px-4">
+      <div className="py-12">
         <RedTitle title="Our Products" />
         <div className="flex md:justify-between items-center md:mr-6 md:mb-4">
           <div className="flex gap-20 flex-col md:flex-row ">
@@ -34,8 +34,8 @@ const AllProducts = ({ items }) => {
             handleNextItem={handleNextItem}
           />
         </div>
-        <div className="relative mt-10 flex flex-row gap-2 md:gap-12 overflow-x-hidden  transition-transform duration-300 transform focus:outline-none">
-          <div className="grid grid-rows-2 md:grid-cols-4 gap-2 md:gap-12 ">
+        <div className="relative mt-10 flex flex-row gap-2 md:gap-12 overflow-x-hidden transition-transform duration-300 transform focus:outline-none">
+          <div className="grid grid-rows-2 md:grid-cols-4 gap-2 md:gap-12">
             {items.slice(0, 8).map((item, index) => (
               <FlashSaleItem
                 key={item.title}

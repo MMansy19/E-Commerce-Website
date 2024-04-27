@@ -130,7 +130,7 @@ const ITEMS = [
 ];
 const Home = () => {
   return (
-    <div className="flex flex-col md:mx-32">
+    <div className="flex flex-col md:mx-32 mt-28">
       <Row1 />
       <FlashSale items={ITEMS} />
       <Categories />
