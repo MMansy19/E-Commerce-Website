@@ -1,15 +1,37 @@
 import PropTypes from "prop-types";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import IconButton from "@mui/material/IconButton";
 import { useCart } from "../../context/CartContext";
+import { useWishlist } from "../../context/WishlistContext";
 
 const FlashSaleItem = ({ item }) => {
-  const { addToCart } = useCart();
+  const { addToCart, cartItems } = useCart();
+  const { addToWishlist, wishlistItems } = useWishlist();
   const [isHovered, setIsHovered] = useState(false);
   const [isInCart, setIsInCart] = useState(false);
+  const [isInWishlist, setIsInWishlist] = useState(false);
 
+  useEffect(() => {
+    const cartItemExists = cartItems.some(
+      (cartItem) => cartItem.id === item.id
+    );
+    const wishlistItemExists = wishlistItems.some(
+      (wishlistItem) => wishlistItem.id === item.id
+    );
+    setIsInCart(cartItemExists);
+    setIsInWishlist(wishlistItemExists);
+  }, [cartItems, wishlistItems, item.id]);
+
+  // Function to add item to cart
   const handleAddToCart = () => {
     addToCart(item);
     setIsInCart(true);
+  };
+
+  // Function to add item to wishlist
+  const handleAddToWishlist = () => {
+    addToWishlist(item);
+    setIsInWishlist(true);
   };
 
   // Function to render stars
@@ -39,12 +61,14 @@ const FlashSaleItem = ({ item }) => {
       <div
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
-        className="relative rounded flex items-center justify-center bg-gray-100 w-72 h-60 transform transition-transform duration-300 hover:scale-105 focus:outline-none"
+        className="relative rounded flex items-center justify-center bg-zinc-100 w-72 h-60 transform transition-transform duration-300 hover:scale-105 focus:outline-none"
       >
         {isHovered && (
           <button
             onClick={handleAddToCart}
-            className="absolute bottom-0 left-0 right-0 bg-black text-white py-2 px-4 hover:bg-gray-800 focus:outline-none"
+            className={`absolute bottom-0 left-0 right-0 bg-black text-white py-2 px-4 hover:bg-gray-800 focus:outline-none ${
+              isInCart ? "bg-red-500" : ""
+            }`}
           >
             {isInCart ? "Added to Cart" : "Add to Cart"}
           </button>
@@ -55,6 +79,29 @@ const FlashSaleItem = ({ item }) => {
           </div>
         )}
         <img src={item.imageSrc} alt={item.title} />
+        <div
+          className={`absolute top-3 right-3 hover:bg-red-300 rounded-full ${
+            isInWishlist ? "bg-red-500" : "bg-zinc-200"
+          }`}
+        >
+          <IconButton onClick={handleAddToWishlist} size="small">
+            <svg
+              width="32"
+              height="32"
+              viewBox="0 0 32 32"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M11 7C8.239 7 6 9.216 6 11.95C6 14.157 6.875 19.395 15.488 24.69C15.6423 24.7839 15.8194 24.8335 16 24.8335C16.1806 24.8335 16.3577 24.7839 16.512 24.69C25.125 19.395 26 14.157 26 11.95C26 9.216 23.761 7 21 7C18.239 7 16 10 16 10C16 10 13.761 7 11 7Z"
+                stroke="black"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+          </IconButton>
+        </div>
       </div>
       <h3 className="text-lg font-base mt-4">{item.title}</h3>
       <p className="text-red-500  text-sm font-semibold line-clamp-2">
@@ -74,8 +121,17 @@ const FlashSaleItem = ({ item }) => {
   );
 };
 
-export default FlashSaleItem;
-
 FlashSaleItem.propTypes = {
-  item: PropTypes.object.isRequired,
+  item: PropTypes.shape({
+    id: PropTypes.string.isRequired,
+    imageSrc: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+    price: PropTypes.number.isRequired,
+    stars: PropTypes.number.isRequired,
+    rates: PropTypes.number.isRequired,
+    discount: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+  }).isRequired,
+  allItems: PropTypes.array.isRequired, // Pass all items array to check the status
 };
+
+export default FlashSaleItem;

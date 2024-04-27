@@ -11,6 +11,7 @@ import LogIn from "./Pages/LogIn";
 import NotFound from "./Pages/NotFound";
 import Footer from "./components/Footer/Footer";
 import { CartProvider } from "./context/CartContext";
+import { WishlistProvider } from "./context/WishlistContext";
 
 function App() {
   return (
@@ -18,17 +19,19 @@ function App() {
       <div dir={i18n.t("dir")} className="font-poppins">
         <LangProvider>
           <CartProvider>
-            <TopHeader />
-            <Header />
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/contact" element={<Contact />} />
-              <Route path="/about" element={<About />} />
-              <Route path="/signup" element={<SignUp />} />
-              <Route path="/login" element={<LogIn />} />
-              <Route path="/*" element={<NotFound />} />
-            </Routes>
-            <Footer />
+            <WishlistProvider>
+              <TopHeader />
+              <Header />
+              <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/contact" element={<Contact />} />
+                <Route path="/about" element={<About />} />
+                <Route path="/signup" element={<SignUp />} />
+                <Route path="/login" element={<LogIn />} />
+                <Route path="/*" element={<NotFound />} />
+              </Routes>
+              <Footer />
+            </WishlistProvider>
           </CartProvider>
         </LangProvider>
       </div>

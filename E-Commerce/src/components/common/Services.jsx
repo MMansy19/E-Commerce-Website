@@ -5,8 +5,8 @@ const Service = ({ icon, value, description }) => {
   return (
     <Box className="flex max-w-xs gap-6 items-center justify-center flex-col bg-white px-4 py-8  ">
       {icon}
-      <div className="font-bold text-xl">{value}</div>
-      <p className="text-base">{description}</p>
+      <div className="font-bold  text-xl">{value}</div>
+      <p className="text-base ">{description}</p>
     </Box>
   );
 };
