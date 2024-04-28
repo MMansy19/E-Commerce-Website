@@ -2,13 +2,15 @@
 import StatsCardExported from "../components/About/StatsCard.jsx";
 import TeamMembers from "../components/About/TeamMembers";
 import Services from "../components/common/Services";
+import ActiveLastBreadcrumb from "../components/common/Link";
 const About = () => {
   return (
     <>
-      <div className="flex justify-center items-center ">
-        <div className="flex justify-center md:justify-end items-center md:ml-40 mt-14 mb-36 md:gap-32 ">
-          <div className="flex flex-col gap-6 items-start justify-center max-w-lg mx-4 md:mx-0">
-            <h1 className="text-5xl font-bold font-inter">Our Story</h1>
+      <div className="flex flex-col justify-center items-start md:ml-40 mt-48">
+        <ActiveLastBreadcrumb path="Home/About" />
+        <div className="flex justify-center md:justify-end items-center md:mt-10  mb-36 md:gap-32 ">
+          <div className="flex flex-col gap-10 items-start justify-center max-w-lg mx-4 md:mx-0">
+            <h1 className="text-5xl font-bold font-inter ">Our Story</h1>
             <p className="text-sm md:text-base">
               {" "}
               Launced in 2015, Exclusive is South Asia’s premier online shopping

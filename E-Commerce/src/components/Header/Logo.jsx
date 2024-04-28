@@ -1,7 +1,9 @@
+import { Link } from "@mui/material";
+
 const Logo = () => {
   return (
     <div className=" items-center justify-center gap-4 hidden md:flex">
-      <a href="#">
+      <Link href="/">
         <svg
           width="38"
           height="38"
@@ -25,7 +27,7 @@ const Logo = () => {
             strokeLinejoin="round"
           />
         </svg>
-      </a>
+      </Link>
       <h1 className="font-inter font-bold text-2xl ">Exclusive</h1>
     </div>
   );
