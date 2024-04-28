@@ -6,17 +6,12 @@ import { useCart } from "../../context/CartContext";
 import { useWishlist } from "../../context/WishlistContext";
 
 const FlashSaleItem = ({ item }) => {
-  const { addToCart, cartItems } = useCart();
+  const { addToCart, cartItems, removeFromCart } = useCart();
   const { addToWishlist, removeFromWishlist, wishlistItems } = useWishlist();
   const [isHovered, setIsHovered] = useState(false);
   const [isInCart, setIsInCart] = useState(false);
   const [isInWishlist, setIsInWishlist] = useState(false);
 
-  // Function to remove item from wishlist
-  const handleDeleteFromWishlist = () => {
-    removeFromWishlist(item.id);
-    setIsInWishlist(false);
-  };
   useEffect(() => {
     const cartItemExists = cartItems.some(
       (cartItem) => cartItem.id === item.id
@@ -30,15 +25,25 @@ const FlashSaleItem = ({ item }) => {
 
   // Function to add item to cart
   const handleAddToCart = () => {
-    addToCart(item);
-    setIsInCart(true);
+    if (isInCart) {
+      removeFromCart(item.id);
+      setIsInCart(false);
+    } else {
+      addToCart(item);
+      setIsInCart(true);
+    }
   };
-
+  // Function to remove item from wishlist
+  const handleDeleteFromWishlist = () => {
+    removeFromWishlist(item.id);
+    setIsInWishlist(false);
+  };
   // Function to add item to wishlist
   const handleAddToWishlist = () => {
     addToWishlist(item);
     setIsInWishlist(true);
   };
+
   // Function to render stars
   const renderStars = () => {
     const stars = [];
@@ -71,9 +76,11 @@ const FlashSaleItem = ({ item }) => {
         {isHovered && (
           <button
             onClick={handleAddToCart}
-            className="absolute bottom-0 left-0 right-0 bg-black text-white py-2 px-4 hover:bg-red-500 duration-300 focus:outline-none"
+            className={`absolute bottom-0 left-0 right-0 bg-black text-white py-2 px-4  duration-300  hover:bg-gray-800 focus:outline-none ${
+              isInCart && "bg-red-500"
+            }`}
           >
-            Add to Cart
+            {isInCart ? "Remove from Cart" : "Add to Cart"}
           </button>
         )}
         {item.discount && (

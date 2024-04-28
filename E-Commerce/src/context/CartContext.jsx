@@ -1,3 +1,4 @@
+/* eslint-disable react-refresh/only-export-components */
 import PropTypes from "prop-types";
 import { createContext, useContext, useEffect, useState } from "react";
 
@@ -17,9 +18,30 @@ export const CartProvider = ({ children }) => {
   }, []);
 
   const addToCart = (item) => {
-    const updatedCartItems = [...cartItems, item];
+    const existingItemIndex = cartItems.findIndex(
+      (cartItem) => cartItem.id === item.id
+    );
+
+    if (existingItemIndex !== -1) {
+      // If item already exists in cart, update its quantity
+      const updatedCartItems = [...cartItems];
+      updatedCartItems[existingItemIndex] = {
+        ...updatedCartItems[existingItemIndex],
+        quantity: updatedCartItems[existingItemIndex].quantity + item.quantity,
+      };
+      setCartItems(updatedCartItems);
+      localStorage.setItem("cartItems", JSON.stringify(updatedCartItems));
+    } else {
+      // If item does not exist in cart, add it to cart
+      const updatedCartItems = [...cartItems, item];
+      setCartItems(updatedCartItems);
+      localStorage.setItem("cartItems", JSON.stringify(updatedCartItems));
+    }
+  };
+
+  const removeFromCart = (itemId) => {
+    const updatedCartItems = cartItems.filter((item) => item.id !== itemId);
     setCartItems(updatedCartItems);
-    // Save cart items to local storage
     localStorage.setItem("cartItems", JSON.stringify(updatedCartItems));
   };
 
@@ -29,7 +51,9 @@ export const CartProvider = ({ children }) => {
   };
 
   return (
-    <CartContext.Provider value={{ cartItems, addToCart, isInCart }}>
+    <CartContext.Provider
+      value={{ cartItems, addToCart, removeFromCart, isInCart, setCartItems }}
+    >
       {children}
     </CartContext.Provider>
   );

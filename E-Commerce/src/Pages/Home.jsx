@@ -17,6 +17,7 @@ export const ITEMS = [
     stars: Math.floor(Math.random() * 5),
     rates: Math.floor(Math.random() * 100),
     discount: "",
+    quantity: 1,
   },
   {
     id: String(idCounter++),
@@ -26,6 +27,7 @@ export const ITEMS = [
     stars: Math.floor(Math.random() * 5),
     rates: Math.floor(Math.random() * 100),
     discount: "",
+    quantity: 1,
   },
   {
     id: String(idCounter++),
@@ -35,6 +37,7 @@ export const ITEMS = [
     stars: Math.floor(Math.random() * 5),
     rates: Math.floor(Math.random() * 100),
     discount: "",
+    quantity: 1,
   },
   {
     id: String(idCounter++),
@@ -44,6 +47,7 @@ export const ITEMS = [
     stars: Math.floor(Math.random() * 5),
     rates: Math.floor(Math.random() * 100),
     discount: "",
+    quantity: 1,
   },
   {
     id: String(idCounter++),
@@ -53,6 +57,7 @@ export const ITEMS = [
     stars: Math.floor(Math.random() * 5),
     rates: Math.floor(Math.random() * 100),
     discount: "",
+    quantity: 1,
   },
   {
     id: String(idCounter++),
@@ -62,6 +67,7 @@ export const ITEMS = [
     stars: Math.floor(Math.random() * 5),
     rates: Math.floor(Math.random() * 100),
     discount: 40,
+    quantity: 1,
   },
   {
     id: String(idCounter++),
@@ -71,6 +77,7 @@ export const ITEMS = [
     stars: Math.floor(Math.random() * 5),
     rates: Math.floor(Math.random() * 100),
     discount: 40,
+    quantity: 1,
   },
   {
     id: String(idCounter++),
@@ -80,6 +87,7 @@ export const ITEMS = [
     stars: Math.floor(Math.random() * 5),
     rates: Math.floor(Math.random() * 100),
     discount: 40,
+    quantity: 1,
   },
   {
     id: String(idCounter++),
@@ -89,6 +97,7 @@ export const ITEMS = [
     stars: Math.floor(Math.random() * 5),
     rates: Math.floor(Math.random() * 100),
     discount: 40,
+    quantity: 1,
   },
   {
     id: String(idCounter++),
@@ -98,6 +107,7 @@ export const ITEMS = [
     stars: Math.floor(Math.random() * 5),
     rates: Math.floor(Math.random() * 100),
     discount: 40,
+    quantity: 1,
   },
   {
     id: String(idCounter++),
@@ -107,6 +117,7 @@ export const ITEMS = [
     stars: Math.floor(Math.random() * 5),
     rates: Math.floor(Math.random() * 100),
     discount: 40,
+    quantity: 1,
   },
   {
     id: String(idCounter++),
@@ -116,6 +127,7 @@ export const ITEMS = [
     stars: Math.floor(Math.random() * 5),
     rates: Math.floor(Math.random() * 100),
     discount: 40,
+    quantity: 1,
   },
   {
     id: String(idCounter++),
@@ -125,6 +137,7 @@ export const ITEMS = [
     stars: Math.floor(Math.random() * 5),
     rates: Math.floor(Math.random() * 100),
     discount: 35,
+    quantity: 1,
   },
   {
     id: String(idCounter++),
@@ -134,6 +147,7 @@ export const ITEMS = [
     stars: Math.floor(Math.random() * 5),
     rates: Math.floor(Math.random() * 100),
     discount: 30,
+    quantity: 1,
   },
   {
     id: String(idCounter++),
@@ -143,6 +157,7 @@ export const ITEMS = [
     stars: Math.floor(Math.random() * 5),
     rates: Math.floor(Math.random() * 100),
     discount: 25,
+    quantity: 1,
   },
 ];
 const Home = () => {

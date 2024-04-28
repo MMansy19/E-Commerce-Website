@@ -5,6 +5,7 @@ import { LangProvider } from "./components/TopHeader/LangContext.jsx";
 import i18n from "./components/TopHeader/LangConfig.jsx";
 import Home from "./Pages/Home";
 import Wishlist from "./Pages/Wishlist.jsx";
+import Cart from "./Pages/Cart.jsx";
 import Contact from "./Pages/Contact";
 import About from "./Pages/About";
 import SignUp from "./Pages/SignUp";
@@ -31,6 +32,7 @@ function App() {
                   <Route path="/signup" element={<SignUp />} />
                   <Route path="/login" element={<LogIn />} />
                   <Route path="/wishlist" element={<Wishlist />} />
+                  <Route path="/cart" element={<Cart />} />
                   <Route path="/*" element={<NotFound />} />
                 </Routes>
               </div>
