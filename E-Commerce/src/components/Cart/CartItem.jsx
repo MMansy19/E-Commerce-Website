@@ -35,7 +35,7 @@ const CartItem = ({ item }) => {
     });
     setCartItems(updatedCartItems);
     localStorage.setItem("cartItems", JSON.stringify(updatedCartItems)); // Update local storage
-  }, [quantity]);
+  }, [quantity, cartItems, item.id, setCartItems]);
 
   const handleRemove = () => {
     removeFromCart(item.id);
@@ -44,11 +44,13 @@ const CartItem = ({ item }) => {
   const handleDecrease = () => {
     if (quantity > 1) {
       setQuantity(quantity - 1);
+      item.quantity = quantity;
     }
   };
 
   const handleIncrease = () => {
     setQuantity(quantity + 1);
+    item.quantity = quantity;
   };
 
   return (
