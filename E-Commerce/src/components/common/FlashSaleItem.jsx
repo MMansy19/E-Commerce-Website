@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import IconButton from "@mui/material/IconButton";
 import { useCart } from "../../context/CartContext";
 import { useWishlist } from "../../context/WishlistContext";
+import { Link } from "react-router-dom";
 
 const FlashSaleItem = ({ item }) => {
   const { addToCart, cartItems, removeFromCart } = useCart();
@@ -88,7 +89,10 @@ const FlashSaleItem = ({ item }) => {
             -{item.discount}%
           </div>
         )}
-        <img src={item.imageSrc} alt={item.title} />
+        <Link to={{ pathname: "/product", state: { selectedProduct: item } }}>
+          <img src={item.imageSrc} alt={item.title} />
+        </Link>
+
         {isInWishlist ? (
           <div className="absolute top-3 right-3 bg-zinc-200 hover:bg-red-500 rounded-full">
             <IconButton onClick={handleDeleteFromWishlist} size="small">

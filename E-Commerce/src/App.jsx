@@ -10,6 +10,7 @@ import Contact from "./Pages/Contact";
 import About from "./Pages/About";
 import SignUp from "./Pages/SignUp";
 import LogIn from "./Pages/LogIn";
+import Product from "./Pages/Product";
 import NotFound from "./Pages/NotFound";
 import Footer from "./components/Footer/Footer";
 import { CartProvider } from "./context/CartContext";
@@ -33,6 +34,7 @@ function App() {
                   <Route path="/login" element={<LogIn />} />
                   <Route path="/wishlist" element={<Wishlist />} />
                   <Route path="/cart" element={<Cart />} />
+                  <Route path="/product" element={<Product />} />
                   <Route path="/*" element={<NotFound />} />
                 </Routes>
               </div>
