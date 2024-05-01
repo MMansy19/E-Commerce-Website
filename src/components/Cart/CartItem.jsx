@@ -1,7 +1,10 @@
 /* eslint-disable react/prop-types */
+
 import { IconButton } from "@mui/material";
+import { useState, useEffect, useContext } from "react";
+import { Link } from "react-router-dom";
+import { SelectedProductContext } from "../../context/SelectedProductContext";
 import { useCart } from "../../context/CartContext";
-import { useState, useEffect } from "react";
 
 const RemoveIcon = () => (
   <svg
@@ -23,32 +26,28 @@ const RemoveIcon = () => (
 );
 
 const CartItem = ({ item }) => {
-  const { removeFromCart, cartItems, setCartItems } = useCart();
+  const { removeFromCart, handleIncrease, handleDecrease } = useCart();
+  const { setSelectedProduct } = useContext(SelectedProductContext);
   const [quantity, setQuantity] = useState(item.quantity);
 
   useEffect(() => {
-    const updatedCartItems = cartItems.map((cartItem) => {
-      if (cartItem.id === item.id) {
-        return { ...cartItem, quantity: quantity };
-      }
-      return cartItem;
-    });
-    setCartItems(updatedCartItems);
-    localStorage.setItem("cartItems", JSON.stringify(updatedCartItems)); // Update local storage
-  }, [quantity]);
+    setQuantity(item.quantity);
+  }, [item.quantity]);
 
   const handleRemove = () => {
     removeFromCart(item.id);
   };
 
-  const handleDecrease = () => {
-    if (quantity > 1) {
-      setQuantity(quantity - 1);
-    }
+  const handleDecreaseFunc = () => {
+    handleDecrease(item);
   };
 
-  const handleIncrease = () => {
-    setQuantity(quantity + 1);
+  const handleIncreaseFunc = () => {
+    handleIncrease(item);
+  };
+
+  const handleProductClick = () => {
+    setSelectedProduct(item);
   };
 
   return (
@@ -58,7 +57,14 @@ const CartItem = ({ item }) => {
           <IconButton onClick={handleRemove} className="absolute -top-4">
             <RemoveIcon />
           </IconButton>
-          <img src={item.imageSrc} alt={item.title} className="w-16 h-16" />
+
+          <Link
+            to={{ pathname: `/product/${item.title}` }}
+            key={item.id}
+            onClick={() => handleProductClick()}
+          >
+            <img src={item.imageSrc} alt={item.title} className="w-16 h-16" />
+          </Link>
         </div>
         <div>
           <p className="text-xs md:text-base md:absolute">{item.title}</p>
@@ -73,37 +79,15 @@ const CartItem = ({ item }) => {
         <div className="flex flex-col items-center justify-center ">
           <button
             className="px-1 rounded-full hover:bg-gray-200 text-gray-400 "
-            onClick={handleIncrease}
+            onClick={handleIncreaseFunc}
           >
-            <svg
-              width="16"
-              height="16"
-              viewBox="0 0 16 16"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M7.75732 7.36669L4.45732 10.6667L3.51465 9.72402L7.75732 5.48135L12 9.72402L11.0573 10.6667L7.75732 7.36669Z"
-                fill="black"
-              />
-            </svg>
+            +
           </button>
           <button
             className="px-1 rounded-full hover:bg-gray-200 text-gray-400 "
-            onClick={handleDecrease}
+            onClick={handleDecreaseFunc}
           >
-            <svg
-              width="16"
-              height="16"
-              viewBox="0 0 16 16"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M8.24268 8.63331L11.5427 5.33331L12.4854 6.27598L8.24268 10.5186L4.00002 6.27598L4.94268 5.33331L8.24268 8.63331Z"
-                fill="black"
-              />
-            </svg>
+            -
           </button>
         </div>
       </div>
@@ -113,4 +97,5 @@ const CartItem = ({ item }) => {
     </div>
   );
 };
+
 export default CartItem;

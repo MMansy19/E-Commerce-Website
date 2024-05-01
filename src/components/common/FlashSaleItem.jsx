@@ -1,47 +1,31 @@
+/* eslint-disable no-undef */
 /* eslint-disable react/prop-types */
 import PropTypes from "prop-types";
-import { useState, useEffect } from "react";
-import IconButton from "@mui/material/IconButton";
-import { useCart } from "../../context/CartContext";
-import { useWishlist } from "../../context/WishlistContext";
-
+import { useState, useContext, useEffect } from "react";
+import { Link } from "react-router-dom";
+import { SelectedProductContext } from "../../context/SelectedProductContext";
+import WishlistIcon from "./WishlistIcon";
+import AddToCart from "./AddToCart";
 const FlashSaleItem = ({ item }) => {
-  const { addToCart, cartItems, removeFromCart } = useCart();
-  const { addToWishlist, removeFromWishlist, wishlistItems } = useWishlist();
   const [isHovered, setIsHovered] = useState(false);
-  const [isInCart, setIsInCart] = useState(false);
-  const [isInWishlist, setIsInWishlist] = useState(false);
+  const { setSelectedProduct } = useContext(SelectedProductContext);
 
   useEffect(() => {
-    const cartItemExists = cartItems.some(
-      (cartItem) => cartItem.id === item.id
-    );
-    const wishlistItemExists = wishlistItems.some(
-      (wishlistItem) => wishlistItem.id === item.id
-    );
-    setIsInCart(cartItemExists);
-    setIsInWishlist(wishlistItemExists);
-  }, [cartItems, wishlistItems, item.id]);
+    const storedQuantity = JSON.parse(localStorage.getItem("cartItems"))?.find(
+      (anItem) => anItem.id == item.id
+    )?.quantity;
 
-  // Function to add item to cart
-  const handleAddToCart = () => {
-    if (isInCart) {
-      removeFromCart(item.id);
-      setIsInCart(false);
+    if (storedQuantity === 0) {
+      item.quantity = 0;
     } else {
-      addToCart(item);
-      setIsInCart(true);
+      item.quantity = storedQuantity || 0;
     }
-  };
-  // Function to remove item from wishlist
-  const handleDeleteFromWishlist = () => {
-    removeFromWishlist(item.id);
-    setIsInWishlist(false);
-  };
-  // Function to add item to wishlist
-  const handleAddToWishlist = () => {
-    addToWishlist(item);
-    setIsInWishlist(true);
+  }, [item]);
+
+  const { handleAddToCart, isInCart } = AddToCart({ item }); // Use AddToCart component to get handleAddToCart and isInCart
+
+  const handleProductClick = () => {
+    setSelectedProduct(item);
   };
 
   // Function to render stars
@@ -88,48 +72,15 @@ const FlashSaleItem = ({ item }) => {
             -{item.discount}%
           </div>
         )}
-        <img src={item.imageSrc} alt={item.title} />
-        {isInWishlist ? (
-          <div className="absolute top-3 right-3 bg-zinc-200 hover:bg-red-500 rounded-full">
-            <IconButton onClick={handleDeleteFromWishlist} size="small">
-              <svg
-                width="18"
-                height="20"
-                viewBox="0 0 18 20"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M17 3.57143H2.33333L3.66667 19H14.3333L15.6667 3.57143H1M9 7.42857V15.1429M12.3333 7.42857L11.6667 15.1429M5.66667 7.42857L6.33333 15.1429M6.33333 3.57143L7 1H11L11.6667 3.57143"
-                  stroke="black"
-                  strokeWidth="1.56"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
-            </IconButton>
-          </div>
-        ) : (
-          <div className="absolute top-3 right-3 bg-zinc-200 hover:bg-red-500 rounded-full">
-            <IconButton onClick={handleAddToWishlist} size="small">
-              <svg
-                width="32"
-                height="32"
-                viewBox="0 0 32 32"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M11 7C8.239 7 6 9.216 6 11.95C6 14.157 6.875 19.395 15.488 24.69C15.6423 24.7839 15.8194 24.8335 16 24.8335C16.1806 24.8335 16.3577 24.7839 16.512 24.69C25.125 19.395 26 14.157 26 11.95C26 9.216 23.761 7 21 7C18.239 7 16 10 16 10C16 10 13.761 7 11 7Z"
-                  stroke="black"
-                  strokeWidth="1.5"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
-            </IconButton>
-          </div>
-        )}
+        <Link
+          to={{ pathname: `/product/${item.title}` }}
+          onClick={() => handleProductClick()}
+          key={item.id}
+        >
+          <img src={item.imageSrc} alt={item.title} />
+        </Link>
+
+        <WishlistIcon selectedProduct={item} style="absolute top-3 right-3" />
       </div>
       <h3 className="text-lg font-base mt-4">{item.title}</h3>
       <p className="text-red-500  text-sm font-semibold line-clamp-2">

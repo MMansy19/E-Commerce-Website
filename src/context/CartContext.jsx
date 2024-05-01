@@ -1,4 +1,3 @@
-/* eslint-disable react-refresh/only-export-components */
 import PropTypes from "prop-types";
 import { createContext, useContext, useEffect, useState } from "react";
 
@@ -45,6 +44,54 @@ export const CartProvider = ({ children }) => {
     localStorage.setItem("cartItems", JSON.stringify(updatedCartItems));
   };
 
+  const handleIncrease = (item) => {
+    if (item.quantity >= 0) {
+      if (item.quantity == 0) {
+        addToCart(item);
+        item.quantity = 1;
+      }
+      const existingItemIndex = cartItems.findIndex(
+        (cartItem) => cartItem.id === item.id
+      );
+
+      if (existingItemIndex !== -1) {
+        const updatedCartItems = [...cartItems];
+        updatedCartItems[existingItemIndex] = {
+          ...updatedCartItems[existingItemIndex],
+          quantity: updatedCartItems[existingItemIndex].quantity + 1,
+        };
+        item.quantity += 1;
+        setCartItems(updatedCartItems);
+        localStorage.setItem("cartItems", JSON.stringify(updatedCartItems));
+      }
+    }
+  };
+
+  const handleDecrease = (item) => {
+    if (item.quantity === 1) {
+      item.quantity = 0;
+      removeFromCart(item.id);
+    } else if (item.quantity > 1) {
+      item.quantity -= 1;
+      const existingItemIndex = cartItems.findIndex(
+        (cartItem) => cartItem.id === item.id
+      );
+
+      if (existingItemIndex !== -1) {
+        const updatedCartItems = [...cartItems];
+        if (updatedCartItems[existingItemIndex].quantity > 1) {
+          updatedCartItems[existingItemIndex] = {
+            ...updatedCartItems[existingItemIndex],
+            quantity: updatedCartItems[existingItemIndex].quantity - 1,
+          };
+        } else {
+          updatedCartItems.splice(existingItemIndex, 1); // Remove item from cart if quantity is 1
+        }
+        setCartItems(updatedCartItems);
+        localStorage.setItem("cartItems", JSON.stringify(updatedCartItems));
+      }
+    }
+  };
   // Function to check if an item is in the cart
   const isInCart = (itemId) => {
     return cartItems.some((item) => item.id === itemId);
@@ -52,7 +99,15 @@ export const CartProvider = ({ children }) => {
 
   return (
     <CartContext.Provider
-      value={{ cartItems, addToCart, removeFromCart, isInCart, setCartItems }}
+      value={{
+        cartItems,
+        addToCart,
+        removeFromCart,
+        isInCart,
+        setCartItems,
+        handleIncrease,
+        handleDecrease,
+      }}
     >
       {children}
     </CartContext.Provider>

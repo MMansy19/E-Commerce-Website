@@ -4,6 +4,10 @@ import RedTitle from "../common/RedTitle";
 import RedButton from "../common/RedButton";
 
 const BestSelling = ({ items }) => {
+  const sortedItems = items.sort(
+    (a, b) => parseFloat(b.rates) - parseFloat(a.rates)
+  );
+  const BestItems = sortedItems.slice(0, 4);
   return (
     <>
       <div className="mx-2">
@@ -17,7 +21,7 @@ const BestSelling = ({ items }) => {
         </div>
         <div className="relative mt-10">
           <div className="flex flex-row gap-2 md:gap-8 overflow-x-hidden hover:overflow-x-auto md:hover:overflow-x-hidden  transition-transform duration-300 transform  focus:outline-none ">
-            {items.slice(0, 4).map((item, index) => (
+            {BestItems.slice(0, 4).map((item, index) => (
               <FlashSaleItem
                 key={item.title}
                 item={item}

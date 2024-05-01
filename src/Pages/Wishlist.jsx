@@ -3,10 +3,8 @@ import { ITEMS } from "./Home";
 import RedTitle from "../components/common/RedTitle";
 import WhiteButton from "../components/common/WhiteButton";
 import { useWishlist } from "../context/WishlistContext";
-import { useCart } from "../context/CartContext";
 function Wishlist() {
   const { addToWishlist, wishlistItems } = useWishlist();
-  const { addToCart, cartItems } = useCart();
   return (
     <div className="flex flex-col md:mx-32 mt-28">
       <div className="mx-2 my-20">

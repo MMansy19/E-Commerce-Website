@@ -12,6 +12,7 @@ const FlashSale = ({ items }) => {
     calculateTimeLeft(new Date("2024-05-27T00:00:00"))
   );
 
+  const saleItems = items.filter((item) => item.discount !== "");
   const handleNextItem = () => {
     setCurrentIndex((prevIndex) => (prevIndex + 1) % items.length);
   };
@@ -66,16 +67,18 @@ const FlashSale = ({ items }) => {
         </div>
         <div className="relative mt-10 ">
           <div className="flex flex-row gap-2 md:gap-12  overflow-x-hidden hover:overflow-x-auto transition-transform duration-300 transform  focus:outline-none ">
-            {items.slice(currentIndex, currentIndex + 5).map((item, index) => (
-              <FlashSaleItem
-                key={item.title}
-                item={item}
-                index={index}
-                totalItems={items.length}
-                stars={item.stars}
-                rates={item.rates}
-              />
-            ))}
+            {saleItems
+              .slice(currentIndex, currentIndex + 5)
+              .map((item, index) => (
+                <FlashSaleItem
+                  key={item.title}
+                  item={item}
+                  index={index}
+                  totalItems={items.length}
+                  stars={item.stars}
+                  rates={item.rates}
+                />
+              ))}
           </div>
         </div>
       </div>
