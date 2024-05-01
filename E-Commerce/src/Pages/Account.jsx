@@ -1,97 +1,146 @@
 import ActiveLastBreadcrumb from "../components/common/Link";
 import RedButton from "../components/common/RedButton";
+import { Link } from "react-router-dom";
 
 const Account = () => {
   return (
     <div className="flex flex-col mx-4 md:ml-36 mt-48 gap-20">
-      <ActiveLastBreadcrumb path="Home/ My       Account" />
-      <div className="flex flex-col md:flex-row gap-8">
-        <div className="shadow  w-[340px] h-[457px] flex flex-col gap-8 py-10 px-8 rounded">
-          <div className="flex flex-col gap-6">
-            <div className="flex flex-row  gap-4  items-center">
-              <svg
-                width="40"
-                height="40"
-                viewBox="0 0 40 40"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
+      <div className="flex justify-between ">
+        <ActiveLastBreadcrumb path="Home/ My Account" />
+        <h1 className="text-sm md:mr-44">
+          Welcome! <span className="text-red-600">your-name</span>
+        </h1>
+      </div>
+      <div className="flex flex-col md:flex-row gap-28">
+        <nav className="flex flex-col gap-4 text-gray-400">
+          <h1 className="text-black text-base font-medium">
+            Manage My Account
+          </h1>
+          <ul>
+            <li className="px-4 py-2">
+              <Link
+                to="/account"
+                className="hover:underline hover:underline-offset-8 ease-in-out duration-300 transform  focus:text-red-600"
               >
-                <rect width="40" height="40" rx="20" fill="#DB4444" />
-                <path
-                  d="M18.5542 14.24L15.1712 10.335C14.7812 9.885 14.0662 9.887 13.6132 10.341L10.8312 13.128C10.0032 13.957 9.76623 15.188 10.2452 16.175C13.1069 22.1 17.8853 26.8851 23.8062 29.755C24.7922 30.234 26.0222 29.997 26.8502 29.168L29.6582 26.355C30.1132 25.9 30.1142 25.181 29.6602 24.791L25.7402 21.426C25.3302 21.074 24.6932 21.12 24.2822 21.532L22.9182 22.898C22.8484 22.9712 22.7565 23.0194 22.6566 23.0353C22.5567 23.0512 22.4543 23.0339 22.3652 22.986C20.1357 21.7021 18.2862 19.8502 17.0052 17.619C16.9573 17.5298 16.9399 17.4272 16.9558 17.3272C16.9717 17.2271 17.02 17.135 17.0932 17.065L18.4532 15.704C18.8652 15.29 18.9102 14.65 18.5542 14.239V14.24Z"
-                  stroke="white"
-                  strokeWidth="1.5"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
-              <span className="text-base font-medium">Call To Us</span>
-            </div>
-            <div className="flex flex-col gap-4">
-              <p className="text-sm">We are available 24/7, 7 days a week. </p>
-              <p className="text-sm">Phone: +8801611112222</p>
-            </div>
-          </div>
-          <hr className="mx-full  border-gray-400" />
-          <div className="flex flex-col gap-6">
-            <div className="flex flex-row  gap-4  items-center">
-              <svg
-                width="40"
-                height="40"
-                viewBox="0 0 40 40"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
+                My Profile
+              </Link>
+            </li>
+            <li className="px-4 py-2">
+              <Link
+                to="/account"
+                className="hover:underline hover:underline-offset-8 ease-in-out duration-300 transform  focus:text-red-600"
               >
-                <rect width="40" height="40" rx="20" fill="#DB4444" />
-                <path
-                  d="M10 13L20 20L30 13M10 27H30V13H10V27Z"
-                  stroke="white"
-                  strokeWidth="1.5"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
+                Address Book
+              </Link>
+            </li>
+            <li className="px-4 py-2">
+              <Link
+                to="/account"
+                className="hover:underline hover:underline-offset-8 ease-in-out duration-300 transform  focus:text-red-600"
+              >
+                My Payment Options
+              </Link>
+            </li>
+          </ul>
+          <h1 className="text-black text-base font-medium">My Orders</h1>
+          <ul>
+            <li className="px-4 py-2">
+              <Link
+                to="/account"
+                className="hover:underline hover:underline-offset-8 ease-in-out duration-300 transform  focus:text-red-600"
+              >
+                My Returns
+              </Link>
+            </li>
+            <li className="px-4 py-2">
+              <Link
+                to="/account"
+                className="hover:underline hover:underline-offset-8 ease-in-out duration-300 transform  focus:text-red-600"
+              >
+                My Cancellations
+              </Link>
+            </li>
+          </ul>
+          <h1 className="text-black text-base font-medium">
+            <Link
+              to="/wishlist"
+              className="hover:underline hover:underline-offset-8 ease-in-out duration-300 transform "
+            >
+              My Wishlist
+            </Link>
+          </h1>
+        </nav>
+        <div className="shadow  w-[full] flex flex-col py-10 px-20 rounded">
+          <div className="flex flex-col gap-6 md:w-[710px]">
+            <span className="text-xl font-medium text-red-600">
+              Edit Your Profile
+            </span>
+            <div className="flex flex-col md:flex-row gap-[50px] justify-between">
+              <div className="flex flex-col gap-2 w-full">
+                <span className="text-base">First Name</span>
+                <input
+                  type="text"
+                  placeholder="Mahmoud"
+                  required
+                  className=" rounded bg-gray-100 bg-opacity-100 px-4 py-3 text-gray-400 text-base focus:border outline-none focus:border-gray-300  "
                 />
-              </svg>
-
-              <span className="text-base font-medium">Write To US</span>
+              </div>
+              <div className="flex flex-col gap-2 w-full">
+                <span className="text-base">Last Name</span>
+                <input
+                  type="text"
+                  placeholder="Mansy"
+                  required
+                  className=" rounded bg-gray-100 bg-opacity-100 px-4 py-3 text-gray-400 text-base focus:border outline-none focus:border-gray-300  "
+                />
+              </div>
             </div>
-            <div className="flex flex-col gap-4">
-              <p className="text-sm">
-                Fill out our form and we will Account you within 24 hours.
-              </p>
-              <p className="text-sm">Emails: customer@exclusive.com</p>
-              <p className="text-sm">Emails: support@exclusive.com</p>
+            <div className="flex flex-col md:flex-row gap-[50px] justify-between">
+              <div className="flex flex-col gap-2 w-full">
+                <span className="text-base">Email</span>
+                <input
+                  type="email"
+                  placeholder="mahmoud2abdalfattah@gmail.com"
+                  required
+                  className=" rounded bg-gray-100 bg-opacity-100 px-4 py-3 text-gray-400 text-base focus:border outline-none focus:border-gray-300  "
+                />
+              </div>
+              <div className="flex flex-col gap-2 w-full">
+                <span className="text-base">Address</span>
+                <input
+                  type="text"
+                  placeholder="Sharqia, Egypt"
+                  required
+                  className=" rounded bg-gray-100 bg-opacity-100 px-4 py-3 text-gray-400 text-base focus:border outline-none focus:border-gray-300  "
+                />
+              </div>
             </div>
-          </div>
-        </div>
-        <div className="shadow  w-[full] flex flex-col py-10 px-8 rounded">
-          <div className="flex flex-col gap-8">
-            <div className="flex flex-col md:flex-row gap-4">
+            <div className="flex flex-col gap-4 w-full">
+              <span className="text-base">Password Changes</span>
               <input
                 type="text"
-                placeholder="Your Name"
+                placeholder="Current Password"
                 required
-                className="w-[235px] rounded bg-gray-100 bg-opacity-100 px-4 py-3 text-gray-400 text-base focus:border outline-none focus:border-gray-300  "
+                className=" rounded bg-gray-100 bg-opacity-100 px-4 py-3 text-gray-400 text-base focus:border outline-none focus:border-gray-300  "
               />
               <input
-                type="email"
-                placeholder="Your Email"
+                type="text"
+                placeholder="New Password"
                 required
-                className="w-[235px] rounded bg-gray-100 bg-opacity-100 px-4 py-3 text-gray-400 text-base focus:border outline-none focus:border-gray-300  "
+                className=" rounded bg-gray-100 bg-opacity-100 px-4 py-3 text-gray-400 text-base focus:border outline-none focus:border-gray-300  "
               />
               <input
-                type="tel"
-                placeholder="Your Phone"
+                type="text"
+                placeholder="Confirm New Password"
                 required
-                className="w-[235px] rounded bg-gray-100 bg-opacity-100 px-4 py-3 text-gray-400 text-base focus:border outline-none focus:border-gray-300  "
+                className=" rounded bg-gray-100 bg-opacity-100 px-4 py-3 text-gray-400 text-base focus:border outline-none focus:border-gray-300  "
               />
             </div>
-            <textarea
-              placeholder="Your Message"
-              required
-              className="min-h-[50px] h-[207px] rounded bg-gray-100 bg-opacity-100 px-4 py-3 text-gray-400 text-base focus:border outline-none focus:border-gray-300  "
-            />
-            <div className="ml-auto">
-              <RedButton name="Send Massage" />
+            <div className="ml-auto flex items-center gap-8 text-base">
+              <button className=" hover:underline underline-offset-4  ease-in-out  duration-300 transform hover:-translate-y-1">
+                Cancel
+              </button>
+              <RedButton name="Save Changes" />
             </div>
           </div>
         </div>
