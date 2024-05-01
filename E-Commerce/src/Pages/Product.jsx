@@ -5,20 +5,15 @@ import ActiveLastBreadcrumb from "../components/common/Link";
 import RedButton from "../components/common/RedButton";
 import WishlistIcon from "../components/common/WishlistIcon";
 import { useCart } from "../context/CartContext";
-import AddToCart from "../components/common/AddToCart";
-import { updateCartItemQuantity } from "../components/common/cartUtils";
-
 const Product = () => {
+  const { handleIncrease, handleDecrease } = useCart();
   const { selectedProduct } = useContext(SelectedProductContext);
   const [isLoaded, setIsLoaded] = useState(false);
-  const [quantity, setQuantity] = useState(selectedProduct.quantity || 0);
-  const { removeFromCart, cartItems, setCartItems } = useCart();
-
-  const { handleAddToCart } = AddToCart({ item: selectedProduct });
+  const [quantity, setQuantity] = useState(selectedProduct.quantity);
 
   useEffect(() => {
-    setQuantity(selectedProduct.quantity || 0);
-  }, [selectedProduct]);
+    setQuantity(selectedProduct.quantity);
+  }, [selectedProduct.quantity]);
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -28,37 +23,14 @@ const Product = () => {
     return () => clearTimeout(timer);
   }, []);
 
-  const handleDecrease = () => {
-    if (quantity > 1) {
-      const newQuantity = quantity - 1;
-      setQuantity(newQuantity);
-      const updatedCartItems = updateCartItemQuantity(
-        cartItems,
-        selectedProduct.id,
-        newQuantity
-      );
-      setCartItems(updatedCartItems);
-      localStorage.setItem("cartItems", JSON.stringify(updatedCartItems));
-    }
-    if (quantity === 1) {
-      removeFromCart(selectedProduct.id);
-    }
+  // handleDecrease and handleIncrease remain the same
+
+  const handleDecreaseFunc = () => {
+    handleDecrease(selectedProduct); // Call handleDecrease with selectedProduct
   };
 
-  const handleIncrease = () => {
-    const newQuantity = quantity + 1;
-    setQuantity(newQuantity);
-    const updatedCartItems = updateCartItemQuantity(
-      cartItems,
-      selectedProduct.id,
-      newQuantity
-    );
-    setCartItems(updatedCartItems);
-    localStorage.setItem("cartItems", JSON.stringify(updatedCartItems));
-
-    if (quantity === 0) {
-      handleAddToCart();
-    }
+  const handleIncreaseFunc = () => {
+    handleIncrease(selectedProduct); // Call handleIncrease with selectedProduct
   };
 
   const renderStars = () => {
@@ -173,7 +145,7 @@ const Product = () => {
               <div className="font-inter text-xl flex gap-4">
                 <div className="border-2 w-[160px] border-gray-400 rounded text-xl font-semibold flex justify-between items-center">
                   <button
-                    onClick={handleDecrease}
+                    onClick={handleDecreaseFunc}
                     className="border-r-2  hover:bg-red-500 hover:text-white border-gray-400 rounded p-3"
                   >
                     <svg
@@ -193,7 +165,7 @@ const Product = () => {
                   </button>
                   {quantity}
                   <button
-                    onClick={handleIncrease}
+                    onClick={handleIncreaseFunc}
                     className="border-l-2  hover:bg-red-500 hover:text-white border-gray-400 rounded p-3 "
                   >
                     <svg

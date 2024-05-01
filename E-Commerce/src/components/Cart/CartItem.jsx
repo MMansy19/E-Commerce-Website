@@ -1,10 +1,10 @@
 /* eslint-disable react/prop-types */
+
 import { IconButton } from "@mui/material";
 import { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
 import { SelectedProductContext } from "../../context/SelectedProductContext";
 import { useCart } from "../../context/CartContext";
-import { updateCartItemQuantity } from "../common/cartUtils";
 
 const RemoveIcon = () => (
   <svg
@@ -26,9 +26,9 @@ const RemoveIcon = () => (
 );
 
 const CartItem = ({ item }) => {
-  const { removeFromCart, cartItems, setCartItems } = useCart();
-  const [quantity, setQuantity] = useState(item.quantity);
+  const { removeFromCart, handleIncrease, handleDecrease } = useCart();
   const { setSelectedProduct } = useContext(SelectedProductContext);
+  const [quantity, setQuantity] = useState(item.quantity);
 
   useEffect(() => {
     setQuantity(item.quantity);
@@ -38,30 +38,12 @@ const CartItem = ({ item }) => {
     removeFromCart(item.id);
   };
 
-  const handleDecrease = () => {
-    if (quantity > 1) {
-      const newQuantity = quantity - 1;
-      setQuantity(newQuantity);
-      const updatedCartItems = updateCartItemQuantity(
-        cartItems,
-        item.id,
-        newQuantity
-      );
-      setCartItems(updatedCartItems);
-      localStorage.setItem("cartItems", JSON.stringify(updatedCartItems));
-    }
+  const handleDecreaseFunc = () => {
+    handleDecrease(item);
   };
 
-  const handleIncrease = () => {
-    const newQuantity = quantity + 1;
-    setQuantity(newQuantity);
-    const updatedCartItems = updateCartItemQuantity(
-      cartItems,
-      item.id,
-      newQuantity
-    );
-    setCartItems(updatedCartItems);
-    localStorage.setItem("cartItems", JSON.stringify(updatedCartItems));
+  const handleIncreaseFunc = () => {
+    handleIncrease(item);
   };
 
   const handleProductClick = (product) => {
@@ -97,13 +79,13 @@ const CartItem = ({ item }) => {
         <div className="flex flex-col items-center justify-center ">
           <button
             className="px-1 rounded-full hover:bg-gray-200 text-gray-400 "
-            onClick={handleIncrease}
+            onClick={handleIncreaseFunc}
           >
             +
           </button>
           <button
             className="px-1 rounded-full hover:bg-gray-200 text-gray-400 "
-            onClick={handleDecrease}
+            onClick={handleDecreaseFunc}
           >
             -
           </button>
