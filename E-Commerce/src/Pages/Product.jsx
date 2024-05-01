@@ -5,12 +5,18 @@ import ActiveLastBreadcrumb from "../components/common/Link";
 import RedButton from "../components/common/RedButton";
 import WishlistIcon from "../components/common/WishlistIcon";
 import { useCart } from "../context/CartContext";
-const Product = () => {
-  const { handleIncrease, handleDecrease } = useCart();
-  const { selectedProduct } = useContext(SelectedProductContext);
-  const [isLoaded, setIsLoaded] = useState(false);
-  const [quantity, setQuantity] = useState(selectedProduct.quantity);
 
+const Product = () => {
+  const { selectedProduct } = useContext(SelectedProductContext);
+  const { handleIncrease, handleDecrease } = useCart();
+  const [isLoaded, setIsLoaded] = useState(false);
+  const [quantity, setQuantity] = useState(0);
+  //   () => {
+  //   const storedQuantity = JSON.parse(localStorage.getItem("cartItems"))?.find(
+  //     (item) => item.id === selectedProduct.id
+  //   )?.quantity;
+  //   return storedQuantity || selectedProduct.quantity;
+  // });
   useEffect(() => {
     setQuantity(selectedProduct.quantity);
   }, [selectedProduct.quantity]);

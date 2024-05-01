@@ -1,7 +1,7 @@
 /* eslint-disable no-undef */
 /* eslint-disable react/prop-types */
 import PropTypes from "prop-types";
-import { useState, useContext } from "react";
+import { useState, useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { SelectedProductContext } from "../../context/SelectedProductContext";
 import WishlistIcon from "./WishlistIcon";
@@ -10,10 +10,22 @@ const FlashSaleItem = ({ item }) => {
   const [isHovered, setIsHovered] = useState(false);
   const { setSelectedProduct } = useContext(SelectedProductContext);
 
+  useEffect(() => {
+    const storedQuantity = JSON.parse(localStorage.getItem("cartItems"))?.find(
+      (anItem) => anItem.id == item.id
+    )?.quantity;
+
+    if (storedQuantity === 0) {
+      item.quantity = 0;
+    } else {
+      item.quantity = storedQuantity || 0;
+    }
+  }, [item]);
+
   const { handleAddToCart, isInCart } = AddToCart({ item }); // Use AddToCart component to get handleAddToCart and isInCart
 
-  const handleProductClick = (product) => {
-    setSelectedProduct(product);
+  const handleProductClick = () => {
+    setSelectedProduct(item);
   };
 
   // Function to render stars
@@ -62,7 +74,7 @@ const FlashSaleItem = ({ item }) => {
         )}
         <Link
           to={{ pathname: `/product/${item.title}` }}
-          onClick={() => handleProductClick(item)}
+          onClick={() => handleProductClick()}
           key={item.id}
         >
           <img src={item.imageSrc} alt={item.title} />

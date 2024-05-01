@@ -7,7 +7,7 @@ const SelectedProductProvider = ({ children }) => {
   // Initialize state with the value from local storage if it exists
   const [selectedProduct, setSelectedProduct] = useState(() => {
     const storedProduct = localStorage.getItem("selectedProduct");
-    return storedProduct ? JSON.parse(storedProduct) : null;
+    return storedProduct && JSON.parse(storedProduct);
   });
 
   // Update local storage whenever selectedProduct changes

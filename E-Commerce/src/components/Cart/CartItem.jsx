@@ -46,8 +46,8 @@ const CartItem = ({ item }) => {
     handleIncrease(item);
   };
 
-  const handleProductClick = (product) => {
-    setSelectedProduct(product);
+  const handleProductClick = () => {
+    setSelectedProduct(item);
   };
 
   return (
@@ -61,7 +61,7 @@ const CartItem = ({ item }) => {
           <Link
             to={{ pathname: `/product/${item.title}` }}
             key={item.id}
-            onClick={() => handleProductClick(item)}
+            onClick={() => handleProductClick()}
           >
             <img src={item.imageSrc} alt={item.title} className="w-16 h-16" />
           </Link>
