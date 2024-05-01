@@ -11,6 +11,7 @@ import {
   Tab,
 } from "@mui/material";
 import { Link, useLocation } from "react-router-dom";
+import { motion } from "framer-motion"; // Import motion from framer-motion for animations
 
 const Navigations = () => {
   const location = useLocation();
@@ -75,20 +76,41 @@ const Navigations = () => {
               </g>
             </svg>
           </IconButton>
-          <Drawer anchor="left" open={drawerOpen} onClose={toggleDrawer(false)}>
-            <List>
-              {routes.map((route, index) => (
-                <ListItem
-                  button
-                  key={index}
-                  component={Link}
-                  to={route.path}
-                  onClick={toggleDrawer(false)}
+          <Drawer
+            anchor="left"
+            open={drawerOpen}
+            onClose={toggleDrawer(false)}
+            className="z-50"
+          >
+            <motion.div
+              initial={{ x: -200, opacity: 0 }}
+              animate={{ x: 0, opacity: 1 }}
+              transition={{ duration: 0.5 }}
+              className="px-5 py-20 w-60 bg-white h-screen flex flex-col justify-between"
+            >
+              <List>
+                {routes.map((route, index) => (
+                  <ListItem
+                    button
+                    key={index}
+                    component={Link}
+                    to={route.path}
+                    onClick={toggleDrawer(false)}
+                  >
+                    <ListItemText primary={route.label} />
+                  </ListItem>
+                ))}
+              </List>
+              <footer className="text-center py-4">
+                <a
+                  href="https://www.linkedin.com/in/mahmoud-mansy-a189a5232/"
+                  target="_blank"
+                  rel="noopener noreferrer"
                 >
-                  <ListItemText primary={route.label} />
-                </ListItem>
-              ))}
-            </List>
+                  © 2024 Mahmoud Mansy. All rights reserved.
+                </a>
+              </footer>
+            </motion.div>
           </Drawer>
         </>
       ) : (

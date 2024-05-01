@@ -18,7 +18,7 @@ export const ITEMS = [
     rates: Math.floor(Math.random() * 100),
     discount: "",
     quantity: 0,
-    type: "games",
+    type: "Gaming",
     details:
       "An exciting electric car for kids to drive around in style, providing hours of entertainment and fun.",
   },
@@ -31,7 +31,7 @@ export const ITEMS = [
     rates: Math.floor(Math.random() * 100),
     discount: "",
     quantity: 0,
-    type: "electronics",
+    type: "Electronics",
     details:
       "Capture stunning photos and videos with this professional-grade Canon DSLR camera, perfect for photography enthusiasts.",
   },
@@ -44,7 +44,7 @@ export const ITEMS = [
     rates: Math.floor(Math.random() * 100),
     discount: "",
     quantity: 0,
-    type: "other",
+    type: "General",
     details:
       "Nutritious dry dog food to keep your furry friend healthy and happy, made with high-quality ingredients.",
   },
@@ -57,7 +57,7 @@ export const ITEMS = [
     rates: Math.floor(Math.random() * 100),
     discount: "",
     quantity: 0,
-    type: "electronics",
+    type: "Electronics",
     details:
       "Experience high-performance gaming with this ASUS FHD gaming laptop, featuring advanced graphics and smooth gameplay.",
   },
@@ -70,7 +70,7 @@ export const ITEMS = [
     rates: Math.floor(Math.random() * 100),
     discount: "",
     quantity: 0,
-    type: "other",
+    type: "General",
     details:
       "Achieve clear and healthy skin with the Curology product set, designed to address various skincare concerns effectively.",
   },
@@ -83,7 +83,7 @@ export const ITEMS = [
     rates: Math.floor(Math.random() * 100),
     discount: 40,
     quantity: 0,
-    type: "games",
+    type: "Gaming",
     details:
       "Enhance your gaming experience with the GP11 Shooter USB gamepad, featuring high-quality construction and precise controls.",
   },
@@ -96,7 +96,7 @@ export const ITEMS = [
     rates: Math.floor(Math.random() * 100),
     discount: 40,
     quantity: 0,
-    type: "clothes",
+    type: "Clothes",
     details:
       "Stay stylish and warm with this quilted satin jacket, perfect for adding a trendy touch to your outfit.",
   },
@@ -109,7 +109,7 @@ export const ITEMS = [
     rates: Math.floor(Math.random() * 100),
     discount: 40,
     quantity: 0,
-    type: "other",
+    type: "General",
     details:
       "Organize your books and decorative items neatly with this small bookshelf, designed to fit in compact spaces.",
   },
@@ -122,7 +122,7 @@ export const ITEMS = [
     rates: Math.floor(Math.random() * 100),
     discount: 40,
     quantity: 0,
-    type: "electronics",
+    type: "Electronics",
     details:
       "Keep your CPU cool and enhance its performance with the RGB liquid CPU cooler, featuring efficient cooling technology.",
   },
@@ -135,7 +135,7 @@ export const ITEMS = [
     rates: Math.floor(Math.random() * 100),
     discount: 40,
     quantity: 0,
-    type: "clothes",
+    type: "Clothes",
     details:
       "Travel in style with the Gucci duffle bag, crafted with premium materials and featuring a spacious design.",
   },
@@ -148,7 +148,7 @@ export const ITEMS = [
     rates: Math.floor(Math.random() * 100),
     discount: 40,
     quantity: 0,
-    type: "clothes",
+    type: "Clothes",
     details:
       "Stay warm and fashionable with The North Coat, featuring a durable construction and timeless design.",
   },
@@ -161,7 +161,7 @@ export const ITEMS = [
     rates: Math.floor(Math.random() * 100),
     discount: 40,
     quantity: 0,
-    type: "games",
+    type: "Gaming",
     details:
       "Enjoy responsive and precise gaming controls with the HAVIT HV-G92 gamepad, designed for hours of gaming fun.",
   },
@@ -174,7 +174,7 @@ export const ITEMS = [
     rates: Math.floor(Math.random() * 100),
     discount: 35,
     quantity: 0,
-    type: "electronics",
+    type: "Electronics",
     details:
       "Type with speed and accuracy using the AK-900 wired keyboard, featuring a durable construction and ergonomic design.",
   },
@@ -187,7 +187,7 @@ export const ITEMS = [
     rates: Math.floor(Math.random() * 100),
     discount: 30,
     quantity: 0,
-    type: "games",
+    type: "Gaming",
     details:
       "Immerse yourself in gaming with the IPS LCD gaming monitor, delivering vibrant visuals and smooth gameplay.",
   },
@@ -200,7 +200,7 @@ export const ITEMS = [
     rates: Math.floor(Math.random() * 100),
     discount: 25,
     quantity: 0,
-    type: "clothes",
+    type: "Clothes",
     details:
       "Relax in comfort with the S-Series comfort chair, featuring ergonomic design and plush cushioning for long hours of sitting.",
   },

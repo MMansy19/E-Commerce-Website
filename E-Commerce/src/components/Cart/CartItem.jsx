@@ -59,7 +59,7 @@ const CartItem = ({ item }) => {
           </IconButton>
 
           <Link
-            to={{ pathname: `/product/${item.title}` }}
+            to={{ pathname: `/${item.type}/${item.title}` }}
             key={item.id}
             onClick={() => handleProductClick()}
           >

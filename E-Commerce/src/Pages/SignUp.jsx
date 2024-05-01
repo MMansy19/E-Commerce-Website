@@ -6,7 +6,7 @@ import SignImg from "./SignImg.jsx";
 
 const SignUp = () => {
   return (
-    <div className="flex justify-center md:justify-start  items-center mt-14 mb-36 md:gap-32 ">
+    <div className="flex justify-center md:justify-start  items-center md:mt-14 mb-36 mt-40 md:gap-32 ">
       <SignImg />
       <div className="flex flex-col gap-6 items-start justify-center">
         <h1 className="text-4xl font-medium font-inter ">Create an account</h1>

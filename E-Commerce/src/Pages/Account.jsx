@@ -1,10 +1,10 @@
 import ActiveLastBreadcrumb from "../components/common/Link";
 import RedButton from "../components/common/RedButton";
 
-const Contact = () => {
+const Account = () => {
   return (
     <div className="flex flex-col mx-4 md:ml-36 mt-48 gap-20">
-      <ActiveLastBreadcrumb path="Home/ Contact" />
+      <ActiveLastBreadcrumb path="Home/ My       Account" />
       <div className="flex flex-col md:flex-row gap-8">
         <div className="shadow  w-[340px] h-[457px] flex flex-col gap-8 py-10 px-8 rounded">
           <div className="flex flex-col gap-6">
@@ -56,7 +56,7 @@ const Contact = () => {
             </div>
             <div className="flex flex-col gap-4">
               <p className="text-sm">
-                Fill out our form and we will contact you within 24 hours.
+                Fill out our form and we will Account you within 24 hours.
               </p>
               <p className="text-sm">Emails: customer@exclusive.com</p>
               <p className="text-sm">Emails: support@exclusive.com</p>
@@ -99,4 +99,4 @@ const Contact = () => {
     </div>
   );
 };
-export default Contact;
+export default Account;

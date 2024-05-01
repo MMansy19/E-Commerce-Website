@@ -12,13 +12,10 @@ const RelatedItems = ({ selectedProduct }) => {
 
   return (
     <>
-      <div className="mx-2">
+      <div className="mx-auto md:mx-2">
         <RedTitle title="Related Items" />
-        <div className="flex md:justify-between items-center md:mr-6 md:mb-4">
-          <div className="flex gap-20 flex-col md:flex-row "></div>
-        </div>
         <div className="relative mt-10">
-          <div className="flex flex-row gap-2 md:gap-8 overflow-x-hidden hover:overflow-x-auto md:hover:overflow-x-hidden  transition-transform duration-300 transform  focus:outline-none ">
+          <div className="flex flex-col md:flex-row gap-2 md:gap-8 overflow-x-hidden hover:overflow-x-auto md:hover:overflow-x-hidden  transition-transform duration-300 transform  focus:outline-none ">
             {relatedItems.map((item, index) => (
               <FlashSaleItem
                 key={item.title}

@@ -73,7 +73,7 @@ const FlashSaleItem = ({ item }) => {
           </div>
         )}
         <Link
-          to={{ pathname: `/product/${item.title}` }}
+          to={{ pathname: `/${item.type}/${item.title}` }}
           onClick={() => handleProductClick()}
           key={item.id}
         >

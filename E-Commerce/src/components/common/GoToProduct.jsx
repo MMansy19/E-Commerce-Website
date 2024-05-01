@@ -11,7 +11,7 @@ const GoToProduct = ({ item }) => {
   return (
     <Link
       to={{
-        pathname: `/product/${encodeURIComponent(item.title)}`,
+        pathname: `/${item.type}/${item.title}`,
         state: { product: item },
       }}
       onClick={() => handleProductClick(item)}
@@ -27,6 +27,7 @@ GoToProduct.propTypes = {
   item: PropTypes.shape({
     imageSrc: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
+    type: PropTypes.string.isRequired,
     id: PropTypes.number.isRequired,
   }).isRequired,
 };
