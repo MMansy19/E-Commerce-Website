@@ -1,20 +1,19 @@
-import { createContext, useState } from "react";
+import PropTypes from "prop-types";
+import { createContext, useState, useEffect } from "react";
 
 const SelectedProductContext = createContext();
-const InitialProduct = {
-  id: "1",
-  imageSrc: "./assets/car.svg",
-  title: "Kids Electric Car",
-  price: 960,
-  stars: Math.floor(Math.random() * 5),
-  rates: Math.floor(Math.random() * 100),
-  discount: "",
-  quantity: 1,
-};
-import PropTypes from "prop-types";
 
 const SelectedProductProvider = ({ children }) => {
-  const [selectedProduct, setSelectedProduct] = useState(InitialProduct);
+  // Initialize state with the value from local storage if it exists
+  const [selectedProduct, setSelectedProduct] = useState(() => {
+    const storedProduct = localStorage.getItem("selectedProduct");
+    return storedProduct ? JSON.parse(storedProduct) : null;
+  });
+
+  // Update local storage whenever selectedProduct changes
+  useEffect(() => {
+    localStorage.setItem("selectedProduct", JSON.stringify(selectedProduct));
+  }, [selectedProduct]);
 
   return (
     <SelectedProductContext.Provider

@@ -36,7 +36,7 @@ function App() {
                     <Route path="/login" element={<LogIn />} />
                     <Route path="/wishlist" element={<Wishlist />} />
                     <Route path="/cart" element={<Cart />} />
-                    <Route path="/product" element={<Product />} />
+                    <Route path="/product/:title" element={<Product />} />
                     <Route path="/*" element={<NotFound />} />
                   </Routes>
                 </div>

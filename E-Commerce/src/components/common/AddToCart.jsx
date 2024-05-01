@@ -13,16 +13,18 @@ const AddToCart = ({ item }) => {
       (cartItem) => cartItem.id === item.id
     );
     setIsInCart(cartItemExists);
-  }, [cartItems, item.id]);
+  }, [cartItems, item]);
 
   // Function to add item to cart
   const handleAddToCart = () => {
     if (isInCart) {
       removeFromCart(item.id);
       setIsInCart(false);
+      item.quantity = 0;
     } else {
       addToCart(item);
       setIsInCart(true);
+      item.quantity = 1;
     }
   };
   return { handleAddToCart, isInCart };

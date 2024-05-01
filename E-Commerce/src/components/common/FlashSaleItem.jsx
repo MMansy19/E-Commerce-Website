@@ -61,9 +61,9 @@ const FlashSaleItem = ({ item }) => {
           </div>
         )}
         <Link
-          to={{ pathname: "/product" }}
-          key={item.id}
+          to={{ pathname: `/product/${item.title}` }}
           onClick={() => handleProductClick(item)}
+          key={item.id}
         >
           <img src={item.imageSrc} alt={item.title} />
         </Link>

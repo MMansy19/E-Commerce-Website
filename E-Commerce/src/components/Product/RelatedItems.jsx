@@ -6,7 +6,8 @@ import { ITEMS } from "../../Pages/Home";
 
 const RelatedItems = ({ selectedProduct }) => {
   const relatedItems = ITEMS.filter(
-    (item) => item.type == selectedProduct.type
+    (item) =>
+      item.type == selectedProduct.type && item.title !== selectedProduct.title
   );
 
   return (

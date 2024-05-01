@@ -1,5 +1,4 @@
-import { useEffect, useState } from "react";
-import { useContext } from "react";
+import { useEffect, useState, useContext } from "react";
 import { SelectedProductContext } from "../context/SelectedProductContext";
 import RelatedItems from "../components/Product/RelatedItems";
 import ActiveLastBreadcrumb from "../components/common/Link";
@@ -7,50 +6,66 @@ import RedButton from "../components/common/RedButton";
 import WishlistIcon from "../components/common/WishlistIcon";
 import { useCart } from "../context/CartContext";
 import AddToCart from "../components/common/AddToCart";
+import { updateCartItemQuantity } from "../components/common/cartUtils";
 
 const Product = () => {
   const { selectedProduct } = useContext(SelectedProductContext);
   const [isLoaded, setIsLoaded] = useState(false);
-  const [quantity, setQuantity] = useState(selectedProduct.quantity);
+  const [quantity, setQuantity] = useState(selectedProduct.quantity || 0);
   const { removeFromCart, cartItems, setCartItems } = useCart();
 
-  const { handleAddToCart, isInCart } = AddToCart({ selectedProduct }); // Use AddToCart component to get handleAddToCart and isInCart
+  const { handleAddToCart } = AddToCart({ item: selectedProduct });
 
   useEffect(() => {
-    const updatedCartItems = cartItems.map((cartItem) => {
-      if (cartItem.id === selectedProduct.id) {
-        return { ...cartItem, quantity: quantity };
-      }
-      return cartItem;
-    });
-    setCartItems(updatedCartItems);
-    localStorage.setItem("cartItems", JSON.stringify(updatedCartItems)); // Update local storage
-  }, [quantity, cartItems, setCartItems, selectedProduct.id]);
+    setQuantity(selectedProduct.quantity || 0);
+  }, [selectedProduct]);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsLoaded(true);
+    }, 1000);
+
+    return () => clearTimeout(timer);
+  }, []);
 
   const handleDecrease = () => {
-    if (quantity > 0) {
-      setQuantity(quantity - 1);
-      selectedProduct.quantity = quantity;
+    if (quantity > 1) {
+      const newQuantity = quantity - 1;
+      setQuantity(newQuantity);
+      const updatedCartItems = updateCartItemQuantity(
+        cartItems,
+        selectedProduct.id,
+        newQuantity
+      );
+      setCartItems(updatedCartItems);
+      localStorage.setItem("cartItems", JSON.stringify(updatedCartItems));
     }
-    if (quantity === 0) {
+    if (quantity === 1) {
       removeFromCart(selectedProduct.id);
     }
   };
 
   const handleIncrease = () => {
+    const newQuantity = quantity + 1;
+    setQuantity(newQuantity);
+    const updatedCartItems = updateCartItemQuantity(
+      cartItems,
+      selectedProduct.id,
+      newQuantity
+    );
+    setCartItems(updatedCartItems);
+    localStorage.setItem("cartItems", JSON.stringify(updatedCartItems));
+
     if (quantity === 0) {
-      selectedProduct.quantity = 1;
+      handleAddToCart();
     }
-    setQuantity(quantity + 1);
-    selectedProduct.quantity = quantity;
   };
 
   const renderStars = () => {
     const stars = [];
 
     for (let i = -2; i < 3; i++) {
-      // Determine star color based on index and item.stars
-      const starColor = i < selectedProduct.stars ? "#FFAD33" : "#D1D5DB"; // Orange if index < item.stars, gray otherwise
+      const starColor = i < selectedProduct.stars ? "#FFAD33" : "#D1D5DB";
       stars.push(
         <svg
           key={i}
@@ -67,14 +82,6 @@ const Product = () => {
     return stars;
   };
 
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setIsLoaded(true);
-    }, 1000);
-
-    return () => clearTimeout(timer);
-  }, []);
-
   return (
     <div className="flex flex-col md:mx-32 mt-48">
       {isLoaded && selectedProduct ? (
@@ -89,7 +96,7 @@ const Product = () => {
                   <img
                     src={selectedProduct.imageSrc}
                     alt={selectedProduct.title}
-                    className="transform transition-transform duration-300 hover:scale-105 focus:outline-none w-full h-full h-full "
+                    className="transform transition-transform duration-300 hover:scale-105 focus:outline-none w-full h-full"
                   />
                 </div>
                 <div className="relative  flex items-center justify-center bg-zinc-100 w-[270px] rounded md:pt-12 md:p-8 md:h-[138px] md:w-[170px]">
