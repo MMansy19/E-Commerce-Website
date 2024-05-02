@@ -1,21 +1,57 @@
-/* eslint-disable react/no-unknown-property */
+import { useState } from "react";
 import { Link } from "@mui/material";
-import { TextField } from "@mui/material";
-import { Button } from "@mui/material";
+import { TextField, Button } from "@mui/material";
 import SignImg from "./SignImg.jsx";
+import { auth } from "../Auth/firebase";
+import { createUserWithEmailAndPassword } from "firebase/auth";
 
 const SignUp = () => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState(null);
+
+  const handleSignUp = async (e) => {
+    e.preventDefault();
+    try {
+      // Attempt to create a new user account
+      await createUserWithEmailAndPassword(auth, email, password);
+    } catch (error) {
+      // Handle specific errors
+      if (error.code === "auth/email-already-in-use") {
+        setError("The email address is already in use.");
+      } else {
+        setError(error.message); // Handle other errors generically
+      }
+    }
+  };
+
   return (
     <div className="flex justify-center md:justify-start  items-center md:mt-14 mb-36 mt-40 md:gap-32 ">
       <SignImg />
       <div className="flex flex-col gap-6 items-start justify-center">
         <h1 className="text-4xl font-medium font-inter ">Create an account</h1>
         <p className="">Enter your details below</p>
-        <form className="flex flex-col gap-6 w-72 md:w-96">
-          <TextField label="Name" variant="standard" />
-          <TextField label="Email or Phone Number" variant="standard" />
-          <TextField type="password" label="Password" variant="standard" />
+        <form
+          className="flex flex-col gap-6 w-72 md:w-96"
+          onSubmit={handleSignUp}
+        >
+          <TextField
+            label="Email"
+            variant="standard"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
+          />
+          <TextField
+            type="password"
+            label="Password"
+            variant="standard"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
+          />
           <Button
+            type="submit"
             sx={{
               color: "white",
               fontSize: "16px",
@@ -36,6 +72,7 @@ const SignUp = () => {
           >
             Create Account
           </Button>
+          {error && <p className="text-red-500">{error}</p>}
         </form>
         <div className="w-72 md:w-96">
           <Button
@@ -59,7 +96,7 @@ const SignUp = () => {
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
             >
-              <g clip-path="url(#clip0_1920_3336)">
+              <g clipPath="url(#clip0_1920_3336)">
                 <path
                   d="M23.766 12.7764C23.766 11.9607 23.6999 11.1406 23.5588 10.3381H12.24V14.9591H18.7217C18.4528 16.4494 17.5885 17.7678 16.323 18.6056V21.6039H20.19C22.4608 19.5139 23.766 16.4274 23.766 12.7764Z"
                   fill="#4285F4"
