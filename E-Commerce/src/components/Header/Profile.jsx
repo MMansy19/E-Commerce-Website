@@ -38,7 +38,7 @@ const Profile = () => {
   };
 
   return (
-    <div className="flex justify-around items-center gap-1 md:gap-4 ml-4 ">
+    <div className="flex justify-around items-center md:gap-4 md:ml-4 ">
       <Link to="/wishlist">
         <IconButton
           size="small"

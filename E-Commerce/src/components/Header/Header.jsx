@@ -7,7 +7,7 @@ import SearchAppBar from "./Search";
 const Header = () => {
   return (
     <header className="fixed top-12 left-0 w-full z-50 bg-white shadow-md">
-      <div className="flex justify-around items-center px-4 md:px-8 py-2">
+      <div className="flex justify-between  md:justify-around items-center px-1 md:px-8 py-2">
         <Logo />
         <Navigations />
         <div className="flex">

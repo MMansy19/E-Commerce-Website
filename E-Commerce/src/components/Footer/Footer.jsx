@@ -9,12 +9,16 @@ const Footer = () => {
         <Grid
           container
           direction="row"
-          justifyContent="space-between"
-          alignItems="stretch"
           spacing={5}
-          className="md:min-h-96"
+          className="md:min-h-96 justify-center items-stretch md:justify-between"
         >
-          <Grid item xs={12} sm={6} md={2.5} className="md:leading-5">
+          <Grid
+            item
+            // xs={12}
+            sm={6}
+            md={2.5}
+            className="justify-center items-stretch md:justify-between md:leading-5"
+          >
             <Typography className="font-bold" variant="h6" gutterBottom>
               {i18n.t("footer.exclusive")}
             </Typography>
@@ -49,7 +53,13 @@ const Footer = () => {
           </Grid>
 
           {/* Support */}
-          <Grid item xs={12} sm={6} md={2.5} className="md:leading-10">
+          <Grid
+            item
+            xs={8}
+            sm={6}
+            md={2.5}
+            className="justify-center items-stretch md:justify-between md:leading-10"
+          >
             <Typography variant="h6" gutterBottom>
               {i18n.t("footer.support")}
             </Typography>
@@ -59,7 +69,13 @@ const Footer = () => {
           </Grid>
 
           {/* Account */}
-          <Grid item xs={12} sm={6} md={2} className="md:leading-10">
+          <Grid
+            item
+            xs={8}
+            sm={6}
+            md={2}
+            className="justify-center items-stretch md:justify-between md:leading-10"
+          >
             <Typography variant="h6" gutterBottom>
               {i18n.t("footer.account")}
             </Typography>
@@ -93,7 +109,13 @@ const Footer = () => {
           </Grid>
 
           {/* Quick Link */}
-          <Grid item xs={12} sm={6} md={2} className="md:leading-10">
+          <Grid
+            item
+            xs={8}
+            sm={6}
+            md={2}
+            className="justify-center items-stretch md:justify-between md:leading-10"
+          >
             <Typography variant="h6" gutterBottom>
               Quick Link
             </Typography>
@@ -122,7 +144,13 @@ const Footer = () => {
           </Grid>
 
           {/* Download App */}
-          <Grid item xs={6} sm={6} md={2} className="md:leading-10">
+          <Grid
+            item
+            xs={8}
+            sm={6}
+            md={2}
+            className="justify-center items-stretch md:justify-between md:leading-10"
+          >
             <Typography variant="h6" gutterBottom className="text-white">
               {i18n.t("footer.downloadApp")}
             </Typography>

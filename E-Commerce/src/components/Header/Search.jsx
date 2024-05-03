@@ -51,15 +51,16 @@ const SearchAppBar = () => {
   };
 
   return (
-    <Search className="flex pl-2 md:px-6">
+    <Search className="flex md:pl-2 md:px-6">
       <Autocomplete
-        className="w-36 md:w-96"
+        className="w-36 md:w-96 "
         freeSolo
         disableClearable
+        disableListWrap
+        openOnFocus
         options={ITEMS.map((item) => item.title)}
         value={searchText}
         onSelect={handleItemSelected}
-        // <Link to={{ pathname: `/${selectedItem.title}` }} />
         renderInput={(params) => (
           <TextField
             {...params}

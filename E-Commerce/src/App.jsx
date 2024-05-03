@@ -85,7 +85,7 @@ function App() {
                     <Footer />
                     {/* Scroll to top button */}
                     {showScrollButton && (
-                      <div className="fixed bottom-5 md:bottom-10 right-[45%] md:right-20  z-10">
+                      <div className="fixed bottom-5 md:bottom-10 right-[42%] md:right-20  z-10">
                         <Fab aria-label="scroll-to-top" onClick={scrollToTop}>
                           <svg
                             width="24"
