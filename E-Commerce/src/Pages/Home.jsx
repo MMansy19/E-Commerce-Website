@@ -1,4 +1,3 @@
-/* eslint-disable react-refresh/only-export-components */
 import Row1 from "../components/Home/Row1";
 import Deal from "../components/Home/Deal";
 import FlashSale from "../components/Home/FlashSale";
@@ -11,7 +10,7 @@ import { ITEMS } from "../components/common/items";
 
 const Home = () => {
   return (
-    <div className="flex flex-col md:mx-32 mt-28 gap-3  ">
+    <div className="flex flex-col md:mx-32 mt-28 gap-3">
       <Row1 />
       <FlashSale items={ITEMS} />
       <Categories />
@@ -23,4 +22,5 @@ const Home = () => {
     </div>
   );
 };
+
 export default Home;

@@ -1,12 +1,12 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { styled, alpha } from "@mui/material/styles";
-import InputBase from "@mui/material/InputBase";
-import MenuItem from "@mui/material/MenuItem";
 import IconButton from "@mui/material/IconButton";
-import Menu from "@mui/material/Menu";
 import { Link } from "react-router-dom";
 import { ITEMS } from "../common/items";
 import { CiSearch } from "react-icons/ci";
+import Autocomplete from "@mui/material/Autocomplete";
+import TextField from "@mui/material/TextField";
+import { SelectedProductContext } from "../../context/SelectedProductContext";
 
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
@@ -21,103 +21,58 @@ const Search = styled("div")(({ theme }) => ({
   },
 }));
 
-const SearchIconWrapper = styled("div")(({ theme }) => ({
-  padding: theme.spacing(0, 2),
-  height: "100%",
-  position: "absolute",
-  pointerEvents: "none",
-  display: "flex",
-  alignItems: "center",
-  justifyContent: "flex-end",
-  right: 0,
-}));
-
-const StyledInputBase = styled(InputBase)(({ theme }) => ({
-  color: "inherit",
-  width: "100%",
-  "& .MuiInputBase-input": {
-    padding: theme.spacing(1, 1, 1, 0),
-    transition: theme.transitions.create("width"),
-    width: "100%",
-    [theme.breakpoints.up("sm")]: {
-      width: "20ch",
-      "&:focus": {
-        width: "30ch",
-      },
-    },
-  },
-}));
-
 const SearchAppBar = () => {
-  const [anchorEl, setAnchorEl] = useState(null);
   const [searchText, setSearchText] = useState("");
-  const [filteredItems, setFilteredItems] = useState([]);
+  const { setSelectedProduct } = useContext(SelectedProductContext);
 
-  const uniqueCategories = [...new Set(ITEMS.map((item) => item.type))];
+  let selectedItem = ITEMS[0];
 
-  const handleMenuOpen = (event) => {
-    setAnchorEl(event.currentTarget);
+  const handleItemSelected = (event) => {
+    setSearchText(event.target.value);
+    handleSearch();
   };
 
-  const handleMenuClose = () => {
-    setAnchorEl(null);
+  const handleSearch = () => {
+    if (searchText) {
+      selectedItem = ITEMS.find(
+        (item) => item.title.trim() === searchText.trim()
+      );
+      if (selectedItem) {
+        setSelectedProduct(selectedItem);
+      }
+    }
   };
 
-  const handleInputChange = (event) => {
-    const text = event.target.value;
-    setSearchText(text);
-    // Filter items based on input text
-    const filtered = ITEMS.filter((item) =>
-      item.title.toLowerCase().includes(text.toLowerCase())
-    );
-    setFilteredItems(filtered);
+  const handleKeyDown = (event) => {
+    if (event.key === "Enter") {
+      handleSearch();
+    }
   };
 
   return (
-    <Search className="flex  pl-2 md:px-6">
-      <StyledInputBase
-        placeholder="Search…"
-        inputProps={{ "aria-label": "search" }}
+    <Search className="flex pl-2 md:px-6">
+      <Autocomplete
+        className="w-36 md:w-96"
+        freeSolo
+        disableClearable
+        options={ITEMS.map((item) => item.title)}
         value={searchText}
-        onChange={handleInputChange}
+        onSelect={handleItemSelected}
+        // <Link to={{ pathname: `/${selectedItem.title}` }} />
+        renderInput={(params) => (
+          <TextField
+            {...params}
+            placeholder="Search…"
+            onKeyDown={handleKeyDown}
+            onChange={(event) => setSearchText(event.target.value)}
+          />
+        )}
       />
-      <IconButton
-        aria-label="show categories"
-        aria-haspopup="true"
-        onClick={handleMenuOpen}
-        color="inherit"
-      >
-        <CiSearch />
+      <IconButton aria-label="search" color="inherit" onClick={handleSearch}>
+        <Link to={{ pathname: `/${selectedItem.title}` }}>
+          <CiSearch />
+        </Link>
       </IconButton>
-
-      <Menu
-        id="category-menu"
-        anchorEl={anchorEl}
-        open={Boolean(anchorEl)}
-        onClose={handleMenuClose}
-        className="max-h-96 w-72 md:w-96"
-      >
-        <p>Categories:</p>
-        {uniqueCategories.map((category) => (
-          <Link
-            to={{ pathname: `/${category}` }}
-            onClick={() => handleMenuClose()}
-            key={category}
-          >
-            <MenuItem key={category}>{category}</MenuItem>
-          </Link>
-        ))}
-        <p>Products:</p>
-        {filteredItems.map((item) => (
-          <Link
-            to={{ pathname: `/${item.type}` }}
-            onClick={handleMenuClose}
-            key={item.id}
-          >
-            <MenuItem>{item.title}</MenuItem>
-          </Link>
-        ))}
-      </Menu>
     </Search>
   );
 };
