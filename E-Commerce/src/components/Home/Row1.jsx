@@ -1,20 +1,20 @@
 /* eslint-disable react/no-unescaped-entities */
-import PaginationIndicator from "../common/PaginationIndicator";
-import { useState } from "react";
+// import PaginationIndicator from "../common/PaginationIndicator";
+// import { useState } from "react";
 import Product from "./Product";
 
 const Row1 = () => {
-  const [startIndex, setStartIndex] = useState(0);
+  // const [startIndex, setStartIndex] = useState(0);
 
-  const images = [
-    <Product key={1} />,
-    <Product key={2} />,
-    <Product key={3} />,
-    <Product key={4} />,
-    <Product key={3} />,
-    <Product key={2} />,
-    <Product key={4} />,
-  ];
+  // const images = [
+  //   <Product key={1} />,
+  //   <Product key={2} />,
+  //   <Product key={3} />,
+  //   <Product key={4} />,
+  //   <Product key={3} />,
+  //   <Product key={2} />,
+  //   <Product key={4} />,
+  // ];
 
   return (
     <div className="flex flex-row  ">
@@ -114,15 +114,15 @@ const Row1 = () => {
           </button>
         </div>
         <div className=" relative overflow-hidden mt-4 ">
-          {images.slice(startIndex, startIndex + 1).map((image, index) => (
-            <div
-              className="transition-transform duration-300 transform hover:translate-y-1 hover:scale-105"
-              key={index}
-            >
-              {image}
-            </div>
-          ))}
-          <PaginationIndicator onClick={setStartIndex} data={images} />
+          {/* {images.slice(startIndex, startIndex + 1).map((image, index) => ( */}
+          <div
+            className="transition-transform duration-300 transform hover:translate-y-1 hover:scale-105"
+            // key={index}
+          >
+            <Product />
+          </div>
+          {/* ))} */}
+          {/* <PaginationIndicator onClick={setStartIndex} data={images} /> */}
         </div>
       </div>
     </div>

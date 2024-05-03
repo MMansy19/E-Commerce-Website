@@ -11,7 +11,7 @@ const GoToProduct = ({ item }) => {
   return (
     <Link
       to={{
-        pathname: `/${item.type}/${item.title}`,
+        pathname: `/${item.title}`,
         state: { product: item },
       }}
       onClick={() => handleProductClick(item)}

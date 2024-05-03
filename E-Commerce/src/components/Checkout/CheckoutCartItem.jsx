@@ -21,7 +21,7 @@ const CheckoutCartItem = ({ item }) => {
       <div className="flex items-center gap-6 ">
         <div className="flex ">
           <Link
-            to={{ pathname: `/${item.type}/${item.title}` }}
+            to={{ pathname: `/${item.title}` }}
             key={item.id}
             onClick={() => handleProductClick()}
           >
