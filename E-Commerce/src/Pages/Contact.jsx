@@ -6,7 +6,7 @@ const Contact = () => {
     <div className="flex flex-col mx-4 md:ml-36 mt-48 gap-20">
       <ActiveLastBreadcrumb path="Home/ Contact" />
       <div className="flex flex-col md:flex-row gap-8">
-        <div className="shadow  w-[340px] h-[457px] flex flex-col gap-8 py-10 px-8 rounded">
+        <div className="shadow  w-full md:w-[340px] h-[457px] flex flex-col gap-8 py-10 px-8 rounded">
           <div className="flex flex-col gap-6">
             <div className="flex flex-row  gap-4  items-center">
               <svg
@@ -32,7 +32,7 @@ const Contact = () => {
               <p className="text-sm">Phone: +8801611112222</p>
             </div>
           </div>
-          <hr className="mx-full  border-gray-400" />
+          <hr className="mx-full border-gray-400" />
           <div className="flex flex-col gap-6">
             <div className="flex flex-row  gap-4  items-center">
               <svg
@@ -63,26 +63,26 @@ const Contact = () => {
             </div>
           </div>
         </div>
-        <div className="shadow  w-[full] flex flex-col py-10 px-8 rounded">
+        <div className="shadow  w-[full] flex flex-col py-10 px-4 md:px-8 rounded">
           <div className="flex flex-col gap-8">
             <div className="flex flex-col md:flex-row gap-4">
               <input
                 type="text"
                 placeholder="Your Name"
                 required
-                className="w-[235px] rounded bg-gray-100 bg-opacity-100 px-4 py-3 text-gray-400 text-base focus:border outline-none focus:border-gray-300  "
+                className="md:w-[235px] rounded bg-gray-100 bg-opacity-100 px-4 py-3 text-gray-400 text-base focus:border outline-none focus:border-gray-300  "
               />
               <input
                 type="email"
                 placeholder="Your Email"
                 required
-                className="w-[235px] rounded bg-gray-100 bg-opacity-100 px-4 py-3 text-gray-400 text-base focus:border outline-none focus:border-gray-300  "
+                className="md:w-[235px] rounded bg-gray-100 bg-opacity-100 px-4 py-3 text-gray-400 text-base focus:border outline-none focus:border-gray-300  "
               />
               <input
                 type="tel"
                 placeholder="Your Phone"
                 required
-                className="w-[235px] rounded bg-gray-100 bg-opacity-100 px-4 py-3 text-gray-400 text-base focus:border outline-none focus:border-gray-300  "
+                className="md:w-[235px] rounded bg-gray-100 bg-opacity-100 px-4 py-3 text-gray-400 text-base focus:border outline-none focus:border-gray-300  "
               />
             </div>
             <textarea

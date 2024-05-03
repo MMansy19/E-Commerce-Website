@@ -61,8 +61,8 @@ const Account = () => {
   };
 
   return (
-    <div className="flex flex-col mx-4 md:ml-36 mt-48 gap-20">
-      <div className="flex justify-between ">
+    <div className="flex flex-col mx-4 md:ml-36 mt-48 gap-20 justify-center md:justify-between ">
+      <div className="flex justify-between   flex-col gap-4 md:flex-row ">
         <ActiveLastBreadcrumb path="Home/ My Account" />
         <h1 className="text-sm md:mr-44">
           Welcome!{" "}
@@ -73,7 +73,7 @@ const Account = () => {
       </div>
       <div className="flex flex-col md:flex-row gap-28">
         <nav className="flex flex-col gap-4 text-gray-400">
-          <h1 className="text-black text-base font-medium">
+          <h1 className="text-black text-sm md:text-base  font-medium">
             Manage My Account
           </h1>
           <ul>
@@ -102,7 +102,9 @@ const Account = () => {
               </Link>
             </li>
           </ul>
-          <h1 className="text-black text-base font-medium">My Orders</h1>
+          <h1 className="text-black text-sm md:text-base  font-medium">
+            My Orders
+          </h1>
           <ul>
             <li className="px-4 py-2">
               <Link
@@ -121,7 +123,7 @@ const Account = () => {
               </Link>
             </li>
           </ul>
-          <h1 className="text-black text-base font-medium">
+          <h1 className="text-black text-sm md:text-base  font-medium">
             <Link
               to="/wishlist"
               className="hover:underline hover:underline-offset-8 ease-in-out duration-300 transform "
@@ -130,80 +132,80 @@ const Account = () => {
             </Link>
           </h1>
         </nav>
-        <div className="shadow  w-[full] flex flex-col py-10 px-20 rounded">
+        <div className="shadow  w-[full] flex flex-col py-10 md:px-20 px-5 rounded">
           <div className="flex flex-col gap-6 md:w-[710px]">
             <span className="text-xl font-medium text-red-600">
               Edit Your Profile
             </span>
-            <div className="flex flex-col md:flex-row gap-[50px] justify-between">
+            <div className="flex flex-col md:flex-row gap-6 md:gap-[50px] justify-between">
               <div className="flex flex-col gap-2 w-full">
-                <span className="text-base">First Name</span>
+                <span className="text-sm md:text-base ">First Name</span>
                 <input
                   type="text"
                   placeholder={firstName ? firstName : "your first name"}
                   required
                   onChange={(e) => setFirstName(e.target.value)}
-                  className=" rounded bg-gray-100 bg-opacity-100 px-4 py-3 text-gray-400 text-base focus:border outline-none focus:border-gray-300  "
+                  className=" rounded bg-gray-100 bg-opacity-100 px-4 py-3 text-gray-400 text-sm md:text-base  focus:border outline-none focus:border-gray-300  "
                 />
               </div>
               <div className="flex flex-col gap-2 w-full">
-                <span className="text-base">Last Name</span>
+                <span className="text-sm md:text-base ">Last Name</span>
                 <input
                   type="text"
                   placeholder={lastName ? lastName : "your last name"}
                   required
                   onChange={(e) => setLastName(e.target.value)}
-                  className=" rounded bg-gray-100 bg-opacity-100 px-4 py-3 text-gray-400 text-base focus:border outline-none focus:border-gray-300  "
+                  className=" rounded bg-gray-100 bg-opacity-100 px-4 py-3 text-gray-400 text-sm md:text-base  focus:border outline-none focus:border-gray-300  "
                 />
               </div>
             </div>
-            <div className="flex flex-col md:flex-row gap-[50px] justify-between">
+            <div className="flex flex-col md:flex-row gap-6 md:gap-[50px] justify-between">
               <div className="flex flex-col gap-2 w-full">
-                <span className="text-base">Email</span>
+                <span className="text-sm md:text-base ">Email</span>
                 <input
                   type="email"
                   placeholder={email ? email : "your email"}
                   required
                   onChange={(e) => setEmail(e.target.value)}
-                  className=" rounded bg-gray-100 bg-opacity-100 px-4 py-3 text-gray-400 text-base focus:border outline-none focus:border-gray-300  "
+                  className=" rounded bg-gray-100 bg-opacity-100 px-4 py-3 text-gray-400 text-sm md:text-base  focus:border outline-none focus:border-gray-300  "
                 />
               </div>
               <div className="flex flex-col gap-2 w-full">
-                <span className="text-base">Address</span>
+                <span className="text-sm md:text-base ">Address</span>
                 <input
                   type="text"
                   placeholder={address ? address : "your address"}
                   required
                   onChange={(e) => setAddress(e.target.value)}
-                  className=" rounded bg-gray-100 bg-opacity-100 px-4 py-3 text-gray-400 text-base focus:border outline-none focus:border-gray-300  "
+                  className=" rounded bg-gray-100 bg-opacity-100 px-4 py-3 text-gray-400 text-sm md:text-base  focus:border outline-none focus:border-gray-300  "
                 />
               </div>
             </div>
             <div className="flex flex-col gap-4 w-full">
-              <span className="text-base">Password Changes</span>
+              <span className="text-sm md:text-base ">Password Changes</span>
               <input
                 type="text"
                 placeholder="Current Password"
                 required
                 onChange={(e) => setCurrentPassword(e.target.value)}
-                className=" rounded bg-gray-100 bg-opacity-100 px-4 py-3 text-gray-400 text-base focus:border outline-none focus:border-gray-300  "
+                className=" rounded bg-gray-100 bg-opacity-100 px-4 py-3 text-gray-400 text-sm md:text-base  focus:border outline-none focus:border-gray-300  "
               />
               <input
                 type="text"
                 placeholder="New Password"
                 required
                 onChange={(e) => setNewPassword(e.target.value)}
-                className=" rounded bg-gray-100 bg-opacity-100 px-4 py-3 text-gray-400 text-base focus:border outline-none focus:border-gray-300  "
+                className=" rounded bg-gray-100 bg-opacity-100 px-4 py-3 text-gray-400 text-sm md:text-base  focus:border outline-none focus:border-gray-300  "
               />
               <input
                 type="text"
                 placeholder="Confirm Password"
                 required
                 onChange={(e) => setConfirmPassword(e.target.value)}
-                className=" rounded bg-gray-100 bg-opacity-100 px-4 py-3 text-gray-400 text-base focus:border outline-none focus:border-gray-300  "
+                className=" rounded bg-gray-100 bg-opacity-100 px-4 py-3 text-gray-400 text-sm md:text-base  focus:border outline-none focus:border-gray-300  "
               />
             </div>
-            <div className="ml-auto flex items-center gap-8 text-base">
+            <div className="ml-auto flex items-center gap-8 text-sm md:text-base ">
               {/* Cancel and save changes buttons */}
               <button
                 onClick={() => {

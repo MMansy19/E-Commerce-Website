@@ -208,7 +208,7 @@ export const ITEMS = [
 
 const Home = () => {
   return (
-    <div className="flex flex-col md:mx-32 mt-28">
+    <div className="flex flex-col md:mx-32 mt-28 gap-3  ">
       <Row1 />
       <FlashSale items={ITEMS} />
       <Categories />

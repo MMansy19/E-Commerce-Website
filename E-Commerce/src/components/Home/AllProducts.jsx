@@ -35,7 +35,7 @@ const AllProducts = ({ items }) => {
           />
         </div>
         <div className="relative mt-10 flex flex-row gap-2 md:gap-12 overflow-x-hidden transition-transform duration-300 transform focus:outline-none">
-          <div className="grid grid-rows-2 md:grid-cols-4 gap-2 md:gap-12">
+          <div className="grid grid-rows-2 mx-auto md:grid-cols-4 gap-2 md:gap-12">
             {items.slice(0, 8).map((item, index) => (
               <FlashSaleItem
                 key={item.title}
