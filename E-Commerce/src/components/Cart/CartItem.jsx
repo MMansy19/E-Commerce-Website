@@ -51,9 +51,9 @@ const CartItem = ({ item }) => {
   };
 
   return (
-    <div className=" flex flex-row justify-between items-center py-6 pr-12 pl-4 shadow rounded gap-16 overflow-x-auto md:overflow-x-hidden">
-      <div className="flex items-center gap-12 md:gap-4">
-        <div className="flex ">
+    <div className=" flex flex-row justify-between items-center py-2 md:py-6 pr-12 pl-4 shadow rounded gap-16 overflow-x-auto md:overflow-x-hidden ">
+      <div className="flex items-center md:gap-4">
+        <div className="flex w-28">
           <IconButton onClick={handleRemove} className="absolute -top-4">
             <RemoveIcon />
           </IconButton>
@@ -67,7 +67,9 @@ const CartItem = ({ item }) => {
           </Link>
         </div>
         <div>
-          <p className="text-xs md:text-base md:absolute">{item.title}</p>
+          <p className="hidden md:inline text-xs md:text-base absolute">
+            {item.title}
+          </p>
         </div>
       </div>
       <div className="flex items-center ">

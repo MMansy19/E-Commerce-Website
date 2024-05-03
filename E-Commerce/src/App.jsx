@@ -8,6 +8,8 @@ import i18n from "./components/TopHeader/LangConfig.jsx";
 import Home from "./Pages/Home";
 import Wishlist from "./Pages/Wishlist.jsx";
 import Cart from "./Pages/Cart.jsx";
+import Checkout from "./Pages/Checkout.jsx";
+import Payment from "./Pages/Payment.jsx";
 import Contact from "./Pages/Contact";
 import Account from "./Pages/Account";
 import About from "./Pages/About";
@@ -51,6 +53,8 @@ function App() {
                       <Route path="/login" element={<LogIn />} />
                       <Route path="/wishlist" element={<Wishlist />} />
                       <Route path="/cart" element={<Cart />} />
+                      <Route path="/checkout" element={<Checkout />} />
+                      <Route path="/payment" element={<Payment />} />
                       <Route path="/:type/:title" element={<Product />} />
                       <Route path="/*" element={<NotFound />} />
                     </Routes>

@@ -4,12 +4,14 @@ import CartItem from "../components/Cart/CartItem";
 import WhiteButton from "../components/common/WhiteButton";
 import RedButton from "../components/common/RedButton";
 import ActiveLastBreadcrumb from "../components/common/Link";
+import { Link } from "react-router-dom";
 
 const Cart = () => {
   const { cartItems } = useCart();
 
   // Calculate subtotal of all cart items
-  const subtotal = cartItems.reduce(
+  const subtotal = cartItems.reduce((acc, item) => acc + item.price, 0);
+  const total = cartItems.reduce(
     (acc, item) => acc + item.price * item.quantity,
     0
   );
@@ -59,10 +61,12 @@ const Cart = () => {
           </div>
           <div className="flex justify-between mt-4 border-b">
             <p className="text-xl">Total:</p>
-            <p className="text-xl">${subtotal}</p>
+            <p className="text-xl">${total}</p>
           </div>{" "}
           <div className="mx-10">
-            <RedButton name="Process to checkout" />
+            <Link to="/checkout">
+              <RedButton name="Process to checkout" />
+            </Link>
           </div>
         </div>
       </div>
