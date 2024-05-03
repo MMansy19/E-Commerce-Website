@@ -1,16 +1,21 @@
 import { useState } from "react";
 import { Link } from "@mui/material";
 import { TextField } from "@mui/material";
-import { Button } from "@mui/material";
+import { Button, Snackbar } from "@mui/material";
+import { Alert } from "@mui/material";
 import SignImg from "./SignImg.jsx";
 import { auth } from "../Auth/firebase";
-import { signInWithEmailAndPassword } from "firebase/auth";
+import {
+  signInWithEmailAndPassword,
+  sendPasswordResetEmail,
+} from "firebase/auth";
 
 const LogIn = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState(null);
   const [message, setMessage] = useState("");
+  const [open, setOpen] = useState(false);
 
   const handleLogIn = async (e) => {
     e.preventDefault();
@@ -19,12 +24,27 @@ const LogIn = () => {
       await signInWithEmailAndPassword(auth, email, password);
       // Update message state on successful login
       setMessage("Login successful!");
+      setError("");
+      setOpen(true);
       // Clear input fields
       setEmail("");
       setPassword("");
     } catch (error) {
       // Handle login errors
       setError(error.message);
+      setOpen(true);
+    }
+  };
+
+  const handleForgotPassword = async () => {
+    try {
+      // Send password reset email
+      await sendPasswordResetEmail(auth, email);
+      setMessage("Password reset email sent. Check your inbox.");
+      setOpen(true);
+    } catch (error) {
+      setError(error.message);
+      setOpen(true);
     }
   };
 
@@ -79,6 +99,7 @@ const LogIn = () => {
             </Button>
             <Link
               href="#"
+              onClick={handleForgotPassword}
               sx={{
                 color: "hsla(0, 68%, 56%, .9)",
                 fontWeight: "500",
@@ -91,10 +112,24 @@ const LogIn = () => {
               Forgot Password?
             </Link>
           </div>
-          {error && <p className="text-red-500">{error}</p>}
+          {/* {error && <p className="text-red-500">{error}</p>} */}
         </form>
       </div>
+      <Snackbar
+        open={open}
+        autoHideDuration={6000}
+        onClose={() => setOpen(false)}
+      >
+        <Alert
+          onClose={() => setOpen(false)}
+          severity={error ? "error" : "success"}
+          sx={{ width: "100%" }}
+        >
+          {error ? error : message}
+        </Alert>
+      </Snackbar>
     </div>
   );
 };
+
 export default LogIn;

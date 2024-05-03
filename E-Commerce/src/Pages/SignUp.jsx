@@ -1,32 +1,56 @@
 import { useState } from "react";
-import { Link } from "@mui/material";
-import { TextField, Button } from "@mui/material";
+import { Link } from "react-router-dom";
+import { TextField, Button, Snackbar } from "@mui/material";
+import { Alert } from "@mui/material";
 import SignImg from "./SignImg.jsx";
 import { auth } from "../Auth/firebase";
-import { createUserWithEmailAndPassword } from "firebase/auth";
+import {
+  createUserWithEmailAndPassword,
+  signInWithPopup,
+  GoogleAuthProvider,
+} from "firebase/auth";
 
 const SignUp = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState(null);
+  const [success, setSuccess] = useState(null);
+  const [open, setOpen] = useState(false);
 
   const handleSignUp = async (e) => {
     e.preventDefault();
     try {
       // Attempt to create a new user account
       await createUserWithEmailAndPassword(auth, email, password);
+      setSuccess("Account created successfully!");
+      setOpen(true);
     } catch (error) {
       // Handle specific errors
       if (error.code === "auth/email-already-in-use") {
+        setSuccess("");
         setError("The email address is already in use.");
       } else {
         setError(error.message); // Handle other errors generically
       }
+      setOpen(true);
+    }
+  };
+
+  const handleGoogleSignUp = async () => {
+    const provider = new GoogleAuthProvider();
+    try {
+      // Sign up with Google
+      await signInWithPopup(auth, provider);
+      setSuccess("Signed up with Google successfully!");
+      setOpen(true);
+    } catch (error) {
+      setError(error.message);
+      setOpen(true);
     }
   };
 
   return (
-    <div className="flex justify-center md:justify-start  items-center md:mt-14 mb-36 mt-40 md:gap-32 ">
+    <div className="relative flex justify-center md:justify-start items-center md:mt-14 mb-36 mt-40 md:gap-32 ">
       <SignImg />
       <div className="flex flex-col gap-6 items-start justify-center">
         <h1 className="text-4xl font-medium font-inter ">Create an account</h1>
@@ -72,11 +96,13 @@ const SignUp = () => {
           >
             Create Account
           </Button>
-          {error && <p className="text-red-500">{error}</p>}
+          {/* {error && <p className="text-red-500">{error}</p>} */}
         </form>
+
         <div className="w-72 md:w-96">
           <Button
-            className="flex items-center justify-center gap-2"
+            onClick={handleGoogleSignUp}
+            className="flex items-center justify-center gap-4"
             sx={{
               color: "black",
               fontSize: "16px",
@@ -89,6 +115,7 @@ const SignUp = () => {
               border: "1px solid hsla(0, 0%, 0%, 0.4)",
             }}
           >
+            {/* Google Icon SVG */}
             <svg
               width="24"
               height="25"
@@ -125,29 +152,46 @@ const SignUp = () => {
                 </clipPath>
               </defs>
             </svg>
-
             <span> Sign up with Google</span>
           </Button>
         </div>
+
         <p className="text-gray-600 mx-auto">
           Already have an account?
           <Link
-            href="login"
-            sx={{
-              marginLeft: "1rem",
-              color: "rgba(0, 0, 0, .6)",
-              fontWeight: "500",
-              textDecoration: "none",
-              ":hover": {
-                textDecoration: "underline",
-              },
-            }}
+            to="/login"
+            className="ml-2 text-gray font-medium hover:underline"
           >
             Log in
           </Link>
         </p>
       </div>
+      {/* <div className="absolute top-0 right-0"> */}
+      <Snackbar
+        open={open}
+        autoHideDuration={6000}
+        onClose={() => setOpen(false)}
+      >
+        {success ? (
+          <Alert
+            onClose={() => setOpen(false)}
+            severity="success"
+            sx={{ width: "100%" }}
+          >
+            {success}
+          </Alert>
+        ) : (
+          <Alert
+            onClose={() => setOpen(false)}
+            severity="error"
+            sx={{ width: "100%" }}
+          >
+            {error}
+          </Alert>
+        )}
+      </Snackbar>
     </div>
+    // </div>
   );
 };
 export default SignUp;

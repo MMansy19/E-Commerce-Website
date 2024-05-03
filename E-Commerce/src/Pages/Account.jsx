@@ -1,14 +1,74 @@
 import ActiveLastBreadcrumb from "../components/common/Link";
-import RedButton from "../components/common/RedButton";
 import { Link } from "react-router-dom";
+import { Snackbar } from "@mui/material";
+import { Alert } from "@mui/material";
+import { auth, firestore } from "../Auth/firebase";
+import { doc, setDoc, getDoc } from "firebase/firestore";
+
+import { useState, useEffect } from "react";
 
 const Account = () => {
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [email, setEmail] = useState("");
+  const [address, setAddress] = useState("");
+  const [currentPassword, setCurrentPassword] = useState("");
+  const [newPassword, setNewPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [error, setError] = useState(null);
+  const [message, setMessage] = useState("");
+  const [open, setOpen] = useState(false);
+
+  useEffect(() => {
+    const fetchUserData = async () => {
+      try {
+        const userId = auth.currentUser.uid;
+        const userDocRef = doc(firestore, "users", userId);
+        const userDocSnapshot = await getDoc(userDocRef);
+
+        if (userDocSnapshot.exists()) {
+          const userData = userDocSnapshot.data();
+          setFirstName(userData.firstName);
+          setLastName(userData.lastName);
+          setEmail(userData.email);
+          setAddress(userData.address);
+        } else {
+          console.log("User document not found");
+        }
+      } catch (error) {
+        console.error("Error fetching user data:", error);
+      }
+    };
+
+    fetchUserData();
+  }, []);
+
+  const handleSaveChanges = async () => {
+    try {
+      // Update user account data in Firestore
+      await setDoc(doc(firestore, "users", auth.currentUser.uid), {
+        firstName,
+        lastName,
+        email,
+        address,
+      });
+      setMessage("Account details updated successfully!");
+      setOpen(true);
+    } catch (error) {
+      setError(error.message);
+      setOpen(true);
+    }
+  };
+
   return (
     <div className="flex flex-col mx-4 md:ml-36 mt-48 gap-20">
       <div className="flex justify-between ">
         <ActiveLastBreadcrumb path="Home/ My Account" />
         <h1 className="text-sm md:mr-44">
-          Welcome! <span className="text-red-600">your-name</span>
+          Welcome!{" "}
+          <span className="text-red-600">
+            {firstName} {lastName}
+          </span>
         </h1>
       </div>
       <div className="flex flex-col md:flex-row gap-28">
@@ -80,8 +140,9 @@ const Account = () => {
                 <span className="text-base">First Name</span>
                 <input
                   type="text"
-                  placeholder="Mahmoud"
+                  placeholder={firstName ? firstName : "your first name"}
                   required
+                  onChange={(e) => setFirstName(e.target.value)}
                   className=" rounded bg-gray-100 bg-opacity-100 px-4 py-3 text-gray-400 text-base focus:border outline-none focus:border-gray-300  "
                 />
               </div>
@@ -89,8 +150,9 @@ const Account = () => {
                 <span className="text-base">Last Name</span>
                 <input
                   type="text"
-                  placeholder="Mansy"
+                  placeholder={lastName ? lastName : "your last name"}
                   required
+                  onChange={(e) => setLastName(e.target.value)}
                   className=" rounded bg-gray-100 bg-opacity-100 px-4 py-3 text-gray-400 text-base focus:border outline-none focus:border-gray-300  "
                 />
               </div>
@@ -100,8 +162,9 @@ const Account = () => {
                 <span className="text-base">Email</span>
                 <input
                   type="email"
-                  placeholder="mahmoud2abdalfattah@gmail.com"
+                  placeholder={email ? email : "your email"}
                   required
+                  onChange={(e) => setEmail(e.target.value)}
                   className=" rounded bg-gray-100 bg-opacity-100 px-4 py-3 text-gray-400 text-base focus:border outline-none focus:border-gray-300  "
                 />
               </div>
@@ -109,8 +172,9 @@ const Account = () => {
                 <span className="text-base">Address</span>
                 <input
                   type="text"
-                  placeholder="Sharqia, Egypt"
+                  placeholder={address ? address : "your address"}
                   required
+                  onChange={(e) => setAddress(e.target.value)}
                   className=" rounded bg-gray-100 bg-opacity-100 px-4 py-3 text-gray-400 text-base focus:border outline-none focus:border-gray-300  "
                 />
               </div>
@@ -121,31 +185,67 @@ const Account = () => {
                 type="text"
                 placeholder="Current Password"
                 required
+                onChange={(e) => setCurrentPassword(e.target.value)}
                 className=" rounded bg-gray-100 bg-opacity-100 px-4 py-3 text-gray-400 text-base focus:border outline-none focus:border-gray-300  "
               />
               <input
                 type="text"
                 placeholder="New Password"
                 required
+                onChange={(e) => setNewPassword(e.target.value)}
                 className=" rounded bg-gray-100 bg-opacity-100 px-4 py-3 text-gray-400 text-base focus:border outline-none focus:border-gray-300  "
               />
               <input
                 type="text"
-                placeholder="Confirm New Password"
+                placeholder="Confirm Password"
                 required
+                onChange={(e) => setConfirmPassword(e.target.value)}
                 className=" rounded bg-gray-100 bg-opacity-100 px-4 py-3 text-gray-400 text-base focus:border outline-none focus:border-gray-300  "
               />
             </div>
             <div className="ml-auto flex items-center gap-8 text-base">
-              <button className=" hover:underline underline-offset-4  ease-in-out  duration-300 transform hover:-translate-y-1">
+              {/* Cancel and save changes buttons */}
+              <button
+                onClick={() => {
+                  // Reset form values
+                  setFirstName("");
+                  setLastName("");
+                  setEmail("");
+                  setAddress("");
+                  setCurrentPassword("");
+                  setNewPassword("");
+                  setConfirmPassword("");
+                }}
+                className="hover:underline underline-offset-4  ease-in-out  duration-300 transform hover:-translate-y-1"
+              >
                 Cancel
               </button>
-              <RedButton name="Save Changes" />
+              <button
+                onClick={handleSaveChanges}
+                className="text-sm md:text-lg bg-red-600 text-white px-6 md:px-12 py-3 rounded hover:bg-red-500 transition-transform duration-100 transform hover:translate-y-[-4px] focus:translate-y-0"
+              >
+                Save Changes
+              </button>
             </div>
           </div>
         </div>
       </div>
+      {/* Snackbar for displaying success or error messages */}
+      <Snackbar
+        open={open}
+        autoHideDuration={6000}
+        onClose={() => setOpen(false)}
+      >
+        <Alert
+          onClose={() => setOpen(false)}
+          severity={error ? "error" : "success"}
+          sx={{ width: "100%" }}
+        >
+          {error ? error : message}
+        </Alert>
+      </Snackbar>
     </div>
   );
 };
+
 export default Account;

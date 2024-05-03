@@ -4,6 +4,7 @@
 import { createContext, useState, useEffect } from "react";
 import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
+import { getFirestore } from "firebase/firestore"; // Import firestore module
 
 // Firebase is available after the script is loaded
 const firebaseConfig = {
@@ -17,10 +18,12 @@ const firebaseConfig = {
 };
 let app;
 let auth;
+let firestore; // Declare firestore variable
 
 try {
   app = initializeApp(firebaseConfig);
   auth = getAuth(app);
+  firestore = getFirestore(app); // Initialize firestore
 } catch (error) {
   console.error("Error initializing Firebase:", error);
 }
@@ -49,4 +52,4 @@ export const AuthProvider = ({ children }) => {
   );
 };
 
-export { auth, AuthContext };
+export { auth, firestore, AuthContext }; // Export firestore along with auth and AuthContext
