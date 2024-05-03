@@ -16,6 +16,7 @@ import About from "./Pages/About";
 import SignUp from "./Pages/SignUp";
 import LogIn from "./Pages/LogIn";
 import Product from "./Pages/Product";
+import Category from "./Pages/Category";
 import NotFound from "./Pages/NotFound";
 import Footer from "./components/Footer/Footer";
 import { CartProvider } from "./context/CartContext";
@@ -56,6 +57,7 @@ function App() {
                       <Route path="/checkout" element={<Checkout />} />
                       <Route path="/payment" element={<Payment />} />
                       <Route path="/:type/:title" element={<Product />} />
+                      <Route path="/:type" element={<Category />} />
                       <Route path="/*" element={<NotFound />} />
                     </Routes>
                     <Footer />

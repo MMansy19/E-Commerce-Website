@@ -2,8 +2,7 @@
 import FlashSaleItem from "../common/FlashSaleItem";
 import RedTitle from "../common/RedTitle";
 import RedButton from "../common/RedButton";
-import { ITEMS } from "../../Pages/Home";
-
+import { ITEMS } from "../common/items";
 const RelatedItems = ({ selectedProduct }) => {
   const relatedItems = ITEMS.filter(
     (item) =>

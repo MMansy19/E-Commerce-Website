@@ -1,12 +1,19 @@
+import { useState } from "react";
 import { styled, alpha } from "@mui/material/styles";
 import InputBase from "@mui/material/InputBase";
+import MenuItem from "@mui/material/MenuItem";
+import IconButton from "@mui/material/IconButton";
+import Menu from "@mui/material/Menu";
+import { Link } from "react-router-dom";
+import { ITEMS } from "../common/items";
+import { CiSearch } from "react-icons/ci";
 
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
   borderRadius: theme.shape.borderRadius,
-  backgroundColor: alpha(theme.palette.grey[300], 0.15), // Gray background with transparency
+  backgroundColor: alpha(theme.palette.grey[300], 0.15),
   "&:hover": {
-    backgroundColor: alpha(theme.palette.grey[300], 0.25), // Darker gray on hover
+    backgroundColor: alpha(theme.palette.grey[300], 0.25),
   },
   width: "100%",
   [theme.breakpoints.up("sm")]: {
@@ -21,8 +28,8 @@ const SearchIconWrapper = styled("div")(({ theme }) => ({
   pointerEvents: "none",
   display: "flex",
   alignItems: "center",
-  justifyContent: "flex-end", // Align icon to the right
-  right: 0, // Position the icon to the right
+  justifyContent: "flex-end",
+  right: 0,
 }));
 
 const StyledInputBase = styled(InputBase)(({ theme }) => ({
@@ -41,30 +48,78 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   },
 }));
 
-export default function SearchAppBar() {
-  return (
-    <Search className="pl-2 md:px-6">
-      <SearchIconWrapper>
-        <svg
-          width="24"
-          height="24"
-          viewBox="0 0 24 24"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M20 20L16.2223 16.2156M18.3158 11.1579C18.3158 13.0563 17.5617 14.8769 16.2193 16.2193C14.8769 17.5617 13.0563 18.3158 11.1579 18.3158C9.2595 18.3158 7.43886 17.5617 6.0965 16.2193C4.75413 14.8769 4 13.0563 4 11.1579C4 9.2595 4.75413 7.43886 6.0965 6.0965C7.43886 4.75413 9.2595 4 11.1579 4C13.0563 4 14.8769 4.75413 16.2193 6.0965C17.5617 7.43886 18.3158 9.2595 18.3158 11.1579V11.1579Z"
-            stroke="black"
-            strokeWidth="1.5"
-            strokeLinecap="round"
-          />
-        </svg>
-      </SearchIconWrapper>
+const SearchAppBar = () => {
+  const [anchorEl, setAnchorEl] = useState(null);
+  const [searchText, setSearchText] = useState("");
+  const [filteredItems, setFilteredItems] = useState([]);
 
+  const uniqueCategories = [...new Set(ITEMS.map((item) => item.type))];
+
+  const handleMenuOpen = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleMenuClose = () => {
+    setAnchorEl(null);
+  };
+
+  const handleInputChange = (event) => {
+    const text = event.target.value;
+    setSearchText(text);
+    // Filter items based on input text
+    const filtered = ITEMS.filter((item) =>
+      item.title.toLowerCase().includes(text.toLowerCase())
+    );
+    setFilteredItems(filtered);
+  };
+
+  return (
+    <Search className="flex  pl-2 md:px-6">
       <StyledInputBase
         placeholder="Search…"
         inputProps={{ "aria-label": "search" }}
+        value={searchText}
+        onChange={handleInputChange}
       />
+      <IconButton
+        aria-label="show categories"
+        aria-haspopup="true"
+        onClick={handleMenuOpen}
+        color="inherit"
+      >
+        <CiSearch />
+      </IconButton>
+
+      <Menu
+        id="category-menu"
+        anchorEl={anchorEl}
+        open={Boolean(anchorEl)}
+        onClose={handleMenuClose}
+        className="max-h-96 w-72 md:w-96"
+      >
+        <p>Categories:</p>
+        {uniqueCategories.map((category) => (
+          <Link
+            to={{ pathname: `/${category}` }}
+            onClick={() => handleMenuClose()}
+            key={category}
+          >
+            <MenuItem key={category}>{category}</MenuItem>
+          </Link>
+        ))}
+        <p>Products:</p>
+        {filteredItems.map((item) => (
+          <Link
+            to={{ pathname: `/${item.type}` }}
+            onClick={handleMenuClose}
+            key={item.id}
+          >
+            <MenuItem>{item.title}</MenuItem>
+          </Link>
+        ))}
+      </Menu>
     </Search>
   );
-}
+};
+
+export default SearchAppBar;
