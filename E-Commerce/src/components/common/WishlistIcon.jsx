@@ -32,7 +32,7 @@ const WishlistIcon = ({ selectedProduct, style = "" }) => {
     <div>
       {" "}
       {isInWishlist ? (
-        <div className={`${style} bg-zinc-200 hover:bg-red-500 rounded-full`}>
+        <div className={`${style} bg-zinc-200 hover:bg-red-500  rounded-full`}>
           <IconButton onClick={handleDeleteFromWishlist} size="small">
             <svg
               className="w-8 h-8 p-1"

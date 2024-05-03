@@ -5,7 +5,7 @@ import ActiveLastBreadcrumb from "../components/common/Link";
 import RedButton from "../components/common/RedButton";
 import WishlistIcon from "../components/common/WishlistIcon";
 import { useCart } from "../context/CartContext";
-
+import i18n from "../components/common/LangConfig";
 const Product = () => {
   const { selectedProduct } = useContext(SelectedProductContext);
   const { handleIncrease, handleDecrease } = useCart();
@@ -187,7 +187,7 @@ const Product = () => {
                   </svg>
                 </button>
               </div>
-              <RedButton name="Buy Now" />
+              <RedButton name={i18n.t("redButtons.buyNow")} />
               <WishlistIcon selectedProduct={selectedProduct} />
             </div>
             <div className="border-2 border-gray-400 w-full h-44 flex flex-col py-6 mt-4 rounded">

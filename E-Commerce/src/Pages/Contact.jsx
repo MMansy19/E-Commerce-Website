@@ -1,6 +1,6 @@
 import ActiveLastBreadcrumb from "../components/common/Link";
 import RedButton from "../components/common/RedButton";
-
+import i18n from "../components/common/LangConfig";
 const Contact = () => {
   return (
     <div className="flex flex-col mx-4 md:ml-36 mt-48 gap-20">
@@ -91,7 +91,7 @@ const Contact = () => {
               className="min-h-[50px] h-[207px] rounded bg-gray-100 bg-opacity-100 px-4 py-3 text-gray-400 text-base focus:border outline-none focus:border-gray-300  "
             />
             <div className="ml-auto">
-              <RedButton name="Send Massage" />
+              <RedButton name={i18n.t("redButtons.sendMassage")} />
             </div>
           </div>
         </div>

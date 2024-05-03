@@ -5,6 +5,7 @@ import RedTitle from "../common/RedTitle";
 import Arrows from "../common/Arrows";
 import RedButton from "../common/RedButton";
 import calculateTimeLeft from "../common/calculateTimeLeft";
+import i18n from "../common/LangConfig";
 
 const FlashSale = ({ items }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -34,28 +35,30 @@ const FlashSale = ({ items }) => {
   return (
     <>
       <div className="py-12 px-4">
-        <RedTitle title="Today’s" />
+        <RedTitle title={i18n.t("homeSections.row2.0")} />
         <div className="flex md:justify-between items-center md:mr-6 md:mb-4">
           <div className="flex gap-20 flex-col md:flex-row ">
-            <h2 className="text-2xl md:text-3xl font-semibold ">Flash Sales</h2>
+            <h2 className="text-2xl md:text-3xl font-semibold ">
+              {i18n.t("homeSections.row2.1")}
+            </h2>
             <div className="font-inter font-bold text-2xl md:text-3xl relative">
               <span className="absolute text-xs font-poppins bottom-full left-0.5">
-                Days
+                {i18n.t("homeSections.row2.2")}
               </span>
               <span>{timeLeft.days}</span>
               <span className="text-red-400 mx-4">:</span>
               <span className="absolute text-xs font-poppins bottom-full left-1/4">
-                Hours
+                {i18n.t("homeSections.row2.3")}
               </span>
               <span>{timeLeft.hours}</span>
               <span className="text-red-400 mx-4">:</span>
               <span className="absolute text-xs font-poppins bottom-full left-1/2">
-                Minutes
+                {i18n.t("homeSections.row2.4")}
               </span>
               <span>{timeLeft.minutes}</span>
               <span className="text-red-400 mx-4">:</span>
               <span className="absolute text-xs font-poppins bottom-full left-3/4">
-                Seconds
+                {i18n.t("homeSections.row2.5")}
               </span>
               <span>{timeLeft.seconds}</span>
             </div>
@@ -83,7 +86,7 @@ const FlashSale = ({ items }) => {
         </div>
       </div>
       <div className="mt-8 flex justify-center">
-        <RedButton name="View All Products" />
+        <RedButton name={i18n.t("redButtons.viewAllProducts")} />
       </div>
       <hr className="mx-40 border-gray-300 md:mt-16" />
     </>

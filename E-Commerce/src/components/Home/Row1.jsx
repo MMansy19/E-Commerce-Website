@@ -1,21 +1,7 @@
-/* eslint-disable react/no-unescaped-entities */
-// import PaginationIndicator from "../common/PaginationIndicator";
-// import { useState } from "react";
+import i18n from "../common/LangConfig";
 import Product from "./Product";
 
 const Row1 = () => {
-  // const [startIndex, setStartIndex] = useState(0);
-
-  // const images = [
-  //   <Product key={1} />,
-  //   <Product key={2} />,
-  //   <Product key={3} />,
-  //   <Product key={4} />,
-  //   <Product key={3} />,
-  //   <Product key={2} />,
-  //   <Product key={4} />,
-  // ];
-
   return (
     <div className="flex flex-row  ">
       {/* Left Sidebar */}
@@ -23,31 +9,31 @@ const Row1 = () => {
         <nav className="py-6">
           <ul>
             <li className="px-4 py-2 cursor-pointer hover:underline hover:underline-offset-8   ease-in-out  duration-300 transform hover:translate-x-4">
-              Women's Fashion
+              {i18n.t("homeSections.row1.col1.0")}
             </li>
             <li className="px-4 py-2 cursor-pointer hover:underline hover:underline-offset-8   ease-in-out  duration-300 transform hover:translate-x-4">
-              Men's Fashion
+              {i18n.t("homeSections.row1.col1.1")}
             </li>
             <li className="px-4 py-2 cursor-pointer hover:underline hover:underline-offset-8   ease-in-out  duration-300 transform hover:translate-x-4">
-              Electronics
+              {i18n.t("homeSections.row1.col1.2")}
             </li>
             <li className="px-4 py-2 cursor-pointer hover:underline hover:underline-offset-8   ease-in-out  duration-300 transform hover:translate-x-4">
-              Home & Lifestyle
+              {i18n.t("homeSections.row1.col1.3")}
             </li>
             <li className="px-4 py-2 cursor-pointer hover:underline hover:underline-offset-8   ease-in-out  duration-300 transform hover:translate-x-4">
-              Medicine
+              {i18n.t("homeSections.row1.col1.4")}
             </li>
             <li className="px-4 py-2 cursor-pointer hover:underline hover:underline-offset-8   ease-in-out  duration-300 transform hover:translate-x-4">
-              Sports & Outdoor
+              {i18n.t("homeSections.row1.col1.5")}
             </li>
             <li className="px-4 py-2 cursor-pointer hover:underline hover:underline-offset-8   ease-in-out  duration-300 transform hover:translate-x-4">
-              Baby's & Toys
+              {i18n.t("homeSections.row1.col1.6")}
             </li>
             <li className="px-4 py-2 cursor-pointer hover:underline hover:underline-offset-8   ease-in-out  duration-300 transform hover:translate-x-4">
-              Groceries & Pets
+              {i18n.t("homeSections.row1.col1.7")}
             </li>
             <li className="px-4 py-2 cursor-pointer hover:underline hover:underline-offset-8   ease-in-out  duration-300 transform hover:translate-x-4">
-              Health & Beauty
+              {i18n.t("homeSections.row1.col1.8")}
             </li>
           </ul>
         </nav>
@@ -88,13 +74,13 @@ const Row1 = () => {
                 />
               </defs>
             </svg>
-            <h1 className="text-lg">iPhone 14 Series</h1>
+            <h1 className="text-lg">{i18n.t("homeSections.row1.col2.0")}</h1>
           </div>
           <h2 className="text-2xl md:text-5xl leading-10">
-            Up to 10% off Voucher
+            {i18n.t("homeSections.row1.col2.1")}
           </h2>
           <button className="mb-8 md:mb-0 flex gap-2 underline underline-offset-8 py-2 px-6 focus:underline-offset-2  ease-in-out  duration-300 transform hover:translate-x-4">
-            <span>Shop Now</span>
+            <span>{i18n.t("homeSections.row1.col2.2")}</span>
             <svg
               className="mt-1 "
               width="24"

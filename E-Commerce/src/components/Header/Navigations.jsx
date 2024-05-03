@@ -1,3 +1,4 @@
+import i18n from "../common/LangConfig";
 import { useState } from "react";
 import {
   Drawer,
@@ -21,10 +22,10 @@ const Navigations = () => {
 
   // Map routes to their corresponding labels
   const routes = [
-    { path: "/", label: "Home" },
-    { path: "/contact", label: "Contact" },
-    { path: "/about", label: "About" },
-    { path: "/signup", label: "Sign Up" },
+    { path: "/", label: i18n.t("home") },
+    { path: "/contact", label: i18n.t("contact") },
+    { path: "/about", label: i18n.t("about") },
+    { path: "/signup", label: i18n.t("signUp") },
   ];
 
   // Find the index of the current route
@@ -107,7 +108,8 @@ const Navigations = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  © 2024 Mahmoud Mansy. All rights reserved.
+                  © 2024 Mahmoud Mansy.
+                  {i18n.t("footer.allRightsReserved")}
                 </a>
               </footer>
             </motion.div>

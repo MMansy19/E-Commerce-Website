@@ -1,4 +1,5 @@
 /* eslint-disable react/prop-types */
+import i18n from "../common/LangConfig";
 import FlashSaleItem from "../common/FlashSaleItem";
 import RedTitle from "../common/RedTitle";
 import RedButton from "../common/RedButton";
@@ -29,7 +30,7 @@ const RelatedItems = ({ selectedProduct }) => {
         </div>
       </div>
       <div className="mt-8 flex justify-center">
-        <RedButton name="View All Products" />
+        <RedButton name={i18n.t("redButtons.viewAllProducts")} />
       </div>
     </>
   );

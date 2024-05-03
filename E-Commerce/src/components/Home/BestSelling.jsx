@@ -2,6 +2,7 @@ import FlashSaleItem from "../common/FlashSaleItem";
 import PropTypes from "prop-types";
 import RedTitle from "../common/RedTitle";
 import RedButton from "../common/RedButton";
+import i18n from "../common/LangConfig";
 
 const BestSelling = ({ items }) => {
   const sortedItems = items.sort(
@@ -11,12 +12,13 @@ const BestSelling = ({ items }) => {
   return (
     <>
       <div className="mx-2">
-        <RedTitle title="This Month" />
+        <RedTitle title={i18n.t("bestSelling.redTitle")} />
+
         <div className="flex md:justify-between items-center md:mr-6 md:mb-4">
           <h2 className="text-lg  md:text-3xl font-semibold ">
-            Best Selling Products
+            {i18n.t("bestSelling.title")}
           </h2>
-          <RedButton name="View All" />
+          <RedButton name={i18n.t("redButtons.viewAll")} />
           <div className="mb:24 absolute right-8 md:right-24"></div>
         </div>
         <div className="relative mt-10">

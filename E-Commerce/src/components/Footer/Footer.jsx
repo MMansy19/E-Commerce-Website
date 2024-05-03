@@ -1,5 +1,7 @@
 import { Container, Grid, Link, Typography } from "@mui/material";
 import QRCode from "./QRCode";
+import i18n from "../common/LangConfig";
+
 const Footer = () => {
   return (
     <footer className="bg-black text-white py-8 mt-24 bottom-0 w-full">
@@ -14,18 +16,16 @@ const Footer = () => {
         >
           <Grid item xs={12} sm={6} md={2.5} className="md:leading-5">
             <Typography className="font-bold" variant="h6" gutterBottom>
-              Exclusive
+              {i18n.t("footer.exclusive")}
             </Typography>
             <Typography className="font-medium" gutterBottom>
-              Subscribe
+              {i18n.t("footer.subscribe")}
             </Typography>
-            <Typography variant="body2">
-              Get 10% off your first order
-            </Typography>
+            <Typography variant="body2">{i18n.t("footer.offer")}</Typography>
             <div className=" mt-4 flex w-56	 py-2 px-3 border border-gray-300 rounded-md focus:outline-none focus:border-gray-500 bg-transparent text-white placeholder-gray-400">
               <input
                 type="email"
-                placeholder="Enter your email"
+                placeholder={i18n.t("footer.enterEmail")}
                 className="w-full py-2 px-3 rounded-md focus:outline-none focus:border-transparent bg-transparent text-white "
               />
               <button>
@@ -51,11 +51,9 @@ const Footer = () => {
           {/* Support */}
           <Grid item xs={12} sm={6} md={2.5} className="md:leading-10">
             <Typography variant="h6" gutterBottom>
-              Support
+              {i18n.t("footer.support")}
             </Typography>
-            <Typography gutterBottom>
-              111 Bijoy sarani, Dhaka, DH 1515, Bangladesh.
-            </Typography>
+            <Typography gutterBottom>{i18n.t("footer.address")}</Typography>
             <Typography variant="body2">exclusive@gmail.com</Typography>
             <Typography variant="body2">+88015-88888-9999</Typography>
           </Grid>
@@ -63,32 +61,32 @@ const Footer = () => {
           {/* Account */}
           <Grid item xs={12} sm={6} md={2} className="md:leading-10">
             <Typography variant="h6" gutterBottom>
-              Account
+              {i18n.t("footer.account")}
             </Typography>
             <ul className="list-none p-0">
               <li>
                 <Link href="#" sx={{ color: "white" }}>
-                  My Account
+                  {i18n.t("footer.myAccount")}
                 </Link>
               </li>
               <li>
                 <Link href="#" sx={{ color: "white" }}>
-                  Login / Register
+                  {i18n.t("footer.sign")}
                 </Link>
               </li>
               <li>
                 <Link href="#" sx={{ color: "white" }}>
-                  Cart
+                  {i18n.t("footer.cart")}
                 </Link>
               </li>
               <li>
                 <Link href="#" sx={{ color: "white" }}>
-                  Wishlist
+                  {i18n.t("footer.wishlist")}
                 </Link>
               </li>
               <li>
                 <Link href="#" sx={{ color: "white" }}>
-                  Shop
+                  {i18n.t("footer.shop")}
                 </Link>
               </li>
             </ul>
@@ -102,22 +100,22 @@ const Footer = () => {
             <ul className="list-none p-0">
               <li>
                 <Link href="#" sx={{ color: "white" }}>
-                  Privacy Policy
+                  {i18n.t("footer.privacy")}
                 </Link>
               </li>
               <li>
                 <Link href="#" sx={{ color: "white" }}>
-                  Terms Of Use
+                  {i18n.t("footer.usage")}
                 </Link>
               </li>
               <li>
                 <Link href="#" sx={{ color: "white" }}>
-                  FAQ
+                  {i18n.t("footer.FAQ")}
                 </Link>
               </li>
               <li>
                 <Link href="#" sx={{ color: "white" }}>
-                  Contact
+                  {i18n.t("footer.Contact")}
                 </Link>
               </li>
             </ul>
@@ -126,10 +124,10 @@ const Footer = () => {
           {/* Download App */}
           <Grid item xs={6} sm={6} md={2} className="md:leading-10">
             <Typography variant="h6" gutterBottom className="text-white">
-              Download App
+              {i18n.t("footer.downloadApp")}
             </Typography>
             <Typography variant="body2" gutterBottom className="text-gray-500 ">
-              Save $3 with App New User Only
+              {i18n.t("footer.save")}
             </Typography>
             <div className="flex flex-row gap-2 my-4">
               <QRCode />
@@ -325,7 +323,7 @@ const Footer = () => {
       {/* Copyright */}
       <hr className="w-full border-gray-800 my-4" />
       <Typography variant="body2" className=" text-center text-gray-600">
-        © Copyright Rimel 2022. All rights reserved
+        {i18n.t("footer.copyrights")}
       </Typography>
     </footer>
   );

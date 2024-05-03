@@ -4,6 +4,8 @@ import { useState } from "react";
 import RedTitle from "../common/RedTitle";
 import Arrows from "../common/Arrows";
 import RedButton from "../common/RedButton";
+import i18n from "../common/LangConfig";
+
 const AllProducts = ({ items }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
@@ -22,11 +24,11 @@ const AllProducts = ({ items }) => {
   return (
     <>
       <div className="py-12">
-        <RedTitle title="Our Products" />
+        <RedTitle title={i18n.t("allProducts.redTitle")} />
         <div className="flex md:justify-between items-center md:mr-6 md:mb-4">
           <div className="flex gap-20 flex-col md:flex-row ">
             <h2 className="text-2xl md:text-3xl font-semibold ">
-              Explore Our Products
+              {i18n.t("allProducts.title")}
             </h2>
           </div>
           <Arrows
@@ -50,7 +52,7 @@ const AllProducts = ({ items }) => {
         </div>
       </div>
       <div className="mt-8 flex justify-center">
-        <RedButton name="View All Products" />
+        <RedButton name={i18n.t("redButtons.viewAllProducts")} />
       </div>
     </>
   );

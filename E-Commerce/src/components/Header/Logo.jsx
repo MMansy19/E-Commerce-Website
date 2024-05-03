@@ -1,4 +1,5 @@
 import { Link } from "@mui/material";
+import i18n from "../common/LangConfig";
 
 const Logo = () => {
   return (
@@ -28,7 +29,7 @@ const Logo = () => {
           />
         </svg>
       </Link>
-      <h1 className="font-inter font-bold text-2xl ">Exclusive</h1>
+      <h1 className="font-inter font-bold text-2xl ">{i18n.t("exclusive")}</h1>
     </div>
   );
 };

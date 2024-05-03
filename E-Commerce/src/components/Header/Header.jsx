@@ -1,5 +1,4 @@
 // Header.jsx
-import React from "react";
 import Logo from "./Logo";
 import Navigations from "./Navigations";
 import Profile from "./Profile";

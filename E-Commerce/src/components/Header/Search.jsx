@@ -7,6 +7,7 @@ import { CiSearch } from "react-icons/ci";
 import Autocomplete from "@mui/material/Autocomplete";
 import TextField from "@mui/material/TextField";
 import { SelectedProductContext } from "../../context/SelectedProductContext";
+import i18n from "../common/LangConfig";
 
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
@@ -62,7 +63,7 @@ const SearchAppBar = () => {
         renderInput={(params) => (
           <TextField
             {...params}
-            placeholder="Search…"
+            placeholder={i18n.t("search")}
             onKeyDown={handleKeyDown}
             onChange={(event) => setSearchText(event.target.value)}
           />

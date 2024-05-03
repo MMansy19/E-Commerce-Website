@@ -1,7 +1,6 @@
 import { useState } from "react";
 import RedButton from "../components/common/RedButton";
-// import { functions } from "../Auth/firebase";
-
+import i18n from "../components/common/LangConfig";
 const Payment = () => {
   const [paymentInfo, setPaymentInfo] = useState({
     cardNumber: "",
@@ -82,9 +81,10 @@ const Payment = () => {
           />
         </div>
         {/* Place Order button */}
+        />
         <RedButton
-          name="Place Order"
-          // onClick={handlePayment}
+          name={i18n.t("redButtons.placeOrder")}
+          onClick={handlePayment}
         />
       </form>
     </div>

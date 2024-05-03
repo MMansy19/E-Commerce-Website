@@ -1,6 +1,7 @@
 import RedTitle from "../common/RedTitle";
 import PropTypes from "prop-types";
 import Arrows from "../common/Arrows";
+import i18n from "../common/LangConfig";
 
 const Category = ({ icon, name }) => (
   <div className="flex gap-4 items-center justify-center flex-col bg-white md:px-24 py-8 rounded-lg border border-gray-300 transition duration-300 hover:bg-cyan-400 hover:invert  hover:shadow-xl  ">
@@ -58,7 +59,7 @@ const CategoryList = () => {
           </defs>
         </svg>
       ),
-      name: "Phones",
+      name: i18n.t("category.categories.0"),
     },
     {
       icon: (
@@ -112,7 +113,7 @@ const CategoryList = () => {
           </defs>
         </svg>
       ),
-      name: "Computers",
+      name: i18n.t("category.categories.1"),
     },
     {
       icon: (
@@ -180,7 +181,7 @@ const CategoryList = () => {
           </defs>
         </svg>
       ),
-      name: "SmartWatch",
+      name: i18n.t("category.categories.2"),
     },
     {
       icon: (
@@ -214,7 +215,7 @@ const CategoryList = () => {
           </defs>
         </svg>
       ),
-      name: "Camera",
+      name: i18n.t("category.categories.3"),
     },
     {
       icon: (
@@ -255,7 +256,7 @@ const CategoryList = () => {
           </defs>
         </svg>
       ),
-      name: "HeadPhones",
+      name: i18n.t("category.categories.4"),
     },
     {
       icon: (
@@ -303,7 +304,7 @@ const CategoryList = () => {
           </defs>
         </svg>
       ),
-      name: "Gaming",
+      name: i18n.t("category.categories.5"),
     },
   ];
 
@@ -315,11 +316,11 @@ const CategoryList = () => {
 const Categories = () => {
   return (
     <div className="py-12 px-4">
-      <RedTitle title="Categories" />
+      <RedTitle title={i18n.t("category.redTitle")} />
       <div className="flex md:justify-between items-center md:mr-6 mb-12">
         <div className="flex gap-20 flex-col md:flex-row ">
           <h2 className="text-xl md:text-3xl font-semibold ">
-            Browse By Category
+            {i18n.t("category.title")}
           </h2>
         </div>
         <Arrows />

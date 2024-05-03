@@ -1,6 +1,6 @@
 // TopHeader.jsx
 import ChangeLang from "./ChangeLang";
-import i18n from "./LangConfig";
+import i18n from "../common/LangConfig";
 
 const TopHeader = () => {
   return (
@@ -17,4 +17,3 @@ const TopHeader = () => {
 };
 
 export default TopHeader;
-// TopHeader.jsx

@@ -1,3 +1,4 @@
+import i18n from "../components/common/LangConfig";
 import { useState, useEffect } from "react";
 import { useCart } from "../context/CartContext";
 import CheckoutCartItem from "../components/Checkout/CheckoutCartItem";
@@ -235,11 +236,11 @@ const Checkout = () => {
                 placeholder="Coupon Code"
                 className="border border-gray-900 rounded-md p-3  w-[170px] md:w-[280px]"
               />
-              <RedButton name="Apply Coupon" />
+              <RedButton name={i18n.t("redButtons.applyCoupon")} />
             </div>
             <div className="mr-auto">
               <Link to="/payment">
-                <RedButton name="Place Order" />
+                <RedButton name={i18n.t("redButtons.placeOrder")} />
               </Link>
             </div>
           </div>

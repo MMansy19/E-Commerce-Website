@@ -8,7 +8,9 @@ import { useCart } from "../../context/CartContext";
 import { useWishlist } from "../../context/WishlistContext";
 import { Link } from "react-router-dom";
 import { AuthContext, auth } from "../../Auth/firebase";
+import i18n from "../common/LangConfig";
 
+const headerIcons = i18n.t("headerIcons");
 const Profile = () => {
   const { cartItems } = useCart();
   const { wishlistItems } = useWishlist();
@@ -199,7 +201,7 @@ const Profile = () => {
                 strokeLinejoin="round"
               />
             </svg>
-            Manage My Account
+            {i18n.t("headerIcons.1")}
           </MenuItem>
         </Link>
         <MenuItem sx={{ display: "flex", gap: "16px" }} onClick={handleClose}>
@@ -224,7 +226,7 @@ const Profile = () => {
               strokeLinejoin="round"
             />
           </svg>
-          My Order
+          {i18n.t("headerIcons.2")}
         </MenuItem>
 
         <MenuItem sx={{ display: "flex", gap: "16px" }} onClick={handleClose}>
@@ -257,7 +259,7 @@ const Profile = () => {
               </clipPath>
             </defs>
           </svg>
-          My Cancellations
+          {i18n.t("headerIcons.3")}
         </MenuItem>
         <MenuItem sx={{ display: "flex", gap: "16px" }} onClick={handleClose}>
           <svg
@@ -273,7 +275,7 @@ const Profile = () => {
               strokeWidth="1.5"
             />
           </svg>
-          My Reviews
+          {i18n.t("headerIcons.4")}
         </MenuItem>
         <MenuItem sx={{ display: "flex", gap: "16px" }} onClick={handleLogout}>
           <svg
@@ -291,7 +293,7 @@ const Profile = () => {
               strokeLinejoin="round"
             />
           </svg>
-          Logout
+          {i18n.t("headerIcons.5")}
         </MenuItem>
       </Menu>
     </div>

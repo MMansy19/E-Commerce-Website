@@ -1,7 +1,6 @@
 // ChangeLang.jsx
-import React from "react";
 import { Select, MenuItem } from "@mui/material";
-import { useLang } from "./LangContext.jsx";
+import { useLang } from "../../context/LangContext.jsx";
 
 function ChangeLang() {
   const { lang, changeLanguage } = useLang();

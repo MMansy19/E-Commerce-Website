@@ -3,8 +3,8 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { CircularProgress } from "@mui/material"; // Import CircularProgress from MUI
 import Header from "./components/Header/Header.jsx";
 import TopHeader from "./components/TopHeader/TopHeader.jsx";
-import { LangProvider } from "./components/TopHeader/LangContext.jsx";
-import i18n from "./components/TopHeader/LangConfig.jsx";
+import { LangProvider } from "./context/LangContext";
+// import i18n from "./components/common/LangConfig";
 import Home from "./Pages/Home";
 import Wishlist from "./Pages/Wishlist.jsx";
 import Cart from "./Pages/Cart.jsx";
@@ -55,7 +55,10 @@ function App() {
   };
   return (
     <Router>
-      <div dir={i18n.t("dir")} className="font-poppins">
+      <div
+        //  dir={i18n.t("dir")}
+        className="font-poppins"
+      >
         <LangProvider>
           <SelectedProductProvider>
             <CartProvider>

@@ -1,5 +1,6 @@
 /* eslint-disable no-undef */
 /* eslint-disable react/prop-types */
+import i18n from "./LangConfig";
 import PropTypes from "prop-types";
 import { useState, useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
@@ -64,7 +65,7 @@ const FlashSaleItem = ({ item }) => {
               isInCart && "bg-red-500"
             }`}
           >
-            {isInCart ? "Remove from Cart" : "Add to Cart"}
+            {isInCart ? i18n.t("removeFromCart") : i18n.t("addToCart")}
           </button>
         )}
         {item.discount && (

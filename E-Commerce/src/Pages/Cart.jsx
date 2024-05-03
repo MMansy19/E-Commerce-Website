@@ -1,3 +1,4 @@
+import i18n from "../components/common/LangConfig";
 /* eslint-disable react/prop-types */
 import { useCart } from "../context/CartContext";
 import CartItem from "../components/Cart/CartItem";
@@ -46,7 +47,7 @@ const Cart = () => {
             placeholder="Coupon Code"
             className="border border-gray-900 rounded-md p-3 md:w-[300px] w-[140px] "
           />
-          <RedButton name="Apply Coupon" />
+          <RedButton name={i18n.t("redButtons.applyCoupon")} />
         </div>
 
         <div className="flex justify-between flex-col gap-6  border py-8 px-6 md:w-[470px]">
@@ -65,7 +66,7 @@ const Cart = () => {
           </div>{" "}
           <div className="mx-10">
             <Link to="/checkout">
-              <RedButton name="Process to checkout" />
+              <RedButton name={i18n.t("redButtons.processToCheckout")} />
             </Link>
           </div>
         </div>
