@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { useState, useEffect } from "react";
 import RedTitle from "../common/RedTitle";
 import Arrows from "../common/Arrows";
-import RedButton from "../common/RedButton";
+import ViewAll from "../common/ViewAll";
 import calculateTimeLeft from "../common/calculateTimeLeft";
 import i18n from "../common/LangConfig";
 
@@ -86,7 +86,7 @@ const FlashSale = ({ items }) => {
         </div>
       </div>
       <div className="mt-8 flex justify-center">
-        <RedButton name={i18n.t("redButtons.viewAllProducts")} />
+        <ViewAll name={i18n.t("redButtons.viewAllProducts")} />
       </div>
       <hr className="mx-40 border-gray-300 md:mt-16" />
     </>

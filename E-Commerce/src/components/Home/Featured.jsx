@@ -1,10 +1,29 @@
 import RedTitle from "../common/RedTitle";
-import playstationImage from "../../assets/custom/playstation.svg";
-import speakersImage from "../../assets/custom/speakers.svg";
-import perfumeImage from "../../assets/custom/perfume.svg";
 import i18n from "../common/LangConfig";
+import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { SelectedProductContext } from "../../context/SelectedProductContext";
+import { ITEMS } from "../common/items";
 
 const Featured = () => {
+  const { setSelectedProduct } = useContext(SelectedProductContext);
+  const handleProductClick = (itemClicked) => {
+    setSelectedProduct(itemClicked);
+  };
+
+  const playstationItem = ITEMS.find(
+    (item) => item.title === i18n.t("itemsArray.18.title")
+  );
+  const womenCollectionsItem = ITEMS.find(
+    (item) => item.title === i18n.t("itemsArray.20.title")
+  );
+  const speakersItem = ITEMS.find(
+    (item) => item.title === i18n.t("itemsArray.19.title")
+  );
+  const perfumesItem = ITEMS.find(
+    (item) => item.title === i18n.t("itemsArray.16.title")
+  );
+
   return (
     <div className="flex flex-col my-36">
       <RedTitle title={i18n.t("featured.redTitle")} />
@@ -15,11 +34,17 @@ const Featured = () => {
         <div className="bg-black rounded md:pt-12 md:px-8 md:h-[600px] md:w-[570px]">
           <div className=" text-white relative flex gap-10  md:mt-10 items-center justify-center flex-col-reverse md:flex-row md:w-[511px] md:h-[511px] sm:h-[500px] h-[380px]">
             <div className="absolute inset-0 z-0 bg-no-repeat bg-center bg-cover">
-              <img
-                src={playstationImage}
-                alt="PlayStation 5"
-                className="w-full h-full"
-              />
+              <Link
+                to={{ pathname: `/${playstationItem.title}` }}
+                onClick={() => handleProductClick()}
+                key={playstationItem.id}
+              >
+                <img
+                  className="w-full h-full"
+                  src={playstationItem.imageSrc}
+                  alt={playstationItem.title}
+                />
+              </Link>
             </div>
             <div className="flex transform flex-col gap-4 mt-auto mr-auto w-[270px] mb-8  items-center md:items-start justify-end">
               <h2 className=" text-center md:text-start text-lg md:text-2xl font-semibold font-inter">
@@ -51,20 +76,32 @@ const Featured = () => {
           </div>
         </div>
         <div className="flex flex-col gap-8">
-          <div className="bg-black rounded md:pt-12 md:px-6 md:h-[284px] md:w-[570px]">
-            <div className=" text-white relative flex gap-10  md:mt-16 items-center justify-center flex-col-reverse md:flex-row">
-              <div className="absolute inset-0 z-0 bg-no-repeat bg-center bg-cover"></div>
-              <div className="flex transform flex-col gap-4 mt-auto mr-auto w-[270px]">
-                <h2 className=" text-center md:text-start text-lg md:text-2xl font-semibold font-inter">
+          <div className="bg-black rounded md:h-[284px] md:w-[570px]">
+            <div className="text-white relative flex items-center justify-center flex-col-reverse md:flex-row w-full h-full">
+              <div className="overflow-hidden absolute bg-no-repeat bg-center bg-cover transition-transform duration-300 transform hover:scale-105 p-10">
+                <Link
+                  to={{ pathname: `/${womenCollectionsItem.title}` }}
+                  onClick={() => handleProductClick()}
+                  key={womenCollectionsItem.id}
+                >
+                  <img
+                    className="w-full h-full object-cover opacity-80"
+                    src={womenCollectionsItem.imageSrc}
+                    alt={womenCollectionsItem.title}
+                  />
+                </Link>
+              </div>
+              <div className="flex transform flex-col gap-4 mt-auto mr-auto pl-5 w-[270px]">
+                <h2 className="text-center md:text-start text-lg md:text-2xl font-semibold font-inter">
                   {i18n.t("featured.WomenCollections.title")}
                 </h2>
-                <p className=" text-center md:text-start text-sm ">
+                <p className="text-center md:text-start text-sm">
                   {i18n.t("featured.WomenCollections.description")}
                 </p>
-                <button className="mb-6 md:mb-0 flex gap-2 underline underline-offset-8 py-2  focus:underline-offset-2  ease-in-out  duration-300 transform hover:translate-x-4">
-                  <span> {i18n.t("featured.shopNow")}</span>
+                <button className="mb-6 md:mb-0 flex gap-2 underline underline-offset-8 py-2 focus:underline-offset-2 ease-in-out duration-300 transform hover:translate-x-4">
+                  <span>{i18n.t("featured.shopNow")}</span>
                   <svg
-                    className="mt-1 "
+                    className="mt-1"
                     width="24"
                     height="24"
                     viewBox="0 0 24 24"
@@ -88,11 +125,17 @@ const Featured = () => {
             <div className="bg-black rounded md:px-6 md:h-[284px] md:w-[270px]">
               <div className=" text-white relative flex gap-10  md:mt-10 items-center justify-center flex-col-reverse md:flex-row  md:h-[221px] ">
                 <div className="absolute inset-0 z-0 bg-no-repeat bg-center bg-cover transition-transform duration-300 transform hover:scale-105">
-                  <img
-                    src={speakersImage}
-                    alt="PlayStation 5"
-                    className="w-full h-full"
-                  />
+                  <Link
+                    to={{ pathname: `/${speakersItem.title}` }}
+                    onClick={() => handleProductClick()}
+                    key={speakersItem.id}
+                  >
+                    <img
+                      className="w-full h-full opacity-80"
+                      src={speakersItem.imageSrc}
+                      alt={speakersItem.title}
+                    />
+                  </Link>
                 </div>
                 <div className="flex transform flex-col gap-2 md:mt-auto mr-auto w-[270px]  items-center md:items-start justify-end">
                   <h2 className=" text-center md:text-start text-lg md:text-2xl font-semibold font-inter">
@@ -126,11 +169,17 @@ const Featured = () => {
             <div className="bg-black rounded  md:px-6 md:h-[284px] md:w-[270px]">
               <div className=" text-white relative flex gap-10  md:mt-10 items-center justify-center flex-col-reverse md:flex-row  md:h-[221px]">
                 <div className="absolute inset-0 z-0 bg-no-repeat bg-center bg-cover transition-transform duration-300 transform hover:scale-105">
-                  <img
-                    src={perfumeImage}
-                    alt="PlayStation 5"
-                    className="w-full h-full"
-                  />
+                  <Link
+                    to={{ pathname: `/${perfumesItem.title}` }}
+                    onClick={() => handleProductClick()}
+                    key={perfumesItem.id}
+                  >
+                    <img
+                      className="w-full h-full opacity-80"
+                      src={perfumesItem.imageSrc}
+                      alt={perfumesItem.title}
+                    />
+                  </Link>
                 </div>
                 <div className="flex transform flex-col gap-2 md:mt-auto mr-auto w-[270px]  items-center md:items-start justify-end">
                   <h2 className=" text-center md:text-start text-lg md:text-2xl font-semibold font-inter">

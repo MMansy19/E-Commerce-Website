@@ -1,6 +1,8 @@
 import ActiveLastBreadcrumb from "../components/common/Link";
 import RedButton from "../components/common/RedButton";
 import i18n from "../components/common/LangConfig";
+import { Link } from "@mui/material";
+
 const NotFound = () => {
   return (
     <div className="flex flex-col justify-around items-start my-48 mx-40 ">
@@ -12,7 +14,9 @@ const NotFound = () => {
             Your visited page not found. You may go home page.
           </h6>
         </div>
-        <RedButton name={i18n.t("redButtons.backToHomePage")} />
+        <Link href="/">
+          <RedButton name={i18n.t("redButtons.backToHomePage")} />
+        </Link>
       </div>
     </div>
   );

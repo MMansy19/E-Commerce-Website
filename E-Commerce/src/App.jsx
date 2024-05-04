@@ -16,7 +16,7 @@ import About from "./Pages/About";
 import SignUp from "./Pages/SignUp";
 import LogIn from "./Pages/LogIn";
 import Product from "./Pages/Product";
-// import Category from "./Pages/Category";
+import AllProducts from "./Pages/AllProducts";
 import NotFound from "./Pages/NotFound";
 import Footer from "./components/Footer/Footer";
 import { CartProvider } from "./context/CartContext";
@@ -78,8 +78,8 @@ function App() {
                       <Route path="/cart" element={<Cart />} />
                       <Route path="/checkout" element={<Checkout />} />
                       <Route path="/payment" element={<Payment />} />
+                      <Route path="/allProducts" element={<AllProducts />} />
                       <Route path="/:title" element={<Product />} />
-                      {/* <Route path="/:type" element={<Category />} /> */}
                       <Route path="/*" element={<NotFound />} />
                     </Routes>
                     <Footer />

@@ -1,7 +1,19 @@
 import i18n from "../common/LangConfig";
-import Product from "./Product";
+import { useContext } from "react";
+import { Link } from "react-router-dom";
+import { SelectedProductContext } from "../../context/SelectedProductContext";
+import { ITEMS } from "../common/items";
 
 const Row1 = () => {
+  const { setSelectedProduct } = useContext(SelectedProductContext);
+  const handleProductClick = () => {
+    setSelectedProduct(dealItem);
+  };
+
+  const dealItem = ITEMS.find(
+    (item) => item.title === i18n.t("itemsArray.17.title")
+  );
+
   return (
     <div className="flex flex-row  ">
       {/* Left Sidebar */}
@@ -105,7 +117,13 @@ const Row1 = () => {
             className="transition-transform duration-300 transform hover:translate-y-1 hover:scale-105"
             // key={index}
           >
-            <Product />
+            <Link
+              to={{ pathname: `/${dealItem.title}` }}
+              onClick={() => handleProductClick()}
+              key={dealItem.id}
+            >
+              <img src={dealItem.imageSrc} alt={dealItem.title} />
+            </Link>
           </div>
           {/* ))} */}
           {/* <PaginationIndicator onClick={setStartIndex} data={images} /> */}

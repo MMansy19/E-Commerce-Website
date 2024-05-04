@@ -1,11 +1,22 @@
-import { useState, useEffect } from "react";
 import calculateTimeLeft from "../common/calculateTimeLeft";
-import dealImage from "../../assets/custom/JBL_BOOMBOX.svg";
 import i18n from "../common/LangConfig";
+import { useState, useContext, useEffect } from "react";
+import { Link } from "react-router-dom";
+import { SelectedProductContext } from "../../context/SelectedProductContext";
+import { ITEMS } from "../common/items";
 
 const Deal = () => {
   const [timeLeft, setTimeLeft] = useState(
     calculateTimeLeft(new Date("2024-05-27T00:00:00"))
+  );
+
+  const { setSelectedProduct } = useContext(SelectedProductContext);
+  const handleProductClick = () => {
+    setSelectedProduct(dealItem);
+  };
+
+  const dealItem = ITEMS.find(
+    (item) => item.title === i18n.t("itemsArray.15.title")
   );
 
   useEffect(() => {
@@ -49,12 +60,24 @@ const Deal = () => {
             </span>
           </div>
         </div>
-        <button className="bg-green  mb-8 py-4 px-12 rounded  ease-in-out  duration-300 transform hover:scale-105">
-          <span> {i18n.t("deal.buyNow")}</span>
-        </button>
+        <Link
+          to={{ pathname: `/${dealItem.title}` }}
+          onClick={() => handleProductClick()}
+          key={dealItem.id}
+        >
+          <button className="bg-green  mb-8 py-4 px-12 rounded  ease-in-out  duration-300 transform hover:scale-105">
+            <span> {i18n.t("deal.buyNow")}</span>
+          </button>
+        </Link>
       </div>
       <div className="mt-4 transition-transform duration-300 transform hover:translate-y-1 hover:scale-105">
-        <img src={dealImage} alt="JBL_BOOMBOX" />
+        <Link
+          to={{ pathname: `/${dealItem.title}` }}
+          onClick={() => handleProductClick()}
+          key={dealItem.id}
+        >
+          <img src={dealItem.imageSrc} alt={dealItem.title} />
+        </Link>
       </div>
     </div>
   );

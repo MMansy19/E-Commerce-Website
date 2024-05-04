@@ -2,7 +2,7 @@
 import i18n from "../common/LangConfig";
 import FlashSaleItem from "../common/FlashSaleItem";
 import RedTitle from "../common/RedTitle";
-import RedButton from "../common/RedButton";
+import ViewAll from "../common/ViewAll";
 import { ITEMS } from "../common/items";
 const RelatedItems = ({ selectedProduct }) => {
   const relatedItems = ITEMS.filter(
@@ -14,8 +14,8 @@ const RelatedItems = ({ selectedProduct }) => {
     <>
       <div className="mx-auto md:mx-2">
         <RedTitle title="Related Items" />
-        <div className="relative mt-10">
-          <div className="flex flex-col md:flex-row gap-2 md:gap-8 overflow-x-hidden hover:overflow-x-auto md:hover:overflow-x-hidden  transition-transform duration-300 transform  focus:outline-none ">
+        <div className="relative mt-10 flex flex-row gap-2 md:gap-12 overflow-x-hidden transition-transform duration-300 transform focus:outline-none">
+          <div className="grid grid-rows-2 mx-auto md:grid-cols-4 gap-2 md:gap-12">
             {relatedItems.map((item, index) => (
               <FlashSaleItem
                 key={item.title}
@@ -30,7 +30,7 @@ const RelatedItems = ({ selectedProduct }) => {
         </div>
       </div>
       <div className="mt-8 flex justify-center">
-        <RedButton name={i18n.t("redButtons.viewAllProducts")} />
+        <ViewAll name={i18n.t("redButtons.viewAllProducts")} />
       </div>
     </>
   );

@@ -6,25 +6,16 @@ import RedButton from "../components/common/RedButton";
 import WishlistIcon from "../components/common/WishlistIcon";
 import { useCart } from "../context/CartContext";
 import i18n from "../components/common/LangConfig";
+import { Link } from "react-router-dom";
+
 const Product = () => {
   const { selectedProduct } = useContext(SelectedProductContext);
   const { handleIncrease, handleDecrease } = useCart();
-  // const [isLoaded, setIsLoaded] = useState(false);
   const [quantity, setQuantity] = useState(0);
 
   useEffect(() => {
     setQuantity(selectedProduct.quantity);
   }, [selectedProduct.quantity]);
-
-  // useEffect(() => {
-  //   const timer = setTimeout(() => {
-  //     setIsLoaded(true);
-  //   }, 1000);
-
-  //   return () => clearTimeout(timer);
-  // }, []);
-
-  // handleDecrease and handleIncrease remain the same
 
   const handleDecreaseFunc = () => {
     handleDecrease(selectedProduct); // Call handleDecrease with selectedProduct
@@ -57,36 +48,37 @@ const Product = () => {
 
   return (
     <div className="flex flex-col mx-4 md:mx-32 mt-48">
-      {/* {isLoaded && selectedProduct ? ( */}
       <div className="mx-auto  flex flex-col gap-10">
         <ActiveLastBreadcrumb
-          path={`Account/${selectedProduct.type}/${selectedProduct.title}`}
+          path={`${i18n.t("footer.myAccount")}/${selectedProduct.type}/${
+            selectedProduct.title
+          }`}
         />
         <div className="flex flex-col md:flex-row  gap-16">
-          <div className="flex flex-col md:flex-row gap-8">
-            <div className="hidden md:flex flex-col gap-4">
-              <div className="relative  flex items-center justify-center bg-zinc-100 w-[270px] rounded md:pt-12 md:p-8 md:h-[138px] md:w-[170px]">
+          <div className="flex flex-col-reverse md:flex-row gap-8">
+            <div className="flex  flex-row md:flex-col gap-4">
+              <div className="relative  flex items-center justify-center bg-zinc-100  rounded md:pt-12 md:p-8 md:h-[138px] md:w-[170px]">
                 <img
                   src={selectedProduct.imageSrc}
                   alt={selectedProduct.title}
                   className="transform transition-transform duration-300 hover:scale-105 focus:outline-none w-full h-full"
                 />
               </div>
-              <div className="relative  flex items-center justify-center bg-zinc-100 w-[270px] rounded md:pt-12 md:p-8 md:h-[138px] md:w-[170px]">
+              <div className="relative  flex items-center justify-center bg-zinc-100  rounded md:pt-12 md:p-8 md:h-[138px] md:w-[170px]">
                 <img
                   src={selectedProduct.imageSrc}
                   alt={selectedProduct.title}
                   className="transform transition-transform duration-300 hover:scale-105 focus:outline-none w-full h-full  "
                 />
               </div>
-              <div className="relative  flex items-center justify-center bg-zinc-100 w-[270px] rounded md:pt-12 md:p-8 md:h-[138px] md:w-[170px]">
+              <div className="relative  flex items-center justify-center bg-zinc-100  rounded md:pt-12 md:p-8 md:h-[138px] md:w-[170px]">
                 <img
                   src={selectedProduct.imageSrc}
                   alt={selectedProduct.title}
-                  className="transform transition-transform duration-300 hover:scale-105 focus:outline-none w-full h-full  "
+                  className="transform transition-transform duration-300 hover:scale-105 focus:outline-none w-full h-full"
                 />
               </div>
-              <div className="relative  flex items-center justify-center bg-zinc-100 w-[270px] rounded md:pt-12 md:p-8 md:h-[138px] md:w-[170px]">
+              <div className="relative  flex items-center justify-center bg-zinc-100  rounded md:pt-12 md:p-8 md:h-[138px] md:w-[170px]">
                 <img
                   src={selectedProduct.imageSrc}
                   alt={selectedProduct.title}
@@ -98,7 +90,7 @@ const Product = () => {
               <img
                 src={selectedProduct.imageSrc}
                 alt={selectedProduct.title}
-                className="transform transition-transform duration-300 hover:scale-105 focus:outline-none w-full h-full  "
+                className="transform transition-transform duration-300 hover:scale-105 focus:outline-none w-full max-h-full "
               />
             </div>
           </div>
@@ -187,7 +179,15 @@ const Product = () => {
                   </svg>
                 </button>
               </div>
-              <RedButton name={i18n.t("redButtons.buyNow")} />
+
+              {quantity === 0 ? (
+                <RedButton name={i18n.t("redButtons.buyNow")} disabled={true} />
+              ) : (
+                <Link to="/checkout">
+                  <RedButton name={i18n.t("redButtons.buyNow")} />
+                </Link>
+              )}
+
               <WishlistIcon selectedProduct={selectedProduct} />
             </div>
             <div className="border-2 border-gray-400 w-full h-44 flex flex-col py-6 mt-4 rounded">
@@ -307,11 +307,6 @@ const Product = () => {
         </div>
         <RelatedItems selectedProduct={selectedProduct} />
       </div>
-      {/* ) : (
-        <div className="flex justify-center items-center h-96">
-          <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-gray-900"></div>
-        </div>
-      )} */}
     </div>
   );
 };

@@ -73,6 +73,11 @@ const FlashSaleItem = ({ item }) => {
             -{item.discount}%
           </div>
         )}
+        {item.state && (
+          <div className="absolute top-0 left-0 bg-green text-white py-1 px-3 m-2 rounded">
+            {i18n.t("itemsArray.18.type")}
+          </div>
+        )}
         <Link
           to={{ pathname: `/${item.title}` }}
           onClick={() => handleProductClick()}

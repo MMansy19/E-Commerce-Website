@@ -1,7 +1,7 @@
 import FlashSaleItem from "../common/FlashSaleItem";
 import PropTypes from "prop-types";
 import RedTitle from "../common/RedTitle";
-import RedButton from "../common/RedButton";
+import ViewAll from "../common/ViewAll";
 import i18n from "../common/LangConfig";
 
 const BestSelling = ({ items }) => {
@@ -18,7 +18,7 @@ const BestSelling = ({ items }) => {
           <h2 className="text-lg  md:text-3xl font-semibold ">
             {i18n.t("bestSelling.title")}
           </h2>
-          <RedButton name={i18n.t("redButtons.viewAll")} />
+          <ViewAll name={i18n.t("redButtons.viewAll")} />
           <div className="mb:24 absolute right-8 md:right-24"></div>
         </div>
         <div className="relative mt-10">

@@ -11,14 +11,34 @@ import i18n from "../common/LangConfig";
 
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
-  borderRadius: theme.shape.borderRadius,
-  backgroundColor: alpha(theme.palette.grey[300], 0.15),
+  backgroundColor: alpha(theme.palette.grey[300], 0.3),
   "&:hover": {
-    backgroundColor: alpha(theme.palette.grey[300], 0.25),
+    backgroundColor: alpha(theme.palette.grey[300], 0.6),
   },
-  width: "100%",
-  [theme.breakpoints.up("sm")]: {
-    width: "auto",
+  flex: 1,
+  maxWidth: "400px",
+  borderRadius: theme.shape.borderRadius,
+  display: "flex",
+  alignItems: "center",
+  "& .MuiAutocomplete-root": {
+    flex: 1,
+    "& .MuiInputBase-root": {
+      borderRadius: "10",
+      backgroundColor: "transparent",
+      "& .MuiInputBase-input": {
+        borderRadius: "10",
+        fontSize: "0.9rem", // Default font size for input
+        [theme.breakpoints.down("sm")]: {
+          fontSize: "0.8rem", // Smaller font size for mobile
+        },
+      },
+    },
+  },
+  "& .MuiIconButton-root": {
+    "&:hover": {
+      backgroundColor: "rgba(219, 68, 68, .9)",
+      color: "white",
+    },
   },
 }));
 
@@ -51,9 +71,9 @@ const SearchAppBar = () => {
   };
 
   return (
-    <Search className="flex md:pl-2 md:px-6">
+    <Search className="flex items-center justify-center ">
       <Autocomplete
-        className="w-36 md:w-96 "
+        className="w-40 md:w-96"
         freeSolo
         disableClearable
         disableListWrap

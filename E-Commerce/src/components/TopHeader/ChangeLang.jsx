@@ -18,7 +18,7 @@ function ChangeLang() {
     setTimeout(() => {
       setLoading(false); // Hide loading indicator
       setSnackbarOpen(true); // Open Snackbar when language changes
-    }, 2000);
+    }, 4000);
   };
 
   const handleCloseSnackbar = () => {
@@ -36,6 +36,25 @@ function ChangeLang() {
   };
   return (
     <div>
+      {loading ? (
+        <CircularProgress
+          sx={{
+            color: "white",
+            width: "20px !important",
+            height: "20px !important",
+          }}
+        />
+      ) : (
+        <Snackbar
+          open={snackbarOpen}
+          autoHideDuration={4000}
+          onClose={handleCloseSnackbar}
+        >
+          <Alert severity={"success"} sx={{ width: "100%" }}>
+            {handleMassage()}
+          </Alert>
+        </Snackbar>
+      )}
       <Select
         sx={{
           "& .MuiSelect-select": {
@@ -50,20 +69,6 @@ function ChangeLang() {
         <MenuItem value="gr">German(Deutsch)</MenuItem>
         <MenuItem value="ar">Arabic(العربية)</MenuItem>
       </Select>
-
-      {loading ? (
-        <CircularProgress />
-      ) : (
-        <Snackbar
-          open={snackbarOpen}
-          autoHideDuration={4000}
-          onClose={handleCloseSnackbar}
-        >
-          <Alert severity={"success"} sx={{ width: "100%" }}>
-            {handleMassage()}
-          </Alert>
-        </Snackbar>
-      )}
     </div>
   );
 }

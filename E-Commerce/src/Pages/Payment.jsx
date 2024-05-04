@@ -1,6 +1,8 @@
 import { useState } from "react";
 import RedButton from "../components/common/RedButton";
 import i18n from "../components/common/LangConfig";
+import { Link } from "@mui/material";
+// import { functions } from "../firebase";
 const Payment = () => {
   const [paymentInfo, setPaymentInfo] = useState({
     cardNumber: "",
@@ -81,11 +83,12 @@ const Payment = () => {
           />
         </div>
         {/* Place Order button */}
-        />
-        <RedButton
-          name={i18n.t("redButtons.placeOrder")}
-          onClick={handlePayment}
-        />
+        <Link href="/">
+          <RedButton
+            name={i18n.t("redButtons.placeOrder")}
+            // onClick={handlePayment}
+          />
+        </Link>
       </form>
     </div>
   );

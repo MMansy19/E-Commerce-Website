@@ -1,26 +1,11 @@
 import FlashSaleItem from "../common/FlashSaleItem";
 import PropTypes from "prop-types";
-import { useState } from "react";
 import RedTitle from "../common/RedTitle";
 import Arrows from "../common/Arrows";
-import RedButton from "../common/RedButton";
+import ViewAll from "../common/ViewAll";
 import i18n from "../common/LangConfig";
 
 const AllProducts = ({ items }) => {
-  const [currentIndex, setCurrentIndex] = useState(0);
-
-  // Function to handle next item navigation
-  const handleNextItem = () => {
-    setCurrentIndex((prevIndex) => (prevIndex + 1) % items.length);
-  };
-
-  // Function to handle previous item navigation
-  const handlePrevItem = () => {
-    setCurrentIndex(
-      (prevIndex) => (prevIndex - 1 + items.length) % items.length
-    );
-  };
-
   return (
     <>
       <div className="py-12">
@@ -31,10 +16,7 @@ const AllProducts = ({ items }) => {
               {i18n.t("allProducts.title")}
             </h2>
           </div>
-          <Arrows
-            handlePrevItem={handlePrevItem}
-            handleNextItem={handleNextItem}
-          />
+          <Arrows />
         </div>
         <div className="relative mt-10 flex flex-row gap-2 md:gap-12 overflow-x-hidden transition-transform duration-300 transform focus:outline-none">
           <div className="grid grid-rows-2 mx-auto md:grid-cols-4 gap-2 md:gap-12">
@@ -52,7 +34,7 @@ const AllProducts = ({ items }) => {
         </div>
       </div>
       <div className="mt-8 flex justify-center">
-        <RedButton name={i18n.t("redButtons.viewAllProducts")} />
+        <ViewAll name={i18n.t("redButtons.viewAllProducts")} />
       </div>
     </>
   );

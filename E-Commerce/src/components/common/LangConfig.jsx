@@ -1,9 +1,6 @@
 // LangConfig.jsx
 import i18n from "i18next";
 import { initReactI18next } from "react-i18next";
-import Categories from "../Home/Categories";
-import BestSelling from "../Home/BestSelling";
-import { green } from "@mui/material/colors";
 
 // Initialize language
 const savedLang = localStorage.getItem("lang");
@@ -59,6 +56,7 @@ const resources = {
         },
         1: {
           title: "CANON EOS DSLR Camera",
+          type: "Electronics",
           details:
             "Capture stunning photos and videos with this professional-grade Canon DSLR camera, perfect for photography enthusiasts.",
         },
@@ -139,6 +137,47 @@ const resources = {
           type: "Clothes",
           details:
             "Relax in comfort with the S-Series comfort chair, featuring ergonomic design and plush cushioning for long hours of sitting.",
+        },
+        15: {
+          title: "JBL Boombox 2",
+          type: "new arrival",
+          details:
+            "Experience powerful sound with the JBL Boombox 2, featuring a rugged design and long battery life for all-day listening.",
+        },
+        16: {
+          title: "perfume",
+          type: "new arrival",
+          details:
+            "This perfume is a blend of oud, rose, and incense, creating a rich and luxurious scent that lasts all day.",
+        },
+        17: {
+          title: "Phone",
+          type: "new arrival",
+          details:
+            "This phone features a large display, powerful processor, and long battery life, perfect for work and play.",
+        },
+        18: {
+          title: "PlayStation 5",
+          type: "new arrival",
+          details:
+            "The black and white version of the PS5 is coming out on sale.",
+        },
+        19: {
+          title: "Speaker",
+          type: "new arrival",
+          details: "Amazing sound quality with the Amazon wireless speaker.",
+        },
+        20: {
+          title: "Women's Collections",
+          type: "new arrival",
+          details:
+            "Women's collections are featured that give you another vibe, and you can find the best collections here.",
+        },
+        21: {
+          title: "Football Shoes",
+          type: "new arrival",
+          details:
+            "The best football shoes for your game, and you can find the best collections here.",
         },
       },
       services: {
@@ -302,6 +341,7 @@ const resources = {
         },
         1: {
           title: "CANON EOS DSLR Kamera",
+          type: "Elektronik",
           details:
             "Machen Sie atemberaubende Fotos und Videos mit dieser professionellen Canon DSLR-Kamera, perfekt für Fotoliebhaber.",
         },
@@ -382,6 +422,47 @@ const resources = {
           type: "Kleidung",
           details:
             "Entspannen Sie sich in Komfort mit dem S-Serie Komfortstuhl, der ein ergonomisches Design und weiche Polsterung für stundenlanges Sitzen bietet.",
+        },
+        15: {
+          title: "JBL Boombox 2",
+          type: "Neuankömmling",
+          details:
+            "Erleben Sie kraftvollen Sound mit dem JBL Boombox 2, der ein robustes Design und eine lange Akkulaufzeit für ganztägiges Hören bietet.",
+        },
+        16: {
+          title: "Parfüm",
+          type: "Neuankömmling",
+          details:
+            "Dieses Parfüm ist eine Mischung aus Oud, Rose und Weihrauch und kreiert einen reichen und luxuriösen Duft, der den ganzen Tag hält.",
+        },
+        17: {
+          title: "Telefon",
+          type: "Neuankömmling",
+          details:
+            "Dieses Telefon verfügt über ein großes Display, einen leistungsstarken Prozessor und eine lange Akkulaufzeit, ideal für Arbeit und Spiel.",
+        },
+        18: {
+          title: "PlayStation 5",
+          type: "Neuankömmling",
+          details: "Die schwarz-weiße Version der PS5 kommt in den Verkauf.",
+        },
+        19: {
+          title: "Lautsprecher",
+          type: "Neuankömmling",
+          details:
+            "Erstaunliche Klangqualität mit dem Amazon Wireless-Lautsprecher.",
+        },
+        20: {
+          title: "Frauenkollektionen",
+          type: "Neuankömmling",
+          details:
+            "Frauenkollektionen sind vorgestellt, die Ihnen eine andere Stimmung verleihen, und Sie finden die besten Kollektionen hier.",
+        },
+        21: {
+          title: "Fußballschuhe",
+          type: "Neuankömmling",
+          details:
+            "Die besten Fußballschuhe für Ihr Spiel, und Sie finden die besten Kollektionen hier.",
         },
       },
       services: {
@@ -535,6 +616,7 @@ const resources = {
         },
         1: {
           title: "كاميرا CANON EOS DSLR",
+          type: "الإلكترونيات",
           details:
             "التقاط صور وفيديوهات مذهلة بهذه الكاميرا الاحترافية من كانون DSLR، مثالية لهواة التصوير.",
         },
@@ -615,6 +697,46 @@ const resources = {
           type: "ملابس",
           details:
             "استرخ في راحة مع كرسي الراحة من السلسلة S، الذي يتميز بتصميم مريح ووسادة ناعمة لساعات طويلة من الجلوس.",
+        },
+        15: {
+          title: "JBL Boombox 2",
+          type: "جديد",
+          details:
+            "استمع إلى صوت قوي مع JBL Boombox 2، الذي يتميز بتصميم قوي وعمر بطارية طويل للاستماع طوال اليوم.",
+        },
+        16: {
+          title: "عطر",
+          type: "جديد",
+          details:
+            "هذا العطر هو مزيج من العود والورد واللبان، مما يخلق رائحة غنية وفاخرة تدوم طوال اليوم.",
+        },
+        17: {
+          title: "هاتف",
+          type: "جديد",
+          details:
+            "يتميز هذا الهاتف بشاشة كبيرة ومعالج قوي وعمر بطارية طويل، مثالي للعمل واللعب.",
+        },
+        18: {
+          title: "بلاي ستيشن 5",
+          type: "جديد",
+          details: "النسخة السوداء والبيضاء من PS5 تصدر للبيع.",
+        },
+        19: {
+          title: "سماعات",
+          type: "جديد",
+          details: "جودة صوت مذهلة مع سماعة Amazon اللاسلكية.",
+        },
+        20: {
+          title: "مجموعات النساء",
+          type: "جديد",
+          details:
+            "مجموعات نسائية مميزة تمنحك جوًا آخر، ويمكنك العثور على أفضل المجموعات هنا.",
+        },
+        21: {
+          title: "أحذية كرة القدم",
+          type: "جديد",
+          details:
+            "أفضل أحذية كرة القدم للعبتك، ويمكنك العثور على أفضل المجموعات هنا.",
         },
       },
       services: {
@@ -698,7 +820,7 @@ const resources = {
         subscribe: "اشترك",
         offer: "احصل على خصم 10% على طلبك الأول",
         enterEmail: "أدخل بريدك الإلكتروني",
-        account: "حساب",
+        account: "الحساب",
         myAccount: "حسابي",
         sign: "تسجيل الدخول / التسجيل",
         cart: "عربة التسوق",
