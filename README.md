@@ -3,12 +3,11 @@
 The E-commerce website is a full-stack application built using React with Vite as the bundler. It incorporates Tailwind CSS for styling and Material UI for components, offering a sleek and modern user interface. The platform provides essential functionalities such as signup and login for users to access their accounts, wishlist and cart pages for managing items, search functionality to easily find products, and a profile section for personalization. Furthermore, it includes checkout processes with support for coupons and purchasing, ensuring a seamless shopping experience for customers.
 
 
+  <img  src="E-Commerce/public/assets/Screenshots/0.png" alt="Home">
+
 ## [🌟Live Website🌟](https://e-commerce-website-nine-bice.vercel.app/)
 
-##  [🌟Design on Figma 🌟](https://www.figma.com/file/yn2DFQJla0UiSMvomFsqwT/E-Commerce-Website-%D9%90Almdrasa?type=design&mode=design&t=fqPRRAQH5lDJGmoY-0)
-
-
-  <img  src="E-Commerce/public/assets/Screenshots/0.png" alt="Home">
+## [🌟Design on Figma 🌟](https://www.figma.com/file/yn2DFQJla0UiSMvomFsqwT/E-Commerce-Website-%D9%90Almdrasa?type=design&mode=design&t=fqPRRAQH5lDJGmoY-0)
 
 ## Table of Contents
 
@@ -34,10 +33,12 @@ The E-commerce website is a full-stack application built using React with Vite a
 
 ## Technologies Used
 
-- **React**
-- **Vite**
-- **Tailwind CSS**
-- **Material UI**
+
+- **React**: JavaScript library for building user interfaces.
+- **Vite**: Fast, modern build tooling for frontend development.
+- **Tailwind CSS**: Utility-first CSS framework for rapid UI development.
+- **Material-UI**: React components for faster and easier web development.
+- **Custom Hooks**: Utilized custom React hooks for managing state and logic efficiently.
 - **Git** (for version control)
 - **Responsive For Mobile**
 
@@ -64,15 +65,6 @@ The E-commerce website is a full-stack application built using React with Vite a
   <img  src="E-Commerce/public/assets/Screenshots/Account.jpg" alt="Account">
 
 
-
-
-## Technologies Used
-
-- **React**: JavaScript library for building user interfaces.
-- **Vite**: Fast, modern build tooling for frontend development.
-- **Tailwind CSS**: Utility-first CSS framework for rapid UI development.
-- **Material-UI**: React components for faster and easier web development.
-- **Custom Hooks**: Utilized custom React hooks for managing state and logic efficiently.
 
 
 ## Contact
