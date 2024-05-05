@@ -40,7 +40,7 @@ const Featured = () => {
                 key={playstationItem.id}
               >
                 <img
-                  className="w-full h-full"
+                  className="w-full h-full transition-transform duration-300 transform  hover:-translate-y-4  hover:scale-101 hover:motion-safe:animate-pulse opacity-50 hover:opacity-100"
                   src={playstationItem.imageSrc}
                   alt={playstationItem.title}
                 />
@@ -85,7 +85,7 @@ const Featured = () => {
                   key={womenCollectionsItem.id}
                 >
                   <img
-                    className="w-full h-full object-cover opacity-80"
+                    className="w-full h-full transition-transform duration-300 transform  hover:-translate-y-1 hover:scale-102 hover:motion-safe:animate-pulse object-cover opacity-50 hover:opacity-100"
                     src={womenCollectionsItem.imageSrc}
                     alt={womenCollectionsItem.title}
                   />
@@ -131,7 +131,7 @@ const Featured = () => {
                     key={speakersItem.id}
                   >
                     <img
-                      className="w-full h-full opacity-80"
+                      className="w-full h-full transition-transform duration-300 transform  hover:-translate-y-1 hover:scale-102 hover:motion-safe:animate-pulse object-cover opacity-50 hover:opacity-100"
                       src={speakersItem.imageSrc}
                       alt={speakersItem.title}
                     />
@@ -175,7 +175,7 @@ const Featured = () => {
                     key={perfumesItem.id}
                   >
                     <img
-                      className="w-full h-full opacity-80"
+                      className="w-full h-full transition-transform duration-300 transform  hover:-translate-y-1 hover:scale-102 hover:motion-safe:animate-pulse object-cover opacity-50 hover:opacity-100"
                       src={perfumesItem.imageSrc}
                       alt={perfumesItem.title}
                     />

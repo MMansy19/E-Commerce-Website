@@ -2,6 +2,7 @@
 /* eslint-disable react/prop-types */
 import i18n from "./LangConfig";
 import PropTypes from "prop-types";
+
 import { useState, useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { SelectedProductContext } from "../../context/SelectedProductContext";
@@ -61,7 +62,7 @@ const FlashSaleItem = ({ item }) => {
         {isHovered && (
           <button
             onClick={handleAddToCart}
-            className={`absolute bottom-0 left-0 right-0 bg-black text-white py-2 px-4  duration-300  hover:bg-gray-800 focus:outline-none ${
+            className={` absolute bottom-0 left-0 right-0 bg-black text-white py-2 px-4  duration-300  hover:bg-gray-800 focus:outline-none ${
               isInCart && "bg-red-500"
             }`}
           >
@@ -75,7 +76,7 @@ const FlashSaleItem = ({ item }) => {
         )}
         {item.state && (
           <div className="absolute top-0 left-0 bg-green text-white py-1 px-3 m-2 rounded">
-            {i18n.t("itemsArray.18.type")}
+            {i18n.t("new")}
           </div>
         )}
         <Link
@@ -83,7 +84,14 @@ const FlashSaleItem = ({ item }) => {
           onClick={() => handleProductClick()}
           key={item.id}
         >
-          <img src={item.imageSrc} alt={item.title} />
+          <img
+            src={item.imageSrc}
+            alt={item.title}
+            // className="hover:animate-ping "
+            // className="hover:animate-bounce"
+            className="hover:animate-pulse"
+            // className="motion-safe:animate-spin"
+          />
         </Link>
 
         <WishlistIcon selectedProduct={item} style="absolute top-3 right-3" />

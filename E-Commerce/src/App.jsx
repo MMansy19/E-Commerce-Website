@@ -85,9 +85,12 @@ function App() {
                     <Footer />
                     {/* Scroll to top button */}
                     {showScrollButton && (
-                      <div className="fixed bottom-5 md:bottom-10 right-[42%] md:right-20  z-10">
+                      <div className="fixed bottom-5 md:bottom-10 right-[42%] md:right-20 z-10 ">
+                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-sky-400 opacity-20 "></span>
+
                         <Fab aria-label="scroll-to-top" onClick={scrollToTop}>
                           <svg
+                            className="animate-bounce"
                             width="24"
                             height="24"
                             viewBox="0 0 24 24"

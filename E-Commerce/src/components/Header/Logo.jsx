@@ -3,7 +3,7 @@ import i18n from "../common/LangConfig";
 
 const Logo = () => {
   return (
-    <div className=" items-center justify-center gap-4 hidden md:flex">
+    <div className=" items-center  justify-center gap-4 hidden md:flex">
       <Link href="/">
         <svg
           width="38"

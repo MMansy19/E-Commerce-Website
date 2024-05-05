@@ -6,6 +6,7 @@ import Arrows from "../common/Arrows";
 import ViewAll from "../common/ViewAll";
 import calculateTimeLeft from "../common/calculateTimeLeft";
 import i18n from "../common/LangConfig";
+import { motion } from "framer-motion"; // Import motion from Framer Motion for animations
 
 const FlashSale = ({ items }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -68,22 +69,32 @@ const FlashSale = ({ items }) => {
             handleNextItem={handleNextItem}
           />
         </div>
-        <div className="relative mt-10 ">
-          <div className="flex flex-row gap-2 md:gap-12  overflow-x-hidden hover:overflow-x-auto transition-transform duration-300 transform  focus:outline-none ">
-            {saleItems
-              .slice(currentIndex, currentIndex + 5)
-              .map((item, index) => (
+        {/* Motion */}
+        <div className="relative  overflow-x-auto snap-x snap-mandatory scroll-mt-4 scroll-mr-4 scroll-ml-4 scroll-padding-4 flex justify-center items-center h-[400px] ">
+          <motion.div
+            className="flex gap-2 md:gap-12"
+            initial={{ x: 0 }}
+            animate={{ x: -currentIndex * 200 }} // Adjust the value for smoother animation
+            transition={{ type: "spring", stiffness: 300, damping: 30 }} // Adjust spring animation parameters for smoother swiping
+          >
+            {saleItems.map((item, index) => (
+              <motion.div
+                key={item.title}
+                whileHover={{ scale: 1.05 }} // Increase scale on hover for larger image preview
+              >
                 <FlashSaleItem
-                  key={item.title}
                   item={item}
                   index={index}
-                  totalItems={items.length}
+                  totalItems={saleItems.length}
                   stars={item.stars}
                   rates={item.rates}
                 />
-              ))}
-          </div>
+              </motion.div>
+            ))}
+          </motion.div>
         </div>
+
+        {/* Motion */}
       </div>
       <div className="mt-8 flex justify-center">
         <ViewAll name={i18n.t("redButtons.viewAllProducts")} />

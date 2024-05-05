@@ -47,6 +47,7 @@ const resources = {
       },
       removeFromCart: "Remove from Cart",
       addToCart: "Add to Cart",
+      new: "NEW",
       itemsArray: {
         0: {
           title: "Kids Electric Car",
@@ -332,6 +333,7 @@ const resources = {
       },
       removeFromCart: "Vom Warenkorb entfernen",
       addToCart: "In den Warenkorb legen",
+      new: "NEU",
       itemsArray: {
         0: {
           title: "Kinder-Elektroauto",
@@ -607,6 +609,7 @@ const resources = {
       },
       removeFromCart: "إزالة من السلة",
       addToCart: "أضف إلى السلة",
+      new: "جديد",
       itemsArray: {
         0: {
           title: "سيارة كهربائية للأطفال",

@@ -4,7 +4,7 @@ import Arrows from "../common/Arrows";
 import i18n from "../common/LangConfig";
 
 const Category = ({ icon, name }) => (
-  <div className="flex gap-4 items-center justify-center flex-col bg-white md:px-24 py-8 rounded-lg border border-gray-300 transition duration-300 hover:bg-cyan-400 hover:invert  hover:shadow-xl  ">
+  <div className="hover:animate-pulse flex gap-4 items-center justify-center flex-col bg-white md:px-24 py-8 rounded-lg border border-gray-300 transition duration-300 hover:bg-cyan-400 hover:invert  hover:shadow-xl  ">
     <div>{icon}</div>
     <div className="text-lg">{name}</div>
   </div>

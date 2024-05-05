@@ -65,18 +65,22 @@ const Deal = () => {
           onClick={() => handleProductClick()}
           key={dealItem.id}
         >
-          <button className="bg-green  mb-8 py-4 px-12 rounded  ease-in-out  duration-300 transform hover:scale-105">
+          <button className="bg-green   mb-8 py-4 px-12 rounded  ease-in-out  duration-300 transform hover:scale-105 hover:-translate-y-1">
             <span> {i18n.t("deal.buyNow")}</span>
           </button>
         </Link>
       </div>
-      <div className="mt-4 transition-transform duration-300 transform hover:translate-y-1 hover:scale-105">
+      <div className="mt-4">
         <Link
           to={{ pathname: `/${dealItem.title}` }}
           onClick={() => handleProductClick()}
           key={dealItem.id}
         >
-          <img src={dealItem.imageSrc} alt={dealItem.title} />
+          <img
+            src={dealItem.imageSrc}
+            alt={dealItem.title}
+            className="transition-transform duration-300 transform hover:-translate-y-4 hover:scale-110 hover:motion-safe:animate-pulse"
+          />
         </Link>
       </div>
     </div>
