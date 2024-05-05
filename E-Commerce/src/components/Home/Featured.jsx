@@ -1,9 +1,9 @@
-import RedTitle from "../common/RedTitle";
-import i18n from "../common/LangConfig";
+import RedTitle from "../common/components/RedTitle";
+import i18n from "../common/components/LangConfig";
 import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { SelectedProductContext } from "../../context/SelectedProductContext";
-import { ITEMS } from "../common/items";
+import { ITEMS } from "../common/functions/items";
 
 const Featured = () => {
   const { setSelectedProduct } = useContext(SelectedProductContext);
@@ -35,8 +35,8 @@ const Featured = () => {
           <div className=" text-white relative flex gap-10  md:mt-10 items-center justify-center flex-col-reverse md:flex-row md:w-[511px] md:h-[511px] sm:h-[500px] h-[380px]">
             <div className="absolute inset-0 z-0 bg-no-repeat bg-center bg-cover">
               <Link
-                to={{ pathname: `/${playstationItem.title}` }}
-                onClick={() => handleProductClick()}
+                to={{ pathname: `/allProducts/${playstationItem.title}` }}
+                onClick={() => handleProductClick(playstationItem)}
                 key={playstationItem.id}
               >
                 <img
@@ -80,8 +80,10 @@ const Featured = () => {
             <div className="text-white relative flex items-center justify-center flex-col-reverse md:flex-row w-full h-full">
               <div className="overflow-hidden absolute bg-no-repeat bg-center bg-cover transition-transform duration-300 transform hover:scale-105 p-10">
                 <Link
-                  to={{ pathname: `/${womenCollectionsItem.title}` }}
-                  onClick={() => handleProductClick()}
+                  to={{
+                    pathname: `/allProducts/${womenCollectionsItem.title}`,
+                  }}
+                  onClick={() => handleProductClick(womenCollectionsItem)}
                   key={womenCollectionsItem.id}
                 >
                   <img
@@ -126,8 +128,8 @@ const Featured = () => {
               <div className=" text-white relative flex gap-10  md:mt-10 items-center justify-center flex-col-reverse md:flex-row  md:h-[221px] ">
                 <div className="absolute inset-0 z-0 bg-no-repeat bg-center bg-cover transition-transform duration-300 transform hover:scale-105">
                   <Link
-                    to={{ pathname: `/${speakersItem.title}` }}
-                    onClick={() => handleProductClick()}
+                    to={{ pathname: `/allProducts/${speakersItem.title}` }}
+                    onClick={() => handleProductClick(speakersItem)}
                     key={speakersItem.id}
                   >
                     <img
@@ -170,8 +172,8 @@ const Featured = () => {
               <div className=" text-white relative flex gap-10  md:mt-10 items-center justify-center flex-col-reverse md:flex-row  md:h-[221px]">
                 <div className="absolute inset-0 z-0 bg-no-repeat bg-center bg-cover transition-transform duration-300 transform hover:scale-105">
                   <Link
-                    to={{ pathname: `/${perfumesItem.title}` }}
-                    onClick={() => handleProductClick()}
+                    to={{ pathname: `/allProducts/${perfumesItem.title}` }}
+                    onClick={() => handleProductClick(perfumesItem)}
                     key={perfumesItem.id}
                   >
                     <img

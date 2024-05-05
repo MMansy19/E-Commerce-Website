@@ -1,9 +1,9 @@
 /* eslint-disable react/prop-types */
-import i18n from "../common/LangConfig";
-import FlashSaleItem from "../common/FlashSaleItem";
-import RedTitle from "../common/RedTitle";
-import ViewAll from "../common/ViewAll";
-import { ITEMS } from "../common/items";
+import i18n from "../common/components/LangConfig";
+import FlashSaleItem from "../common/components/FlashSaleItem";
+import RedTitle from "../common/components/RedTitle";
+import ViewAll from "../common/components/ViewAll";
+import { ITEMS } from "../common/functions/items";
 const RelatedItems = ({ selectedProduct }) => {
   const relatedItems = ITEMS.filter(
     (item) =>

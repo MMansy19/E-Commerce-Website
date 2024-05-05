@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
 import { useState, useEffect, useContext } from "react";
-import { useCart } from "../../context/CartContext";
+import { useCart } from "../../../context/CartContext";
 
 const AddToCart = ({ item }) => {
   const { addToCart, cartItems, removeFromCart } = useCart();

@@ -20,6 +20,7 @@ const SelectedProductProvider = ({ children }) => {
       value={{ selectedProduct, setSelectedProduct }}
     >
       {children}
+      {window.scrollTo({ top: 0, behavior: "smooth" })}
     </SelectedProductContext.Provider>
   );
 };

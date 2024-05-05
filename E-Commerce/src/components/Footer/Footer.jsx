@@ -1,6 +1,6 @@
 import { Container, Grid, Link, Typography } from "@mui/material";
 import QRCode from "./QRCode";
-import i18n from "../common/LangConfig";
+import i18n from "../common/components/LangConfig";
 
 const Footer = () => {
   return (

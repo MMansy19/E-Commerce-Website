@@ -5,7 +5,7 @@ import PropTypes from "prop-types";
 
 import { useState, useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { SelectedProductContext } from "../../context/SelectedProductContext";
+import { SelectedProductContext } from "../../../context/SelectedProductContext";
 import WishlistIcon from "./WishlistIcon";
 import AddToCart from "./AddToCart";
 const FlashSaleItem = ({ item }) => {

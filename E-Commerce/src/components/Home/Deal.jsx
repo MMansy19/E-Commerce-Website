@@ -1,9 +1,9 @@
-import calculateTimeLeft from "../common/calculateTimeLeft";
-import i18n from "../common/LangConfig";
+import calculateTimeLeft from "../common/functions/calculateTimeLeft";
+import i18n from "../common/components/LangConfig";
 import { useState, useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { SelectedProductContext } from "../../context/SelectedProductContext";
-import { ITEMS } from "../common/items";
+import { ITEMS } from "../common/functions/items";
 
 const Deal = () => {
   const [timeLeft, setTimeLeft] = useState(
@@ -61,7 +61,7 @@ const Deal = () => {
           </div>
         </div>
         <Link
-          to={{ pathname: `/${dealItem.title}` }}
+          to={{ pathname: `/allProducts/${dealItem.title}` }}
           onClick={() => handleProductClick()}
           key={dealItem.id}
         >
@@ -72,7 +72,7 @@ const Deal = () => {
       </div>
       <div className="mt-4">
         <Link
-          to={{ pathname: `/${dealItem.title}` }}
+          to={{ pathname: `/allProducts/${dealItem.title}` }}
           onClick={() => handleProductClick()}
           key={dealItem.id}
         >

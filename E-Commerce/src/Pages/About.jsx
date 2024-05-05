@@ -1,8 +1,8 @@
 /* eslint-disable react/prop-types */
 import StatsCardExported from "../components/About/StatsCard.jsx";
 import TeamMembers from "../components/About/TeamMembers";
-import Services from "../components/common/Services";
-import ActiveLastBreadcrumb from "../components/common/Link";
+import Services from "../components/common/components/Services.jsx";
+import ActiveLastBreadcrumb from "../components/common/components/Link.jsx";
 const About = () => {
   return (
     <>

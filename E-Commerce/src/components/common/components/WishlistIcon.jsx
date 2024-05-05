@@ -3,7 +3,7 @@
 import PropTypes from "prop-types";
 import { useState, useEffect } from "react";
 import IconButton from "@mui/material/IconButton";
-import { useWishlist } from "../../context/WishlistContext";
+import { useWishlist } from "../../../context/WishlistContext";
 
 const WishlistIcon = ({ selectedProduct, style = "" }) => {
   const [isInWishlist, setIsInWishlist] = useState(false);

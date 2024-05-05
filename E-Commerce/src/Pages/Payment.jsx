@@ -1,6 +1,6 @@
 import { useState } from "react";
-import RedButton from "../components/common/RedButton";
-import i18n from "../components/common/LangConfig";
+import RedButton from "../components/common/components/RedButton";
+import i18n from "../components/common/components/LangConfig";
 import { Link } from "@mui/material";
 // import { functions } from "../firebase";
 const Payment = () => {

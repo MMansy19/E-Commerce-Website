@@ -1,8 +1,8 @@
-import FlashSaleItem from "../common/FlashSaleItem";
+import FlashSaleItem from "../common/components/FlashSaleItem";
 import PropTypes from "prop-types";
-import RedTitle from "../common/RedTitle";
-import ViewAll from "../common/ViewAll";
-import i18n from "../common/LangConfig";
+import RedTitle from "../common/components/RedTitle";
+import ViewAll from "../common/components/ViewAll";
+import i18n from "../common/components/LangConfig";
 
 const BestSelling = ({ items }) => {
   const sortedItems = items.sort(

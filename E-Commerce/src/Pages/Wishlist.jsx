@@ -1,7 +1,7 @@
-import FlashSaleItem from "../components/common/FlashSaleItem";
-import { ITEMS } from "../components/common/items";
-import RedTitle from "../components/common/RedTitle";
-import WhiteButton from "../components/common/WhiteButton";
+import FlashSaleItem from "../components/common/components/FlashSaleItem";
+import { ITEMS } from "../components/common/functions/items";
+import RedTitle from "../components/common/components/RedTitle";
+import WhiteButton from "../components/common/components/WhiteButton";
 import { useWishlist } from "../context/WishlistContext";
 function Wishlist() {
   const { addToWishlist, wishlistItems } = useWishlist();

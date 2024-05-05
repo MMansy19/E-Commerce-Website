@@ -1,7 +1,7 @@
-import RedTitle from "../common/RedTitle";
+import RedTitle from "../common/components/RedTitle";
 import PropTypes from "prop-types";
-import Arrows from "../common/Arrows";
-import i18n from "../common/LangConfig";
+import Arrows from "../common/components/Arrows";
+import i18n from "../common/components/LangConfig";
 
 const Category = ({ icon, name }) => (
   <div className="hover:animate-pulse flex gap-4 items-center justify-center flex-col bg-white md:px-24 py-8 rounded-lg border border-gray-300 transition duration-300 hover:bg-cyan-400 hover:invert  hover:shadow-xl  ">

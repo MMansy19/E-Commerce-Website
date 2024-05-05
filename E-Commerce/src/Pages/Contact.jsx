@@ -1,6 +1,6 @@
-import ActiveLastBreadcrumb from "../components/common/Link";
-import RedButton from "../components/common/RedButton";
-import i18n from "../components/common/LangConfig";
+import ActiveLastBreadcrumb from "../components/common/components/Link";
+import RedButton from "../components/common/components/RedButton";
+import i18n from "../components/common/components/LangConfig";
 const Contact = () => {
   return (
     <div className="flex flex-col mx-4 md:ml-36 mt-48 gap-20">

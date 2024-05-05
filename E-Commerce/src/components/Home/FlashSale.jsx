@@ -1,11 +1,11 @@
-import FlashSaleItem from "../common/FlashSaleItem";
+import FlashSaleItem from "../common/components/FlashSaleItem";
 import PropTypes from "prop-types";
 import { useState, useEffect } from "react";
-import RedTitle from "../common/RedTitle";
-import Arrows from "../common/Arrows";
-import ViewAll from "../common/ViewAll";
-import calculateTimeLeft from "../common/calculateTimeLeft";
-import i18n from "../common/LangConfig";
+import RedTitle from "../common/components/RedTitle";
+import Arrows from "../common/components/Arrows";
+import ViewAll from "../common/components/ViewAll";
+import calculateTimeLeft from "../common/functions/calculateTimeLeft";
+import i18n from "../common/components/LangConfig";
 import { motion } from "framer-motion"; // Import motion from Framer Motion for animations
 
 const FlashSale = ({ items }) => {

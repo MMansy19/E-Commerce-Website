@@ -1,9 +1,9 @@
-import i18n from "../components/common/LangConfig";
+import i18n from "../components/common/components/LangConfig";
 import { useState, useEffect } from "react";
 import { useCart } from "../context/CartContext";
 import CheckoutCartItem from "../components/Checkout/CheckoutCartItem";
-import RedButton from "../components/common/RedButton";
-import ActiveLastBreadcrumb from "../components/common/Link";
+import RedButton from "../components/common/components/RedButton";
+import ActiveLastBreadcrumb from "../components/common/components/Link";
 import { auth, firestore } from "../Auth/firebase";
 import { doc, setDoc, getDoc } from "firebase/firestore";
 import { Link } from "react-router-dom";

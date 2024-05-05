@@ -1,7 +1,7 @@
 /* eslint-disable react-refresh/only-export-components */
 // LangContext.jsx
 import { createContext, useState, useContext } from "react";
-import i18n from "../components/common/LangConfig";
+import i18n from "../components/common/components/LangConfig";
 
 const LangContext = createContext();
 

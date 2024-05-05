@@ -1,9 +1,9 @@
-import FlashSaleItem from "../common/FlashSaleItem";
+import FlashSaleItem from "../common/components/FlashSaleItem";
 import PropTypes from "prop-types";
-import RedTitle from "../common/RedTitle";
-import Arrows from "../common/Arrows";
-import ViewAll from "../common/ViewAll";
-import i18n from "../common/LangConfig";
+import RedTitle from "../common/components/RedTitle";
+import Arrows from "../common/components/Arrows";
+import ViewAll from "../common/components/ViewAll";
+import i18n from "../common/components/LangConfig";
 
 const AllProducts = ({ items }) => {
   return (

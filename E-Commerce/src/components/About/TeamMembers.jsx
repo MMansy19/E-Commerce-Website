@@ -3,7 +3,7 @@ import { useState } from "react";
 import { Box } from "@mui/material";
 import Person1 from "./Person1";
 import Person2 from "./Person2";
-import PaginationIndicator from "../common/PaginationIndicator";
+import PaginationIndicator from "../common/components/PaginationIndicator";
 
 const teamMembersData = [
   { name: "Tom Cruise", role: "Founder & Chairman", image: <Person1 /> },

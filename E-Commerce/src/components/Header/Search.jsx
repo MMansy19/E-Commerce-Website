@@ -2,12 +2,12 @@ import { useState, useContext } from "react";
 import { styled, alpha } from "@mui/material/styles";
 import IconButton from "@mui/material/IconButton";
 import { Link } from "react-router-dom";
-import { ITEMS } from "../common/items";
+import { ITEMS } from "../common/functions/items";
 import { CiSearch } from "react-icons/ci";
 import Autocomplete from "@mui/material/Autocomplete";
 import TextField from "@mui/material/TextField";
 import { SelectedProductContext } from "../../context/SelectedProductContext";
-import i18n from "../common/LangConfig";
+import i18n from "../common/components/LangConfig";
 
 const Search = styled("div")(({ theme }) => ({
   position: "relative",

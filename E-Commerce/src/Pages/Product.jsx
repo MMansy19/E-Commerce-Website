@@ -1,13 +1,13 @@
 import { useEffect, useState, useContext } from "react";
 import { SelectedProductContext } from "../context/SelectedProductContext";
 import RelatedItems from "../components/Product/RelatedItems";
-import ActiveLastBreadcrumb from "../components/common/Link";
-import RedButton from "../components/common/RedButton";
-import WishlistIcon from "../components/common/WishlistIcon";
+import ActiveLastBreadcrumb from "../components/common/components/Link";
+import RedButton from "../components/common/components/RedButton";
+import WishlistIcon from "../components/common/components/WishlistIcon";
 import { useCart } from "../context/CartContext";
-import i18n from "../components/common/LangConfig";
+import i18n from "../components/common/components/LangConfig";
 import { Link } from "react-router-dom";
-import Modal from "../components/common/Modal";
+import Modal from "../components/common/components/Modal";
 const Product = () => {
   const { selectedProduct } = useContext(SelectedProductContext);
   const { handleIncrease, handleDecrease } = useCart();

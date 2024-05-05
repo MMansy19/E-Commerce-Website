@@ -1,5 +1,5 @@
 import { Link } from "@mui/material";
-import i18n from "../common/LangConfig";
+import i18n from "../common/components/LangConfig";
 
 const Logo = () => {
   return (

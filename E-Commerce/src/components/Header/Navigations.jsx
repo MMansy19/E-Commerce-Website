@@ -1,4 +1,5 @@
-import i18n from "../common/LangConfig";
+import i18n from "../common/components/LangConfig";
+
 import { useState } from "react";
 import {
   Drawer,

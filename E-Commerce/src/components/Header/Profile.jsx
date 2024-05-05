@@ -8,7 +8,7 @@ import { useCart } from "../../context/CartContext";
 import { useWishlist } from "../../context/WishlistContext";
 import { Link } from "react-router-dom";
 import { AuthContext, auth } from "../../Auth/firebase";
-import i18n from "../common/LangConfig";
+import i18n from "../common/components/LangConfig";
 
 const headerIcons = i18n.t("headerIcons");
 const Profile = () => {

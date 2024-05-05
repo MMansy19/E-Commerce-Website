@@ -1,6 +1,6 @@
-import { ITEMS } from "../components/common/items";
-import FlashSaleItem from "../components/common/FlashSaleItem";
-import i18n from "../components/common/LangConfig";
+import { ITEMS } from "../components/common/functions/items";
+import FlashSaleItem from "../components/common/components/FlashSaleItem";
+import i18n from "../components/common/components/LangConfig";
 const AllProducts = () => {
   const filteredItems = ITEMS.filter((item) => item.type !== "electronics");
 

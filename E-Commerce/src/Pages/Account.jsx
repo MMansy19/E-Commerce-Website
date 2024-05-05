@@ -1,4 +1,4 @@
-import ActiveLastBreadcrumb from "../components/common/Link";
+import ActiveLastBreadcrumb from "../components/common/components/Link";
 import { Link } from "react-router-dom";
 import { Snackbar } from "@mui/material";
 import { Alert } from "@mui/material";

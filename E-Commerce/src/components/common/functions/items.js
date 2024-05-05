@@ -1,4 +1,4 @@
-import i18n from "./LangConfig";
+import i18n from "../components/LangConfig";
 let idCounter = 0;
 
 export const ITEMS = [

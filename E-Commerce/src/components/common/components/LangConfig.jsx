@@ -10,6 +10,7 @@ const defaultLang = savedLang || "en";
 const resources = {
   en: {
     translation: {
+      font: "font-poppins",
       dir: "ltr",
       topHeader:
         "Summer Sale For All Swim Suits And Free Express Delivery - OFF 50%!",
@@ -285,6 +286,7 @@ const resources = {
   },
   gr: {
     translation: {
+      font: "font-poppins",
       dir: "ltr",
       topHeader:
         "Sommerschlussverkauf für alle Badeanzüge und kostenloser Expressversand – 50 % RABATT!",
@@ -572,6 +574,7 @@ const resources = {
 
   ar: {
     translation: {
+      font: "font-noto",
       dir: "rtl",
       topHeader:
         "تخفيضات الصيف على جميع بدلات السباحة والتوصيل السريع المجاني - خصم 50%!",
