@@ -7,6 +7,30 @@ import { ITEMS } from "../common/functions/items";
 
 const Featured = () => {
   const { setSelectedProduct } = useContext(SelectedProductContext);
+
+  const ShopNow = () => {
+    return (
+      <button className="mb-8 md:mb-0 flex gap-2 underline underline-offset-8 py-2  focus:underline-offset-2  ease-in-out  duration-300 transform hover:translate-x-4">
+        <span> {i18n.t("featured.shopNow")}</span>
+        <svg
+          className="mt-1 "
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M3.5 12H20M20 12L13 5M20 12L13 19"
+            stroke="#FAFAFA"
+            strokeWidth="1.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+        </svg>
+      </button>
+    );
+  };
   const handleProductClick = (itemClicked) => {
     setSelectedProduct(itemClicked);
   };
@@ -53,25 +77,13 @@ const Featured = () => {
               <p className=" text-center md:text-start text-sm ">
                 {i18n.t("featured.playStation.description")}
               </p>
-              <button className="mb-8 md:mb-0 flex gap-2 underline underline-offset-8 py-2  focus:underline-offset-2  ease-in-out  duration-300 transform hover:translate-x-4">
-                <span> {i18n.t("featured.shopNow")}</span>
-                <svg
-                  className="mt-1 "
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M3.5 12H20M20 12L13 5M20 12L13 19"
-                    stroke="#FAFAFA"
-                    strokeWidth="1.5"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
-              </button>
+              <Link
+                to={{ pathname: `/allProducts/${playstationItem.title}` }}
+                onClick={() => handleProductClick(playstationItem)}
+                key={playstationItem.id}
+              >
+                <ShopNow />
+              </Link>
             </div>
           </div>
         </div>
@@ -100,25 +112,15 @@ const Featured = () => {
                 <p className="text-center md:text-start text-sm">
                   {i18n.t("featured.WomenCollections.description")}
                 </p>
-                <button className="mb-6 md:mb-0 flex gap-2 underline underline-offset-8 py-2 focus:underline-offset-2 ease-in-out duration-300 transform hover:translate-x-4">
-                  <span>{i18n.t("featured.shopNow")}</span>
-                  <svg
-                    className="mt-1"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M3.5 12H20M20 12L13 5M20 12L13 19"
-                      stroke="#FAFAFA"
-                      strokeWidth="1.5"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                  </svg>
-                </button>
+                <Link
+                  to={{
+                    pathname: `/allProducts/${womenCollectionsItem.title}`,
+                  }}
+                  onClick={() => handleProductClick(womenCollectionsItem)}
+                  key={womenCollectionsItem.id}
+                >
+                  <ShopNow />
+                </Link>
               </div>
             </div>
           </div>
@@ -146,25 +148,13 @@ const Featured = () => {
                   <p className=" text-center md:text-start text-sm ">
                     {i18n.t("featured.speakers.description")}
                   </p>
-                  <button className="mb-6 md:mb-0 flex gap-2 underline underline-offset-8 py-2  focus:underline-offset-2  ease-in-out  duration-300 transform hover:translate-x-4">
-                    <span> {i18n.t("featured.shopNow")}</span>
-                    <svg
-                      className="mt-1 "
-                      width="24"
-                      height="24"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M3.5 12H20M20 12L13 5M20 12L13 19"
-                        stroke="#FAFAFA"
-                        strokeWidth="1.5"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                    </svg>
-                  </button>
+                  <Link
+                    to={{ pathname: `/allProducts/${speakersItem.title}` }}
+                    onClick={() => handleProductClick(speakersItem)}
+                    key={speakersItem.id}
+                  >
+                    <ShopNow />
+                  </Link>
                 </div>
               </div>
             </div>{" "}
@@ -190,25 +180,13 @@ const Featured = () => {
                   <p className=" text-center md:text-start text-sm ">
                     {i18n.t("featured.perfume.description")}
                   </p>
-                  <button className="mb-6 md:mb-0 flex gap-2 underline underline-offset-8 py-2  focus:underline-offset-2  ease-in-out  duration-300 transform hover:translate-x-4">
-                    <span> {i18n.t("featured.shopNow")}</span>
-                    <svg
-                      className="mt-1 "
-                      width="24"
-                      height="24"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M3.5 12H20M20 12L13 5M20 12L13 19"
-                        stroke="#FAFAFA"
-                        strokeWidth="1.5"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                    </svg>
-                  </button>
+                  <Link
+                    to={{ pathname: `/allProducts/${perfumesItem.title}` }}
+                    onClick={() => handleProductClick(perfumesItem)}
+                    key={perfumesItem.id}
+                  >
+                    <ShopNow />
+                  </Link>
                 </div>
               </div>
             </div>

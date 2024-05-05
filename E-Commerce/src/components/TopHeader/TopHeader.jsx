@@ -12,7 +12,10 @@ const TopHeader = () => {
             {i18n.t("topHeader")}
           </h1>
           <Link to="/allProducts">
-            <button className="text-sm md:text-base font-semibold underline">
+            <button
+              onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+              className="text-sm md:text-base font-semibold underline"
+            >
               {i18n.t("shop")}
             </button>
           </Link>
