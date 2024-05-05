@@ -25,7 +25,7 @@ const TeamMember = ({ name, role, image }) => {
         <h2 className="font-bold text-3xl">{name}</h2>
         <p className="text-base">{role}</p>
         <>
-          <a href="#">
+          <a href="/">
             <svg
               width="104"
               height="24"

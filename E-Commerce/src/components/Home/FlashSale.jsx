@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import RedTitle from "../common/RedTitle";
 import Arrows from "../common/Arrows";
 import ViewAll from "../common/ViewAll";
-import calculateTimeLeft from "../common/calculateTimeLeft";
+import calculateTimeLeft from "../common/functions/calculateTimeLeft";
 import i18n from "../common/LangConfig";
 import { motion } from "framer-motion"; // Import motion from Framer Motion for animations
 

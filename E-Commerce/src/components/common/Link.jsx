@@ -27,7 +27,7 @@ export default function ActiveLastBreadcrumb({ path }) {
         <Link
           underline="hover"
           color="text.primary"
-          href=""
+          href="/"
           aria-current="page"
         >
           <div className="mx-3">{path.split("/").pop()}</div>

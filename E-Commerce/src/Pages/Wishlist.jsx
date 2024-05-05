@@ -1,5 +1,5 @@
 import FlashSaleItem from "../components/common/FlashSaleItem";
-import { ITEMS } from "../components/common/items";
+import { ITEMS } from "../assets/items";
 import RedTitle from "../components/common/RedTitle";
 import WhiteButton from "../components/common/WhiteButton";
 import { useWishlist } from "../context/WishlistContext";

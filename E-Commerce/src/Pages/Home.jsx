@@ -6,7 +6,7 @@ import Categories from "../components/Home/Categories";
 import Services from "../components/common/Services";
 import AllProducts from "../components/Home/AllProducts";
 import Featured from "../components/Home/Featured";
-import { ITEMS } from "../components/common/items";
+import { ITEMS } from "../assets/items";
 
 const Home = () => {
   return (
