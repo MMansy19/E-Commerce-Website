@@ -91,7 +91,7 @@ const SearchAppBar = () => {
         )}
       />
       <IconButton aria-label="search" color="inherit" onClick={handleSearch}>
-        <Link to={{ pathname: `/${selectedItem.title}` }}>
+        <Link to={{ pathname: `/allProducts/${selectedItem.title}` }}>
           <CiSearch />
         </Link>
       </IconButton>
