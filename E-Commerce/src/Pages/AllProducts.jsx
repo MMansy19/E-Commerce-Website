@@ -1,4 +1,4 @@
-import { ITEMS } from "../assets/items";
+import { ITEMS } from "../components/common/items";
 import FlashSaleItem from "../components/common/FlashSaleItem";
 import i18n from "../components/common/LangConfig";
 const AllProducts = () => {

@@ -1,9 +1,9 @@
-import calculateTimeLeft from "../common/functions/calculateTimeLeft";
+import calculateTimeLeft from "../common/calculateTimeLeft";
 import i18n from "../common/LangConfig";
 import { useState, useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { SelectedProductContext } from "../../context/SelectedProductContext";
-import { ITEMS } from "../../assets/items";
+import { ITEMS } from "../common/items";
 
 const Deal = () => {
   const [timeLeft, setTimeLeft] = useState(

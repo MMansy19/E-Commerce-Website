@@ -1,10 +1,10 @@
 import PropTypes from "prop-types";
 import RedButton from "./RedButton";
-import { Link } from "react-router-dom";
+import { Link } from "@mui/material";
 
 const ViewAll = ({ name }) => {
   return (
-    <Link to="/allProducts">
+    <Link href="/allProducts">
       <RedButton name={name} />
     </Link>
   );

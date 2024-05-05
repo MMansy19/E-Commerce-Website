@@ -3,7 +3,7 @@ import i18n from "../common/LangConfig";
 import FlashSaleItem from "../common/FlashSaleItem";
 import RedTitle from "../common/RedTitle";
 import ViewAll from "../common/ViewAll";
-import { ITEMS } from "../../assets/items";
+import { ITEMS } from "../common/items";
 const RelatedItems = ({ selectedProduct }) => {
   const relatedItems = ITEMS.filter(
     (item) =>

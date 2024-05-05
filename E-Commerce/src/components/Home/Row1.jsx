@@ -2,7 +2,7 @@ import i18n from "../common/LangConfig";
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { SelectedProductContext } from "../../context/SelectedProductContext";
-import { ITEMS } from "../../assets/items";
+import { ITEMS } from "../common/items";
 
 const Row1 = () => {
   const { setSelectedProduct } = useContext(SelectedProductContext);

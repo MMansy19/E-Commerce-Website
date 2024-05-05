@@ -5,7 +5,8 @@ import CartItem from "../components/Cart/CartItem";
 import WhiteButton from "../components/common/WhiteButton";
 import RedButton from "../components/common/RedButton";
 import ActiveLastBreadcrumb from "../components/common/Link";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
+import { Link } from "@mui/material";
 
 const Cart = () => {
   const { cartItems } = useCart();
@@ -65,7 +66,7 @@ const Cart = () => {
             <p className="text-xl">${total}</p>
           </div>{" "}
           <div className="mx-10">
-            <Link to="/checkout">
+            <Link href="/checkout">
               <RedButton name={i18n.t("redButtons.processToCheckout")} />
             </Link>
           </div>

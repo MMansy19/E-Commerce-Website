@@ -2,7 +2,7 @@ import { useState, useContext } from "react";
 import { styled, alpha } from "@mui/material/styles";
 import IconButton from "@mui/material/IconButton";
 import { Link } from "react-router-dom";
-import { ITEMS } from "../../assets/items";
+import { ITEMS } from "../common/items";
 import { CiSearch } from "react-icons/ci";
 import Autocomplete from "@mui/material/Autocomplete";
 import TextField from "@mui/material/TextField";

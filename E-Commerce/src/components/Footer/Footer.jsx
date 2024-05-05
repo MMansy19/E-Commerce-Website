@@ -81,27 +81,27 @@ const Footer = () => {
             </Typography>
             <ul className="list-none p-0">
               <li>
-                <Link href="/" sx={{ color: "white" }}>
+                <Link href="#" sx={{ color: "white" }}>
                   {i18n.t("footer.myAccount")}
                 </Link>
               </li>
               <li>
-                <Link href="/" sx={{ color: "white" }}>
+                <Link href="#" sx={{ color: "white" }}>
                   {i18n.t("footer.sign")}
                 </Link>
               </li>
               <li>
-                <Link href="/" sx={{ color: "white" }}>
+                <Link href="#" sx={{ color: "white" }}>
                   {i18n.t("footer.cart")}
                 </Link>
               </li>
               <li>
-                <Link href="/" sx={{ color: "white" }}>
+                <Link href="#" sx={{ color: "white" }}>
                   {i18n.t("footer.wishlist")}
                 </Link>
               </li>
               <li>
-                <Link href="/" sx={{ color: "white" }}>
+                <Link href="#" sx={{ color: "white" }}>
                   {i18n.t("footer.shop")}
                 </Link>
               </li>
@@ -121,22 +121,22 @@ const Footer = () => {
             </Typography>
             <ul className="list-none p-0">
               <li>
-                <Link href="/" sx={{ color: "white" }}>
+                <Link href="#" sx={{ color: "white" }}>
                   {i18n.t("footer.privacy")}
                 </Link>
               </li>
               <li>
-                <Link href="/" sx={{ color: "white" }}>
+                <Link href="#" sx={{ color: "white" }}>
                   {i18n.t("footer.usage")}
                 </Link>
               </li>
               <li>
-                <Link href="/" sx={{ color: "white" }}>
+                <Link href="#" sx={{ color: "white" }}>
                   {i18n.t("footer.FAQ")}
                 </Link>
               </li>
               <li>
-                <Link href="/" sx={{ color: "white" }}>
+                <Link href="#" sx={{ color: "white" }}>
                   {i18n.t("footer.Contact")}
                 </Link>
               </li>
@@ -160,7 +160,7 @@ const Footer = () => {
             <div className="flex flex-row gap-2 my-4">
               <QRCode />
               <div>
-                <Link href="/">
+                <Link href="#">
                   <svg
                     width="100"
                     height="40"
@@ -221,7 +221,7 @@ const Footer = () => {
                     </defs>
                   </svg>
                 </Link>
-                <Link href="/">
+                <Link href="#">
                   <svg
                     width="100"
                     height="36"
@@ -266,7 +266,7 @@ const Footer = () => {
 
             {/* Social Icons */}
             <div className="mt-4 flex items-center space-x-6">
-              <Link href="/" className="mr-4">
+              <Link href="#" className="mr-4">
                 <svg
                   width="24"
                   height="24"
@@ -280,7 +280,7 @@ const Footer = () => {
                   />
                 </svg>
               </Link>
-              <Link href="/" className="mr-4">
+              <Link href="#" className="mr-4">
                 <svg
                   width="24"
                   height="24"
@@ -303,7 +303,7 @@ const Footer = () => {
                   </defs>
                 </svg>
               </Link>
-              <Link href="/" className="mr-4">
+              <Link href="#" className="mr-4">
                 <svg
                   width="24"
                   height="24"
@@ -329,7 +329,7 @@ const Footer = () => {
                   />
                 </svg>
               </Link>
-              <Link href="/" className="mr-4">
+              <Link href="#" className="mr-4">
                 <svg
                   width="24"
                   height="24"
