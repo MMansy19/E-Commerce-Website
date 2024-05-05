@@ -51,7 +51,7 @@ const resources = {
       itemsArray: {
         0: {
           title: "Kids Electric Car",
-          type: "Electronics",
+          type: "Gaming",
           details:
             "An exciting electric car for kids to drive around in style, providing hours of entertainment and fun.",
         },
@@ -141,42 +141,42 @@ const resources = {
         },
         15: {
           title: "JBL Boombox 2",
-          type: "new arrival",
+          type: "New Arrival",
           details:
             "Experience powerful sound with the JBL Boombox 2, featuring a rugged design and long battery life for all-day listening.",
         },
         16: {
           title: "perfume",
-          type: "new arrival",
+          type: "New Arrival",
           details:
             "This perfume is a blend of oud, rose, and incense, creating a rich and luxurious scent that lasts all day.",
         },
         17: {
           title: "Phone",
-          type: "new arrival",
+          type: "New Arrival",
           details:
             "This phone features a large display, powerful processor, and long battery life, perfect for work and play.",
         },
         18: {
           title: "PlayStation 5",
-          type: "new arrival",
+          type: "New Arrival",
           details:
             "The black and white version of the PS5 is coming out on sale.",
         },
         19: {
           title: "Speaker",
-          type: "new arrival",
+          type: "New Arrival",
           details: "Amazing sound quality with the Amazon wireless speaker.",
         },
         20: {
           title: "Women's Collections",
-          type: "new arrival",
+          type: "New Arrival",
           details:
             "Women's collections are featured that give you another vibe, and you can find the best collections here.",
         },
         21: {
           title: "Football Shoes",
-          type: "new arrival",
+          type: "New Arrival",
           details:
             "The best football shoes for your game, and you can find the best collections here.",
         },
@@ -337,7 +337,7 @@ const resources = {
       itemsArray: {
         0: {
           title: "Kinder-Elektroauto",
-          type: "Elektronik",
+          type: "Gaming",
           details:
             "Ein aufregendes Elektroauto für Kinder, um stilvoll herumzufahren und stundenlangen Spaß zu bieten.",
         },
@@ -613,7 +613,7 @@ const resources = {
       itemsArray: {
         0: {
           title: "سيارة كهربائية للأطفال",
-          type: "الإلكترونيات",
+          type: "ألعاب",
           details:
             "سيارة كهربائية مثيرة للأطفال للقيادة بأناقة، توفر ساعات من الترفيه والمرح.",
         },
