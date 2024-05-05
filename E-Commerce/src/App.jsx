@@ -28,13 +28,13 @@ import { Fab } from "@mui/material";
 function App() {
   const [isLoaded, setIsLoaded] = useState(false);
 
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setIsLoaded(true);
-    }, 1000);
+  // useEffect(() => {
+  //   const timer = setTimeout(() => {
+  //     setIsLoaded(true);
+  //   }, 1000);
 
-    return () => clearTimeout(timer);
-  }, []);
+  //   return () => clearTimeout(timer);
+  // }, []);
   const [showScrollButton, setShowScrollButton] = useState(false);
 
   useEffect(() => {
@@ -50,9 +50,28 @@ function App() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  useEffect(() => {
+    // Simulating data loading with a timeout (replace this with actual data fetching logic)
+    const fetchData = async () => {
+      try {
+        // Fetch data or perform asynchronous tasks here
+        // For demonstration, we'll just wait for 1 second
+        await new Promise((resolve) => setTimeout(resolve, 1000));
+        setIsLoaded(true); // Update isLoaded after data is fetched
+      } catch (error) {
+        console.error("Error loading data:", error);
+        // Handle errors (e.g., display error message)
+      }
+    };
+
+    fetchData(); // Call the function to start data loading
+  }, []);
+
+  // Scroll to top functionality
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
+
   return (
     <Router>
       <div
@@ -79,8 +98,8 @@ function App() {
                       <Route path="/checkout" element={<Checkout />} />
                       <Route path="/payment" element={<Payment />} />
                       <Route path="/allProducts" element={<AllProducts />} />
-                      <Route path="/:title" element={<Product />} />
-                      <Route path="/*" element={<NotFound />} />
+                      <Route path="/allProducts/:title" element={<Product />} />
+                      <Route path="*" element={<NotFound />} />
                     </Routes>
                     <Footer />
                     {/* Scroll to top button */}
