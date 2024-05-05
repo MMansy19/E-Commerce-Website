@@ -4,9 +4,6 @@ import { LangProvider } from "./context/LangContext";
 import { CartProvider } from "./context/CartContext";
 import { WishlistProvider } from "./context/WishlistContext";
 import { SelectedProductProvider } from "./context/SelectedProductContext";
-import Header from "./components/Header/Header";
-import Footer from "./components/Footer/Footer";
-import TopHeader from "./components/TopHeader/TopHeader";
 import i18n from "./components/common/components/LangConfig";
 import routes from "./routes";
 import Loading from "./components/common/components/Loading";
@@ -33,24 +30,31 @@ function App() {
 
   return (
     <Router>
-      <div
-        className={i18n.t("font")}
-        // className="font-noto"
-      >
+      <div className={i18n.t("font")}>
         <LangProvider>
           <SelectedProductProvider>
             <CartProvider>
               <WishlistProvider>
                 {isLoaded ? (
                   <React.Fragment>
-                    <TopHeader />
-                    <Header />
                     <Routes>
                       {routes.map((route, index) => (
-                        <Route key={index} {...route} />
+                        <Route
+                          key={index}
+                          path={route.path}
+                          element={<route.element />}
+                        >
+                          {route.children &&
+                            route.children.map((childRoute, childIndex) => (
+                              <Route
+                                key={childIndex}
+                                path={childRoute.path}
+                                element={<childRoute.element />}
+                              />
+                            ))}
+                        </Route>
                       ))}
                     </Routes>
-                    <Footer />
                     <ScrollToTop />
                   </React.Fragment>
                 ) : (
