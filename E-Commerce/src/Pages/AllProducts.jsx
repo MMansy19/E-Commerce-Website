@@ -6,7 +6,7 @@ import FlashSaleItem from "../components/common/components/FlashSaleItem";
 import i18n from "../components/common/components/LangConfig";
 import RedButton from "../components/common/components/RedButton";
 import WhiteButton from "../components/common/components/WhiteButton";
-
+import Loader from "../components/common/components/Loader";
 const AllProducts = () => {
   const [loading, setLoading] = useState(true);
   const [displayedItems, setDisplayedItems] = useState(8);
@@ -22,7 +22,7 @@ const AllProducts = () => {
     setTimeout(() => {
       setLoading(false);
       setDisplayedItems(displayedItems + 3);
-    }, 1000);
+    }, 2000);
   };
 
   useEffect(() => {
@@ -42,12 +42,7 @@ const AllProducts = () => {
         {loading
           ? Array.from({ length: displayedItems }).map((_, index) => (
               <Grid item key={index} xs={12} sm={6} md={4} lg={3}>
-                <Skeleton
-                  variant="rectangular"
-                  width="100%"
-                  height={200}
-                  animation="wave"
-                />
+                <Loader />
               </Grid>
             ))
           : duplicatedItems.slice(0, displayedItems).map((item) => (
@@ -62,20 +57,15 @@ const AllProducts = () => {
             ))}
       </Grid>
       {displayedItems < totalItems && (
-        <div className="mt-4 text-center">
-          <button
-            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-            onClick={handleLoadMore}
-            // onClick={() =>
-            //   window.scrollTo({
-            //     top: window.scrollY - 1000,
-            //     behavior: "smooth",
-            //   })
-            // }
-          >
-            Load More
-          </button>
-        </div>
+        <button
+          onClick={handleLoadMore}
+          type="button"
+          className="md:mx-auto text-center rounded-md px-5 py-3 mt-8 shadow hover:shadow-md active:shadow-inner transition
+            hover:bg-gray-50 border text-[#696A75] hover:text-[#696A75] border-[#696A75] hover:border-[#696A75]
+            hover:scale-105 hover:-translate-y-2 transform  duration-300 ease-in-out"
+        >
+          Load more..
+        </button>
       )}
       <div className="mt-6 flex justify-around items-center md:mx-12">
         <Link to="..">
