@@ -1,47 +1,50 @@
-import { useState, useEffect } from "react";
+import FlashSaleItem from "../common/components/FlashSaleItem";
 import PropTypes from "prop-types";
+import { useState, useEffect } from "react";
 import RedTitle from "../common/components/RedTitle";
 import Arrows from "../common/components/Arrows";
 import ViewAll from "../common/components/ViewAll";
 import calculateTimeLeft from "../common/functions/calculateTimeLeft";
 import i18n from "../common/components/LangConfig";
-import { motion } from "framer-motion";
-import FlashSaleItem from "../common/components/FlashSaleItem";
+import { motion } from "framer-motion"; // Import motion from Framer Motion for animations
 
 const FlashSale = ({ items }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [timeLeft, setTimeLeft] = useState(
     calculateTimeLeft(new Date("2024-05-27T00:00:00"))
   );
-  const duplicatedItems = Array.from({ length: 3 }, () => items).flat(); // Updated to duplicate items three times
+  const duplicatedItems = Array.from({ length: 2 }, () => items).flat(); // Updated to duplicate items three times
 
-  const handleNextItem = () => {
-    setCurrentIndex((prevIndex) => (prevIndex + 1) % duplicatedItems.length); // Updated to handle next item
+  // const saleItems = items.filter((item) => !item.state);
+  const handleNextItem = (state = 1) => {
+    setCurrentIndex((prevIndex) => (prevIndex + state) % items.length);
   };
 
-  const handlePrevItem = () => {
+  const handlePrevItem = (state = 1) => {
     setCurrentIndex(
-      (prevIndex) =>
-        (prevIndex - 1 + duplicatedItems.length) % duplicatedItems.length
-    ); // Updated to handle previous item
+      (prevIndex) => (prevIndex - state + items.length) % items.length
+    );
   };
 
   useEffect(() => {
-    const timer = setInterval(() => {
+    const timer = setTimeout(() => {
       setTimeLeft(calculateTimeLeft(new Date("2024-05-27T00:00:00")));
-      handleNextItem(); // Move to the next item every second
     }, 1000);
 
-    return () => clearInterval(timer);
-  }, []);
+    setTimeout(() => {
+      handleNextItem();
+    }, 1000);
+
+    return () => clearTimeout(timer);
+  });
 
   return (
     <>
-      <div className="p-4">
+      <div className=" p-4">
         <RedTitle title={i18n.t("homeSections.row2.0")} />
         <div className="flex md:justify-between items-center md:mr-6 md:mb-4">
-          <div className="flex gap-20 flex-col md:flex-row">
-            <h2 className="text-2xl md:text-3xl font-semibold">
+          <div className="flex gap-20 flex-col md:flex-row ">
+            <h2 className="text-2xl md:text-3xl font-semibold ">
               {i18n.t("homeSections.row2.1")}
             </h2>
             <div className="font-inter font-bold text-2xl md:text-3xl relative">
@@ -67,21 +70,24 @@ const FlashSale = ({ items }) => {
             </div>
           </div>
           <Arrows
-            handlePrevItem={handlePrevItem}
-            handleNextItem={handleNextItem}
+            handlePrevItem={() => handlePrevItem(1000)}
+            handleNextItem={() => handleNextItem(1000)}
           />
         </div>
-
         {/* Motion */}
-        <div className="relative overflow-x-hidden overflow-y-hidden flex justify-center items-center md:h-[400px]">
+        <div className="relative  overflow-x-auto overflow-y-hidden flex justify-center items-center md:h-[400px] ">
           <motion.div
             className="flex gap-2 md:gap-12"
-            initial={{ opacity: 0 }}
+            initial={{ opacity: 0, x: 0 }}
             animate={{
               opacity: 1,
               transition: { duration: 0.5 },
+              x: currentIndex * 100,
             }}
             exit={{ opacity: 0 }}
+            // initial={{ x: 0 }}
+            // animate={{ x: -currentIndex * 100 }} // Adjust the value for smoother animation
+            transition={{ type: "spring", stiffness: 10, damping: 30 }} // Adjust spring animation parameters for smoother swiping
           >
             {duplicatedItems.map((item, index) => (
               <motion.div
@@ -102,6 +108,7 @@ const FlashSale = ({ items }) => {
             ))}
           </motion.div>
         </div>
+
         {/* Motion */}
       </div>
       <div className="flex justify-center">

@@ -25,9 +25,11 @@ function Wishlist() {
 
   // Function to move all wishlist items to the cart
   const moveAllToCart = () => {
+    console.log("Move All To Cart clicked");
     const itemsToAdd = relatedItems.filter(
       (item) => !cartItems.some((cartItem) => cartItem.id === item.id)
     );
+    console.log("Items to add:", itemsToAdd);
     setCartItems([...cartItems, ...itemsToAdd]);
   };
 
