@@ -7,14 +7,14 @@ import WishlistIcon from "../components/common/components/WishlistIcon";
 import { useCart } from "../context/CartContext";
 import i18n from "../components/common/components/LangConfig";
 import { Link } from "react-router-dom";
-import Modal from "../components/common/components/Modal";
+import { motion } from "framer-motion";
+import { AnimatePresence } from "framer-motion";
+
 const Product = () => {
   const { selectedProduct } = useContext(SelectedProductContext);
   const { handleIncrease, handleDecrease } = useCart();
   const [quantity, setQuantity] = useState(0);
   const [selectedSize, setSelectedSize] = useState(""); // State to track selected size
-  const [showModal, setShowModal] = useState(false); // State to control modal visibility
-  const [modalImage, setModalImage] = useState(""); // State to store image for modal
 
   useEffect(() => {
     setQuantity(selectedProduct.quantity);
@@ -53,16 +53,10 @@ const Product = () => {
   const handleSizeSelect = (size) => {
     setSelectedSize(size);
   };
+  const [isImageFullScreen, setIsImageFullScreen] = useState(false);
 
-  // Function to open modal with clicked image
-  const handleImageClick = (imageSrc) => {
-    setModalImage(imageSrc);
-    setShowModal(true);
-  };
-
-  // Function to close modal
-  const closeModal = () => {
-    setShowModal(false);
+  const handleImageClick = () => {
+    setIsImageFullScreen(!isImageFullScreen);
   };
 
   return (
@@ -77,27 +71,36 @@ const Product = () => {
           <div className="flex flex-col-reverse md:flex-row gap-8">
             <div className="flex  flex-row md:flex-col gap-4">
               {[...Array(4)].map((_, index) => (
-                <button
+                <motion.div
+                  role="button"
                   key={index}
-                  className="relative  flex items-center justify-center bg-zinc-100  rounded md:pt-12 md:p-8 md:h-[138px] md:w-[170px]"
-                  onClick={() => handleImageClick(selectedProduct.imageSrc)}
+                  className="relative flex items-center justify-center bg-zinc-100 rounded md:pt-12 md:p-8 md:h-[138px] md:w-[170px]"
+                  onClick={handleImageClick}
+                  whileHover={{ scale: 1.2 }}
+                  whileTap={{ scale: 0.7 }}
                 >
                   <img
                     src={selectedProduct.imageSrc}
                     alt={selectedProduct.title}
                     className="transform transition-transform duration-300 hover:scale-105 focus:outline-none w-full h-full"
                   />
-                </button>
+                </motion.div>
               ))}
             </div>
-            <button className="relative flex items-center justify-center bg-zinc-100 w-full rounded md:pt-12 md:p-8 md:h-[600px] md:w-[500px]">
+            {/* Main image */}
+            {/* <button> */}
+            <motion.div
+              role="button"
+              className="relative flex items-center justify-center bg-zinc-100 w-full rounded md:pt-12 md:p-8 md:h-[600px] md:w-[500px]"
+              onClick={handleImageClick}
+            >
               <img
                 src={selectedProduct.imageSrc}
                 alt={selectedProduct.title}
-                className="transform transition-transform duration-300 hover:scale-105 focus:outline-none w-full max-h-full "
-                onClick={() => handleImageClick(selectedProduct.imageSrc)}
+                className="transform transition-transform duration-300 hover:scale-105 focus:outline-none w-full max-h-full"
               />
-            </button>
+            </motion.div>
+            {/* </button> */}
           </div>
           <div className="flex gap-5 flex-col">
             <div className="flex gap-4 flex-col">
@@ -228,11 +231,29 @@ const Product = () => {
         </div>
         <RelatedItems selectedProduct={selectedProduct} />
       </div>
-      <Modal
-        showModal={showModal}
-        modalImage={modalImage}
-        closeModal={closeModal}
-      />
+      <AnimatePresence>
+        {isImageFullScreen && (
+          <motion.div
+            className="backdrop-blur-sm fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50"
+            onClick={handleImageClick}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.5 }}
+            style={{ width: "100vw", height: "100vh" }} // Set full-screen width and height
+          >
+            <motion.img
+              src={selectedProduct.imageSrc}
+              alt={selectedProduct.title}
+              className="w-full h-auto max-h-[50vh] md:max-w-[50vw]"
+              initial={{ scale: 0 }}
+              animate={{ scale: 1 }}
+              exit={{ scale: 0 }}
+              transition={{ duration: 0.5 }}
+            />
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 };

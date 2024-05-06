@@ -38,7 +38,10 @@ const Cart = () => {
       ))}{" "}
       {/* Buttons for returning to shop, applying coupon, and proceeding to checkout */}
       <div className="flex justify-between items-center mt-2">
-        <WhiteButton name="Return To Shop" />
+        <Link to="..">
+          <WhiteButton name="Return To Shop" />
+        </Link>
+
         <WhiteButton name="Update Cart" />
       </div>
       <div className="flex items-center mt-4 md:flex-row flex-col justify-between">

@@ -9,6 +9,9 @@ const Row1 = () => {
   const handleProductClick = () => {
     setSelectedProduct(dealItem);
   };
+  // <Link to="..">
+  //   <WhiteButton name="Return To Shop" />
+  // </Link>;
 
   const dealItem = ITEMS.find(
     (item) => item.title === i18n.t("itemsArray.17.title")
@@ -91,32 +94,34 @@ const Row1 = () => {
           <h2 className="text-2xl md:text-5xl leading-10">
             {i18n.t("homeSections.row1.col2.1")}
           </h2>
-          <button className="mb-8 md:mb-0 flex gap-2 underline underline-offset-8 py-2 px-6 focus:underline-offset-2  ease-in-out  duration-300 transform hover:translate-x-4">
-            <span>{i18n.t("homeSections.row1.col2.2")}</span>
-            <svg
-              className="mt-1 "
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M3.5 12H20M20 12L13 5M20 12L13 19"
-                stroke="#FAFAFA"
-                strokeWidth="1.5"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
-          </button>
+          <Link
+            to={{ pathname: `/allProducts/${dealItem.title}` }}
+            onClick={() => handleProductClick()}
+            key={dealItem.id}
+          >
+            <button className="mb-8 md:mb-0 flex gap-2 underline underline-offset-8 py-2 px-6 focus:underline-offset-2  ease-in-out  duration-300 transform hover:translate-x-4">
+              <span>{i18n.t("homeSections.row1.col2.2")}</span>
+              <svg
+                className="mt-1 "
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M3.5 12H20M20 12L13 5M20 12L13 19"
+                  stroke="#FAFAFA"
+                  strokeWidth="1.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+            </button>
+          </Link>
         </div>
         <div className=" relative overflow-hidden mt-4 ">
-          {/* {images.slice(startIndex, startIndex + 1).map((image, index) => ( */}
-          <div
-            className="transition-transform duration-300 transform hover:translate-y-1 hover:scale-105"
-            // key={index}
-          >
+          <div className="transition-transform duration-300 transform hover:translate-y-1 hover:scale-105">
             <Link
               to={{ pathname: `/allProducts/${dealItem.title}` }}
               onClick={() => handleProductClick()}
@@ -129,8 +134,6 @@ const Row1 = () => {
               />
             </Link>
           </div>
-          {/* ))} */}
-          {/* <PaginationIndicator onClick={setStartIndex} data={images} /> */}
         </div>
       </div>
     </div>

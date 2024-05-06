@@ -36,12 +36,28 @@ function ChangeLang() {
   };
   return (
     <div>
+      <Select
+        sx={{
+          display: loading ? "none" : "block",
+          "& .MuiSelect-select": {
+            color: "white",
+          },
+        }}
+        value={lang}
+        onChange={langChange}
+        disabled={loading} // Disable select while loading
+      >
+        <MenuItem value="en">English</MenuItem>
+        <MenuItem value="gr">German(Deutsch)</MenuItem>
+        <MenuItem value="ar">Arabic(العربية)</MenuItem>
+      </Select>
       {loading ? (
         <CircularProgress
           sx={{
             color: "white",
-            width: "20px !important",
-            height: "20px !important",
+            width: "30px !important",
+            height: "30px !important",
+            my: "10px !important",
           }}
         />
       ) : (
@@ -55,20 +71,6 @@ function ChangeLang() {
           </Alert>
         </Snackbar>
       )}
-      <Select
-        sx={{
-          "& .MuiSelect-select": {
-            color: "white",
-          },
-        }}
-        value={lang}
-        onChange={langChange}
-        disabled={loading} // Disable select while loading
-      >
-        <MenuItem value="en">English</MenuItem>
-        <MenuItem value="gr">German(Deutsch)</MenuItem>
-        <MenuItem value="ar">Arabic(العربية)</MenuItem>
-      </Select>
     </div>
   );
 }

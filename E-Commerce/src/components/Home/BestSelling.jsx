@@ -14,12 +14,11 @@ const BestSelling = ({ items }) => {
       <div className="mx-2">
         <RedTitle title={i18n.t("bestSelling.redTitle")} />
 
-        <div className="flex md:justify-between items-center md:mr-6 md:mb-4">
+        <div className="flex justify-between items-center md:mr-6 md:mb-4">
           <h2 className="text-lg  md:text-3xl font-semibold ">
             {i18n.t("bestSelling.title")}
           </h2>
           <ViewAll name={i18n.t("redButtons.viewAll")} />
-          <div className="mb:24 absolute right-8 md:right-24"></div>
         </div>
         <div className="relative mt-10">
           <div className="flex flex-row gap-2 md:gap-8 overflow-x-hidden hover:overflow-x-auto md:hover:overflow-x-hidden  transition-transform duration-300 transform  focus:outline-none ">

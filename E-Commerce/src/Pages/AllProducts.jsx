@@ -1,27 +1,38 @@
+import { Grid, Typography } from "@mui/material";
+import { Link } from "react-router-dom";
 import { ITEMS } from "../components/common/functions/items";
 import FlashSaleItem from "../components/common/components/FlashSaleItem";
 import i18n from "../components/common/components/LangConfig";
-const AllProducts = () => {
-  const filteredItems = ITEMS.filter((item) => item.type !== "electronics");
+import RedButton from "../components/common/components/RedButton";
+import WhiteButton from "../components/common/components/WhiteButton";
 
+const AllProducts = () => {
   return (
-    <div className=" mt-36 md:mt-48 ">
-      <h1 className="text-4xl font-bold text-center mb-10">
+    <div className="container mx-auto mt-40 flex flex-col gap-5">
+      <Typography variant="h3" align="center" gutterBottom>
         {i18n.t("allProducts.title")}
-      </h1>
-      <div className="relative flex flex-row gap-2 md:gap-12 overflow-x-hidden transition-transform duration-300 transform focus:outline-none">
-        <div className="grid grid-rows-2 mx-auto md:grid-cols-4 gap-2 md:gap-12">
-          {filteredItems.map((item, index) => (
+      </Typography>
+      <Grid container spacing={3} justifyContent="center" alignItems="center">
+        {ITEMS.map((item, index) => (
+          <Grid item key={item.id} xs={0} sm={6} md={4} lg={3}>
             <FlashSaleItem
-              key={item.id}
               item={item}
               index={index}
-              totalItems={filteredItems.length}
+              totalItems={ITEMS.length}
               stars={item.stars}
               rates={item.rates}
             />
-          ))}
-        </div>
+          </Grid>
+        ))}
+      </Grid>
+
+      <div className="mt-6 flex  justify-around items-center md:mx-12 ">
+        <Link to="..">
+          <WhiteButton name={i18n.t("redButtons.backToHomePage")} />
+        </Link>
+        <Link to="/category">
+          <RedButton name={i18n.t("Explore By Category")} />
+        </Link>
       </div>
     </div>
   );

@@ -4,6 +4,7 @@ import RedTitle from "../common/components/RedTitle";
 import Arrows from "../common/components/Arrows";
 import ViewAll from "../common/components/ViewAll";
 import i18n from "../common/components/LangConfig";
+import { Grid, Typography } from "@mui/material";
 
 const AllProducts = ({ items }) => {
   return (
@@ -18,22 +19,28 @@ const AllProducts = ({ items }) => {
           </div>
           <Arrows />
         </div>
-        <div className="relative mt-10 flex flex-row gap-2 md:gap-12 overflow-x-hidden transition-transform duration-300 transform focus:outline-none">
-          <div className="grid grid-rows-2 mx-auto md:grid-cols-4 gap-2 md:gap-12">
-            {items.slice(0, 8).map((item, index) => (
-              <FlashSaleItem
-                key={item.title}
-                item={item}
-                index={index}
-                totalItems={items.length}
-                stars={item.stars}
-                rates={item.rates}
-              />
+        <div className="relative mt-10 flex flex-row gap-2 md:gap-12 transition-transform duration-300 transform ">
+          <Grid
+            container
+            spacing={3}
+            justifyContent="center"
+            alignItems="center"
+          >
+            {items.slice(0, 6).map((item, index) => (
+              <Grid item key={item.id} xs={0} sm={6} md={4} lg={3}>
+                <FlashSaleItem
+                  item={item}
+                  index={index}
+                  totalItems={items.length}
+                  stars={item.stars}
+                  rates={item.rates}
+                />
+              </Grid>
             ))}
-          </div>
+          </Grid>
         </div>
       </div>
-      <div className="mt-8 flex justify-center">
+      <div className=" flex justify-center">
         <ViewAll name={i18n.t("redButtons.viewAllProducts")} />
       </div>
     </>

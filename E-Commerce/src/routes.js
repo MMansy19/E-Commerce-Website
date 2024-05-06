@@ -13,6 +13,7 @@ import LogIn from "./Pages/LogIn";
 import Product from "./Pages/Product";
 import AllProducts from "./Pages/AllProducts";
 import NotFound from "./Pages/NotFound";
+import Category from "./Pages/Category";
 
 const routes = [
   {
@@ -30,6 +31,7 @@ const routes = [
       { path: "checkout", element: Checkout },
       { path: "payment", element: Payment },
       { path: "allProducts", element: AllProducts },
+      { path: "category", element: Category },
       { path: "allProducts/:title", element: Product },
       { path: "*", element: NotFound },
     ],

@@ -57,7 +57,7 @@ const FlashSaleItem = ({ item }) => {
       <div
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
-        className="relative rounded flex items-center justify-center bg-zinc-100 w-[270px] h-60 transform transition-transform duration-300 hover:scale-105 focus:outline-none"
+        className="relative rounded flex items-center justify-center bg-zinc-100 w-[270px] h-60 transform transition-transform duration-300 hover:scale-105 focus:outline-none hover:-translate-y-2"
       >
         {isHovered && (
           <button
@@ -89,7 +89,7 @@ const FlashSaleItem = ({ item }) => {
             alt={item.title}
             // className="hover:animate-ping "
             // className="hover:animate-bounce"
-            className="hover:animate-pulse"
+            className="hover:animate-pulse "
             // className="motion-safe:animate-spin"
           />
         </Link>

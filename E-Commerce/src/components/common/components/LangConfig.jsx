@@ -34,7 +34,7 @@ const resources = {
           col1: [
             "Women's Fashion",
             "Men's Fashion",
-            "Electronics",
+            "Technology",
             "Home & Lifestyle",
             "Medicine",
             "Sports & Outdoor",
@@ -58,7 +58,7 @@ const resources = {
         },
         1: {
           title: "CANON EOS DSLR Camera",
-          type: "Electronics",
+          type: "Technology",
           details:
             "Capture stunning photos and videos with this professional-grade Canon DSLR camera, perfect for photography enthusiasts.",
         },
@@ -70,7 +70,7 @@ const resources = {
         },
         3: {
           title: "ASUS FHD Gaming Laptop",
-          type: "Electronics",
+          type: "Technology",
           details:
             "Experience high-performance gaming with this ASUS FHD gaming laptop, featuring advanced graphics and smooth gameplay.",
         },
@@ -100,7 +100,7 @@ const resources = {
         },
         8: {
           title: "RGB Liquid CPU Cooler",
-          type: "Electronics",
+          type: "Technology",
           details:
             "Keep your CPU cool and running smoothly with the RGB liquid CPU cooler, featuring a high-performance pump and customizable RGB lighting.",
         },
@@ -124,13 +124,13 @@ const resources = {
         },
         12: {
           title: "AK-900 Wired Keyboard",
-          type: "Electronics",
+          type: "Technology",
           details:
             "Type with speed and accuracy using the AK-900 wired keyboard, featuring a durable construction and ergonomic design.",
         },
         13: {
           title: "IPS LCD Gaming Monitor",
-          type: "Electronics",
+          type: "Technology",
           details:
             "Immerse yourself in gaming with the IPS LCD gaming monitor, delivering vibrant visuals and smooth gameplay.",
         },

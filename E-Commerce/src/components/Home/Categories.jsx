@@ -2,12 +2,16 @@ import RedTitle from "../common/components/RedTitle";
 import PropTypes from "prop-types";
 import Arrows from "../common/components/Arrows";
 import i18n from "../common/components/LangConfig";
+import { Link } from "react-router-dom";
+import { Grid } from "@mui/material";
 
 const Category = ({ icon, name }) => (
-  <div className="hover:animate-pulse flex gap-4 items-center justify-center flex-col bg-white md:px-24 py-8 rounded-lg border border-gray-300 transition duration-300 hover:bg-cyan-400 hover:invert  hover:shadow-xl  ">
-    <div>{icon}</div>
-    <div className="text-lg">{name}</div>
-  </div>
+  <Link to="category">
+    <button className=" w-full hover:animate-pulse flex gap-4 items-center justify-center flex-col bg-white  py-8 rounded-lg border border-gray-300 transition duration-300 hover:bg-cyan-400 hover:invert  hover:shadow-xl hover:-translate-y-2 ">
+      <div>{icon}</div>
+      <div className="text-lg">{name}</div>
+    </button>
+  </Link>
 );
 
 const CategoryList = () => {
@@ -308,26 +312,28 @@ const CategoryList = () => {
     },
   ];
 
-  return categories.map((category, index) => (
-    <Category key={index} icon={category.icon} name={category.name} />
-  ));
+  return (
+    <Grid container spacing={2} justifyContent="center" alignItems="center">
+      {categories.map((category, index) => (
+        <Grid item key={index} xs={8} sm={6} md={4} lg={2} xl={2}>
+          <Category icon={category.icon} name={category.name} />
+        </Grid>
+      ))}
+    </Grid>
+  );
 };
 
 const Categories = () => {
   return (
-    <div className="py-12 px-4">
+    <div className="py-12 ">
       <RedTitle title={i18n.t("category.redTitle")} />
-      <div className="flex md:justify-between items-center md:mr-6 mb-12">
-        <div className="flex gap-20 flex-col md:flex-row ">
-          <h2 className="text-xl md:text-3xl font-semibold ">
-            {i18n.t("category.title")}
-          </h2>
-        </div>
+      <div className="flex gap-20 flex-col md:flex-row  mb-8">
+        <h2 className="text-xl md:text-3xl font-semibold ">
+          {i18n.t("category.title")}
+        </h2>
         <Arrows />
       </div>
-      <div className="   grid grid-cols-1 lg:grid-cols-6 gap-8 md:gap-16">
-        <CategoryList />
-      </div>
+      <CategoryList />
     </div>
   );
 };

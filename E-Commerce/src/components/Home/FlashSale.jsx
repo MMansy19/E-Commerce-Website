@@ -1,45 +1,47 @@
-import FlashSaleItem from "../common/components/FlashSaleItem";
-import PropTypes from "prop-types";
 import { useState, useEffect } from "react";
+import PropTypes from "prop-types";
 import RedTitle from "../common/components/RedTitle";
 import Arrows from "../common/components/Arrows";
 import ViewAll from "../common/components/ViewAll";
 import calculateTimeLeft from "../common/functions/calculateTimeLeft";
 import i18n from "../common/components/LangConfig";
-import { motion } from "framer-motion"; // Import motion from Framer Motion for animations
+import { motion } from "framer-motion";
+import FlashSaleItem from "../common/components/FlashSaleItem";
 
 const FlashSale = ({ items }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [timeLeft, setTimeLeft] = useState(
     calculateTimeLeft(new Date("2024-05-27T00:00:00"))
   );
+  const duplicatedItems = Array.from({ length: 3 }, () => items).flat(); // Updated to duplicate items three times
 
-  const saleItems = items.filter((item) => item.discount !== "");
   const handleNextItem = () => {
-    setCurrentIndex((prevIndex) => (prevIndex + 1) % items.length);
+    setCurrentIndex((prevIndex) => (prevIndex + 1) % duplicatedItems.length); // Updated to handle next item
   };
 
   const handlePrevItem = () => {
     setCurrentIndex(
-      (prevIndex) => (prevIndex - 1 + items.length) % items.length
-    );
+      (prevIndex) =>
+        (prevIndex - 1 + duplicatedItems.length) % duplicatedItems.length
+    ); // Updated to handle previous item
   };
 
   useEffect(() => {
-    const timer = setTimeout(() => {
+    const timer = setInterval(() => {
       setTimeLeft(calculateTimeLeft(new Date("2024-05-27T00:00:00")));
+      handleNextItem(); // Move to the next item every second
     }, 1000);
 
-    return () => clearTimeout(timer);
-  });
+    return () => clearInterval(timer);
+  }, []);
 
   return (
     <>
-      <div className="py-12 px-4">
+      <div className="p-4">
         <RedTitle title={i18n.t("homeSections.row2.0")} />
         <div className="flex md:justify-between items-center md:mr-6 md:mb-4">
-          <div className="flex gap-20 flex-col md:flex-row ">
-            <h2 className="text-2xl md:text-3xl font-semibold ">
+          <div className="flex gap-20 flex-col md:flex-row">
+            <h2 className="text-2xl md:text-3xl font-semibold">
               {i18n.t("homeSections.row2.1")}
             </h2>
             <div className="font-inter font-bold text-2xl md:text-3xl relative">
@@ -69,23 +71,30 @@ const FlashSale = ({ items }) => {
             handleNextItem={handleNextItem}
           />
         </div>
+
         {/* Motion */}
-        <div className="relative  overflow-x-auto snap-x snap-mandatory scroll-mt-4 scroll-mr-4 scroll-ml-4 scroll-padding-4 flex justify-center items-center h-[400px] ">
+        <div className="relative overflow-x-hidden overflow-y-hidden flex justify-center items-center md:h-[400px]">
           <motion.div
             className="flex gap-2 md:gap-12"
-            initial={{ x: 0 }}
-            animate={{ x: -currentIndex * 200 }} // Adjust the value for smoother animation
-            transition={{ type: "spring", stiffness: 300, damping: 30 }} // Adjust spring animation parameters for smoother swiping
+            initial={{ opacity: 0 }}
+            animate={{
+              opacity: 1,
+              transition: { duration: 0.5 },
+            }}
+            exit={{ opacity: 0 }}
           >
-            {saleItems.map((item, index) => (
+            {duplicatedItems.map((item, index) => (
               <motion.div
                 key={item.title}
-                whileHover={{ scale: 1.05 }} // Increase scale on hover for larger image preview
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.5 }}
+                whileHover={{ scale: 1.1 }}
               >
                 <FlashSaleItem
                   item={item}
                   index={index}
-                  totalItems={saleItems.length}
+                  totalItems={duplicatedItems.length}
                   stars={item.stars}
                   rates={item.rates}
                 />
@@ -93,10 +102,9 @@ const FlashSale = ({ items }) => {
             ))}
           </motion.div>
         </div>
-
         {/* Motion */}
       </div>
-      <div className="mt-8 flex justify-center">
+      <div className="flex justify-center">
         <ViewAll name={i18n.t("redButtons.viewAllProducts")} />
       </div>
       <hr className="mx-40 border-gray-300 md:mt-16" />

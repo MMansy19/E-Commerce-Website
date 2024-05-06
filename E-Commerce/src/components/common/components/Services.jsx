@@ -14,7 +14,7 @@ const Service = ({ icon, value, description }) => {
 const Services = () => {
   return (
     <div className="flex flex-col items-center justify-center gap-8  ">
-      <div className="mt-20 mx-8  grid grid-cols-1 lg:grid-cols-3 gap-20 ">
+      <div className=" text-center md:text-start mx-8  grid grid-cols-1 lg:grid-cols-3 md:gap-20 ">
         <Service
           icon={
             <svg
