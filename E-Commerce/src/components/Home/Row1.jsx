@@ -1,14 +1,14 @@
 import i18n from "../common/components/LangConfig";
-import { useContext } from "react";
+// import { useContext } from "react";
 import { Link } from "react-router-dom";
-import { SelectedProductContext } from "../../context/SelectedProductContext";
+// import { SelectedProductContext } from "../../context/SelectedProductContext";
 import { ITEMS } from "../common/functions/items";
 
 const Row1 = () => {
-  const { setSelectedProduct } = useContext(SelectedProductContext);
-  const handleProductClick = () => {
-    setSelectedProduct(dealItem);
-  };
+  // const { setSelectedProduct } = useContext(SelectedProductContext);
+  // const handleProductClick = () => {
+  //   setSelectedProduct(dealItem);
+  // };
   // <Link to="..">
   //   <WhiteButton name="Return To Shop" />
   // </Link>;
@@ -24,31 +24,49 @@ const Row1 = () => {
         <nav className="py-6">
           <ul>
             <li className="px-4 py-2 cursor-pointer hover:underline hover:underline-offset-8   ease-in-out  duration-300 transform hover:translate-x-4">
-              {i18n.t("homeSections.row1.col1.0")}
+              <Link to="/allProducts">
+                {i18n.t("homeSections.row1.col1.0")}
+              </Link>
             </li>
             <li className="px-4 py-2 cursor-pointer hover:underline hover:underline-offset-8   ease-in-out  duration-300 transform hover:translate-x-4">
-              {i18n.t("homeSections.row1.col1.1")}
+              <Link to="/allProducts">
+                {i18n.t("homeSections.row1.col1.1")}{" "}
+              </Link>
             </li>
             <li className="px-4 py-2 cursor-pointer hover:underline hover:underline-offset-8   ease-in-out  duration-300 transform hover:translate-x-4">
-              {i18n.t("homeSections.row1.col1.2")}
+              <Link to="/allProducts">
+                {i18n.t("homeSections.row1.col1.2")}{" "}
+              </Link>
             </li>
             <li className="px-4 py-2 cursor-pointer hover:underline hover:underline-offset-8   ease-in-out  duration-300 transform hover:translate-x-4">
-              {i18n.t("homeSections.row1.col1.3")}
+              <Link to="/allProducts">
+                {i18n.t("homeSections.row1.col1.3")}{" "}
+              </Link>
             </li>
             <li className="px-4 py-2 cursor-pointer hover:underline hover:underline-offset-8   ease-in-out  duration-300 transform hover:translate-x-4">
-              {i18n.t("homeSections.row1.col1.4")}
+              <Link to="/allProducts">
+                {i18n.t("homeSections.row1.col1.4")}{" "}
+              </Link>
             </li>
             <li className="px-4 py-2 cursor-pointer hover:underline hover:underline-offset-8   ease-in-out  duration-300 transform hover:translate-x-4">
-              {i18n.t("homeSections.row1.col1.5")}
+              <Link to="/allProducts">
+                {i18n.t("homeSections.row1.col1.5")}{" "}
+              </Link>
             </li>
             <li className="px-4 py-2 cursor-pointer hover:underline hover:underline-offset-8   ease-in-out  duration-300 transform hover:translate-x-4">
-              {i18n.t("homeSections.row1.col1.6")}
+              <Link to="/allProducts">
+                {i18n.t("homeSections.row1.col1.6")}{" "}
+              </Link>
             </li>
             <li className="px-4 py-2 cursor-pointer hover:underline hover:underline-offset-8   ease-in-out  duration-300 transform hover:translate-x-4">
-              {i18n.t("homeSections.row1.col1.7")}
+              <Link to="/allProducts">
+                {i18n.t("homeSections.row1.col1.7")}{" "}
+              </Link>
             </li>
             <li className="px-4 py-2 cursor-pointer hover:underline hover:underline-offset-8   ease-in-out  duration-300 transform hover:translate-x-4">
-              {i18n.t("homeSections.row1.col1.8")}
+              <Link to="/allProducts">
+                {i18n.t("homeSections.row1.col1.8")}{" "}
+              </Link>
             </li>
           </ul>
         </nav>
@@ -94,11 +112,7 @@ const Row1 = () => {
           <h2 className="text-2xl md:text-5xl leading-10">
             {i18n.t("homeSections.row1.col2.1")}
           </h2>
-          <Link
-            to={{ pathname: `/allProducts/${dealItem.title}` }}
-            onClick={() => handleProductClick()}
-            key={dealItem.id}
-          >
+          <Link to="/allProducts">
             <button className="mb-8 md:mb-0 flex gap-2 underline underline-offset-8 py-2 px-6 focus:underline-offset-2  ease-in-out  duration-300 transform hover:translate-x-4">
               <span>{i18n.t("homeSections.row1.col2.2")}</span>
               <svg
@@ -122,11 +136,7 @@ const Row1 = () => {
         </div>
         <div className=" relative overflow-hidden mt-4 ">
           <div className="transition-transform duration-300 transform hover:translate-y-1 hover:scale-105">
-            <Link
-              to={{ pathname: `/allProducts/${dealItem.title}` }}
-              onClick={() => handleProductClick()}
-              key={dealItem.id}
-            >
+            <Link to="/allProducts">
               <img
                 src={dealItem.imageSrc}
                 alt={dealItem.title}

@@ -76,8 +76,8 @@ const Product = () => {
                   key={index}
                   className="relative flex items-center justify-center bg-zinc-100 rounded md:pt-12 md:p-8 md:h-[138px] md:w-[170px]"
                   onClick={handleImageClick}
-                  whileHover={{ scale: 1.2 }}
-                  whileTap={{ scale: 0.7 }}
+                  whileHover={{ scale: 1.15 }}
+                  whileTap={{ scale: 0.8 }}
                 >
                   <img
                     src={selectedProduct.imageSrc}
@@ -239,7 +239,7 @@ const Product = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 0.5 }}
+            transition={{ duration: 0.3 }}
             style={{ width: "100vw", height: "100vh" }} // Set full-screen width and height
           >
             <motion.img
@@ -249,7 +249,7 @@ const Product = () => {
               initial={{ scale: 0 }}
               animate={{ scale: 1 }}
               exit={{ scale: 0 }}
-              transition={{ duration: 0.5 }}
+              transition={{ duration: 0.3 }}
             />
           </motion.div>
         )}

@@ -12,6 +12,8 @@ const Deal = () => {
 
   const { setSelectedProduct } = useContext(SelectedProductContext);
   const handleProductClick = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+
     setSelectedProduct(dealItem);
   };
 
