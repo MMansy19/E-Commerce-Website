@@ -79,7 +79,7 @@ const SignUp = () => {
             sx={{
               color: "white",
               fontSize: "16px",
-              bgcolor: "hsla(0, 68%, 56%, 1)",
+              bgcolor: "hsla(0, 68%, 56%, .9)",
               textTransform: "none",
               padding: "16px 0",
               borderRadius: "4px",
@@ -87,7 +87,8 @@ const SignUp = () => {
               width: "100%",
               marginTop: "1rem",
               ":hover": {
-                bgcolor: "hsla(0, 68%, 56%, .9)",
+                bgcolor: "hsla(0, 68%, 56%, 1)",
+                fontWeight: "500",
               },
             }}
             variant="contained"
@@ -96,7 +97,6 @@ const SignUp = () => {
           >
             Create Account
           </Button>
-          {/* {error && <p className="text-red-500">{error}</p>} */}
         </form>
 
         <div className="w-72 md:w-96">
@@ -113,6 +113,11 @@ const SignUp = () => {
               fontWeight: "500",
               width: "100%",
               border: "1px solid hsla(0, 0%, 0%, 0.4)",
+              ":hover": {
+                bgcolor: "hsla(0, 0%, 0%, 1)",
+                color: "white",
+                fontWeight: "500",
+              },
             }}
           >
             {/* Google Icon SVG */}
@@ -168,6 +173,7 @@ const SignUp = () => {
       </div>
       {/* <div className="absolute top-0 right-0"> */}
       <Snackbar
+        anchorOrigin={{ vertical: "top", horizontal: "right" }}
         open={open}
         autoHideDuration={6000}
         onClose={() => setOpen(false)}

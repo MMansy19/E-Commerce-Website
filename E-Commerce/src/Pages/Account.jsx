@@ -237,6 +237,7 @@ const Account = () => {
         open={open}
         autoHideDuration={6000}
         onClose={() => setOpen(false)}
+        anchorOrigin={{ vertical: "top", horizontal: "right" }}
       >
         <Alert
           onClose={() => setOpen(false)}

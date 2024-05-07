@@ -7,32 +7,27 @@ import ViewAll from "../common/components/ViewAll";
 import calculateTimeLeft from "../common/functions/calculateTimeLeft";
 import i18n from "../common/components/LangConfig";
 import { motion } from "framer-motion"; // Import motion from Framer Motion for animations
-
-const FlashSale = ({ items }) => {
+import { ITEMS } from "../common/functions/items";
+const FlashSale = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [timeLeft, setTimeLeft] = useState(
     calculateTimeLeft(new Date("2024-05-27T00:00:00"))
   );
-  const duplicatedItems = Array.from({ length: 2 }, () => items).flat(); // Updated to duplicate items three times
-
-  // const saleItems = items.filter((item) => !item.state);
-  const handleNextItem = (state = 1) => {
-    setCurrentIndex((prevIndex) => (prevIndex + state) % items.length);
-  };
+  const saleItems = ITEMS.filter((item) => item.discount !== "");
+  const duplicatedItems = Array.from({ length: 4 }, () => saleItems).flat(); // Updated to duplicate items three times
 
   const handlePrevItem = (state = 1) => {
-    setCurrentIndex(
-      (prevIndex) => (prevIndex - state + items.length) % items.length
-    );
+    if (currentIndex <= -(duplicatedItems.length - 2)) {
+      setCurrentIndex(0);
+    }
+    setCurrentIndex((prevIndex) => prevIndex - state);
   };
 
   useEffect(() => {
     const timer = setTimeout(() => {
       setTimeLeft(calculateTimeLeft(new Date("2024-05-27T00:00:00")));
-    }, 1000);
-
-    setTimeout(() => {
-      handleNextItem();
+      // setCurrentIndex((prevIndex) => (prevIndex - 1) % duplicatedItems.length);
+      handlePrevItem();
     }, 1000);
 
     return () => clearTimeout(timer);
@@ -70,24 +65,22 @@ const FlashSale = ({ items }) => {
             </div>
           </div>
           <Arrows
-            handlePrevItem={() => handlePrevItem(1000)}
-            handleNextItem={() => handleNextItem(1000)}
+          // handlePrevItem={() => handlePrevItem(1000)}
+          // handleNextItem={() => handleNextItem(1000)}
           />
         </div>
+
         {/* Motion */}
-        <div className="relative  overflow-x-auto overflow-y-hidden flex justify-center items-center md:h-[400px] ">
+        <div className="relative  overflow-x-hidden overflow-y-hidden flex justify-start items-center md:h-[400px] ">
           <motion.div
             className="flex gap-2 md:gap-12"
-            initial={{ opacity: 0, x: 0 }}
+            initial={{ opacity: 0.5, x: 0 }}
             animate={{
               opacity: 1,
-              transition: { duration: 0.5 },
+              transition: { duration: 8 },
               x: currentIndex * 100,
             }}
-            exit={{ opacity: 0 }}
-            // initial={{ x: 0 }}
-            // animate={{ x: -currentIndex * 100 }} // Adjust the value for smoother animation
-            transition={{ type: "spring", stiffness: 10, damping: 30 }} // Adjust spring animation parameters for smoother swiping
+            transition={{ type: "spring", stiffness: 100, damping: 30 }}
           >
             {duplicatedItems.map((item, index) => (
               <motion.div
@@ -108,7 +101,6 @@ const FlashSale = ({ items }) => {
             ))}
           </motion.div>
         </div>
-
         {/* Motion */}
       </div>
       <div className="flex justify-center">
@@ -117,10 +109,6 @@ const FlashSale = ({ items }) => {
       <hr className="mx-40 border-gray-300 md:mt-16" />
     </>
   );
-};
-
-FlashSale.propTypes = {
-  items: PropTypes.array.isRequired,
 };
 
 export default FlashSale;

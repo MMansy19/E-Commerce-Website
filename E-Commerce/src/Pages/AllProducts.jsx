@@ -34,28 +34,36 @@ const AllProducts = () => {
   }, []);
 
   return (
-    <div className="container mx-auto mt-40 flex flex-col gap-5">
+    <div className=" mt-40 flex flex-col gap-5">
       <Typography variant="h3" align="center" gutterBottom>
         {i18n.t("allProducts.title")}
       </Typography>
-      <Grid container spacing={3} justifyContent="center" alignItems="center">
-        {loading
-          ? Array.from({ length: displayedItems }).map((_, index) => (
-              <Grid item key={index} xs={12} sm={6} md={4} lg={3}>
-                <Loader />
-              </Grid>
-            ))
-          : duplicatedItems.slice(0, displayedItems).map((item) => (
-              <Grid item key={item.id} xs={12} sm={6} md={4} lg={3}>
-                <FlashSaleItem
-                  item={item}
-                  totalItems={totalItems}
-                  stars={item.stars}
-                  rates={item.rates}
-                />
-              </Grid>
-            ))}
-      </Grid>
+      <div className=" mx-auto">
+        <Grid
+          container
+          spacing={6}
+          justifyContent="center"
+          alignItems="center"
+          // margin="0 auto"
+        >
+          {loading
+            ? Array.from({ length: displayedItems }).map((_, index) => (
+                <Grid item key={index}>
+                  <Loader />
+                </Grid>
+              ))
+            : duplicatedItems.slice(0, displayedItems).map((item) => (
+                <Grid item key={item.id}>
+                  <FlashSaleItem
+                    item={item}
+                    totalItems={totalItems}
+                    stars={item.stars}
+                    rates={item.rates}
+                  />
+                </Grid>
+              ))}
+        </Grid>
+      </div>
       {displayedItems < totalItems && (
         <button
           onClick={handleLoadMore}

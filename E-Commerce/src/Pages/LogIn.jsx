@@ -112,10 +112,10 @@ const LogIn = () => {
               Forgot Password?
             </Link>
           </div>
-          {/* {error && <p className="text-red-500">{error}</p>} */}
         </form>
       </div>
       <Snackbar
+        anchorOrigin={{ vertical: "top", horizontal: "right" }}
         open={open}
         autoHideDuration={6000}
         onClose={() => setOpen(false)}

@@ -27,7 +27,7 @@ const AddToCart = ({ item }) => {
       item.quantity = 1;
     }
   };
-  return { handleAddToCart, isInCart };
+  return { handleAddToCart, isInCart, setIsInCart };
 };
 
 export default AddToCart;

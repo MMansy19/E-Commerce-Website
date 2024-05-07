@@ -14,7 +14,7 @@ export const CartProvider = ({ children }) => {
     if (savedCartItems) {
       setCartItems(savedCartItems);
     }
-  }, []);
+  }, []); // Add any dependencies that should trigger the effect
 
   const addToCart = (item) => {
     const existingItemIndex = cartItems.findIndex(
@@ -32,7 +32,7 @@ export const CartProvider = ({ children }) => {
       localStorage.setItem("cartItems", JSON.stringify(updatedCartItems));
     } else {
       // If item does not exist in cart, add it to cart
-      const updatedCartItems = [...cartItems, item];
+      const updatedCartItems = [...cartItems, { ...item, quantity: 1 }];
       setCartItems(updatedCartItems);
       localStorage.setItem("cartItems", JSON.stringify(updatedCartItems));
     }
@@ -46,7 +46,7 @@ export const CartProvider = ({ children }) => {
 
   const handleIncrease = (item) => {
     if (item.quantity >= 0) {
-      if (item.quantity == 0) {
+      if (item.quantity === 0) {
         addToCart(item);
         item.quantity = 1;
       }
@@ -92,6 +92,22 @@ export const CartProvider = ({ children }) => {
       }
     }
   };
+
+  // Function to move all items to cart with a quantity of 1 if they are not already in cart
+  const moveAllToCart = (items) => {
+    const itemsToMove = items.filter((item) => !isInCart(item.id));
+    if (itemsToMove.length === 0) return false;
+
+    const updatedCartItems = [
+      ...cartItems,
+      ...itemsToMove.map((item) => ({ ...item, quantity: 1 })),
+    ];
+    setCartItems(updatedCartItems);
+    localStorage.setItem("cartItems", JSON.stringify(updatedCartItems));
+
+    return true;
+  };
+
   // Function to check if an item is in the cart
   const isInCart = (itemId) => {
     return cartItems.some((item) => item.id === itemId);
@@ -107,6 +123,7 @@ export const CartProvider = ({ children }) => {
         setCartItems,
         handleIncrease,
         handleDecrease,
+        moveAllToCart,
       }}
     >
       {children}
