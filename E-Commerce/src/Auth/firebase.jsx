@@ -5,7 +5,7 @@ import { createContext, useState, useEffect } from "react";
 import { initializeApp } from "firebase/app";
 import { getFirestore, doc, setDoc } from "firebase/firestore"; // Import firestore module
 import { getStorage, ref, uploadString } from "firebase/storage"; // Import storage module
-
+import { getAuth } from "firebase/auth";
 // Firebase is available after the script is loaded
 const firebaseConfig = {
   apiKey: "AIzaSyDF72681dY91QYzgqdTVnCf1EtOcGFeS-M",
