@@ -89,7 +89,7 @@ function Wishlist() {
       <>
         <div className="flex justify-between items-center md:mr-6 mx-4 ">
           <RedTitle title={i18n.t("wishlist.justForYou")} color="black" />
-          <Link to={`/${i18n.t("wishlist.title")}`}>
+          <Link to="/allProducts">
             <WhiteButton name={i18n.t("whiteButtons.seeAll")} />
           </Link>
         </div>

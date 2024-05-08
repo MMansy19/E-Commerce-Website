@@ -6,7 +6,7 @@ import { useLang } from "../../context/LangContext.jsx";
 function ChangeLang() {
   const { lang, changeLanguage } = useLang();
   const [snackbarOpen, setSnackbarOpen] = useState(false);
-  const [selectedLanguage, setSelectedLanguage] = useState("");
+  const [selectedLanguage, setSelectedLanguage] = useState("gr");
   const [loading, setLoading] = useState(false);
 
   const styles = {
