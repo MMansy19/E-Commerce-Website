@@ -6,7 +6,7 @@ import ViewAll from "../common/components/ViewAll";
 import calculateTimeLeft from "../common/functions/calculateTimeLeft";
 import i18n from "../common/components/LangConfig";
 import { motion } from "framer-motion"; // Import motion from Framer Motion for animations
-import { ITEMS } from "../common/functions/items";
+import { ITEMS } from "../../items";
 const FlashSale = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [timeLeft, setTimeLeft] = useState(
@@ -77,7 +77,7 @@ const FlashSale = () => {
             animate={{
               opacity: 1,
               transition: { duration: 8 },
-              x: currentIndex * 100,
+              // x: currentIndex * 100,
             }}
             transition={{ type: "spring", stiffness: 100, damping: 30 }}
           >

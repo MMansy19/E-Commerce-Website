@@ -3,7 +3,7 @@ import i18n from "../common/components/LangConfig";
 import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { SelectedProductContext } from "../../context/SelectedProductContext";
-import { ITEMS } from "../common/functions/items";
+import { ITEMS } from "../../items";
 
 const Featured = () => {
   const { setSelectedProduct } = useContext(SelectedProductContext);

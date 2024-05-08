@@ -3,7 +3,7 @@ import i18n from "../common/components/LangConfig";
 import FlashSaleItem from "../common/components/FlashSaleItem";
 import RedTitle from "../common/components/RedTitle";
 import ViewAll from "../common/components/ViewAll";
-import { ITEMS } from "../common/functions/items";
+import { ITEMS } from "../../items";
 import { Grid } from "@mui/material";
 const RelatedItems = ({ selectedProduct }) => {
   const relatedItems = ITEMS.filter(

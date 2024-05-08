@@ -3,7 +3,7 @@ import i18n from "../common/components/LangConfig";
 import { useState, useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { SelectedProductContext } from "../../context/SelectedProductContext";
-import { ITEMS } from "../common/functions/items";
+import { ITEMS } from "../../items";
 
 const Deal = () => {
   const [timeLeft, setTimeLeft] = useState(
