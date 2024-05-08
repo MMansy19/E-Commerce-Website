@@ -5,22 +5,14 @@ import { Link } from "react-router-dom";
 import { ITEMS } from "../common/functions/items";
 
 const Row1 = () => {
-  // const { setSelectedProduct } = useContext(SelectedProductContext);
-  // const handleProductClick = () => {
-  //   setSelectedProduct(dealItem);
-  // };
-  // <Link to="..">
-  //   <WhiteButton name="Return To Shop" />
-  // </Link>;
-
   const dealItem = ITEMS.find(
     (item) => item.title === i18n.t("itemsArray.17.title")
   );
 
   return (
-    <div className="flex flex-row  ">
+    <div className="flex flex-row ">
       {/* Left Sidebar */}
-      <div className=" text-gray-700 w-64 flex-shrink-0 hidden md:block">
+      <div className=" text-gray-700 w-64 flex-shrink-0 hidden xl:block">
         <nav className="py-6">
           <ul>
             <li className="px-4 py-2 cursor-pointer hover:underline hover:underline-offset-8   ease-in-out  duration-300 transform hover:translate-x-4">
@@ -72,10 +64,13 @@ const Row1 = () => {
         </nav>
       </div>
       {/* Vertical Line */}
-      <div className="border-l border-gray-300 hidden md:block"></div>
+      <div className="border-l border-gray-300 hidden xl:block"></div>
 
       {/* Main Content */}
-      <div className="flex md:my-10 md:ml-10 md:gap-16 items-center jusify-between flex-col-reverse md:flex-row  md:h-96 bg-black text-white w-full ">
+      <div
+        className="flex xl:my-10 xl:ml-10 xl:gap-16 items-center jusify-between flex-col-reverse 
+      md:flex-row  md:h-96 bg-black text-white w-full "
+      >
         <div className="flex flex-col md:max-w-72 gap-5 items-center md:items-start justify-center md:ml-16">
           <div className="max-w-72 flex jusify-center items-center gap-6">
             <svg

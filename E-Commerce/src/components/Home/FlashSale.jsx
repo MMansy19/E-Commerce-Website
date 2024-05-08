@@ -1,5 +1,4 @@
 import FlashSaleItem from "../common/components/FlashSaleItem";
-import PropTypes from "prop-types";
 import { useState, useEffect } from "react";
 import RedTitle from "../common/components/RedTitle";
 import Arrows from "../common/components/Arrows";
@@ -26,7 +25,7 @@ const FlashSale = () => {
   useEffect(() => {
     const timer = setTimeout(() => {
       setTimeLeft(calculateTimeLeft(new Date("2024-05-27T00:00:00")));
-      // setCurrentIndex((prevIndex) => (prevIndex - 1) % duplicatedItems.length);
+      setCurrentIndex((prevIndex) => (prevIndex - 1) % duplicatedItems.length);
       handlePrevItem();
     }, 1000);
 
@@ -71,7 +70,7 @@ const FlashSale = () => {
         </div>
 
         {/* Motion */}
-        <div className="relative  overflow-x-hidden overflow-y-hidden flex justify-start items-center md:h-[400px] ">
+        <div className="scrollbar relative  overflow-x-hidden hover:overflow-scroll  overflow-y-hidden flex justify-start items-center h-[500px] md:h-[400px] ">
           <motion.div
             className="flex gap-2 md:gap-12"
             initial={{ opacity: 0.5, x: 0 }}

@@ -26,14 +26,16 @@ const Payment = () => {
   return (
     <div className="max-w-lg mx-auto p-6 bg-white rounded-lg shadow-md mt-48">
       {/* Payment form */}
-      <h1 className="text-2xl font-semibold mb-4">Payment Details</h1>
+      <h1 className="text-2xl font-semibold mb-4">
+        {i18n.t("payment.payment")}
+      </h1>
       <form>
         <div className="mb-4">
           <label
             htmlFor="cardNumber"
             className="block text-sm font-medium text-gray-700"
           >
-            Card Number
+            {i18n.t("payment.number")}
           </label>
           <input
             type="text"
@@ -43,7 +45,7 @@ const Payment = () => {
             onChange={(e) =>
               setPaymentInfo({ ...paymentInfo, cardNumber: e.target.value })
             }
-            placeholder="Enter your card number"
+            placeholder={i18n.t("payment.enter")}
           />
         </div>
         <div className="mb-4">
@@ -51,7 +53,7 @@ const Payment = () => {
             htmlFor="expDate"
             className="block text-sm font-medium text-gray-700"
           >
-            Expiration Date
+            {i18n.t("payment.expirationDate")}
           </label>
           <input
             type="text"
@@ -79,7 +81,7 @@ const Payment = () => {
             onChange={(e) =>
               setPaymentInfo({ ...paymentInfo, cvv: e.target.value })
             }
-            placeholder="Enter CVV"
+            placeholder="CVV"
           />
         </div>
         {/* Place Order button */}

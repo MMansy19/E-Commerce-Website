@@ -3,27 +3,27 @@ import StatsCardExported from "../components/About/StatsCard.jsx";
 import TeamMembers from "../components/About/TeamMembers";
 import Services from "../components/common/components/Services.jsx";
 import ActiveLastBreadcrumb from "../components/common/components/Link.jsx";
+import i18n from "../components/common/components/LangConfig";
 const About = () => {
   return (
     <>
-      <div className="flex flex-col justify-center items-start md:ml-40 mt-48">
-        <ActiveLastBreadcrumb path="Home/About" />
-        <div className="flex justify-center md:justify-end items-center md:mt-10  mb-36 md:gap-32 ">
-          <div className="flex flex-col gap-10 items-start justify-center max-w-lg mx-4 md:mx-0">
-            <h1 className="text-5xl font-bold font-inter ">Our Story</h1>
-            <p className="text-sm md:text-base">
-              {" "}
-              Launced in 2015, Exclusive is South Asia’s premier online shopping
-              makterplace with an active presense in Bangladesh. Supported by
-              wide range of tailored marketing, data and service solutions,
-              Exclusive has 10,500 sallers and 300 brands and serves 3 millioons
-              customers across the region.{" "}
+      <div className="flex flex-col justify-center items-start mt-48 ">
+        <div className="md:mx-40">
+          <ActiveLastBreadcrumb
+            path={`${i18n.t("home")}/${i18n.t("aboutPage.title")}`}
+          />
+        </div>
+
+        <div className="flex justify-center md:justify-between items-center md:mt-10  my-24 md:mb-36 ">
+          <div className="flex flex-col gap-10 items-center md:items-start justify-center max-w-lg mx-8 md:mx-40">
+            <h1 className="text-5xl font-bold font-inter">
+              {i18n.t("aboutPage.story")}
+            </h1>
+            <p className="text-base text-center md:text-start">
+              {i18n.t("aboutPage.paragraph1")}
             </p>
-            <p className="text-sm md:text-base">
-              {" "}
-              Exclusive has more than 1 Million products to offer, growing at a
-              very fast. Exclusive offers a diverse assotment in categories
-              ranging from consumer.{" "}
+            <p className="text-base text-center md:text-start">
+              {i18n.t("aboutPage.paragraph2")}
             </p>
           </div>
           <svg
@@ -52,11 +52,11 @@ const About = () => {
         </div>
       </div>
 
-      <div className="flex flex-col items-center justify-center gap-8 mb-24 ">
+      <div className="flex flex-col items-center justify-center gap-8">
         <StatsCardExported />
       </div>
 
-      <div className="flex flex-col items-center justify-center gap-8 mt-24 ">
+      <div className="flex flex-col items-center justify-center gap-8 my-36 ">
         <TeamMembers />
       </div>
       <Services />

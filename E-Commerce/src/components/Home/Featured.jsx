@@ -49,12 +49,12 @@ const Featured = () => {
   );
 
   return (
-    <div className="flex flex-col my-36">
+    <div className="flex flex-col my-24">
       <RedTitle title={i18n.t("featured.redTitle")} />
       <h2 className="text-2xl md:text-3xl font-semibold mb-14">
         {i18n.t("featured.title")}
       </h2>
-      <div className="flex flex-col md:flex-row gap-8">
+      <div className="flex flex-col xl:flex-row gap-8">
         <div className="bg-black rounded md:pt-12 md:px-8 md:h-[600px] md:w-[570px]">
           <div className=" text-white relative flex gap-10  md:mt-10 items-center justify-center flex-col-reverse md:flex-row md:w-[511px] md:h-[511px] sm:h-[500px] h-[380px]">
             <div className="absolute inset-0 z-0 bg-no-repeat bg-center bg-cover">

@@ -112,7 +112,9 @@ const Product = () => {
                 <span>
                   ({selectedProduct.rates} Reviews)
                   <span className="mr-4 "></span>|
-                  <span className="ml-4 text-green">In Stock</span>
+                  <span className="ml-4 text-green">
+                    {i18n.t("productPage.inStock")}
+                  </span>
                 </span>
               </div>
               <p className="text-gray-800 text-xl md:text-2xl font-inter">
@@ -123,9 +125,11 @@ const Product = () => {
               </p>
             </div>
             <hr className="mx-30  border-gray-300" />
-            <div className="font-inter text-xl">Colors: </div>
+            <div className="font-inter text-xl">
+              {i18n.t("productPage.colors")}:{" "}
+            </div>
             <div className="font-inter text-xl flex gap-4">
-              Size:
+              {i18n.t("productPage.size")}
               {["XS", "S", "M", "L", "XL"].map((size) => (
                 <button
                   key={size}
@@ -201,9 +205,9 @@ const Product = () => {
                   {/* Delivery icon */}
                 </svg>
                 <div className="flex flex-col gap-2 font-semibold">
-                  <span className="text-base">Free Delivery</span>
+                  <span className="text-base">{i18n.t("productPage.1")}</span>
                   <span className="text-xs underline">
-                    Enter your postal code for Delivery Availability
+                    {i18n.t("productPage.1.1")}
                   </span>
                 </div>
               </div>
@@ -219,11 +223,8 @@ const Product = () => {
                   {/* Return icon */}
                 </svg>
                 <div className="flex flex-col gap-2 font-semibold">
-                  <span className="text-base">Return Delivery</span>
-                  <span className="text-xs">
-                    Free 30 Days Delivery Returns.
-                    <span className="underline">Details</span>
-                  </span>
+                  <span className="text-base">{i18n.t("productPage.2")}</span>
+                  <span className="text-xs">{i18n.t("productPage.2.1")}</span>
                 </div>
               </div>
             </div>

@@ -18,7 +18,7 @@ import { motion } from "framer-motion"; // Import motion from framer-motion for 
 const Navigations = () => {
   const location = useLocation();
   const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
+  const isMobile = useMediaQuery(theme.breakpoints.down("md"));
   const [drawerOpen, setDrawerOpen] = useState(false);
 
   // Map routes to their corresponding labels
@@ -55,7 +55,6 @@ const Navigations = () => {
             onClick={toggleDrawer(true)}
           >
             <svg
-              className="mx-2"
               width="30"
               viewBox="0 0 24 24"
               fill="none"

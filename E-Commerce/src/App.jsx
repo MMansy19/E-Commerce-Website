@@ -30,7 +30,7 @@ function App() {
 
   return (
     <Router>
-      <div className={i18n.t("font")}>
+      <div dir={i18n.t("dir")} className={i18n.t("font")}>
         <LangProvider>
           <SelectedProductProvider>
             <CartProvider>

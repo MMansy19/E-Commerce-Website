@@ -7,7 +7,10 @@ import { Grid } from "@mui/material";
 
 const Category = ({ icon, name }) => (
   <Link to="category">
-    <button className=" w-full hover:animate-pulse flex gap-4 items-center justify-center flex-col bg-white  py-8 rounded-lg border border-gray-300 transition duration-300 hover:bg-cyan-400 hover:invert  hover:shadow-xl hover:-translate-y-2 ">
+    <button
+      onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+      className=" w-full hover:animate-pulse flex gap-4 items-center justify-center flex-col bg-white  py-8 rounded-lg border border-gray-300 transition duration-300 hover:bg-cyan-400 hover:invert  hover:shadow-xl hover:-translate-y-2 "
+    >
       <div>{icon}</div>
       <div className="text-lg">{name}</div>
     </button>

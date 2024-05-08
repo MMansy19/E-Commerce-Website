@@ -33,7 +33,7 @@ const Deal = () => {
     <div className=" flex gap-10 md:my-10 mt-10 items-center justify-center flex-col-reverse md:flex-row  min-h-[500px] bg-black text-white">
       <div className="flex flex-col gap-5 items-center md:items-start  md:mx-12">
         <h3 className="text-green text-sm">{i18n.t("deal.greenTitle")}</h3>
-        <h2 className="md:w-[500px] text-center md:text-start text-xl md:text-5xl font-semibold font-inter">
+        <h2 className="xl:w-[500px] text-center md:text-start text-2xl sm:text-3xl lg:text-5xl font-semibold font-inter">
           {i18n.t("deal.title")}
         </h2>
         <div className="font-semibold text-base flex flex-row gap-6 text-black">

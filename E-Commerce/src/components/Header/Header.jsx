@@ -3,14 +3,16 @@ import Logo from "./Logo";
 import Navigations from "./Navigations";
 import Profile from "./Profile";
 import SearchAppBar from "./Search";
-
 const Header = () => {
   return (
-    <header className="fixed top-14 left-0 w-full z-50 bg-white shadow-md">
-      <div className="flex justify-center md:justify-around items-center md:px-8 py-1  md:py-2">
+    <header
+      dir="ltr"
+      className="fixed top-14 left-0 w-full z-50 bg-white shadow-md"
+    >
+      <div className="flex justify-between md:justify-around items-center md:px-8 px-2 py-1 md:py-2">
         <Logo />
         <Navigations />
-        <div className="flex">
+        <div className="flex justify-center items-center md:gap-2">
           <SearchAppBar />
           <Profile />
         </div>

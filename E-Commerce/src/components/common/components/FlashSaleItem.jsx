@@ -57,7 +57,7 @@ const FlashSaleItem = ({ item }) => {
       <div
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
-        className="relative rounded flex items-center justify-center bg-zinc-100 w-[270px] h-60 transform transition-transform duration-300 hover:scale-105 focus:outline-none hover:-translate-y-2"
+        className="relative rounded flex items-center justify-center bg-zinc-100 w-[270px] h-80 md:h-60 transform transition-transform duration-300 hover:scale-105 focus:outline-none hover:-translate-y-2"
       >
         {isHovered && (
           <button
@@ -87,29 +87,28 @@ const FlashSaleItem = ({ item }) => {
           <img
             src={item.imageSrc}
             alt={item.title}
-            // className="hover:animate-ping "
-            // className="hover:animate-bounce"
             className="hover:animate-pulse "
-            // className="motion-safe:animate-spin"
           />
         </Link>
 
         <WishlistIcon selectedProduct={item} style="absolute top-3 right-3" />
       </div>
-      <h3 className="text-lg font-base mt-4">{item.title}</h3>
-      <p className="text-red-500  text-sm font-semibold line-clamp-2">
-        ${item.price}
-        {item.discount && (
-          <span className="ml-2 text-gray-500 text-sm font-semibold line-through">
-            ${item.price + (item.price * item.discount) / 100}
-          </span>
-        )}
-      </p>
-      <span>
-        <div className="flex mt-2 text-gray-500 text-sm font-semibold gap-2 items-center ">
-          {renderStars()} <span>({item.rates})</span>
-        </div>
-      </span>
+      <div className="flex md:items-start items-center flex-col ">
+        <h3 className="text-lg font-base mt-4">{item.title}</h3>
+        <p className="text-red-500  text-sm font-semibold line-clamp-2">
+          ${item.price}
+          {item.discount && (
+            <span className="ml-2 text-gray-500 text-sm font-semibold line-through">
+              ${item.price + (item.price * item.discount) / 100}
+            </span>
+          )}
+        </p>
+        <span>
+          <div className="flex mt-2 text-gray-500 text-sm font-semibold gap-2 items-center ">
+            {renderStars()} <span>({item.rates})</span>
+          </div>
+        </span>
+      </div>
     </div>
   );
 };

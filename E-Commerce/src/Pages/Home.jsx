@@ -10,9 +10,9 @@ import { ITEMS } from "../components/common/functions/items";
 
 const Home = () => {
   return (
-    <div className="flex flex-col md:mx-32 mt-28 gap-3">
+    <div dir="ltr" className="flex flex-col xl:mx-32 mt-28 gap-3">
       <Row1 />
-      <FlashSale items={ITEMS} />
+      <FlashSale />
       <Categories />
       <BestSelling items={ITEMS} />
       <Deal />

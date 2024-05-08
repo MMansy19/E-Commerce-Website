@@ -1,12 +1,13 @@
 /** @type {import('tailwindcss').Config} */
 export default {
+  darkMode: "class",
     content: [
     "./index.html",
     "./src/**/*.{js,jsx}",
   ],
   theme: {
     extend: {
-            colors: {
+      colors: {
         'green': 'rgba(0, 255, 102, 1)',
       },
 

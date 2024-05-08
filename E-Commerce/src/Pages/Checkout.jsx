@@ -75,20 +75,22 @@ const Checkout = () => {
 
   return (
     <div className="max-w-screen-lg mx-auto mt-36 md:mt-48 flex flex-col md:gap-10">
-      <ActiveLastBreadcrumb path="Home/CheckOut" />
+      <ActiveLastBreadcrumb
+        path={`${i18n.t("home")}/${i18n.t("redButtons.applyCoupon")}`}
+      />
 
       <form onSubmit={handleSubmit}>
         <div className="flex items-center mt-4 md:flex-row flex-col gap-10 md:gap-40">
           <div className="flex items-center justify-between  mt-4">
             <div className="flex flex-col gap-4 md:gap-12">
               <span className="text-2xl md:text-4xl font-medium">
-                Billing Details
+                {i18n.t("checkOut.billingDetails")}
               </span>
 
               <div className="flex flex-col gap-4 md:gap-8 w-[300px] md:w-[470px]">
                 <div className="flex flex-col gap-1">
                   <span className="text-sm md:text-base text-gray-400">
-                    First Name *
+                    {i18n.t("checkOut.firstName")} *
                   </span>
                   <input
                     type="text"
@@ -101,7 +103,7 @@ const Checkout = () => {
                 </div>
                 <div className="flex flex-col gap-2">
                   <span className="text-sm md:text-base text-gray-400">
-                    Company Name
+                    {i18n.t("checkOut.company")}
                   </span>
                   <input
                     type="text"
@@ -113,7 +115,7 @@ const Checkout = () => {
                 </div>
                 <div className="flex flex-col gap-2">
                   <span className="text-sm md:text-base text-gray-400">
-                    Street Address*
+                    {i18n.t("checkOut.address")} *
                   </span>
                   <input
                     type="text"
@@ -121,13 +123,34 @@ const Checkout = () => {
                     value={address}
                     onChange={(e) => setAddress(e.target.value)}
                     required
-                    // onChange={(e) => setConfirmPassword(e.target.value)}
                     className=" rounded bg-gray-100 bg-opacity-100 px-4 py-3 text-gray-400 text-sm md:text-base focus:border outline-none focus:border-gray-300  "
                   />
                 </div>
                 <div className="flex flex-col gap-2">
                   <span className="text-sm md:text-base text-gray-400">
-                    Apartment, floor, etc. (optional)
+                    {i18n.t("checkOut.apartment")}
+                  </span>
+                  <input
+                    type="text"
+                    placeholder=""
+                    required
+                    className=" rounded bg-gray-100 bg-opacity-100 px-4 py-3 text-gray-400 text-sm md:text-base focus:border outline-none focus:border-gray-300  "
+                  />
+                </div>
+                <div className="flex flex-col gap-2">
+                  <span className="text-sm md:text-base text-gray-400">
+                    {i18n.t("checkOut.city")}*
+                  </span>
+                  <input
+                    type="text"
+                    placeholder=""
+                    required
+                    className=" rounded bg-gray-100 bg-opacity-100 px-4 py-3 text-gray-400 text-sm md:text-base focus:border outline-none focus:border-gray-300  "
+                  />
+                </div>
+                <div className="flex flex-col gap-2">
+                  <span className="text-sm md:text-base text-gray-400">
+                    {i18n.t("checkOut.phone")} *
                   </span>
                   <input
                     type="text"
@@ -139,31 +162,7 @@ const Checkout = () => {
                 </div>
                 <div className="flex flex-col gap-2">
                   <span className="text-sm md:text-base text-gray-400">
-                    Town/City*{" "}
-                  </span>
-                  <input
-                    type="text"
-                    placeholder=""
-                    required
-                    // onChange={(e) => setConfirmPassword(e.target.value)}
-                    className=" rounded bg-gray-100 bg-opacity-100 px-4 py-3 text-gray-400 text-sm md:text-base focus:border outline-none focus:border-gray-300  "
-                  />
-                </div>
-                <div className="flex flex-col gap-2">
-                  <span className="text-sm md:text-base text-gray-400">
-                    Phone Number*{" "}
-                  </span>
-                  <input
-                    type="text"
-                    placeholder=""
-                    required
-                    // onChange={(e) => setConfirmPassword(e.target.value)}
-                    className=" rounded bg-gray-100 bg-opacity-100 px-4 py-3 text-gray-400 text-sm md:text-base focus:border outline-none focus:border-gray-300  "
-                  />
-                </div>
-                <div className="flex flex-col gap-2">
-                  <span className="text-sm md:text-base text-gray-400">
-                    Email Address*{" "}
+                    {i18n.t("checkOut.email")} *
                   </span>
                   <input
                     type="text"
@@ -191,31 +190,31 @@ const Checkout = () => {
             ))}
             <div className="flex flex-col gap-4">
               <div className="flex justify-between  border-b">
-                <p className="text-base">Subtotal:</p>
+                <p className="text-base">{i18n.t("cart.subtotal")}:</p>
                 <p className="text-base">${subtotal}</p>
               </div>
             </div>
             <div className="flex flex-col gap-4">
               <div className="flex justify-between  border-b">
-                <p className="text-base">Shipping:</p>
-                <p className="text-base">Free</p>
+                <p className="text-base">{i18n.t("cart.shipping")}:</p>
+                <p className="text-base">{i18n.t("cart.free")}</p>
               </div>
             </div>
             <div className="flex flex-col gap-4">
               <div className="flex justify-between  border-b">
-                <p className="text-base">Total:</p>
+                <p className="text-base">{i18n.t("cart.total")}:</p>
                 <p className="text-base">${total}</p>
               </div>
             </div>
             {/* Payment methods */}
             <div className="flex flex-col gap-4">
               <div className="flex justify-between">
-                <p className="text-base">Payment Methods:</p>
+                <p className="text-base">{i18n.t("checkOut.methods")}:</p>
               </div>
               <div className="flex justify-between">
                 <label>
                   <input type="radio" name="paymentMethod" value="bank" />
-                  Bank (Visa)
+                  {i18n.t("checkOut.bank")}
                 </label>
               </div>
               <div className="flex justify-between">
@@ -225,7 +224,7 @@ const Checkout = () => {
                     name="paymentMethod"
                     value="cashOnDelivery"
                   />
-                  Cash on Delivery
+                  {i18n.t("checkOut.cash")}
                 </label>
               </div>
             </div>
@@ -233,7 +232,7 @@ const Checkout = () => {
             <div className="flex items-center justify-between mt-4 space-x-4 md:w-[510px]">
               <input
                 type="text"
-                placeholder="Coupon Code"
+                placeholder={i18n.t("checkOut.couponCode")}
                 className="border border-gray-900 rounded-md p-3  w-[170px] md:w-[280px]"
               />
               <RedButton name={i18n.t("redButtons.applyCoupon")} />

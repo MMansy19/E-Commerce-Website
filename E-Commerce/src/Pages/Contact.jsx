@@ -4,7 +4,9 @@ import i18n from "../components/common/components/LangConfig";
 const Contact = () => {
   return (
     <div className="flex flex-col mx-4 md:ml-36 mt-48 gap-20">
-      <ActiveLastBreadcrumb path="Home/ Contact" />
+      <ActiveLastBreadcrumb
+        path={`${i18n.t("home")}/${i18n.t("footer.Contact")}`}
+      />
       <div className="flex flex-col md:flex-row gap-8">
         <div className="shadow  w-full md:w-[340px] h-[457px] flex flex-col gap-8 py-10 px-8 rounded">
           <div className="flex flex-col gap-6">
@@ -25,11 +27,15 @@ const Contact = () => {
                   strokeLinejoin="round"
                 />
               </svg>
-              <span className="text-base font-medium">Call To Us</span>
+              <span className="text-base font-medium">
+                {i18n.t("contactPage.call")}
+              </span>
             </div>
             <div className="flex flex-col gap-4">
-              <p className="text-sm">We are available 24/7, 7 days a week. </p>
-              <p className="text-sm">Phone: +8801611112222</p>
+              <p className="text-sm">{i18n.t("contactPage.available")}</p>
+              <p className="text-sm">
+                {i18n.t("contactPage.phone")}: +8801611112222
+              </p>
             </div>
           </div>
           <hr className="mx-full border-gray-400" />
@@ -52,14 +58,19 @@ const Contact = () => {
                 />
               </svg>
 
-              <span className="text-base font-medium">Write To US</span>
+              <span className="text-base font-medium">
+                {i18n.t("contactPage.write")}
+              </span>
             </div>
             <div className="flex flex-col gap-4">
+              <p className="text-sm">{i18n.t("contactPage.fillForm")}</p>
+
               <p className="text-sm">
-                Fill out our form and we will contact you within 24 hours.
+                {i18n.t("contactPage.emails")}: customer@exclusive.com
               </p>
-              <p className="text-sm">Emails: customer@exclusive.com</p>
-              <p className="text-sm">Emails: support@exclusive.com</p>
+              <p className="text-sm">
+                {i18n.t("contactPage.emails")}: support@exclusive.com
+              </p>
             </div>
           </div>
         </div>
@@ -68,25 +79,25 @@ const Contact = () => {
             <div className="flex flex-col md:flex-row gap-4">
               <input
                 type="text"
-                placeholder="Your Name"
+                placeholder={i18n.t("contactPage.yourName")}
                 required
                 className="md:w-[235px] rounded bg-gray-100 bg-opacity-100 px-4 py-3 text-gray-400 text-base focus:border outline-none focus:border-gray-300  "
               />
               <input
                 type="email"
-                placeholder="Your Email"
+                placeholder={i18n.t("contactPage.yourEmail")}
                 required
                 className="md:w-[235px] rounded bg-gray-100 bg-opacity-100 px-4 py-3 text-gray-400 text-base focus:border outline-none focus:border-gray-300  "
               />
               <input
                 type="tel"
-                placeholder="Your Phone"
+                placeholder={i18n.t("contactPage.yourPhone")}
                 required
                 className="md:w-[235px] rounded bg-gray-100 bg-opacity-100 px-4 py-3 text-gray-400 text-base focus:border outline-none focus:border-gray-300  "
               />
             </div>
             <textarea
-              placeholder="Your Message"
+              placeholder={i18n.t("contactPage.yourMessage")}
               required
               className="min-h-[50px] h-[207px] rounded bg-gray-100 bg-opacity-100 px-4 py-3 text-gray-400 text-base focus:border outline-none focus:border-gray-300  "
             />

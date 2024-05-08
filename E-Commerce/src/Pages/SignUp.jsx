@@ -9,6 +9,7 @@ import {
   signInWithPopup,
   GoogleAuthProvider,
 } from "firebase/auth";
+import i18n from "../components/common/components/LangConfig";
 
 const SignUp = () => {
   const [email, setEmail] = useState("");
@@ -53,14 +54,16 @@ const SignUp = () => {
     <div className="relative flex justify-center md:justify-start items-center md:mt-14 mb-36 mt-40 md:gap-32 ">
       <SignImg />
       <div className="flex flex-col gap-6 items-start justify-center">
-        <h1 className="text-4xl font-medium font-inter ">Create an account</h1>
-        <p className="">Enter your details below</p>
+        <h1 className="text-4xl font-medium font-inter ">
+          {i18n.t("signUpPage.title")}
+        </h1>
+        <p>{i18n.t("signUpPage.enter")}</p>
         <form
           className="flex flex-col gap-6 w-72 md:w-96"
           onSubmit={handleSignUp}
         >
           <TextField
-            label="Email"
+            label={i18n.t("signUpPage.email")}
             variant="standard"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
@@ -68,7 +71,7 @@ const SignUp = () => {
           />
           <TextField
             type="password"
-            label="Password"
+            label={i18n.t("signUpPage.password")}
             variant="standard"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
@@ -95,7 +98,7 @@ const SignUp = () => {
             color="primary"
             className="my-2"
           >
-            Create Account
+            {i18n.t("signUpPage.createAccount")}
           </Button>
         </form>
 
@@ -157,17 +160,17 @@ const SignUp = () => {
                 </clipPath>
               </defs>
             </svg>
-            <span> Sign up with Google</span>
+            <span> {i18n.t("signUpPage.withGoogle")}</span>
           </Button>
         </div>
 
         <p className="text-gray-600 mx-auto">
-          Already have an account?
+          {i18n.t("signUpPage.haveAccount")}{" "}
           <Link
             to="/login"
             className="ml-2 text-gray font-medium hover:underline"
           >
-            Log in
+            {i18n.t("signUpPage.login")}
           </Link>
         </p>
       </div>

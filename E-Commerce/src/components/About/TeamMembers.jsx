@@ -4,15 +4,44 @@ import { Box } from "@mui/material";
 import Person1 from "./Person1";
 import Person2 from "./Person2";
 import PaginationIndicator from "../common/components/PaginationIndicator";
+import i18n from "../common/components/LangConfig";
 
 const teamMembersData = [
-  { name: "Tom Cruise", role: "Founder & Chairman", image: <Person1 /> },
-  { name: "Tom Hanks", role: "CTO", image: <Person2 /> },
-  { name: "Will Smith", role: "Product Designer", image: <Person1 /> },
-  { name: "Tom Hanks", role: "CEO", image: <Person2 /> },
-  { name: "Tom Hardy", role: "CTO", image: <Person1 /> },
-  { name: "Tom Hanks", role: "CEO", image: <Person2 /> },
-  { name: "Tom Cruise", role: "Founder & Chairman", image: <Person1 /> },
+  {
+    name: i18n.t("aboutPage.name1"),
+    role: i18n.t("aboutPage.job3"),
+    image: <Person1 />,
+  },
+  {
+    name: i18n.t("aboutPage.name2"),
+    role: i18n.t("aboutPage.job1"),
+    image: <Person2 />,
+  },
+  {
+    name: i18n.t("aboutPage.name4"),
+    role: i18n.t("aboutPage.job2"),
+    image: <Person1 />,
+  },
+  {
+    name: i18n.t("aboutPage.name3"),
+    role: i18n.t("aboutPage.job3"),
+    image: <Person2 />,
+  },
+  {
+    name: i18n.t("aboutPage.name2"),
+    role: i18n.t("aboutPage.job1"),
+    image: <Person1 />,
+  },
+  {
+    name: i18n.t("aboutPage.name1"),
+    role: i18n.t("aboutPage.job4"),
+    image: <Person2 />,
+  },
+  {
+    name: i18n.t("aboutPage.name3"),
+    role: i18n.t("aboutPage.job2"),
+    image: <Person1 />,
+  },
 ];
 
 const TeamMember = ({ name, role, image }) => {
@@ -21,7 +50,7 @@ const TeamMember = ({ name, role, image }) => {
       <Box className="bg-gray-200 rounded-xl w-full md:w-96 flex items-center justify-center">
         {image}
       </Box>
-      <Box className="flex gap-4 items-center md:items-start flex-col">
+      <Box className="flex md:mx-10  gap-4 items-center md:items-start flex-col ">
         <h2 className="font-bold text-3xl">{name}</h2>
         <p className="text-base">{role}</p>
         <>

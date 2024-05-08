@@ -9,6 +9,17 @@ function ChangeLang() {
   const [selectedLanguage, setSelectedLanguage] = useState("");
   const [loading, setLoading] = useState(false);
 
+  const styles = {
+    display: loading ? "none" : "block",
+    "& .MuiSelect-select": {
+      color: "white",
+    },
+    "@media (max-width: 768px)": {
+      fontSize: "14px",
+      width: "70px",
+      height: "100%",
+    },
+  };
   const langChange = (e) => {
     const selectedLang = e.target.value;
     setLoading(true); // Show loading indicator
@@ -35,21 +46,16 @@ function ChangeLang() {
     }
   };
   return (
-    <div>
+    <div className="w-30 md:w-auto">
       <Select
-        sx={{
-          display: loading ? "none" : "block",
-          "& .MuiSelect-select": {
-            color: "white",
-          },
-        }}
+        sx={styles}
         value={lang}
         onChange={langChange}
         disabled={loading} // Disable select while loading
       >
         <MenuItem value="en">English</MenuItem>
-        <MenuItem value="gr">German(Deutsch)</MenuItem>
-        <MenuItem value="ar">Arabic(العربية)</MenuItem>
+        <MenuItem value="gr">German (Deutsch)</MenuItem>
+        <MenuItem value="ar">Arabic (العربية)</MenuItem>
       </Select>
       {loading ? (
         <CircularProgress

@@ -9,8 +9,8 @@ import { useWishlist } from "../../context/WishlistContext";
 import { Link } from "react-router-dom";
 import { AuthContext, auth } from "../../Auth/firebase";
 import i18n from "../common/components/LangConfig";
+// import ThemeSwitcher from "./ThemeSwitcher";
 
-const headerIcons = i18n.t("headerIcons");
 const Profile = () => {
   const { cartItems } = useCart();
   const { wishlistItems } = useWishlist();
@@ -296,6 +296,8 @@ const Profile = () => {
           {i18n.t("headerIcons.5")}
         </MenuItem>
       </Menu>
+
+      {/* <ThemeSwitcher /> */}
     </div>
   );
 };

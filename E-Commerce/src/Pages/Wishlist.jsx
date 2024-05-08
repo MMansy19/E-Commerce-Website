@@ -10,6 +10,7 @@ import { Snackbar } from "@mui/material";
 import { Alert } from "@mui/material";
 import { useCart } from "../context/CartContext";
 import { motion } from "framer-motion"; // Import motion from Framer Motion for animations
+import i18n from "../components/common/components/LangConfig";
 
 function Wishlist() {
   const { wishlistItems } = useWishlist();
@@ -22,14 +23,14 @@ function Wishlist() {
   const handleClick = () => {
     const state = moveAllToCart(wishlistItems);
     if (wishlistItems.length === 0 || wishlistItems === null) {
-      setMassage("No items to move to the cart!");
+      setMassage(i18n.t("Snackbar.noItems"));
       setSeverity("info");
     } else {
       if (state) {
-        setMassage("Items moved to the cart successfully!");
+        setMassage(i18n.t("Snackbar.movedToCart"));
         setSeverity("success");
       } else {
-        setMassage("Items already in the cart!");
+        setMassage(i18n.t("Snackbar.inCart"));
         setSeverity("info");
       }
     }
@@ -55,9 +56,12 @@ function Wishlist() {
     <div className="flex flex-col md:mx-32 mt-28">
       <div className="mx-auto md:mx-2 my-20">
         <div className="flex justify-around md:justify-between items-center md:mr-6 mb-12">
-          <h2 className="text-lg">Wishlist ({wishlistItems.length})</h2>
+          <h2 className="text-lg">
+            {i18n.t("wishlist.title")} ({wishlistItems.length})
+          </h2>
+
           <WhiteButton
-            name="Move All To Bag"
+            name={i18n.t("whiteButtons.moveAllToBag")}
             onClick={handleClick}
             disabled={
               wishlistItems.length === 0 ||
@@ -84,25 +88,11 @@ function Wishlist() {
       </div>
       <>
         <div className="flex justify-between items-center md:mr-6 mx-4 ">
-          <RedTitle title="Just For You" color="black" />
-          <Link to="/allProducts">
-            <WhiteButton name="See All" />
+          <RedTitle title={i18n.t("wishlist.justForYou")} color="black" />
+          <Link to={`/${i18n.t("wishlist.title")}`}>
+            <WhiteButton name={i18n.t("whiteButtons.seeAll")} />
           </Link>
         </div>
-        {/* <div className="relative mt-10">
-          <div className="flex flex-row gap-2 md:gap-4 overflow-y-hidden  justify-center items-center md:h-[430px] transition-transform duration-300 transform  focus:outline-none ">
-            {relatedItems.map((item, index) => (
-              <FlashSaleItem
-                key={item.title}
-                item={item}
-                index={index}
-                totalItems={relatedItems.length}
-                stars={item.stars}
-                rates={item.rates}
-              />
-            ))}
-          </div>
-        </div> */}
         {/* Motion */}
         <div className="relative  overflow-x-auto overflow-y-hidden flex justify-start items-center md:h-[400px] ">
           <motion.div

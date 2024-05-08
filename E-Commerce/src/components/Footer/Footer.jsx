@@ -117,7 +117,7 @@ const Footer = () => {
             className="justify-center items-stretch md:justify-between md:leading-10"
           >
             <Typography variant="h6" gutterBottom>
-              Quick Link
+              {i18n.t("footer.quickLinks")}
             </Typography>
             <ul className="list-none p-0">
               <li>

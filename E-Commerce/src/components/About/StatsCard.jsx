@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import { Box } from "@mui/material";
-
+import i18n from "../common/components/LangConfig";
 const StatsCard = ({ icon, value, description }) => {
   return (
     <Box className="flex max-w-xs gap-4 items-center justify-center flex-col bg-white px-4 py-8 rounded-lg border border-gray-300 transition duration-300 hover:invert hover:bg-cyan-400  hover:shadow-xl">
@@ -54,8 +54,8 @@ const StatsCardExported = () => {
             />
           </svg>
         }
-        value="10.5k"
-        description="Sellers active on our site"
+        value={i18n.t("aboutPage.k1")}
+        description={i18n.t("aboutPage.card1")}
       />
       <StatsCard
         icon={
@@ -89,8 +89,8 @@ const StatsCardExported = () => {
             />
           </svg>
         }
-        value="33k"
-        description="Monthly Product Sale"
+        value={i18n.t("aboutPage.k2")}
+        description={i18n.t("aboutPage.card2")}
       />
       <StatsCard
         icon={
@@ -107,8 +107,8 @@ const StatsCardExported = () => {
             />
           </svg>
         }
-        value="45.5k"
-        description="Customers active on our site"
+        value={i18n.t("aboutPage.k3")}
+        description={i18n.t("aboutPage.card3")}
       />
       <StatsCard
         icon={
@@ -133,8 +133,8 @@ const StatsCardExported = () => {
             />
           </svg>
         }
-        value="25k"
-        description="Annual gross sale on our site"
+        value={i18n.t("aboutPage.k4")}
+        description={i18n.t("aboutPage.card4")}
       />
     </div>
   );

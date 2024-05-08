@@ -9,6 +9,7 @@ import {
   signInWithEmailAndPassword,
   sendPasswordResetEmail,
 } from "firebase/auth";
+import i18n from "../components/common/components/LangConfig";
 
 const LogIn = () => {
   const [email, setEmail] = useState("");
@@ -52,16 +53,16 @@ const LogIn = () => {
     <div className="flex justify-center md:justify-start  items-center md:mt-14 mb-36 mt-40 md:gap-32 ">
       <SignImg />
       <div className="flex flex-col gap-6 items-start justify-center">
-        <h1 className="text-4xl font-medium font-inter ">
-          Log in to Exclusive
+        <h1 className="text-xl md:text-4xl font-medium font-inter ">
+          {i18n.t("loginPage.title")}
         </h1>
-        <p className="">Enter your details below</p>
+        <p>{i18n.t("loginPage.enter")}</p>
         <form
           className="flex flex-col gap-6 w-72 md:w-96"
           onSubmit={handleLogIn}
         >
           <TextField
-            label="Email or Phone Number"
+            label={i18n.t("loginPage.emailOrPhone")}
             variant="standard"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
@@ -69,7 +70,7 @@ const LogIn = () => {
           />
           <TextField
             type="password"
-            label="Password"
+            label={i18n.t("loginPage.password")}
             variant="standard"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
@@ -95,7 +96,7 @@ const LogIn = () => {
               color="primary"
               className="my-2"
             >
-              Log In
+              {i18n.t("loginPage.login")}
             </Button>
             <Link
               href="#"
@@ -109,7 +110,7 @@ const LogIn = () => {
                 },
               }}
             >
-              Forgot Password?
+              {i18n.t("loginPage.forgot")}
             </Link>
           </div>
         </form>

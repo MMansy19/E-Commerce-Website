@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { Grid, Typography, Menu, MenuItem, Button } from "@mui/material";
 import { Link } from "react-router-dom";
-import RedButton from "../components/common/components/RedButton";
 import FlashSaleItem from "../components/common/components/FlashSaleItem";
 import i18n from "../components/common/components/LangConfig";
 import { ITEMS } from "../components/common/functions/items";
@@ -11,7 +10,9 @@ import WhiteButton from "../components/common/components/WhiteButton";
 
 const Category = () => {
   const [anchorEl, setAnchorEl] = useState(null);
-  const [selectedCategory, setSelectedCategory] = useState("General");
+  const [selectedCategory, setSelectedCategory] = useState(
+    i18n.t("categories.technology")
+  );
 
   const handleMenuOpen = (event) => {
     setAnchorEl(event.currentTarget);
@@ -49,7 +50,7 @@ const Category = () => {
           startIcon={<ArrowDropDownIcon />}
           onClick={handleMenuOpen}
         >
-          Choose By Category
+          {i18n.t("redButtons.chooseByCategory")}
         </Button>
 
         <Menu
@@ -57,35 +58,43 @@ const Category = () => {
           anchorEl={anchorEl}
           open={Boolean(anchorEl)}
           onClose={handleMenuClose}
+          className="mt-1 flex items-center justify-center mx-1"
         >
-          {["General", "Technology", "Gaming", "Clothes", "New Arrival"].map(
-            (category) => (
-              <MenuItem
-                key={category}
-                onClick={() => handleCategorySelect(category)}
-              >
-                {category}
-              </MenuItem>
-            )
-          )}
+          {[
+            i18n.t("categories.general"),
+            i18n.t("categories.technology"),
+            i18n.t("categories.gaming"),
+            i18n.t("categories.clothes"),
+            i18n.t("categories.newArrival"),
+          ].map((category) => (
+            <MenuItem
+              className="w-36"
+              key={category}
+              onClick={() => handleCategorySelect(category)}
+            >
+              <span className="text-xl mx-auto">{category}</span>
+            </MenuItem>
+          ))}
         </Menu>
       </div>
-      <Grid container spacing={3} justifyContent="center" alignItems="center">
-        {filteredItems.map((item, index) => (
-          <Grid item key={item.id} xs={0} sm={6} md={4} lg={3}>
-            <FlashSaleItem
-              item={item}
-              index={index}
-              totalItems={filteredItems.length}
-              stars={item.stars}
-              rates={item.rates}
-            />
-          </Grid>
-        ))}
-      </Grid>
-      <div className="mt-6 flex  justify-around items-center md:mx-12 ">
+      <div className="relative mx-2 my-10 flex flex-row gap-2 md:gap-12 transition-transform duration-300 transform ">
+        <Grid container spacing={3} justifyContent="center" alignItems="center">
+          {filteredItems.map((item, index) => (
+            <Grid item key={item.id}>
+              <FlashSaleItem
+                item={item}
+                index={index}
+                totalItems={filteredItems.length}
+                stars={item.stars}
+                rates={item.rates}
+              />
+            </Grid>
+          ))}
+        </Grid>
+      </div>
+      <div className="mt-6 flex justify-center gap-5 md:gap-20 items-center md:mx-12 ">
         <Link to="..">
-          <WhiteButton name={i18n.t("redButtons.backToHomePage")} />
+          <WhiteButton name={i18n.t("whiteButtons.backToHomePage")} />
         </Link>
         <ViewAll name={i18n.t("redButtons.viewAllProducts")} />
       </div>

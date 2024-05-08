@@ -9,7 +9,7 @@ import { Grid } from "@mui/material";
 const AllProducts = ({ items }) => {
   return (
     <>
-      <div className="py-12">
+      <div className="mx-2 xl:mx-0 my-12">
         <RedTitle title={i18n.t("allProducts.redTitle")} />
         <div className="flex justify-between items-center md:mr-6 md:mb-4">
           <h2 className="text-xl md:text-3xl font-semibold ">
