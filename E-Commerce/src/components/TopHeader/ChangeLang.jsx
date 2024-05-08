@@ -41,11 +41,11 @@ function ChangeLang() {
 
   const handleMassage = () => {
     if (selectedLanguage === "en") {
-      return "Language changed to English successfully!";
+      return "The page will be reloaded and the language will be changed to English!";
     } else if (selectedLanguage === "gr") {
-      return "Sprache erfolgreich in Deutsch geändert!";
+      return "Die Seite wird neu geladen und die Sprache wird auf Deutsch geändert!";
     } else {
-      return "تم تغيير اللغة إلى العربية بنجاح!";
+      return "سيتم إعادة تحميل الصفحة وتغيير اللغة للعربية!";
     }
   };
   return (

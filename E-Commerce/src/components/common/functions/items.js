@@ -1,10 +1,36 @@
+import { AuthContext } from "../firebase";
+import { useContext } from "react";
+
 import i18n from "../components/LangConfig";
+
+// Inside your component
+const { uploadImageAndSaveUrl } = useContext(AuthContext);
+
+const [imageUrls, setImageUrls] = useState([]);
+
+useEffect(() => {
+  const fetchImageUrls = async () => {
+    const urls = [];
+    for (let i = 0; i < ITEMS.length; i++) {
+      const imageUrl = await uploadImageAndSaveUrl(
+        `../assets/${ITEMS[i].imageSrc}`
+      );
+      urls.push(imageUrl);
+    }
+    setImageUrls(urls);
+  };
+
+  fetchImageUrls();
+}, []);
+
+// Then you can use this URL in your ITEMS array or wherever you need it
+
 let idCounter = 0;
 
 export const ITEMS = [
   {
     id: String(idCounter++),
-    imageSrc: "../assets/car.svg",
+    imageSrc: imageUrls["car.svg"] || "",
     title: i18n.t("itemsArray.0.title"),
     price: 960,
     stars: Math.floor(Math.random() * 5),
@@ -12,10 +38,11 @@ export const ITEMS = [
     discount: "",
     quantity: 0,
     type: i18n.t("itemsArray.0.type"),
-    details: i18n.t("itemsArray.0.details"), },
+    details: i18n.t("itemsArray.0.details"),
+  },
   {
     id: String(idCounter++),
-    imageSrc: "../assets/camera.svg",
+    imageSrc: imageUrls["camera.svg"] || "",
     title: i18n.t("itemsArray.1.title"),
     price: 360,
     stars: Math.floor(Math.random() * 5),
@@ -23,10 +50,12 @@ export const ITEMS = [
     discount: "",
     quantity: 0,
     type: i18n.t("itemsArray.1.type"),
-    details:i18n.t("itemsArray.1.details"),},
+    details: i18n.t("itemsArray.1.details"),
+  },
   {
     id: String(idCounter++),
-    imageSrc: "../assets/dogfood.svg",
+    imageSrc: imageUrls["dogfood.svg.svg"] || "",
+
     price: 100,
     stars: Math.floor(Math.random() * 5),
     rates: Math.floor(Math.random() * 100),
@@ -34,12 +63,11 @@ export const ITEMS = [
     quantity: 0,
     title: i18n.t("itemsArray.2.title"),
     type: i18n.t("itemsArray.2.type"),
-    details: i18n.t("itemsArray.2.details"), 
-  
+    details: i18n.t("itemsArray.2.details"),
   },
   {
     id: String(idCounter++),
-    imageSrc: "../assets/labtop.svg",
+    imageSrc: imageUrls["labtop.svg"] || "",
     price: 700,
     stars: Math.floor(Math.random() * 5),
     rates: Math.floor(Math.random() * 100),
@@ -51,7 +79,7 @@ export const ITEMS = [
   },
   {
     id: String(idCounter++),
-    imageSrc: "../assets/cream.svg",
+    imageSrc: imageUrls["cream.svg"] || "",
     price: 500,
     stars: Math.floor(Math.random() * 5),
     rates: Math.floor(Math.random() * 100),
@@ -59,10 +87,11 @@ export const ITEMS = [
     quantity: 0,
     title: i18n.t("itemsArray.4.title"),
     type: i18n.t("itemsArray.4.type"),
-    details: i18n.t("itemsArray.4.details"),},
+    details: i18n.t("itemsArray.4.details"),
+  },
   {
     id: String(idCounter++),
-    imageSrc: "../assets/g-black.svg",
+    imageSrc: imageUrls["g-black.svg.svg"] || "",
     price: 660,
     stars: Math.floor(Math.random() * 5),
     rates: Math.floor(Math.random() * 100),
@@ -74,7 +103,7 @@ export const ITEMS = [
   },
   {
     id: String(idCounter++),
-    imageSrc: "../assets/jacket.svg",
+    imageSrc: imageUrls["jacket.svg"] || "",
     price: 660,
     stars: Math.floor(Math.random() * 5),
     rates: Math.floor(Math.random() * 100),
@@ -86,7 +115,7 @@ export const ITEMS = [
   },
   {
     id: String(idCounter++),
-    imageSrc: "../assets/bookself.svg",
+    imageSrc: imageUrls["bookself.svg"] || "",
     price: 360,
     stars: Math.floor(Math.random() * 5),
     rates: Math.floor(Math.random() * 100),
@@ -98,7 +127,7 @@ export const ITEMS = [
   },
   {
     id: String(idCounter++),
-    imageSrc: "../assets/headphones.svg",
+    imageSrc: imageUrls["headphones.svg"] || "",
     price: 160,
     stars: Math.floor(Math.random() * 5),
     rates: Math.floor(Math.random() * 100),
@@ -110,7 +139,7 @@ export const ITEMS = [
   },
   {
     id: String(idCounter++),
-    imageSrc: "../assets/bag.svg",
+    imageSrc: imageUrls["bag.svg"] || "",
     price: 1160,
     stars: Math.floor(Math.random() * 5),
     rates: Math.floor(Math.random() * 100),
@@ -122,7 +151,7 @@ export const ITEMS = [
   },
   {
     id: String(idCounter++),
-    imageSrc: "../assets/coat.svg",
+    imageSrc: imageUrls["coat.svg"] || "",
     price: 360,
     stars: Math.floor(Math.random() * 5),
     rates: Math.floor(Math.random() * 100),
@@ -134,7 +163,7 @@ export const ITEMS = [
   },
   {
     id: String(idCounter++),
-    imageSrc: "../assets/g-colored.svg",
+    imageSrc: imageUrls["g-colored.svg"] || "",
     price: 160,
     stars: Math.floor(Math.random() * 5),
     rates: Math.floor(Math.random() * 100),
@@ -143,11 +172,10 @@ export const ITEMS = [
     title: i18n.t("itemsArray.11.title"),
     type: i18n.t("itemsArray.11.type"),
     details: i18n.t("itemsArray.11.details"),
-
   },
   {
     id: String(idCounter++),
-    imageSrc: "../assets/keyboard.svg",
+    imageSrc: imageUrls["keyboard.svg"] || "",
     price: 1160,
     stars: Math.floor(Math.random() * 5),
     rates: Math.floor(Math.random() * 100),
@@ -159,7 +187,7 @@ export const ITEMS = [
   },
   {
     id: String(idCounter++),
-    imageSrc: "../assets/tv.svg",
+    imageSrc: imageUrls["tv.svg"] || "",
     price: 400,
     stars: Math.floor(Math.random() * 5),
     rates: Math.floor(Math.random() * 100),
@@ -168,11 +196,10 @@ export const ITEMS = [
     title: i18n.t("itemsArray.13.title"),
     type: i18n.t("itemsArray.13.type"),
     details: i18n.t("itemsArray.13.details"),
-
   },
   {
     id: String(idCounter++),
-    imageSrc: "../assets/chair.svg",
+    imageSrc: imageUrls["chair.svg"] || "",
     price: 400,
     stars: Math.floor(Math.random() * 5),
     rates: Math.floor(Math.random() * 100),
@@ -184,12 +211,12 @@ export const ITEMS = [
   },
   {
     id: String(idCounter++),
-    imageSrc:"../assets/JBL_BOOMBOX.svg",
+    imageSrc: imageUrls["JBL_BOOMBOX.svg"] || "",
     price: 1200,
     stars: Math.floor(Math.random() * 5),
     rates: Math.floor(Math.random() * 100),
-    discount: '',
-    state:1,
+    discount: "",
+    state: 1,
     quantity: 0,
     title: i18n.t("itemsArray.15.title"),
     type: i18n.t("itemsArray.15.type"),
@@ -198,12 +225,12 @@ export const ITEMS = [
   {
     id: String(idCounter++),
     imageSrc: "../assets/perfume.svg",
-    
+
     price: 1200,
     stars: Math.floor(Math.random() * 5),
     rates: Math.floor(Math.random() * 100),
-    discount: '',
-    state:1,
+    discount: "",
+    state: 1,
     quantity: 0,
     title: i18n.t("itemsArray.16.title"),
     type: i18n.t("itemsArray.16.type"),
@@ -215,8 +242,8 @@ export const ITEMS = [
     price: 1200,
     stars: Math.floor(Math.random() * 5),
     rates: Math.floor(Math.random() * 100),
-    discount: '',
-    state:1,
+    discount: "",
+    state: 1,
     quantity: 0,
     title: i18n.t("itemsArray.17.title"),
     type: i18n.t("itemsArray.17.type"),
@@ -228,8 +255,8 @@ export const ITEMS = [
     price: 1200,
     stars: Math.floor(Math.random() * 5),
     rates: Math.floor(Math.random() * 100),
-    discount: '',
-    state:1,
+    discount: "",
+    state: 1,
     quantity: 0,
     title: i18n.t("itemsArray.18.title"),
     type: i18n.t("itemsArray.18.type"),
@@ -241,8 +268,8 @@ export const ITEMS = [
     price: 1200,
     stars: Math.floor(Math.random() * 5),
     rates: Math.floor(Math.random() * 100),
-    discount: '',
-    state:1,
+    discount: "",
+    state: 1,
     quantity: 0,
     title: i18n.t("itemsArray.19.title"),
     type: i18n.t("itemsArray.19.type"),
@@ -254,8 +281,8 @@ export const ITEMS = [
     price: 1200,
     stars: Math.floor(Math.random() * 5),
     rates: Math.floor(Math.random() * 100),
-    discount: '',
-    state:1,
+    discount: "",
+    state: 1,
     quantity: 0,
     title: i18n.t("itemsArray.20.title"),
     type: i18n.t("itemsArray.20.type"),
@@ -267,8 +294,8 @@ export const ITEMS = [
     price: 400,
     stars: Math.floor(Math.random() * 5),
     rates: Math.floor(Math.random() * 100),
-    discount: '',
-    state:1,
+    discount: "",
+    state: 1,
     quantity: 0,
     title: i18n.t("itemsArray.21.title"),
     type: i18n.t("itemsArray.21.type"),
