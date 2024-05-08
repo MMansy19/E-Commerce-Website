@@ -4,7 +4,7 @@ let idCounter = 0;
 export const ITEMS = [
   {
     id: String(idCounter++),
-    imageSrc: "./src/assets/car.svg",
+    imageSrc: "./assets/car.svg",
     title: i18n.t("itemsArray.0.title"),
     price: 960,
     stars: Math.floor(Math.random() * 5),
@@ -16,7 +16,7 @@ export const ITEMS = [
   },
   {
     id: String(idCounter++),
-    imageSrc: "./src/assets/camera.svg",
+    imageSrc: "./assets/camera.svg",
     title: i18n.t("itemsArray.1.title"),
     price: 360,
     stars: Math.floor(Math.random() * 5),
@@ -28,7 +28,7 @@ export const ITEMS = [
   },
   {
     id: String(idCounter++),
-    imageSrc: "./src/assets/dogfood.svg",
+    imageSrc: "./assets/dogfood.svg",
     price: 100,
     stars: Math.floor(Math.random() * 5),
     rates: Math.floor(Math.random() * 100),
@@ -40,7 +40,7 @@ export const ITEMS = [
   },
   {
     id: String(idCounter++),
-    imageSrc: "./src/assets/labtop.svg",
+    imageSrc: "./assets/labtop.svg",
     price: 700,
     stars: Math.floor(Math.random() * 5),
     rates: Math.floor(Math.random() * 100),
@@ -52,7 +52,7 @@ export const ITEMS = [
   },
   {
     id: String(idCounter++),
-    imageSrc: "./src/assets/cream.svg",
+    imageSrc: "./assets/cream.svg",
     price: 500,
     stars: Math.floor(Math.random() * 5),
     rates: Math.floor(Math.random() * 100),
@@ -64,7 +64,7 @@ export const ITEMS = [
   },
   {
     id: String(idCounter++),
-    imageSrc: "./src/assets/g-black.svg",
+    imageSrc: "./assets/g-black.svg",
     price: 660,
     stars: Math.floor(Math.random() * 5),
     rates: Math.floor(Math.random() * 100),
@@ -76,7 +76,7 @@ export const ITEMS = [
   },
   {
     id: String(idCounter++),
-    imageSrc: "./src/assets/jacket.svg",
+    imageSrc: "./assets/jacket.svg",
     price: 660,
     stars: Math.floor(Math.random() * 5),
     rates: Math.floor(Math.random() * 100),
@@ -88,7 +88,7 @@ export const ITEMS = [
   },
   {
     id: String(idCounter++),
-    imageSrc: "./src/assets/bookself.svg",
+    imageSrc: "./assets/bookself.svg",
     price: 360,
     stars: Math.floor(Math.random() * 5),
     rates: Math.floor(Math.random() * 100),
@@ -100,7 +100,7 @@ export const ITEMS = [
   },
   {
     id: String(idCounter++),
-    imageSrc: "./src/assets/headphones.svg",
+    imageSrc: "./assets/headphones.svg",
     price: 160,
     stars: Math.floor(Math.random() * 5),
     rates: Math.floor(Math.random() * 100),
@@ -112,7 +112,7 @@ export const ITEMS = [
   },
   {
     id: String(idCounter++),
-    imageSrc: "./src/assets/bag.svg",
+    imageSrc: "./assets/bag.svg",
     price: 1160,
     stars: Math.floor(Math.random() * 5),
     rates: Math.floor(Math.random() * 100),
@@ -124,7 +124,7 @@ export const ITEMS = [
   },
   {
     id: String(idCounter++),
-    imageSrc: "./src/assets/coat.svg",
+    imageSrc: "./assets/coat.svg",
     price: 360,
     stars: Math.floor(Math.random() * 5),
     rates: Math.floor(Math.random() * 100),
@@ -136,7 +136,7 @@ export const ITEMS = [
   },
   {
     id: String(idCounter++),
-    imageSrc: "./src/assets/g-colored.svg",
+    imageSrc: "./assets/g-colored.svg",
     price: 160,
     stars: Math.floor(Math.random() * 5),
     rates: Math.floor(Math.random() * 100),
@@ -148,7 +148,7 @@ export const ITEMS = [
   },
   {
     id: String(idCounter++),
-    imageSrc: "./src/assets/keyboard.svg",
+    imageSrc: "./assets/keyboard.svg",
     price: 1160,
     stars: Math.floor(Math.random() * 5),
     rates: Math.floor(Math.random() * 100),
@@ -160,7 +160,7 @@ export const ITEMS = [
   },
   {
     id: String(idCounter++),
-    imageSrc: "./src/assets/tv.svg",
+    imageSrc: "./assets/tv.svg",
     price: 400,
     stars: Math.floor(Math.random() * 5),
     rates: Math.floor(Math.random() * 100),
@@ -172,7 +172,7 @@ export const ITEMS = [
   },
   {
     id: String(idCounter++),
-    imageSrc: "./src/assets/chair.svg",
+    imageSrc: "./assets/chair.svg",
     price: 400,
     stars: Math.floor(Math.random() * 5),
     rates: Math.floor(Math.random() * 100),
@@ -184,7 +184,7 @@ export const ITEMS = [
   },
   {
     id: String(idCounter++),
-    imageSrc: "./src/assets/JBL_BOOMBOX.svg",
+    imageSrc: "./assets/JBL_BOOMBOX.svg",
     price: 1200,
     stars: Math.floor(Math.random() * 5),
     rates: Math.floor(Math.random() * 100),
@@ -197,7 +197,7 @@ export const ITEMS = [
   },
   {
     id: String(idCounter++),
-    imageSrc: "./src/assets/perfume.svg",
+    imageSrc: "./assets/perfume.svg",
 
     price: 1200,
     stars: Math.floor(Math.random() * 5),
@@ -211,7 +211,7 @@ export const ITEMS = [
   },
   {
     id: String(idCounter++),
-    imageSrc: "./src/assets/phone.svg",
+    imageSrc: "./assets/phone.svg",
     price: 1200,
     stars: Math.floor(Math.random() * 5),
     rates: Math.floor(Math.random() * 100),
@@ -224,7 +224,7 @@ export const ITEMS = [
   },
   {
     id: String(idCounter++),
-    imageSrc: "./src/assets/playstation.svg",
+    imageSrc: "./assets/playstation.svg",
     price: 1200,
     stars: Math.floor(Math.random() * 5),
     rates: Math.floor(Math.random() * 100),
@@ -237,7 +237,7 @@ export const ITEMS = [
   },
   {
     id: String(idCounter++),
-    imageSrc: "./src/assets/speakers.svg",
+    imageSrc: "./assets/speakers.svg",
     price: 1200,
     stars: Math.floor(Math.random() * 5),
     rates: Math.floor(Math.random() * 100),
@@ -250,7 +250,7 @@ export const ITEMS = [
   },
   {
     id: String(idCounter++),
-    imageSrc: "./src/assets/womenCollections.png",
+    imageSrc: "./assets/womenCollections.png",
     price: 1200,
     stars: Math.floor(Math.random() * 5),
     rates: Math.floor(Math.random() * 100),
@@ -263,7 +263,7 @@ export const ITEMS = [
   },
   {
     id: String(idCounter++),
-    imageSrc: "./src/assets/shoes.svg",
+    imageSrc: "./assets/shoes.svg",
     price: 400,
     stars: Math.floor(Math.random() * 5),
     rates: Math.floor(Math.random() * 100),
