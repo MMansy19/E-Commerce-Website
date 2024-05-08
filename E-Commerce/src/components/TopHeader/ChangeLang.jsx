@@ -29,7 +29,10 @@ function ChangeLang() {
     setTimeout(() => {
       setLoading(false); // Hide loading indicator
       setSnackbarOpen(true); // Open Snackbar when language changes
-    }, 4000);
+      setTimeout(() => {
+        window.location.href = "/";
+      }, 4000);
+    }, 1000);
   };
 
   const handleCloseSnackbar = () => {
