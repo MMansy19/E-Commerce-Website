@@ -9,7 +9,7 @@ import i18n from "../components/common/components/LangConfig";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { AnimatePresence } from "framer-motion";
-
+// import { ITEMS } from "../items";
 const Product = () => {
   const { selectedProduct } = useContext(SelectedProductContext);
   const { handleIncrease, handleDecrease } = useCart();
