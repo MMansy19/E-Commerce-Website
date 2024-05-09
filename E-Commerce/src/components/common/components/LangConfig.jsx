@@ -414,8 +414,7 @@ const resources = {
     translation: {
       font: "font-poppins",
       dir: "ltr",
-      topHeader:
-        "Sommerschlussverkauf für alle Badeanzüge und kostenloser Expressversand – 50 % RABATT!",
+      topHeader: "Sommerschlussverkauf - 50 % RABATT!",
       shop: "Jetzt einkaufen",
       welcome: "Willkommen auf der E-Commerce-Website",
       exclusive: "Exklusiv",

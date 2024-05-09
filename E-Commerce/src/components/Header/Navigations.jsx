@@ -55,7 +55,7 @@ const Navigations = () => {
             onClick={toggleDrawer(true)}
           >
             <svg
-              width="30"
+              className="w-6 sm:w-8"
               viewBox="0 0 24 24"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
@@ -67,7 +67,6 @@ const Navigations = () => {
                 strokeLinejoin="round"
               ></g>
               <g id="SVGRepo_iconCarrier">
-                {" "}
                 <path
                   fillRule="evenodd"
                   clipRule="evenodd"

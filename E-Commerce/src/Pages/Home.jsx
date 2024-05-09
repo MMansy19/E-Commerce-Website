@@ -7,7 +7,6 @@ import Services from "../components/common/components/Services";
 import AllProducts from "../components/Home/AllProducts";
 import Featured from "../components/Home/Featured";
 import { ITEMS } from "../components/common/functions/items";
-
 const Home = () => {
   return (
     <div dir="ltr" className="flex flex-col xl:mx-32 mt-28 gap-3">

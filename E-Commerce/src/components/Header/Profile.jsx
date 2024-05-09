@@ -10,6 +10,7 @@ import { Link } from "react-router-dom";
 import { AuthContext, auth } from "../../Auth/firebase";
 import i18n from "../common/components/LangConfig";
 // import ThemeSwitcher from "./ThemeSwitcher";
+import ReadmeComponent from "../Readme/ReadmeComp";
 
 const Profile = () => {
   const { cartItems } = useCart();
@@ -38,7 +39,7 @@ const Profile = () => {
   };
 
   return (
-    <div className="flex justify-around items-center md:gap-4 md:ml-4 ">
+    <div className="flex justify-between md:justify-around items-center md:gap-4 md:ml-4 ">
       <Link to="/wishlist">
         <IconButton
           size="small"
@@ -54,9 +55,7 @@ const Profile = () => {
             {wishlistItems.length}
           </span>
           <svg
-            className="hover:bg-red-500 rounded-full"
-            width="32"
-            height="32"
+            className="hover:bg-red-500 rounded-full w-6 md:w-8 md:h-8"
             viewBox="0 0 32 32"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
@@ -87,9 +86,7 @@ const Profile = () => {
           </span>
 
           <svg
-            className="hover:bg-red-500 rounded-full"
-            width="32"
-            height="32"
+            className="hover:bg-red-500 rounded-full w-6 md:w-8 md:h-8"
             viewBox="0 0 32 32"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
@@ -135,9 +132,7 @@ const Profile = () => {
             aria-expanded={open ? "true" : undefined}
           >
             <svg
-              className="hover:bg-red-500 rounded-full"
-              width="32"
-              height="32"
+              className="hover:bg-red-500 rounded-full w-6 md:w-8 md:h-8"
               viewBox="0 0 32 32"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
@@ -296,6 +291,7 @@ const Profile = () => {
           {i18n.t("headerIcons.5")}
         </MenuItem>
       </Menu>
+      <ReadmeComponent />
 
       {/* <ThemeSwitcher /> */}
     </div>

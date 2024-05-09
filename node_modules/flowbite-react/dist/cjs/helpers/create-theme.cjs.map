@@ -1,0 +1,1 @@
+{"version":3,"file":"create-theme.cjs","sources":["../../../src/helpers/create-theme.ts"],"sourcesContent":["/**\n * Used to apply `tailwindcss` intellisense.\n */\nexport function createTheme<T>(input: T) {\n  return input;\n}\n"],"names":[],"mappings":";;AACO,SAAS,WAAW,CAAC,KAAK,EAAE;AACnC,EAAE,OAAO,KAAK,CAAC;AACf;;;;"}

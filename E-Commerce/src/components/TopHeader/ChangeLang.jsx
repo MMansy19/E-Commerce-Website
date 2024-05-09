@@ -15,9 +15,7 @@ function ChangeLang() {
       color: "white",
     },
     "@media (max-width: 768px)": {
-      fontSize: "14px",
-      width: "70px",
-      height: "100%",
+      fontSize: "12px",
     },
   };
   const langChange = (e) => {
@@ -49,7 +47,7 @@ function ChangeLang() {
     }
   };
   return (
-    <div className="w-30 md:w-auto">
+    <div>
       <Select
         sx={styles}
         value={lang}

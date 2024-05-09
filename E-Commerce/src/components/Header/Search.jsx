@@ -71,9 +71,8 @@ const SearchAppBar = () => {
   };
 
   return (
-    <Search className="flex items-center justify-center w-52 md:w-96">
+    <Search className="flex items-center justify-center w-48 md:w-96">
       <Autocomplete
-        // className=" w-24 sm:w-40 md:w-96"
         freeSolo
         disableClearable
         disableListWrap
@@ -92,7 +91,7 @@ const SearchAppBar = () => {
       />
       <IconButton aria-label="search" color="inherit" onClick={handleSearch}>
         <Link to={{ pathname: `/allProducts/${selectedItem.title}` }}>
-          <CiSearch />
+          <CiSearch className="w-5 h-auto md:w-8 md:h-8" />
         </Link>
       </IconButton>
     </Search>
