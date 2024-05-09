@@ -53,7 +53,7 @@ const ReadmeComponent = () => {
           <DialogTitle disableTypography>
             <div className="flex flex-row justify-between items-center">
               <Typography variant="h6">
-                <span className="h">
+                <span className="text-blue-500 hover:underline">
                   <a href="https://github.com/MMansy19/E-Commerce-Website">
                     App Readme
                   </a>
@@ -71,7 +71,6 @@ const ReadmeComponent = () => {
               </IconButton>
             </div>
           </DialogTitle>
-
           <DialogContent dividers>
             <motion.div
               initial={{ opacity: 0 }}
@@ -80,7 +79,7 @@ const ReadmeComponent = () => {
             >
               <Typography variant="body1" textAlign="center" mx={2} paragraph>
                 This is an e-commerce app built with React, Vite, Tailwind CSS,
-                and Material-UI.
+                Firebase, React Router, Context API, and React Icons.
               </Typography>
               <Typography variant="body1" paragraph>
                 Features:
@@ -107,6 +106,7 @@ const ReadmeComponent = () => {
       )}
 
       <IconButton
+        className="bg-blue-500 hover:bg-blue-700 text-white rounded-full p-2 transition duration-300"
         onClick={handleOpen}
         size="small"
         aria-controls={open ? "account-menu" : undefined}
