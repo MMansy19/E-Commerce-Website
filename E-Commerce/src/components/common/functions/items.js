@@ -1,27 +1,8 @@
 import { AuthContext } from "../firebase";
 import { useContext } from "react";
-
+import { useState, useEffect } from "react";
 import i18n from "../components/LangConfig";
-
-// Inside your component
-const { uploadImageAndSaveUrl } = useContext(AuthContext);
-
-const [imageUrls, setImageUrls] = useState([]);
-
-useEffect(() => {
-  const fetchImageUrls = async () => {
-    const urls = [];
-    for (let i = 0; i < ITEMS.length; i++) {
-      const imageUrl = await uploadImageAndSaveUrl(
-        `../assets/${ITEMS[i].imageSrc}`
-      );
-      urls.push(imageUrl);
-    }
-    setImageUrls(urls);
-  };
-
-  fetchImageUrls();
-}, []);
+import ImageUploader from "./ImageUploader";
 
 // Then you can use this URL in your ITEMS array or wherever you need it
 
