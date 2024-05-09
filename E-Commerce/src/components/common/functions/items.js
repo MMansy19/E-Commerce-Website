@@ -1,36 +1,10 @@
-import { AuthContext } from "../firebase";
-import { useContext } from "react";
-
 import i18n from "../components/LangConfig";
-
-// Inside your component
-const { uploadImageAndSaveUrl } = useContext(AuthContext);
-
-const [imageUrls, setImageUrls] = useState([]);
-
-useEffect(() => {
-  const fetchImageUrls = async () => {
-    const urls = [];
-    for (let i = 0; i < ITEMS.length; i++) {
-      const imageUrl = await uploadImageAndSaveUrl(
-        `../assets/${ITEMS[i].imageSrc}`
-      );
-      urls.push(imageUrl);
-    }
-    setImageUrls(urls);
-  };
-
-  fetchImageUrls();
-}, []);
-
-// Then you can use this URL in your ITEMS array or wherever you need it
-
 let idCounter = 0;
 
 export const ITEMS = [
   {
     id: String(idCounter++),
-    imageSrc: imageUrls["car.svg"] || "",
+    imageSrc: "../assets/car.svg",
     title: i18n.t("itemsArray.0.title"),
     price: 960,
     stars: Math.floor(Math.random() * 5),
@@ -42,7 +16,7 @@ export const ITEMS = [
   },
   {
     id: String(idCounter++),
-    imageSrc: imageUrls["camera.svg"] || "",
+    imageSrc: "../assets/camera.svg",
     title: i18n.t("itemsArray.1.title"),
     price: 360,
     stars: Math.floor(Math.random() * 5),
@@ -54,8 +28,7 @@ export const ITEMS = [
   },
   {
     id: String(idCounter++),
-    imageSrc: imageUrls["dogfood.svg.svg"] || "",
-
+    imageSrc: "../assets/dogfood.svg",
     price: 100,
     stars: Math.floor(Math.random() * 5),
     rates: Math.floor(Math.random() * 100),
@@ -67,7 +40,7 @@ export const ITEMS = [
   },
   {
     id: String(idCounter++),
-    imageSrc: imageUrls["labtop.svg"] || "",
+    imageSrc: "../assets/labtop.svg",
     price: 700,
     stars: Math.floor(Math.random() * 5),
     rates: Math.floor(Math.random() * 100),
@@ -79,7 +52,7 @@ export const ITEMS = [
   },
   {
     id: String(idCounter++),
-    imageSrc: imageUrls["cream.svg"] || "",
+    imageSrc: "../assets/cream.svg",
     price: 500,
     stars: Math.floor(Math.random() * 5),
     rates: Math.floor(Math.random() * 100),
@@ -91,7 +64,7 @@ export const ITEMS = [
   },
   {
     id: String(idCounter++),
-    imageSrc: imageUrls["g-black.svg.svg"] || "",
+    imageSrc: "../assets/g-black.svg",
     price: 660,
     stars: Math.floor(Math.random() * 5),
     rates: Math.floor(Math.random() * 100),
@@ -103,7 +76,7 @@ export const ITEMS = [
   },
   {
     id: String(idCounter++),
-    imageSrc: imageUrls["jacket.svg"] || "",
+    imageSrc: "../assets/jacket.svg",
     price: 660,
     stars: Math.floor(Math.random() * 5),
     rates: Math.floor(Math.random() * 100),
@@ -115,7 +88,7 @@ export const ITEMS = [
   },
   {
     id: String(idCounter++),
-    imageSrc: imageUrls["bookself.svg"] || "",
+    imageSrc: "../assets/bookself.svg",
     price: 360,
     stars: Math.floor(Math.random() * 5),
     rates: Math.floor(Math.random() * 100),
@@ -127,7 +100,7 @@ export const ITEMS = [
   },
   {
     id: String(idCounter++),
-    imageSrc: imageUrls["headphones.svg"] || "",
+    imageSrc: "../assets/headphones.svg",
     price: 160,
     stars: Math.floor(Math.random() * 5),
     rates: Math.floor(Math.random() * 100),
@@ -139,7 +112,7 @@ export const ITEMS = [
   },
   {
     id: String(idCounter++),
-    imageSrc: imageUrls["bag.svg"] || "",
+    imageSrc: "../assets/bag.svg",
     price: 1160,
     stars: Math.floor(Math.random() * 5),
     rates: Math.floor(Math.random() * 100),
@@ -151,7 +124,7 @@ export const ITEMS = [
   },
   {
     id: String(idCounter++),
-    imageSrc: imageUrls["coat.svg"] || "",
+    imageSrc: "../assets/coat.svg",
     price: 360,
     stars: Math.floor(Math.random() * 5),
     rates: Math.floor(Math.random() * 100),
@@ -163,7 +136,7 @@ export const ITEMS = [
   },
   {
     id: String(idCounter++),
-    imageSrc: imageUrls["g-colored.svg"] || "",
+    imageSrc: "../assets/g-colored.svg",
     price: 160,
     stars: Math.floor(Math.random() * 5),
     rates: Math.floor(Math.random() * 100),
@@ -175,7 +148,7 @@ export const ITEMS = [
   },
   {
     id: String(idCounter++),
-    imageSrc: imageUrls["keyboard.svg"] || "",
+    imageSrc: "../assets/keyboard.svg",
     price: 1160,
     stars: Math.floor(Math.random() * 5),
     rates: Math.floor(Math.random() * 100),
@@ -187,7 +160,7 @@ export const ITEMS = [
   },
   {
     id: String(idCounter++),
-    imageSrc: imageUrls["tv.svg"] || "",
+    imageSrc: "../assets/tv.svg",
     price: 400,
     stars: Math.floor(Math.random() * 5),
     rates: Math.floor(Math.random() * 100),
@@ -199,7 +172,7 @@ export const ITEMS = [
   },
   {
     id: String(idCounter++),
-    imageSrc: imageUrls["chair.svg"] || "",
+    imageSrc: "../assets/chair.svg",
     price: 400,
     stars: Math.floor(Math.random() * 5),
     rates: Math.floor(Math.random() * 100),
@@ -211,7 +184,7 @@ export const ITEMS = [
   },
   {
     id: String(idCounter++),
-    imageSrc: imageUrls["JBL_BOOMBOX.svg"] || "",
+    imageSrc: "../assets/JBL_BOOMBOX.svg",
     price: 1200,
     stars: Math.floor(Math.random() * 5),
     rates: Math.floor(Math.random() * 100),
