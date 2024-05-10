@@ -22,10 +22,12 @@ const Product = () => {
 
   const handleDecreaseFunc = () => {
     handleDecrease(selectedProduct);
+    setQuantity(selectedProduct.quantity);
   };
 
   const handleIncreaseFunc = () => {
     handleIncrease(selectedProduct);
+    setQuantity(selectedProduct.quantity);
   };
 
   const renderStars = () => {

@@ -120,6 +120,10 @@ const Navigations = () => {
           indicatorColor="primary"
           textColor="primary"
           value={currentRouteIndex !== -1 ? currentRouteIndex : false}
+          onClick={window.scrollTo({
+            top: 0,
+            behavior: "smooth",
+          })}
         >
           {routes.map((route, index) => (
             <Tab
