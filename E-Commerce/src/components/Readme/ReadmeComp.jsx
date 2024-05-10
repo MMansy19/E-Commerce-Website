@@ -7,6 +7,8 @@ import {
   Typography,
   IconButton,
   Avatar,
+  useMediaQuery,
+  useTheme,
 } from "@mui/material";
 import Slide from "@mui/material/Slide";
 
@@ -17,16 +19,20 @@ import Footer from "./Footer";
 const ReadmeComponent = () => {
   const [open, setOpen] = useState(false);
   const [hasSeenReadme, setHasSeenReadme] = useState(false);
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
 
   const Transition = React.forwardRef(function Transition(props, ref) {
     return <Slide direction="up" ref={ref} {...props} />;
   });
 
   useEffect(() => {
-    const hasSeen = localStorage.getItem("hasSeenReadme");
-    if (!hasSeen) {
-      setOpen(true);
-    }
+    setTimeout(() => {
+      const hasSeen = localStorage.getItem("hasSeenReadme");
+      if (!hasSeen) {
+        setOpen(true);
+      }
+    }, 3000);
   }, []);
 
   const handleOpen = () => {
@@ -44,14 +50,14 @@ const ReadmeComponent = () => {
     <>
       {!hasSeenReadme && (
         <Dialog
+          onClose={handleClose}
           TransitionComponent={Transition}
           keepMounted
-          onClose={handleClose}
           aria-describedby="alert-dialog-slide-description"
           open={open}
         >
           <DialogTitle disableTypography>
-            <div className="flex flex-row justify-between items-center">
+            <div className="flex flex-col-reverse gap-2 md:flex-row justify-between items-center">
               <Typography variant="h6">
                 <span className="text-blue-500 hover:underline">
                   <a href="https://github.com/MMansy19/E-Commerce-Website">
@@ -66,7 +72,15 @@ const ReadmeComponent = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <Avatar alt="Your Name" src={profilePic} />
+                  <Avatar
+                    alt="Mahmoud Mansy"
+                    src={profilePic}
+                    sx={{
+                      width: "70px",
+                      height: "70px",
+                      border: "2px solid #3B82F6",
+                    }}
+                  />
                 </a>
               </IconButton>
             </div>
@@ -77,14 +91,19 @@ const ReadmeComponent = () => {
               animate={{ opacity: 1 }}
               transition={{ duration: 1 }}
             >
-              <Typography variant="body1" textAlign="center" mx={2} paragraph>
+              <Typography
+                variant={isMobile ? "body2" : "body1"}
+                textAlign="center"
+                mx={isMobile ? 0 : 2}
+                paragraph
+              >
                 This is an e-commerce app built with React, Vite, Tailwind CSS,
                 Firebase, React Router, Context API, and React Icons.
               </Typography>
               <Typography variant="body1" paragraph>
                 Features:
               </Typography>
-              <ul className="list-disc ml-6 mb-4">
+              <ul className="list-disc ml-3 md:ml-6 mb-2 md:mb-4 text-sm md:text-base">
                 <li>Multi-language support (Arabic, English, and German).</li>
                 <li>
                   Advanced sorting and filtering algorithms for product display.

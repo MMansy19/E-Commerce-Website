@@ -61,11 +61,11 @@ const Cart = () => {
           </div>
           <div className="flex justify-between mt-4 border-b">
             <p className="text-xl">{i18n.t("cart.subtotal")}:</p>
-            <p className="text-xl">{i18n.t("cart.free")}</p>
+            <p className="text-xl">${total}</p>
           </div>
           <div className="flex justify-between mt-4 border-b">
             <p className="text-xl">{i18n.t("cart.shipping")}:</p>
-            <p className="text-xl">${total}</p>
+            <p className="text-xl">{i18n.t("cart.free")}</p>
           </div>{" "}
           <div className="mx-10">
             <Link to="/checkout">
