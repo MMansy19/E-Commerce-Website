@@ -13,8 +13,8 @@ The E-commerce website is a full-stack application built using React with Vite a
 
 - [Features](#features)
 - [Technologies Used](#technologies-used)
+- [Set Up ](#set-up)
 - [Screenshots](#screenshots)
-- [Technologies Used](#technologies-used)
 - [Contact](#contact)
 
 
@@ -33,7 +33,6 @@ The E-commerce website is a full-stack application built using React with Vite a
 
 ## Technologies Used
 
-
 - **React**: JavaScript library for building user interfaces.
 - **Vite**: Fast, modern build tooling for frontend development.
 - **Tailwind CSS**: Utility-first CSS framework for rapid UI development.
@@ -41,6 +40,52 @@ The E-commerce website is a full-stack application built using React with Vite a
 - **Custom Hooks**: Utilized custom React hooks for managing state and logic efficiently.
 - **Git** (for version control)
 - **Responsive For Mobile**
+
+## Set Up
+
+To set up and run the project locally, follow these steps:
+
+1. Clone the repository to your local machine:
+
+   ```bash
+   git clone https://github.com/MMansy19/E-Commerce-Website.git
+   ```
+
+2. Navigate to the project directory:
+
+   ```bash
+   cd E-Commerce-Website
+   ```
+
+3. Install the project dependencies:
+
+   ```bash
+   npm install
+   ```
+
+4. Install `i18next` for internationalization:
+
+   ```bash
+   npm install i18next
+   ```
+
+5. Install `react-i18next` for React integration with i18next:
+
+   ```bash
+   npm install react-i18next
+   ```
+
+6. Install `flowbite-react` for UI components:
+
+   ```bash
+   npm install flowbite-react
+   ```
+
+7. Start the development server:
+   ```bash
+   npm run dev
+   ```
+
 
 ## Screenshots
 1. E-Commerce HomePage
