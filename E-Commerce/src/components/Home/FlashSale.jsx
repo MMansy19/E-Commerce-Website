@@ -25,8 +25,8 @@ const FlashSale = () => {
   useEffect(() => {
     const timer = setTimeout(() => {
       setTimeLeft(calculateTimeLeft(new Date("2024-05-27T00:00:00")));
-      setCurrentIndex((prevIndex) => (prevIndex - 1) % duplicatedItems.length);
-      handlePrevItem();
+      // setCurrentIndex((prevIndex) => (prevIndex - 1) % duplicatedItems.length);
+      // handlePrevItem();
     }, 1000);
 
     return () => clearTimeout(timer);

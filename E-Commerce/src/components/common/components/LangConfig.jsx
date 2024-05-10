@@ -1,4 +1,5 @@
 // LangConfig.jsx
+import { Reviews } from "@mui/icons-material";
 import i18n from "i18next";
 import { initReactI18next } from "react-i18next";
 
@@ -271,6 +272,8 @@ const resources = {
         colors: "Colors",
         size: "Size",
         inStock: "In Stock",
+        reviews: "Reviews",
+        review: "Review",
         1: "Free Delivery",
         1.1: "Enter your postal code for Delivery Availability",
         2: "Return Delivery",
@@ -681,6 +684,8 @@ const resources = {
         colors: "Farben",
         size: "Größe",
         inStock: "Auf Lager",
+        reviews: "Bewertungen",
+        review: "Bewertung",
         1: "Kostenlose Lieferung",
         1.1: "Geben Sie Ihre Postleitzahl für die Lieferverfügbarkeit ein",
         2: "Rücksendung",
@@ -1086,6 +1091,8 @@ const resources = {
         colors: "الألوان",
         size: "الحجم",
         inStock: "متوفر",
+        reviews: "تقييم",
+        review: "تقييم",
         1: "التوصيل المجاني",
         1.1: "أدخل الرمز البريدي الخاص بك للتحقق من توفر التسليم",
         2: "الإرجاع",

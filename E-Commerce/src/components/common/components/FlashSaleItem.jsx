@@ -8,6 +8,8 @@ import { Link } from "react-router-dom";
 import { SelectedProductContext } from "../../../context/SelectedProductContext";
 import WishlistIcon from "./WishlistIcon";
 import AddToCart from "./AddToCart";
+import RatingComp from "./Rating";
+
 const FlashSaleItem = ({ item }) => {
   const [isHovered, setIsHovered] = useState(false);
   const { setSelectedProduct } = useContext(SelectedProductContext);
@@ -33,7 +35,7 @@ const FlashSaleItem = ({ item }) => {
   // Function to render stars
   const renderStars = () => {
     const stars = [];
-    for (let i = -2; i < 3; i++) {
+    for (let i = 0; i < 5; i++) {
       // Determine star color based on index and item.stars
       const starColor = i < item.stars ? "#FFAD33" : "#D1D5DB"; // Orange if index < item.stars, gray otherwise
       stars.push(
@@ -62,7 +64,7 @@ const FlashSaleItem = ({ item }) => {
         {isHovered && (
           <button
             onClick={handleAddToCart}
-            className={` absolute bottom-0 left-0 right-0 bg-black text-white py-2 px-4  duration-300  hover:bg-gray-800 focus:outline-none ${
+            className={`z-10 absolute bottom-0 left-0 right-0 bg-black text-white py-2 px-4  duration-300  hover:bg-gray-800 focus:outline-none ${
               isInCart && "bg-red-500"
             }`}
           >
@@ -74,6 +76,7 @@ const FlashSaleItem = ({ item }) => {
             -{item.discount}%
           </div>
         )}
+
         {item.state && (
           <div className="absolute top-0 left-0 bg-green text-white py-1 px-3 m-2 rounded">
             {i18n.t("new")}
@@ -87,7 +90,7 @@ const FlashSaleItem = ({ item }) => {
           <img
             src={item.imageSrc}
             alt={item.title}
-            className="hover:animate-pulse "
+            className="hover:animate-pulse  max-h-52  w-full object-contain"
           />
         </Link>
 
@@ -106,6 +109,11 @@ const FlashSaleItem = ({ item }) => {
         <span>
           <div className="flex mt-2 text-gray-500 text-sm font-semibold gap-2 items-center ">
             {renderStars()} <span>({item.rates})</span>
+            <RatingComp
+              text={i18n.t("productPage.review")}
+              variant="primary"
+              item={item}
+            />
           </div>
         </span>
       </div>

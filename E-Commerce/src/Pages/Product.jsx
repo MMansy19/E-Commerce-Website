@@ -9,7 +9,9 @@ import i18n from "../components/common/components/LangConfig";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { AnimatePresence } from "framer-motion";
-
+import RatingComp from "../components/common/components/Rating";
+// import RatingComp from "../components/common/components/RatingComp";
+// import ReadmeComponent from "../components/Readme/ReadmeComp";
 const Product = () => {
   const { selectedProduct } = useContext(SelectedProductContext);
   const { handleIncrease, handleDecrease } = useCart();
@@ -18,7 +20,7 @@ const Product = () => {
 
   useEffect(() => {
     setQuantity(selectedProduct.quantity);
-  }, [selectedProduct.quantity]);
+  }, [selectedProduct]);
 
   const handleDecreaseFunc = () => {
     handleDecrease(selectedProduct);
@@ -31,7 +33,7 @@ const Product = () => {
   const renderStars = () => {
     const stars = [];
 
-    for (let i = -2; i < 3; i++) {
+    for (let i = 0; i < 5; i++) {
       const starColor = i < selectedProduct.stars ? "#FFAD33" : "#D1D5DB";
       stars.push(
         <svg
@@ -110,16 +112,22 @@ const Product = () => {
               <div className="flex  text-gray-500 text-sm gap-2 items-center ">
                 {renderStars()}
                 <span>
-                  ({selectedProduct.rates} Reviews)
-                  <span className="mr-4 "></span>|
+                  ({selectedProduct.rates} {i18n.t("productPage.reviews")})
+                  <span className="mr-4 "></span>|{" "}
                   <span className="ml-4 text-green">
                     {i18n.t("productPage.inStock")}
                   </span>
                 </span>
               </div>
-              <p className="text-gray-800 text-xl md:text-2xl font-inter">
-                ${selectedProduct.price}.00
-              </p>
+              <div className="flex gap-10">
+                <p className="text-gray-800 text-xl md:text-2xl font-inter">
+                  ${selectedProduct.price}.00
+                </p>
+                <RatingComp
+                  text={i18n.t("productPage.review")}
+                  item={selectedProduct}
+                />{" "}
+              </div>
               <p className="text-gray-800 w-full md:w-[373px] text-xs md:text-sm">
                 {selectedProduct.details}
               </p>
