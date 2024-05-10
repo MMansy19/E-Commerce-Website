@@ -9,9 +9,7 @@ import i18n from "../components/common/components/LangConfig";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { AnimatePresence } from "framer-motion";
-import RatingComp from "../components/common/components/Rating";
-// import RatingComp from "../components/common/components/RatingComp";
-// import ReadmeComponent from "../components/Readme/ReadmeComp";
+// import RatingComp from "../components/common/components/Rating";
 const Product = () => {
   const { selectedProduct } = useContext(SelectedProductContext);
   const { handleIncrease, handleDecrease } = useCart();
@@ -123,10 +121,10 @@ const Product = () => {
                 <p className="text-gray-800 text-xl md:text-2xl font-inter">
                   ${selectedProduct.price}.00
                 </p>
-                <RatingComp
+                {/* <RatingComp
                   text={i18n.t("productPage.review")}
                   item={selectedProduct}
-                />{" "}
+                />{" "} */}
               </div>
               <p className="text-gray-800 w-full md:w-[373px] text-xs md:text-sm">
                 {selectedProduct.details}
