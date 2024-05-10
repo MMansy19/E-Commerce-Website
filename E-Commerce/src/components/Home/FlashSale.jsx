@@ -7,6 +7,7 @@ import calculateTimeLeft from "../common/functions/calculateTimeLeft";
 import i18n from "../common/components/LangConfig";
 import { motion } from "framer-motion"; // Import motion from Framer Motion for animations
 import { ITEMS } from "../common/functions/items";
+import { X } from "@mui/icons-material";
 const FlashSale = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [timeLeft, setTimeLeft] = useState(
@@ -25,8 +26,8 @@ const FlashSale = () => {
   useEffect(() => {
     const timer = setTimeout(() => {
       setTimeLeft(calculateTimeLeft(new Date("2024-05-27T00:00:00")));
-      // setCurrentIndex((prevIndex) => (prevIndex - 1) % duplicatedItems.length);
-      // handlePrevItem();
+      setCurrentIndex((prevIndex) => (prevIndex - 1) % duplicatedItems.length);
+      handlePrevItem();
     }, 1000);
 
     return () => clearTimeout(timer);
@@ -76,7 +77,7 @@ const FlashSale = () => {
             initial={{ opacity: 0.5, x: 0 }}
             animate={{
               opacity: 1,
-              transition: { duration: 8 },
+              transition: { duration: 10 },
               x: currentIndex * 100,
             }}
             transition={{ type: "spring", stiffness: 100, damping: 30 }}
@@ -87,7 +88,7 @@ const FlashSale = () => {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.5 }}
-                whileHover={{ scale: 1.1 }}
+                whileHover={{ scale: 1.05 }}
               >
                 <FlashSaleItem
                   item={item}
