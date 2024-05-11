@@ -1,9 +1,8 @@
 /* eslint-disable react/prop-types */
 
 import { IconButton } from "@mui/material";
-import { useState, useEffect, useContext } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { SelectedProductContext } from "../../context/SelectedProductContext";
 import { useCart } from "../../context/CartContext";
 
 const RemoveIcon = () => (
@@ -27,7 +26,6 @@ const RemoveIcon = () => (
 
 const CartItem = ({ item }) => {
   const { removeFromCart, handleIncrease, handleDecrease } = useCart();
-  const { setSelectedProduct } = useContext(SelectedProductContext);
   const [quantity, setQuantity] = useState(item.quantity);
 
   useEffect(() => {
@@ -46,10 +44,6 @@ const CartItem = ({ item }) => {
     handleIncrease(item);
   };
 
-  const handleProductClick = () => {
-    setSelectedProduct(item);
-  };
-
   return (
     <div className=" flex flex-row justify-between items-center py-2 md:py-6 pr-12 pl-4 shadow rounded gap-16 overflow-x-auto md:overflow-x-hidden ">
       <div className="flex items-center md:gap-4">
@@ -57,12 +51,7 @@ const CartItem = ({ item }) => {
           <IconButton onClick={handleRemove} className="absolute -top-4">
             <RemoveIcon />
           </IconButton>
-
-          <Link
-            to={{ pathname: `/allProducts/${item.title}` }}
-            key={item.id}
-            onClick={() => handleProductClick()}
-          >
+          <Link to={{ pathname: `/allProducts/${item.title}` }} key={item.id}>
             <img src={item.imageSrc} alt={item.title} className="w-16 h-16" />
           </Link>
         </div>

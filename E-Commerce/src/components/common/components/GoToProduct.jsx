@@ -1,20 +1,20 @@
 import PropTypes from "prop-types";
 import { useContext } from "react";
 import { Link } from "react-router-dom";
-import { SelectedProductContext } from "../../../context/SelectedProductContext";
+// import { SelectedProductContext } from "../../../context/SelectedProductContext";
 const GoToProduct = ({ item }) => {
-  const { setSelectedProduct } = useContext(SelectedProductContext);
+  // const { setSelectedProduct } = useContext(SelectedProductContext);
 
-  const handleProductClick = (product) => {
-    setSelectedProduct(product);
-  };
+  // const handleProductClick = (product) => {
+  // setSelectedProduct(product);
+  // };
   return (
     <Link
       to={{
         pathname: `/allProducts/${item.title}`,
         state: { product: item },
       }}
-      onClick={() => handleProductClick(item)}
+      // onClick={() => handleProductClick(item)}
       key={item.id}
     >
       <img src={item.imageSrc} alt={item.title} />

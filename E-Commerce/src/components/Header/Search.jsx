@@ -1,4 +1,4 @@
-import { useState, useContext } from "react";
+import { useState, useEffect } from "react";
 import { styled, alpha } from "@mui/material/styles";
 import IconButton from "@mui/material/IconButton";
 import { Link } from "react-router-dom";
@@ -6,7 +6,6 @@ import { ITEMS } from "../common/functions/items";
 import { CiSearch } from "react-icons/ci";
 import Autocomplete from "@mui/material/Autocomplete";
 import TextField from "@mui/material/TextField";
-import { SelectedProductContext } from "../../context/SelectedProductContext";
 import i18n from "../common/components/LangConfig";
 
 const Search = styled("div")(({ theme }) => ({
@@ -44,29 +43,10 @@ const Search = styled("div")(({ theme }) => ({
 
 const SearchAppBar = () => {
   const [searchText, setSearchText] = useState("");
-  const { setSelectedProduct } = useContext(SelectedProductContext);
-
-  let selectedItem = ITEMS[0];
-
-  const handleItemSelected = (event) => {
-    setSearchText(event.target.value);
-    handleSearch();
-  };
-
-  const handleSearch = () => {
-    if (searchText) {
-      selectedItem = ITEMS.find(
-        (item) => item.title.trim() === searchText.trim()
-      );
-      if (selectedItem) {
-        setSelectedProduct(selectedItem);
-      }
-    }
-  };
 
   const handleKeyDown = (event) => {
     if (event.key === "Enter") {
-      handleSearch();
+      setSearchText(searchText.trim());
     }
   };
 
@@ -79,21 +59,22 @@ const SearchAppBar = () => {
         openOnFocus
         options={ITEMS.map((item) => item.title)}
         value={searchText}
-        onSelect={handleItemSelected}
+        onChange={(event, newValue) => setSearchText(newValue)}
         renderInput={(params) => (
           <TextField
             {...params}
             placeholder={i18n.t("search")}
             onKeyDown={handleKeyDown}
-            onChange={(event) => setSearchText(event.target.value)}
           />
         )}
       />
-      <IconButton aria-label="search" color="inherit" onClick={handleSearch}>
-        <Link to={{ pathname: `/allProducts/${selectedItem.title}` }}>
-          <CiSearch className="w-5 h-auto md:w-8 md:h-8" />
-        </Link>
-      </IconButton>
+      {searchText && (
+        <IconButton aria-label="search" color="inherit">
+          <Link to={`/allProducts/${searchText}`}>
+            <CiSearch className="w-5 h-auto md:w-8 md:h-8" />
+          </Link>
+        </IconButton>
+      )}
     </Search>
   );
 };

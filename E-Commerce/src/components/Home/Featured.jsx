@@ -1,13 +1,9 @@
 import RedTitle from "../common/components/RedTitle";
 import i18n from "../common/components/LangConfig";
 import { Link } from "react-router-dom";
-import { useContext } from "react";
-import { SelectedProductContext } from "../../context/SelectedProductContext";
 import { ITEMS } from "../common/functions/items";
 
 const Featured = () => {
-  const { setSelectedProduct } = useContext(SelectedProductContext);
-
   const ShopNow = () => {
     return (
       <button className="mb-4 md:mb-0 flex gap-2 underline underline-offset-8 py-2  focus:underline-offset-2  ease-in-out  duration-300 transform hover:translate-x-4">
@@ -31,10 +27,6 @@ const Featured = () => {
       </button>
     );
   };
-  const handleProductClick = (itemClicked) => {
-    setSelectedProduct(itemClicked);
-  };
-
   const playstationItem = ITEMS.find(
     (item) => item.title === i18n.t("itemsArray.18.title")
   );
@@ -60,7 +52,7 @@ const Featured = () => {
             <div className="absolute inset-0 z-0 bg-no-repeat bg-center bg-cover">
               <Link
                 to={{ pathname: `/allProducts/${playstationItem.title}` }}
-                onClick={() => handleProductClick(playstationItem)}
+                // onClick={() => handleProductClick(playstationItem)}
                 key={playstationItem.id}
               >
                 <img
@@ -79,7 +71,7 @@ const Featured = () => {
               </p>
               <Link
                 to={{ pathname: `/allProducts/${playstationItem.title}` }}
-                onClick={() => handleProductClick(playstationItem)}
+                // onClick={() => handleProductClick(playstationItem)}
                 key={playstationItem.id}
               >
                 <ShopNow />
@@ -95,7 +87,7 @@ const Featured = () => {
                   to={{
                     pathname: `/allProducts/${womenCollectionsItem.title}`,
                   }}
-                  onClick={() => handleProductClick(womenCollectionsItem)}
+                  // onClick={() => handleProductClick(womenCollectionsItem)}
                   key={womenCollectionsItem.id}
                 >
                   <img
@@ -116,7 +108,7 @@ const Featured = () => {
                   to={{
                     pathname: `/allProducts/${womenCollectionsItem.title}`,
                   }}
-                  onClick={() => handleProductClick(womenCollectionsItem)}
+                  // onClick={() => handleProductClick(womenCollectionsItem)}
                   key={womenCollectionsItem.id}
                 >
                   <ShopNow />
@@ -131,7 +123,7 @@ const Featured = () => {
                 <div className="overflow-hidden absolute inset-0 z-0 bg-no-repeat bg-center bg-cover transition-transform duration-300 transform hover:scale-105   ">
                   <Link
                     to={{ pathname: `/allProducts/${speakersItem.title}` }}
-                    onClick={() => handleProductClick(speakersItem)}
+                    // onClick={() => handleProductClick(speakersItem)}
                     key={speakersItem.id}
                   >
                     <img
@@ -150,7 +142,7 @@ const Featured = () => {
                   </p>
                   <Link
                     to={{ pathname: `/allProducts/${speakersItem.title}` }}
-                    onClick={() => handleProductClick(speakersItem)}
+                    // onClick={() => handleProductClick(speakersItem)}
                     key={speakersItem.id}
                   >
                     <ShopNow />
@@ -163,7 +155,7 @@ const Featured = () => {
                 <div className="overflow-hidden absolute inset-0 z-0 bg-no-repeat bg-center bg-cover transition-transform duration-300 transform hover:scale-105  ">
                   <Link
                     to={{ pathname: `/allProducts/${perfumesItem.title}` }}
-                    onClick={() => handleProductClick(perfumesItem)}
+                    // onClick={() => handleProductClick(perfumesItem)}
                     key={perfumesItem.id}
                   >
                     <img
@@ -182,7 +174,6 @@ const Featured = () => {
                   </p>
                   <Link
                     to={{ pathname: `/allProducts/${perfumesItem.title}` }}
-                    onClick={() => handleProductClick(perfumesItem)}
                     key={perfumesItem.id}
                   >
                     <ShopNow />

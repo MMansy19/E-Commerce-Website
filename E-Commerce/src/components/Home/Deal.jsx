@@ -1,21 +1,13 @@
 import calculateTimeLeft from "../common/functions/calculateTimeLeft";
 import i18n from "../common/components/LangConfig";
-import { useState, useContext, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { SelectedProductContext } from "../../context/SelectedProductContext";
 import { ITEMS } from "../common/functions/items";
 
 const Deal = () => {
   const [timeLeft, setTimeLeft] = useState(
     calculateTimeLeft(new Date("2024-05-27T00:00:00"))
   );
-
-  const { setSelectedProduct } = useContext(SelectedProductContext);
-  const handleProductClick = () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-
-    setSelectedProduct(dealItem);
-  };
 
   const dealItem = ITEMS.find(
     (item) => item.title === i18n.t("itemsArray.15.title")
@@ -64,7 +56,6 @@ const Deal = () => {
         </div>
         <Link
           to={{ pathname: `/allProducts/${dealItem.title}` }}
-          onClick={() => handleProductClick()}
           key={dealItem.id}
         >
           <button className="bg-green   mb-8 py-4 px-12 rounded  ease-in-out  duration-300 transform hover:scale-105 hover:-translate-y-1">
@@ -75,7 +66,6 @@ const Deal = () => {
       <div className="mt-4">
         <Link
           to={{ pathname: `/allProducts/${dealItem.title}` }}
-          onClick={() => handleProductClick()}
           key={dealItem.id}
         >
           <img

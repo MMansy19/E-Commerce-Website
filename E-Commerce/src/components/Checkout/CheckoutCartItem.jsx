@@ -1,30 +1,20 @@
 /* eslint-disable react/prop-types */
 
-import { useState, useEffect, useContext } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { SelectedProductContext } from "../../context/SelectedProductContext";
 
 const CheckoutCartItem = ({ item }) => {
-  const { setSelectedProduct } = useContext(SelectedProductContext);
   const [quantity, setQuantity] = useState(item.quantity);
 
   useEffect(() => {
     setQuantity(item.quantity);
   }, [item.quantity]);
 
-  const handleProductClick = () => {
-    setSelectedProduct(item);
-  };
-
   return (
     <div className=" flex flex-row justify-between items-center ">
       <div className="flex items-center gap-6 ">
         <div className="flex ">
-          <Link
-            to={{ pathname: `/allProducts/${item.title}` }}
-            key={item.id}
-            onClick={() => handleProductClick()}
-          >
+          <Link to={{ pathname: `/allProducts/${item.title}` }} key={item.id}>
             <img src={item.imageSrc} alt={item.title} className="w-14 h-14  " />
           </Link>
         </div>

@@ -1,7 +1,5 @@
 import i18n from "../common/components/LangConfig";
-// import { useContext } from "react";
 import { Link } from "react-router-dom";
-// import { SelectedProductContext } from "../../context/SelectedProductContext";
 import { ITEMS } from "../common/functions/items";
 
 const Row1 = () => {

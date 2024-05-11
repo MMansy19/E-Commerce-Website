@@ -3,16 +3,14 @@
 import i18n from "./LangConfig";
 import PropTypes from "prop-types";
 
-import { useState, useContext, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { SelectedProductContext } from "../../../context/SelectedProductContext";
 import WishlistIcon from "./WishlistIcon";
 import AddToCart from "./AddToCart";
 import RatingComp from "./Rating";
 
 const FlashSaleItem = ({ item }) => {
   const [isHovered, setIsHovered] = useState(false);
-  const { setSelectedProduct } = useContext(SelectedProductContext);
 
   useEffect(() => {
     const storedQuantity = JSON.parse(localStorage.getItem("cartItems"))?.find(
@@ -27,10 +25,6 @@ const FlashSaleItem = ({ item }) => {
   }, [item]);
 
   const { handleAddToCart, isInCart } = AddToCart({ item }); // Use AddToCart component to get handleAddToCart and isInCart
-
-  const handleProductClick = () => {
-    setSelectedProduct(item);
-  };
 
   // Function to render stars
   const renderStars = () => {
@@ -82,11 +76,7 @@ const FlashSaleItem = ({ item }) => {
             {i18n.t("new")}
           </div>
         )}
-        <Link
-          to={{ pathname: `/allProducts/${item.title}` }}
-          onClick={() => handleProductClick()}
-          key={item.id}
-        >
+        <Link to={{ pathname: `/allProducts/${item.title}` }} key={item.id}>
           <img
             src={item.imageSrc}
             alt={item.title}
