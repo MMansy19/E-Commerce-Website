@@ -1,6 +1,7 @@
 /* eslint-disable react/prop-types */
 import Breadcrumbs from "@mui/material/Breadcrumbs";
 import Link from "@mui/material/Link";
+import i18n from "./LangConfig";
 
 function handleClick(event) {
   event.preventDefault();
@@ -18,7 +19,7 @@ export default function ActiveLastBreadcrumb({ path }) {
                 key={index}
                 underline="hover"
                 color="inherit"
-                href={p === "Home" ? "/" : `/${p.toLowerCase()}`}
+                href={p === i18n.t("home") ? "/" : `/${p.toLowerCase()}`}
               >
                 <div className="mx-3">{p}</div>
               </Link>
@@ -27,7 +28,7 @@ export default function ActiveLastBreadcrumb({ path }) {
         <Link
           underline="hover"
           color="text.primary"
-          href=""
+          href="/"
           aria-current="page"
         >
           <div className="mx-3">{path.split("/").pop()}</div>
