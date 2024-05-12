@@ -51,7 +51,7 @@ const SearchAppBar = () => {
   };
 
   return (
-    <Search className="flex items-center justify-center w-48 md:w-96">
+    <Search className="flex items-center justify-center w-48 min-[425px]:w-64 sm:max-[1200px]:w-96 min-[1200px]:w-60 min-[1450px]:w-96 ">
       <Autocomplete
         freeSolo
         disableClearable

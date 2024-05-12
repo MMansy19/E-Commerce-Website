@@ -328,7 +328,7 @@ const CategoryList = () => {
 
 const Categories = () => {
   return (
-    <div className="py-12 ">
+    <div className="px-4 py-12 ">
       <RedTitle title={i18n.t("category.redTitle")} />
       <div className="flex gap-20 flex-col md:flex-row  mb-8">
         <h2 className="text-xl md:text-3xl font-semibold ">

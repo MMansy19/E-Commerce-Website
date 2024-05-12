@@ -173,7 +173,7 @@ const Account = () => {
               <div className="flex flex-col gap-2 w-full">
                 <span className="text-sm md:text-base ">Address</span>
                 <input
-                  type="text"
+                  type="address"
                   placeholder={address ? address : "your address"}
                   required
                   onChange={(e) => setAddress(e.target.value)}
@@ -184,21 +184,21 @@ const Account = () => {
             <div className="flex flex-col gap-4 w-full">
               <span className="text-sm md:text-base ">Password Changes</span>
               <input
-                type="text"
+                type="password"
                 placeholder="Current Password"
                 required
                 onChange={(e) => setCurrentPassword(e.target.value)}
                 className=" rounded bg-gray-100 bg-opacity-100 px-4 py-3 text-gray-400 text-sm md:text-base  focus:border outline-none focus:border-gray-300  "
               />
               <input
-                type="text"
+                type="password"
                 placeholder="New Password"
                 required
                 onChange={(e) => setNewPassword(e.target.value)}
                 className=" rounded bg-gray-100 bg-opacity-100 px-4 py-3 text-gray-400 text-sm md:text-base  focus:border outline-none focus:border-gray-300  "
               />
               <input
-                type="text"
+                type="password"
                 placeholder="Confirm Password"
                 required
                 onChange={(e) => setConfirmPassword(e.target.value)}

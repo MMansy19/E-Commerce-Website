@@ -42,17 +42,18 @@ const Featured = () => {
 
   return (
     <div className="flex flex-col my-24">
-      <RedTitle title={i18n.t("featured.redTitle")} />
-      <h2 className="text-2xl md:text-3xl font-semibold mb-14">
-        {i18n.t("featured.title")}
-      </h2>
+      <div className="mx-2">
+        <RedTitle title={i18n.t("featured.redTitle")} />
+        <h2 className="text-2xl md:text-3xl font-semibold mb-14">
+          {i18n.t("featured.title")}
+        </h2>
+      </div>
       <div className="flex flex-col xl:flex-row gap-8">
         <div className="bg-black rounded md:pt-12 md:px-8 md:h-[600px] md:w-[570px]">
           <div className=" text-white relative flex gap-10  md:mt-10 items-center justify-center flex-col-reverse md:flex-row md:w-[511px] md:h-[511px] sm:h-[500px] h-[380px]">
             <div className="absolute inset-0 z-0 bg-no-repeat bg-center bg-cover">
               <Link
                 to={{ pathname: `/allProducts/${playstationItem.title}` }}
-                // onClick={() => handleProductClick(playstationItem)}
                 key={playstationItem.id}
               >
                 <img
@@ -71,7 +72,6 @@ const Featured = () => {
               </p>
               <Link
                 to={{ pathname: `/allProducts/${playstationItem.title}` }}
-                // onClick={() => handleProductClick(playstationItem)}
                 key={playstationItem.id}
               >
                 <ShopNow />
@@ -87,7 +87,6 @@ const Featured = () => {
                   to={{
                     pathname: `/allProducts/${womenCollectionsItem.title}`,
                   }}
-                  // onClick={() => handleProductClick(womenCollectionsItem)}
                   key={womenCollectionsItem.id}
                 >
                   <img
@@ -108,7 +107,6 @@ const Featured = () => {
                   to={{
                     pathname: `/allProducts/${womenCollectionsItem.title}`,
                   }}
-                  // onClick={() => handleProductClick(womenCollectionsItem)}
                   key={womenCollectionsItem.id}
                 >
                   <ShopNow />
@@ -118,12 +116,11 @@ const Featured = () => {
           </div>
 
           <div className="flex flex-col md:flex-row gap-8">
-            <div className="bg-black rounded md:px-6  h-[284px] md:w-[270px]">
+            <div className="bg-black rounded md:px-6  h-[284px] min-[400px]:max-sm:h-[450px] md:w-[270px]">
               <div className=" text-white relative flex md:gap-10 md:mt-10 items-center justify-center flex-col-reverse md:flex-row w-full h-full md:h-[221px] ">
-                <div className="overflow-hidden absolute inset-0 z-0 bg-no-repeat bg-center bg-cover transition-transform duration-300 transform hover:scale-105   ">
+                <div className="px-16 py-4 min-[400px]:px-auto sm:p-0 overflow-hidden absolute inset-0 z-0 bg-no-repeat bg-center bg-cover transition-transform duration-300 transform hover:scale-105   ">
                   <Link
                     to={{ pathname: `/allProducts/${speakersItem.title}` }}
-                    // onClick={() => handleProductClick(speakersItem)}
                     key={speakersItem.id}
                   >
                     <img
@@ -142,7 +139,6 @@ const Featured = () => {
                   </p>
                   <Link
                     to={{ pathname: `/allProducts/${speakersItem.title}` }}
-                    // onClick={() => handleProductClick(speakersItem)}
                     key={speakersItem.id}
                   >
                     <ShopNow />
@@ -150,12 +146,11 @@ const Featured = () => {
                 </div>
               </div>
             </div>
-            <div className="bg-black rounded  md:px-6 h-[284px] md:w-[270px]">
+            <div className="bg-black rounded  md:px-6 h-[284px] min-[400px]:max-sm:h-[450px] md:w-[270px]">
               <div className=" text-white relative flex md:gap-10 md:mt-10 items-center justify-center flex-col-reverse md:flex-row w-full h-full md:h-[221px] ">
-                <div className="overflow-hidden absolute inset-0 z-0 bg-no-repeat bg-center bg-cover transition-transform duration-300 transform hover:scale-105  ">
+                <div className="px-16 py-8 min-[400px]:px-auto sm:p-0 overflow-hidden absolute inset-0 z-0 bg-no-repeat bg-center bg-cover transition-transform duration-300 transform hover:scale-105  ">
                   <Link
                     to={{ pathname: `/allProducts/${perfumesItem.title}` }}
-                    // onClick={() => handleProductClick(perfumesItem)}
                     key={perfumesItem.id}
                   >
                     <img

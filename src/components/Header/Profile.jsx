@@ -9,7 +9,6 @@ import { useWishlist } from "../../context/WishlistContext";
 import { Link } from "react-router-dom";
 import { AuthContext, auth } from "../../Auth/firebase";
 import i18n from "../common/components/LangConfig";
-// import ThemeSwitcher from "./ThemeSwitcher";
 import ReadmeComponent from "../Readme/ReadmeComp";
 
 const Profile = () => {
@@ -32,7 +31,6 @@ const Profile = () => {
   const handleLogout = async () => {
     try {
       await auth.signOut();
-      history.push("/login");
     } catch (error) {
       console.error("Error signing out: ", error.message);
     }
@@ -278,7 +276,7 @@ const Profile = () => {
             {i18n.t("headerIcons.4")}
           </MenuItem>
         </Link>
-        <Link to="/account">
+        <Link to="/">
           <MenuItem
             sx={{ display: "flex", gap: "16px" }}
             onClick={handleLogout}

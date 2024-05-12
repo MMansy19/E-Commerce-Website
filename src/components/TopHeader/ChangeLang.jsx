@@ -20,21 +20,15 @@ function ChangeLang() {
   };
   const langChange = (e) => {
     const selectedLang = e.target.value;
-    setLoading(true); // Show loading indicator
+    setSnackbarOpen(true);
+    setLoading(true);
     changeLanguage(selectedLang);
     setSelectedLanguage(selectedLang);
 
     setTimeout(() => {
-      setLoading(false); // Hide loading indicator
-      setSnackbarOpen(true); // Open Snackbar when language changes
-      setTimeout(() => {
-        window.location.href = "/";
-      }, 4000);
+      window.location.href = "/";
+      setLoading(false);
     }, 1000);
-  };
-
-  const handleCloseSnackbar = () => {
-    setSnackbarOpen(false); // Close Snackbar
   };
 
   const handleMassage = () => {
@@ -58,25 +52,26 @@ function ChangeLang() {
         <MenuItem value="gr">German (Deutsch)</MenuItem>
         <MenuItem value="ar">Arabic (العربية)</MenuItem>
       </Select>
-      {loading ? (
-        <CircularProgress
-          sx={{
-            color: "white",
-            width: "30px !important",
-            height: "30px !important",
-            my: "10px !important",
-          }}
-        />
-      ) : (
-        <Snackbar
-          open={snackbarOpen}
-          autoHideDuration={4000}
-          onClose={handleCloseSnackbar}
-        >
-          <Alert severity={"success"} sx={{ width: "100%" }}>
-            {handleMassage()}
-          </Alert>
-        </Snackbar>
+      {loading && (
+        <>
+          <CircularProgress
+            sx={{
+              color: "white",
+              width: "30px !important",
+              height: "30px !important",
+              my: "10px !important",
+            }}
+          />
+          <Snackbar
+            open={snackbarOpen}
+            autoHideDuration={1000}
+            onClose={() => setSnackbarOpen(false)}
+          >
+            <Alert severity={"success"} sx={{ width: "100%" }}>
+              {handleMassage()}
+            </Alert>
+          </Snackbar>
+        </>
       )}
     </div>
   );

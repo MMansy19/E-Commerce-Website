@@ -17,11 +17,13 @@ const resources = {
         "Summer Sale For All Swim Suits And Free Express Delivery - OFF 50%!",
       shop: "ShopNow",
       welcome: "Welcome to the E-Commerce Website",
-      exclusive: "Exclusive",
+
       home: "Home",
       contact: "Contact",
       about: "About",
       signUp: "Sign Up",
+      account: "My Account",
+
       headerIcons: {
         1: "Manage My Account",
         2: "My Order",
@@ -339,7 +341,7 @@ const resources = {
         noItems: "No items to move to the cart!",
       },
       category: {
-        redTitle: "categories",
+        redTitle: "Categories",
         title: "Browse By Category",
         categories: {
           0: "Phones",
@@ -366,6 +368,7 @@ const resources = {
       allProducts: {
         redTitle: "Our Products",
         title: "Explore Our Products",
+        byCategory: "Explore By Category",
       },
       featured: {
         redTitle: "Featured",
@@ -389,10 +392,10 @@ const resources = {
         },
       },
       footer: {
-        exclusive: "Exclusive",
         subscribe: "Subscribe",
         offer: "Get 10% off your first order",
         enterEmail: "Enter your email",
+        enterPassword: "Enter your password",
         account: "Account",
         myAccount: "My Account",
         sign: "Login / Register",
@@ -420,11 +423,12 @@ const resources = {
       topHeader: "Sommerschlussverkauf - 50 % RABATT!",
       shop: "Jetzt einkaufen",
       welcome: "Willkommen auf der E-Commerce-Website",
-      exclusive: "Exklusiv",
+
       home: "Zuhause",
       contact: "Kontakt",
       about: "Über",
       signUp: "Anmelden",
+      account: "Mein Konto",
       headerIcons: {
         1: "Mein Konto",
         2: "Meine Bestellung",
@@ -781,6 +785,7 @@ const resources = {
       allProducts: {
         redTitle: "Unsere Produkte",
         title: "Entdecken Sie unsere Produkte",
+        byCategory: "Nach Kategorie erkunden",
       },
       featured: {
         redTitle: "Vorgestellt",
@@ -805,10 +810,10 @@ const resources = {
         },
       },
       footer: {
-        exclusive: "Exklusiv",
         subscribe: "Abonnieren",
         offer: "Erhalten Sie 10% Rabatt auf Ihre erste Bestellung",
         enterEmail: "Geben Sie Ihre E-Mail-Adresse ein",
+        enterPassword: "Geben Sie Ihr Passwort ein",
         account: "Konto",
         myAccount: "Mein Konto",
         sign: "Anmelden / Registrieren",
@@ -838,11 +843,11 @@ const resources = {
         "تخفيضات الصيف على جميع بدلات السباحة والتوصيل السريع المجاني - خصم 50%!",
       shop: "تسوق الآن",
       welcome: "مرحبًا بك في موقع التجارة الإلكترونية",
-      exclusive: "حصري",
       home: "الصفحة الرئيسية",
-      contact: "اتصل",
-      about: "حول",
-      signUp: "سجل",
+      contact: "اتصل بنا",
+      about: "من نحن",
+      signUp: "إنشاء حساب",
+      account: "حسابي",
       headerIcons: {
         1: "إدارة حسابي",
         2: "طلبي",
@@ -1111,7 +1116,7 @@ const resources = {
         yourMessage: "رسالتك",
       },
       aboutPage: {
-        title: "حول",
+        title: "من نحن",
         story: "قصتنا",
         paragraph1:
           "بدأت Exclusive في عام 2015، وهي السوق الرائدة للتسوق عبر الإنترنت في جنوب آسيا بوجود نشط في بنغلاديش. مدعومة بمجموعة واسعة من حلول التسويق والبيانات والخدمات المخصصة، يضم Exclusive 10،500 بائع و 300 علامة تجارية ويخدم 3 ملايين عميل في المنطقة.",
@@ -1187,6 +1192,7 @@ const resources = {
       allProducts: {
         redTitle: "منتجاتنا",
         title: "استكشف منتجاتنا",
+        byCategory: "استكشف حسب الفئة",
       },
       featured: {
         redTitle: "متميز",
@@ -1210,10 +1216,10 @@ const resources = {
         },
       },
       footer: {
-        exclusive: "حصري",
         subscribe: "اشترك",
         offer: "احصل على خصم 10% على طلبك الأول",
         enterEmail: "أدخل بريدك الإلكتروني",
+        enterPassword: "أدخل كلمة المرور",
         account: "الحساب",
         myAccount: "حسابي",
         sign: "تسجيل الدخول / التسجيل",
@@ -1228,7 +1234,7 @@ const resources = {
         privacy: "سياسة الخصوصية",
         usage: "شروط الاستخدام",
         FAQ: "الأسئلة الشائعة",
-        Contact: "اتصل",
+        Contact: "اتصل بنا",
         copyrights: "© حقوق الطبع والنشر Rimel 2022. كل الحقوق محفوظة",
         allRightsReserved: "© كل الحقوق محفوظة",
       },

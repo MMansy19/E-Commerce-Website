@@ -33,7 +33,7 @@ const Category = () => {
   return (
     <div className="container mx-auto mt-40 flex flex-col gap-5">
       <Typography variant="h3" align="center" gutterBottom>
-        {i18n.t("allProducts.title")}
+        {i18n.t("allProducts.byCategory")}
       </Typography>
       <div className="flex justify-center mb-4">
         <Button

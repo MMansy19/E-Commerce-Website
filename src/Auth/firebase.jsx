@@ -3,8 +3,7 @@
 /* eslint-disable react/prop-types */
 import { createContext, useState, useEffect } from "react";
 import { initializeApp } from "firebase/app";
-import { getFirestore, doc, setDoc } from "firebase/firestore"; // Import firestore module
-import { getStorage, ref, uploadString } from "firebase/storage"; // Import storage module
+import { getFirestore } from "firebase/firestore"; // Import firestore module
 import { getAuth } from "firebase/auth";
 // Firebase is available after the script is loaded
 const firebaseConfig = {
@@ -19,7 +18,6 @@ const firebaseConfig = {
 let app;
 let auth;
 let firestore; // Declare firestore variable
-let storage;
 
 try {
   app = initializeApp(firebaseConfig);
@@ -32,7 +30,7 @@ try {
 const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
-  const [currentUser, setCurrentUser] = useState(null);
+  const [currentUser, setCurrentUser] = useState("");
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -46,27 +44,8 @@ export const AuthProvider = ({ children }) => {
     return unsubscribe;
   }, []);
 
-  // Function to upload images to Firebase Storage and save their URLs to Firestore
-  const uploadImageAndSaveUrl = async (imageFile) => {
-    try {
-      const storageRef = ref(storage, `images/${imageFile.name}`);
-      await uploadString(storageRef, imageFile, "data_url");
-
-      // Get download URL
-      const imageUrl = await getDownloadURL(storageRef);
-
-      // Save the image URL to Firestore
-      const imageDocRef = doc(firestore, "images", imageFile.name);
-      await setDoc(imageDocRef, { imageUrl });
-
-      return imageUrl;
-    } catch (error) {
-      console.error("Error uploading image:", error);
-    }
-  };
-
   return (
-    <AuthContext.Provider value={{ currentUser, uploadImageAndSaveUrl }}>
+    <AuthContext.Provider value={{ currentUser, setCurrentUser }}>
       {!loading && children}
     </AuthContext.Provider>
   );

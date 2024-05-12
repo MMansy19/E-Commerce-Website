@@ -1,9 +1,8 @@
 import { Link } from "@mui/material";
-import i18n from "../common/components/LangConfig";
 
 const Logo = () => {
   return (
-    <div className=" items-center  justify-center gap-4 hidden lg:flex">
+    <div className=" items-center  justify-center gap-4 hidden min-[1300px]:flex">
       <Link href="/">
         <svg
           width="38"
@@ -29,7 +28,7 @@ const Logo = () => {
           />
         </svg>
       </Link>
-      <h1 className="font-inter font-bold text-2xl ">{i18n.t("exclusive")}</h1>
+      <h1 className="font-inter font-bold text-2xl ">Exclusive</h1>
     </div>
   );
 };

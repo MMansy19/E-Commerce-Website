@@ -20,11 +20,13 @@ const Cart = () => {
   return (
     <div className="max-w-screen-lg mx-auto mt-48 flex flex-col gap-10">
       <ActiveLastBreadcrumb path="Home/Cart" />
-      <div className="flex flex-row justify-between items-center py-6 px-14 shadow rounded gap-24 overflow-x-auto md:overflow-x-hidden ">
+      <div className="flex flex-row justify-between items-center py-6 px-2 md:px-14 shadow rounded md:gap-24  ">
         <h2 className="text-base">{i18n.t("cart.header.product")}</h2>
-        <h2 className="text-base ">{i18n.t("cart.header.price")}</h2>
+        <h2 className="text-base ml-10">{i18n.t("cart.header.price")}</h2>
         <h2 className="text-base ">{i18n.t("cart.header.quantity")}</h2>
-        <h2 className="text-base ">{i18n.t("cart.header.subtotal")}</h2>
+        <h2 className="text-base hidden md:flex">
+          {i18n.t("cart.header.subtotal")}
+        </h2>
       </div>
       {cartItems.map((item, index) => (
         <CartItem

@@ -1,6 +1,6 @@
 import i18n from "../common/components/LangConfig";
 
-import { useState } from "react";
+import { useState, useContext } from "react";
 import {
   Drawer,
   IconButton,
@@ -13,20 +13,28 @@ import {
   Tab,
 } from "@mui/material";
 import { Link, useLocation } from "react-router-dom";
+import { AuthContext } from "../../Auth/firebase";
+
 import { motion } from "framer-motion"; // Import motion from framer-motion for animations
 
 const Navigations = () => {
   const location = useLocation();
   const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down("md"));
+  const isMobile = useMediaQuery(theme.breakpoints.down("lg"));
   const [drawerOpen, setDrawerOpen] = useState(false);
+  const { currentUser } = useContext(AuthContext); // Get current user from AuthContext
 
   // Map routes to their corresponding labels
   const routes = [
     { path: "/", label: i18n.t("home") },
+    { path: "/allProducts", label: i18n.t("allProducts.redTitle") },
     { path: "/contact", label: i18n.t("contact") },
     { path: "/about", label: i18n.t("about") },
-    { path: "/signup", label: i18n.t("signUp") },
+
+    !currentUser
+      ? ({ path: "/signup", label: i18n.t("signUp") },
+        { path: "/login", label: i18n.t("loginPage.login") })
+      : { path: "/account", label: i18n.t("account") },
   ];
 
   // Find the index of the current route

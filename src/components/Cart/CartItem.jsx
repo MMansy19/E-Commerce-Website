@@ -45,7 +45,7 @@ const CartItem = ({ item }) => {
   };
 
   return (
-    <div className=" flex flex-row justify-between items-center py-2 md:py-6 pr-12 pl-4 shadow rounded gap-16 overflow-x-auto md:overflow-x-hidden ">
+    <div className=" flex flex-row justify-between items-center py-2 md:py-6 px-2 md:pr-12 md:pl-4 shadow rounded gap-4 md:gap-16  ">
       <div className="flex items-center md:gap-4">
         <div className="flex w-28">
           <IconButton onClick={handleRemove} className="absolute -top-4">
@@ -55,11 +55,7 @@ const CartItem = ({ item }) => {
             <img src={item.imageSrc} alt={item.title} className="w-16 h-16" />
           </Link>
         </div>
-        <div>
-          <p className="hidden md:inline text-xs md:text-base absolute">
-            {item.title}
-          </p>
-        </div>
+        <p className="hidden lg:flex text-xs md:text-base ">{item.title}</p>
       </div>
       <div className="flex items-center ">
         <p className="text-gray-500">${item.price}</p>
@@ -82,7 +78,7 @@ const CartItem = ({ item }) => {
           </button>
         </div>
       </div>
-      <div className="flex items-center">
+      <div className="items-center hidden md:flex">
         <p className="text-gray-500">${item.price * quantity}</p>
       </div>
     </div>

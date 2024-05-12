@@ -1,9 +1,7 @@
 const SignImg = () => {
   return (
     <svg
-      className="md:flex hidden"
-      width="805"
-      height="781"
+      className="w-full lg:w-[600px] xl:w-[800px] "
       viewBox="0 0 805 781"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"

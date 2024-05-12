@@ -1,11 +1,7 @@
-import PropTypes from "prop-types";
-const Arrows = ({ handlePrevItem, handleNextItem }) => {
+const Arrows = () => {
   return (
-    <div className="absolute  right-8 md:right-32 gap-2">
-      <button
-        onClick={handlePrevItem}
-        className="bg-white rounded-full shadow-lg p-2 hover:bg-gray-200 focus:outline-none"
-      >
+    <div className="hidden md:block absolute  right-8 md:right-32 gap-2">
+      <button className="bg-white rounded-full shadow-lg p-2 hover:bg-gray-200 focus:outline-none">
         <svg
           width="18"
           height="16"
@@ -22,10 +18,7 @@ const Arrows = ({ handlePrevItem, handleNextItem }) => {
           />
         </svg>
       </button>
-      <button
-        onClick={handleNextItem}
-        className="bg-white rounded-full shadow-lg p-2 hover:bg-gray-200 focus:outline-none"
-      >
+      <button className="bg-white rounded-full shadow-lg p-2 hover:bg-gray-200 focus:outline-none">
         <svg
           width="19"
           height="16"
@@ -46,8 +39,3 @@ const Arrows = ({ handlePrevItem, handleNextItem }) => {
   );
 };
 export default Arrows;
-
-Arrows.propTypes = {
-  handlePrevItem: PropTypes.func.isRequired,
-  handleNextItem: PropTypes.func.isRequired,
-};

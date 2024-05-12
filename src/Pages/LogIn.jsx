@@ -4,12 +4,12 @@ import { TextField } from "@mui/material";
 import { Button, Snackbar } from "@mui/material";
 import { Alert } from "@mui/material";
 import SignImg from "./SignImg.jsx";
-import { auth } from "../Auth/firebase";
+import { auth } from "../Auth/firebase.jsx";
 import {
   signInWithEmailAndPassword,
   sendPasswordResetEmail,
 } from "firebase/auth";
-import i18n from "../components/common/components/LangConfig";
+import i18n from "../components/common/components/LangConfig.jsx";
 
 const LogIn = () => {
   const [email, setEmail] = useState("");
@@ -27,6 +27,9 @@ const LogIn = () => {
       setMessage("Login successful!");
       setError("");
       setOpen(true);
+      setTimeout(() => {
+        window.location.href = "/account";
+      }, 2000);
       // Clear input fields
       setEmail("");
       setPassword("");
@@ -50,15 +53,15 @@ const LogIn = () => {
   };
 
   return (
-    <div className="flex justify-center md:justify-start  items-center md:mt-14 mb-36 mt-40 md:gap-32 ">
+    <div className="relative flex max-lg:flex-col-reverse justify-center  md:justify-start items-center mb-36 gap-12 lg:mt-28 xl:gap-24 ">
       <SignImg />
-      <div className="flex flex-col gap-6 items-start justify-center">
+      <div className="flex flex-col gap-6 md:gap-8 md:mx-10 items-center sm:items-start max-lg:mt-40 justify-center">
         <h1 className="text-xl md:text-4xl font-medium font-inter ">
           {i18n.t("loginPage.title")}
         </h1>
         <p>{i18n.t("loginPage.enter")}</p>
         <form
-          className="flex flex-col gap-6 w-72 md:w-96"
+          className="flex flex-col gap-6 md:gap-8 w-72 md:w-96"
           onSubmit={handleLogIn}
         >
           <TextField
@@ -118,7 +121,7 @@ const LogIn = () => {
       <Snackbar
         anchorOrigin={{ vertical: "top", horizontal: "right" }}
         open={open}
-        autoHideDuration={6000}
+        autoHideDuration={2000}
         onClose={() => setOpen(false)}
       >
         <Alert

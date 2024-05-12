@@ -7,6 +7,7 @@ import { auth } from "../Auth/firebase";
 import {
   createUserWithEmailAndPassword,
   signInWithPopup,
+  sendEmailVerification,
   GoogleAuthProvider,
 } from "firebase/auth";
 import i18n from "../components/common/components/LangConfig";
@@ -22,8 +23,16 @@ const SignUp = () => {
     e.preventDefault();
     try {
       // Attempt to create a new user account
-      await createUserWithEmailAndPassword(auth, email, password);
-      setSuccess("Account created successfully!");
+      const userCredential = await createUserWithEmailAndPassword(
+        auth,
+        email,
+        password
+      );
+
+      // Send email verification
+      await sendEmailVerification(userCredential.user);
+
+      setSuccess("Account created successfully! Verification email sent.");
       setOpen(true);
     } catch (error) {
       // Handle specific errors
@@ -51,9 +60,9 @@ const SignUp = () => {
   };
 
   return (
-    <div className="relative flex justify-center md:justify-start items-center md:mt-14 mb-36 mt-40 md:gap-32 ">
+    <div className="relative flex max-lg:flex-col-reverse justify-center  md:justify-start items-center mb-36 gap-12 lg:mt-28 xl:gap-24 ">
       <SignImg />
-      <div className="flex flex-col gap-6 items-start justify-center">
+      <div className="flex flex-col gap-6 md:gap-8 md:mx-10 items-center sm:items-start max-lg:mt-40 justify-center">
         <h1 className="text-4xl font-medium font-inter ">
           {i18n.t("signUpPage.title")}
         </h1>
@@ -174,11 +183,10 @@ const SignUp = () => {
           </Link>
         </p>
       </div>
-      {/* <div className="absolute top-0 right-0"> */}
       <Snackbar
         anchorOrigin={{ vertical: "top", horizontal: "right" }}
         open={open}
-        autoHideDuration={6000}
+        autoHideDuration={2000}
         onClose={() => setOpen(false)}
       >
         {success ? (
@@ -200,7 +208,6 @@ const SignUp = () => {
         )}
       </Snackbar>
     </div>
-    // </div>
   );
 };
 export default SignUp;
