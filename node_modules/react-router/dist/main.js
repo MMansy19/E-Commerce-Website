@@ -1,5 +1,5 @@
 /**
- * React Router v6.22.3
+ * React Router v6.23.0
  *
  * Copyright (c) Remix Software Inc.
  *
