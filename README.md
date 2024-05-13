@@ -3,9 +3,9 @@
 The E-commerce website is a full-stack application built using React with Vite as the bundler. It incorporates Tailwind CSS for styling and Material UI for components, offering a sleek and modern user interface. The platform provides essential functionalities such as signup and login for users to access their accounts, wishlist and cart pages for managing items, search functionality to easily find products, and a profile section for personalization. Furthermore, it includes checkout processes with support for coupons and purchasing, ensuring a seamless shopping experience for customers.
 
 
-  <img  src="E-Commerce/public/assets/Screenshots/0.png" alt="Home">
+  <img  src="public/assets/Screenshots/0.png" alt="Home">
 
-## [🌟Live Website🌟](https://e-commerce-website-nine-bice.vercel.app/)
+## [🌟Live Website🌟](https://e-commerce-mansy.vercel.app)
 
 ## [🌟Design on Figma 🌟](https://www.figma.com/file/yn2DFQJla0UiSMvomFsqwT/E-Commerce-Website-%D9%90Almdrasa?type=design&mode=design&t=fqPRRAQH5lDJGmoY-0)
 
@@ -89,25 +89,25 @@ To set up and run the project locally, follow these steps:
 
 ## Screenshots
 1. E-Commerce HomePage
-  <img  src="E-Commerce/public/assets/Screenshots/E-Commerce HomePage.jpg" alt="E-Commerce HomePage">
+  <img  src="public/assets/Screenshots/E-Commerce HomePage.jpg" alt="E-Commerce HomePage">
 2. Sign Up
-  <img  src="E-Commerce/public/assets/Screenshots/Sign Up.jpg" alt="Sign Up">
+  <img  src="public/assets/Screenshots/Sign Up.jpg" alt="Sign Up">
 3. Log In
-  <img  src="E-Commerce/public/assets/Screenshots/Log In.jpg" alt="Log In">
+  <img  src="public/assets/Screenshots/Log In.jpg" alt="Log In">
 4. Product Details page
-  <img  src="E-Commerce/public/assets/Screenshots/Product Details page.jpg" alt="Product Details page">
+  <img  src="public/assets/Screenshots/Product Details page.jpg" alt="Product Details page">
 5. Wishlist
-  <img  src="E-Commerce/public/assets/Screenshots/Wishlist.jpg" alt="Wishlist">
+  <img  src="public/assets/Screenshots/Wishlist.jpg" alt="Wishlist">
 6. About
-  <img  src="E-Commerce/public/assets/Screenshots/About.jpg" alt="About">
+  <img  src="public/assets/Screenshots/About.jpg" alt="About">
 7. Cart
-  <img  src="E-Commerce/public/assets/Screenshots/Cart.jpg" alt="Cart">
+  <img  src="public/assets/Screenshots/Cart.jpg" alt="Cart">
 8. CheckOut
-  <img  src="E-Commerce/public/assets/Screenshots/CheckOut.jpg" alt="CheckOut">
+  <img  src="public/assets/Screenshots/CheckOut.jpg" alt="CheckOut">
 9. Contact
-  <img  src="E-Commerce/public/assets/Screenshots/Contact.jpg" alt="Contact">
+  <img  src="public/assets/Screenshots/Contact.jpg" alt="Contact">
 10. Account
-  <img  src="E-Commerce/public/assets/Screenshots/Account.jpg" alt="Account">
+  <img  src="public/assets/Screenshots/Account.jpg" alt="Account">
 
 
 
