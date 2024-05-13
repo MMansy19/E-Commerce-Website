@@ -30,11 +30,12 @@ const Navigations = () => {
     { path: "/allProducts", label: i18n.t("allProducts.redTitle") },
     { path: "/contact", label: i18n.t("contact") },
     { path: "/about", label: i18n.t("about") },
-
-    !currentUser
-      ? ({ path: "/signup", label: i18n.t("signUp") },
-        { path: "/login", label: i18n.t("loginPage.login") })
-      : { path: "/account", label: i18n.t("account") },
+    ...(currentUser
+      ? [{ path: "/account", label: i18n.t("account") }]
+      : [
+          { path: "/login", label: i18n.t("loginPage.login") },
+          { path: "/signup", label: i18n.t("signUp") },
+        ]),
   ];
 
   // Find the index of the current route
