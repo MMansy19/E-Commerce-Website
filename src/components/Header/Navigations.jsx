@@ -13,7 +13,7 @@ import {
   Tab,
 } from "@mui/material";
 import { Link, useLocation } from "react-router-dom";
-import { AuthContext } from "../../Auth/firebase";
+import { AuthContext, auth } from "../../Auth/firebase";
 
 import { motion } from "framer-motion"; // Import motion from framer-motion for animations
 
@@ -51,6 +51,13 @@ const Navigations = () => {
       return;
     }
     setDrawerOpen(open);
+  };
+  const handleLogout = async () => {
+    try {
+      await auth.signOut();
+    } catch (error) {
+      console.error("Error signing out: ", error.message);
+    }
   };
 
   return (
@@ -104,12 +111,24 @@ const Navigations = () => {
                     key={index}
                     component={Link}
                     to={route.path}
-                    onClick={toggleDrawer(false)}
+                    onClick={() => toggleDrawer(false)} // Wrap toggleDrawer(false) in an arrow function to prevent immediate execution
                   >
                     <ListItemText primary={route.label} />
                   </ListItem>
                 ))}
+                {/* If the user is logged in, show the logout button */}
+                {currentUser && (
+                  <ListItem
+                    button
+                    component={Link}
+                    to="/"
+                    onClick={handleLogout}
+                  >
+                    <ListItemText primary={i18n.t("logout")} />
+                  </ListItem>
+                )}
               </List>
+
               <footer className="text-center py-4">
                 <a
                   href="https://www.linkedin.com/in/mahmoud-mansy-a189a5232/"
@@ -152,6 +171,12 @@ const Navigations = () => {
               to={route.path}
             />
           ))}
+          {/* If the user is logged in, show the logout button */}
+          {currentUser && (
+            <ListItem button component={Link} to="/" onClick={handleLogout}>
+              <ListItemText primary={i18n.t("logout")} />
+            </ListItem>
+          )}
         </Tabs>
       )}
     </>
