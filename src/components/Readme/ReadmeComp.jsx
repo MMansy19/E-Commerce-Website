@@ -11,11 +11,11 @@ import {
   useTheme,
 } from "@mui/material";
 import Slide from "@mui/material/Slide";
-
 import { motion } from "framer-motion";
 import { BsExclamation } from "react-icons/bs";
 import profilePic from "./profilePic.jpeg";
 import Footer from "./Footer";
+
 const ReadmeComponent = () => {
   const [open, setOpen] = useState(false);
   const [hasSeenReadme, setHasSeenReadme] = useState(false);
@@ -96,15 +96,17 @@ const ReadmeComponent = () => {
                 textAlign="center"
                 mx={isMobile ? 0 : 2}
                 paragraph
+                className="text-gray-800"
+                style={{ fontSize: isMobile ? "1rem" : "1.25rem" }}
               >
                 This is an e-commerce app built with React, Vite, Tailwind CSS,
                 Firebase, React Router, Context API, and React Icons.
               </Typography>
-              <Typography variant="body1" paragraph>
+              <Typography variant="body1" paragraph className="text-gray-800">
                 Features:
               </Typography>
-              <ul className="list-disc ml-3 md:ml-6 mb-2 md:mb-4 text-sm md:text-base">
-                <li>Multi-language support (Arabic, English, and German).</li>
+              <ul className="list-disc ml-3 md:ml-6 mb-2 md:mb-4 text-sm md:text-base text-gray-800">
+                <li>Multi-language support (English, German, and Arabic).</li>
                 <li>
                   Advanced sorting and filtering algorithms for product display.
                 </li>
