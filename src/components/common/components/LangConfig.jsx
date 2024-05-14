@@ -333,6 +333,7 @@ const resources = {
         emailOrPhone: "Email or Phone Number",
         password: "Password",
         forgot: "Forgot Password?",
+        notHaveAccount: "Don't have an account?",
         login: "Log In",
       },
       Snackbar: {
@@ -749,6 +750,7 @@ const resources = {
         emailOrPhone: "E-Mail oder Telefonnummer",
         password: "Passwort",
         forgot: "Passwort vergessen?",
+        notHaveAccount: "Sie haben noch kein Konto?",
         login: "Einloggen",
       },
 
@@ -1155,6 +1157,7 @@ const resources = {
         emailOrPhone: "البريد الإلكتروني أو رقم الهاتف",
         password: "كلمة المرور",
         forgot: "نسيت كلمة المرور؟",
+        notHaveAccount: "ليس لديك حساب بعد؟",
         login: "تسجيل الدخول",
       },
 

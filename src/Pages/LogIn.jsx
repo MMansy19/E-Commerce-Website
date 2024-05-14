@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link } from "@mui/material";
+import { Link } from "react-router-dom";
 import { TextField } from "@mui/material";
 import { Button, Snackbar } from "@mui/material";
 import { Alert } from "@mui/material";
@@ -101,22 +101,24 @@ const LogIn = () => {
             >
               {i18n.t("loginPage.login")}
             </Button>
-            <Link
-              href="#"
+            <button
+              type="button"
               onClick={handleForgotPassword}
-              sx={{
-                color: "hsla(0, 68%, 56%, .9)",
-                fontWeight: "500",
-                textDecoration: "none",
-                ":hover": {
-                  textDecoration: "underline",
-                },
-              }}
+              className="text-base text-red-500 hover:underline font-medium "
             >
               {i18n.t("loginPage.forgot")}
-            </Link>
+            </button>
           </div>
         </form>
+        <p className="text-gray-600 mx-auto">
+          <span>{i18n.t("loginPage.notHaveAccount")} </span>
+          <Link
+            to="/signUp"
+            className="ml-2 text-gray font-medium hover:underline"
+          >
+            {i18n.t("signUpPage.title")}
+          </Link>
+        </p>
       </div>
       <Snackbar
         anchorOrigin={{ vertical: "top", horizontal: "right" }}
