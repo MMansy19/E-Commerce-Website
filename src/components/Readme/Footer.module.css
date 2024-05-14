@@ -1,5 +1,6 @@
 .footer {
   padding: 20px 0;
+  border-radius: 2rem;
 }
 
 .content {
@@ -9,6 +10,7 @@
   align-items: center;
   font-size: large;
   gap: 100%;
+  border-radius: 2rem;
   @media screen and (max-width: 768px) {
     flex-direction: column;
     font-size: small;
