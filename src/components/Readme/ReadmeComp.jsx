@@ -14,7 +14,6 @@ import {
 import Slide from "@mui/material/Slide";
 import { motion } from "framer-motion";
 import { BsExclamation } from "react-icons/bs";
-// import profilePic from "./profilePic.jpeg";
 import profilePic from "./profilePic2.1.png";
 import Footer from "./Footer";
 
@@ -134,8 +133,8 @@ const ReadmeComponent = () => {
               </Typography>
               <ul className="flex flex-col gap-2   ml-3 md:ml-6 mb-4 text-sm md:text-base text-gray-800 list-none">
                 <li>
-                  ✅ 𝑺𝒆𝒂𝒎𝒍𝒆𝒔𝒔 𝒎𝒖𝒍𝒕𝒊-𝒍𝒂𝒏𝒈𝒖𝒂𝒈𝒆 𝒔𝒖𝒑𝒑𝒐𝒓𝒕 (𝑬𝒏𝒈𝒍𝒊𝒔𝒉, 𝑮𝒆𝒓𝒎𝒂𝒏, 𝒂𝒏𝒅
-                  𝑨𝒓𝒂𝒃𝒊𝒄).
+                  ✅ 𝑺𝒆𝒂𝒎𝒍𝒆𝒔𝒔 𝒎𝒖𝒍𝒕𝒊-𝒍𝒂𝒏𝒈𝒖𝒂𝒈𝒆 𝒔𝒖𝒑𝒑𝒐𝒓𝒕 (𝑬𝒏𝒈𝒍𝒊𝒔𝒉, 𝑨𝒓𝒂𝒃𝒊𝒄 , 𝑺𝒑𝒂𝒏𝒊𝒔𝒉
+                  𝒂𝒏𝒅 𝑮𝒆𝒓𝒎𝒂𝒏).
                 </li>
                 <li>
                   ✅ 𝑬𝒇𝒇𝒊𝒄𝒊𝒆𝒏𝒕 𝒑𝒓𝒐𝒅𝒖𝒄𝒕 𝒔𝒆𝒂𝒓𝒄𝒉 𝒇𝒖𝒏𝒄𝒕𝒊𝒐𝒏𝒂𝒍𝒊𝒕𝒚 𝒇𝒐𝒓 𝒆𝒏𝒉𝒂𝒏𝒄𝒆𝒅 𝒖𝒔𝒆𝒓
