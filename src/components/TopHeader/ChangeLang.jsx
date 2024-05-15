@@ -6,7 +6,7 @@ import { useLang } from "../../context/LangContext.jsx";
 function ChangeLang() {
   const { lang, changeLanguage } = useLang();
   const [snackbarOpen, setSnackbarOpen] = useState(false);
-  const [selectedLanguage, setSelectedLanguage] = useState("gr");
+  const [selectedLanguage, setSelectedLanguage] = useState("en");
   const [loading, setLoading] = useState(false);
 
   const styles = {
@@ -18,6 +18,7 @@ function ChangeLang() {
       fontSize: "12px",
     },
   };
+
   const langChange = (e) => {
     const selectedLang = e.target.value;
     setSnackbarOpen(true);
@@ -36,10 +37,13 @@ function ChangeLang() {
       return "The page will be reloaded and the language will be changed to English!";
     } else if (selectedLanguage === "gr") {
       return "Die Seite wird neu geladen und die Sprache wird auf Deutsch geändert!";
-    } else {
+    } else if (selectedLanguage === "ar") {
       return "سيتم إعادة تحميل الصفحة وتغيير اللغة للعربية!";
+    } else if (selectedLanguage === "es") {
+      return "¡La página se recargará y el idioma se cambiará a español!";
     }
   };
+
   return (
     <div>
       <Select
@@ -49,8 +53,9 @@ function ChangeLang() {
         disabled={loading} // Disable select while loading
       >
         <MenuItem value="en">English</MenuItem>
-        <MenuItem value="gr">German (Deutsch)</MenuItem>
         <MenuItem value="ar">Arabic (العربية)</MenuItem>
+        <MenuItem value="gr">German (Deutsch)</MenuItem>
+        <MenuItem value="es">Spanish (Español)</MenuItem>
       </Select>
       {loading && (
         <>
