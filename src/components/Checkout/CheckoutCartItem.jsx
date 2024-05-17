@@ -15,7 +15,12 @@ const CheckoutCartItem = ({ item }) => {
       <div className="flex items-center gap-6 ">
         <div className="flex ">
           <Link to={{ pathname: `/allProducts/${item.title}` }} key={item.id}>
-            <img src={item.imageSrc} alt={item.title} className="w-14 h-14  " />
+            <img
+              loading="lazy"
+              src={item.imageSrc}
+              alt={item.title}
+              className="w-14 h-14  "
+            />
           </Link>
         </div>
         <div>

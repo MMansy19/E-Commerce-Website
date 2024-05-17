@@ -71,6 +71,7 @@ const Deal = () => {
           <img
             src={dealItem.imageSrc}
             alt={dealItem.title}
+            loading="lazy"
             className="transition-transform duration-300 transform hover:-translate-y-4 hover:scale-110 hover:motion-safe:animate-pulse"
           />
         </Link>

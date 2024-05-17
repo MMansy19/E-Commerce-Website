@@ -133,6 +133,7 @@ const Row1 = () => {
               <img
                 src={dealItem.imageSrc}
                 alt={dealItem.title}
+                loading="lazy"
                 className="transition-transform duration-300 transform translate-y-4 hover:translate-y-0 hover:scale-102 hover:motion-safe:animate-pulse"
               />
             </Link>

@@ -78,6 +78,7 @@ const FlashSaleItem = ({ item }) => {
         )}
         <Link to={{ pathname: `/allProducts/${item.title}` }} key={item.id}>
           <img
+            loading="lazy"
             src={item.imageSrc}
             alt={item.title}
             className="hover:animate-pulse  max-h-52  w-full object-contain"

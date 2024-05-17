@@ -17,7 +17,7 @@ const GoToProduct = ({ item }) => {
       // onClick={() => handleProductClick(item)}
       key={item.id}
     >
-      <img src={item.imageSrc} alt={item.title} />
+      <img loading="lazy" src={item.imageSrc} alt={item.title} />
     </Link>
   );
 };

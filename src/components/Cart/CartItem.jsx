@@ -52,7 +52,12 @@ const CartItem = ({ item }) => {
             <RemoveIcon />
           </IconButton>
           <Link to={{ pathname: `/allProducts/${item.title}` }} key={item.id}>
-            <img src={item.imageSrc} alt={item.title} className="w-16 h-16" />
+            <img
+              loading="lazy"
+              src={item.imageSrc}
+              alt={item.title}
+              className="w-16 h-16"
+            />
           </Link>
         </div>
         <p className="hidden lg:flex text-xs md:text-base ">{item.title}</p>
