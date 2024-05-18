@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import ActiveLastBreadcrumb from "../components/common/components/Link";
 import RedButton from "../components/common/components/RedButton";
 import i18n from "../components/common/components/LangConfig";
-import notFoundIcon from "../assets/notFound.svg";
+import notFoundIcon from "../assets/notFound.png";
 import { Fab } from "@mui/material";
 
 const NotFound = () => {
