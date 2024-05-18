@@ -122,7 +122,6 @@ FlashSaleItem.propTypes = {
     rates: PropTypes.number.isRequired,
     discount: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   }).isRequired,
-  allItems: PropTypes.array.isRequired, // Pass all items array to check the status
 };
 
 export default FlashSaleItem;

@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { TextField, Button, Snackbar } from "@mui/material";
 import { Alert } from "@mui/material";
-import SignImg from "./SignImg.jsx";
+import SignImg from "./SignImg.png";
 import { auth } from "../Auth/firebase";
 import {
   createUserWithEmailAndPassword,
@@ -61,7 +61,7 @@ const SignUp = () => {
 
   return (
     <div className="relative flex max-lg:flex-col-reverse justify-center  md:justify-start items-center mb-36 gap-12 lg:mt-28 xl:gap-24 ">
-      <SignImg />
+      <img src={SignImg} alt="Sign Image" />
       <div className="flex flex-col gap-6 md:gap-8 md:mx-10 items-center sm:items-start max-lg:mt-40 justify-center">
         <h1 className="text-4xl font-medium font-inter ">
           {i18n.t("signUpPage.title")}

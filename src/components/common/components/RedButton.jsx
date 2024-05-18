@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import PropTypes from "prop-types";
 
 const RedButton = ({ name, disabled = false }) => {
@@ -19,6 +20,5 @@ const RedButton = ({ name, disabled = false }) => {
 
 RedButton.propTypes = {
   name: PropTypes.string.isRequired,
-  disabled: PropTypes.bool.isRequired,
 };
 export default RedButton;

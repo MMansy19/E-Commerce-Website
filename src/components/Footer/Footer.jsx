@@ -5,9 +5,9 @@ import {
 import { auth } from "../../Auth/firebase";
 import { useState } from "react";
 import { Container, Grid, Typography, Snackbar, Alert } from "@mui/material";
-import QRCode from "./QRCode";
-import GooglePlay from "./GooglePlay";
-import AppStore from "./AppStore";
+import QrCode from "./QrCode.png";
+import GooglePlay from "./GooglePlay.png";
+import AppStore from "./AppStore.png";
 import i18n from "../common/components/LangConfig";
 import { Link } from "react-router-dom";
 const Footer = () => {
@@ -242,13 +242,13 @@ const Footer = () => {
               {i18n.t("footer.save")}
             </Typography>
             <div className="flex flex-row gap-2 my-4">
-              <QRCode />
+              <img src={QrCode} alt="Qr Code" />
               <div>
                 <Link onClick={scrollToTop} to="/">
-                  <GooglePlay />
+                  <img src={GooglePlay} alt="Google Play" />
                 </Link>
                 <Link onClick={scrollToTop} to="/">
-                  <AppStore />
+                  <img src={AppStore} alt="App Store" />
                 </Link>
               </div>
             </div>

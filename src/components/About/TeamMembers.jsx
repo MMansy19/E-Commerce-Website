@@ -1,8 +1,8 @@
 /* eslint-disable react/prop-types */
 import { useState } from "react";
 import { Box } from "@mui/material";
-import Person1 from "./Person1";
-import Person2 from "./Person2";
+import Person1 from "./Person1.png";
+import Person2 from "./Person2.png";
 import PaginationIndicator from "../common/components/PaginationIndicator";
 import i18n from "../common/components/LangConfig";
 
@@ -10,37 +10,37 @@ const teamMembersData = [
   {
     name: i18n.t("aboutPage.name1"),
     role: i18n.t("aboutPage.job3"),
-    image: <Person1 />,
+    image: Person1,
   },
   {
     name: i18n.t("aboutPage.name2"),
     role: i18n.t("aboutPage.job1"),
-    image: <Person2 />,
+    image: Person2,
   },
   {
     name: i18n.t("aboutPage.name4"),
     role: i18n.t("aboutPage.job2"),
-    image: <Person1 />,
+    image: Person1,
   },
   {
     name: i18n.t("aboutPage.name3"),
     role: i18n.t("aboutPage.job3"),
-    image: <Person2 />,
+    image: Person2,
   },
   {
     name: i18n.t("aboutPage.name2"),
     role: i18n.t("aboutPage.job1"),
-    image: <Person1 />,
+    image: Person1,
   },
   {
     name: i18n.t("aboutPage.name1"),
     role: i18n.t("aboutPage.job4"),
-    image: <Person2 />,
+    image: Person2,
   },
   {
     name: i18n.t("aboutPage.name3"),
     role: i18n.t("aboutPage.job2"),
-    image: <Person1 />,
+    image: Person1,
   },
 ];
 
@@ -48,7 +48,7 @@ const TeamMember = ({ name, role, image }) => {
   return (
     <Box className="flex gap-4 flex-col ">
       <Box className="bg-gray-200 rounded-xl w-full md:w-96 flex items-center justify-center">
-        {image}
+        <img src={image} alt="image" />
       </Box>
       <Box className="flex md:mx-10  gap-4 items-center md:items-start flex-col ">
         <h2 className="font-bold text-3xl">{name}</h2>
