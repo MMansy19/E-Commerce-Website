@@ -1,6 +1,7 @@
 import i18n from "../common/components/LangConfig";
 import { Link } from "react-router-dom";
 import { ITEMS } from "../common/functions/items";
+import apple from "./apple.png";
 
 const Row1 = () => {
   const dealItem = ITEMS.find(
@@ -71,7 +72,7 @@ const Row1 = () => {
       >
         <div className="flex flex-col md:max-w-72 gap-5 items-center md:items-start justify-center md:ml-16">
           <div className="max-w-72 flex jusify-center items-center gap-6">
-            <img src="apple.png" alt="apple" />
+            <img src={apple} alt="apple" />
             <h1 className="text-lg">{i18n.t("homeSections.row1.col2.0")}</h1>
           </div>
           <h2 className="text-2xl md:text-5xl leading-10">
