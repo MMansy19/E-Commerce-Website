@@ -111,7 +111,7 @@ const Navigations = () => {
                     key={index}
                     component={Link}
                     to={route.path}
-                    onClick={() => toggleDrawer(false)} // Wrap toggleDrawer(false) in an arrow function to prevent immediate execution
+                    onClick={toggleDrawer(false)} // Wrap toggleDrawer(false) in an arrow function to prevent immediate execution
                   >
                     <ListItemText primary={route.label} />
                   </ListItem>
