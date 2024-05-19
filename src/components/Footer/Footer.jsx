@@ -3,7 +3,7 @@ import {
   sendEmailVerification,
 } from "firebase/auth";
 import { auth } from "../../Auth/firebase";
-import { useState } from "react";
+// import { useState } from "react";
 import { Container, Grid, Typography, Snackbar, Alert } from "@mui/material";
 import QrCode from "./QrCode.png";
 import GooglePlay from "./GooglePlay.png";
@@ -11,38 +11,38 @@ import AppStore from "./AppStore.png";
 import i18n from "../common/components/LangConfig";
 import { Link } from "react-router-dom";
 const Footer = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [error, setError] = useState(null);
-  const [success, setSuccess] = useState(null);
-  const [open, setOpen] = useState(false);
+  // const [email, setEmail] = useState("");
+  // const [password, setPassword] = useState("");
+  // const [error, setError] = useState(null);
+  // const [success, setSuccess] = useState(null);
+  // const [open, setOpen] = useState(false);
 
-  const handleSignUp = async (e) => {
-    e.preventDefault();
-    try {
-      // Attempt to create a new user account
-      const userCredential = await createUserWithEmailAndPassword(
-        auth,
-        email,
-        password
-      );
+  // const handleSignUp = async (e) => {
+  //   e.preventDefault();
+  //   try {
+  //     // Attempt to create a new user account
+  //     const userCredential = await createUserWithEmailAndPassword(
+  //       auth,
+  //       email,
+  //       password
+  //     );
 
-      // Send email verification
-      await sendEmailVerification(userCredential.user);
+  //     // Send email verification
+  //     await sendEmailVerification(userCredential.user);
 
-      setSuccess("Account created successfully! Verification email sent.");
-      setOpen(true);
-    } catch (error) {
-      // Handle specific errors
-      if (error.code === "auth/email-already-in-use") {
-        setSuccess("");
-        setError("The email address is already in use.");
-      } else {
-        setError(error.message); // Handle other errors generically
-      }
-      setOpen(true);
-    }
-  };
+  //     setSuccess("Account created successfully! Verification email sent.");
+  //     setOpen(true);
+  //   } catch (error) {
+  //     // Handle specific errors
+  //     if (error.code === "auth/email-already-in-use") {
+  //       setSuccess("");
+  //       setError("The email address is already in use.");
+  //     } else {
+  //       setError(error.message); // Handle other errors generically
+  //     }
+  //     setOpen(true);
+  //   }
+  // };
 
   const scrollToTop = () => {
     window.scrollTo({
@@ -72,7 +72,7 @@ const Footer = () => {
               {i18n.t("footer.subscribe")}
             </Typography>
             <Typography variant="body2">{i18n.t("footer.offer")}</Typography>
-            <div className=" mt-4 flex w-56	 py-2 px-1 border border-gray-300 rounded-md focus:outline-none focus:border-gray-500 bg-transparent text-white placeholder-gray-400">
+            {/* <div className=" mt-4 flex w-56	 py-2 px-1 border border-gray-300 rounded-md focus:outline-none focus:border-gray-500 bg-transparent text-white placeholder-gray-400">
               <div className=" flex flex-col ">
                 <input
                   type="email"
@@ -107,7 +107,7 @@ const Footer = () => {
                   />
                 </svg>
               </button>
-            </div>
+            </div> */}
           </Grid>
 
           {/* Support */}
@@ -342,7 +342,7 @@ const Footer = () => {
       <Typography variant="body2" className=" text-center text-gray-600">
         {i18n.t("footer.copyrights")}
       </Typography>
-      <Snackbar
+      {/* <Snackbar
         anchorOrigin={{ vertical: "top", horizontal: "right" }}
         open={open}
         autoHideDuration={6000}
@@ -365,7 +365,7 @@ const Footer = () => {
             {error}
           </Alert>
         )}
-      </Snackbar>
+      </Snackbar> */}
     </footer>
   );
 };
