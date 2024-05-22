@@ -1,3 +1,5 @@
+//  Code to add items to cart and remove items from cart
+
 /* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
 import { useState, useEffect, useContext } from "react";

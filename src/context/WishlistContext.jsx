@@ -1,3 +1,5 @@
+// Context  API for managing wishlist items
+
 import PropTypes from "prop-types";
 import { createContext, useContext, useEffect, useState } from "react";
 
