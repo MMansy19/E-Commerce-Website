@@ -5,9 +5,11 @@ import { Link } from "react-router-dom";
 import { ITEMS } from "../common/functions/items";
 
 const Deal = () => {
-  const [timeLeft, setTimeLeft] = useState(
-    calculateTimeLeft(new Date("2024-05-27T00:00:00"))
-  );
+  // Calculate the future date 5 hours from now
+  const startTime = new Date();
+  startTime.setHours(startTime.getHours() + 5);
+
+  const [timeLeft, setTimeLeft] = useState(calculateTimeLeft(startTime));
 
   const dealItem = ITEMS.find(
     (item) => item.title === i18n.t("itemsArray.15.title")
@@ -15,12 +17,11 @@ const Deal = () => {
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      setTimeLeft(calculateTimeLeft(new Date("2024-05-27T00:00:00")));
+      setTimeLeft(calculateTimeLeft(startTime));
     }, 1000);
 
     return () => clearTimeout(timer);
-  });
-
+  }, [startTime]);
   return (
     <div className=" flex gap-10 md:my-10 mt-10 items-center justify-center flex-col-reverse md:flex-row  min-h-[500px] bg-black text-white">
       <div className="flex flex-col gap-5 items-center md:items-start  md:mx-12">
