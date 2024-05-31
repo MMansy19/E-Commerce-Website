@@ -1,5 +1,5 @@
 // Function to calculate time left until a given deadline
- function calculateTimeLeft(deadline) {
+function calculateTimeLeft(deadline) {
   const difference = +new Date(deadline) - +new Date();
   let timeLeft = {};
 
@@ -15,4 +15,3 @@
   return timeLeft;
 }
 export default calculateTimeLeft;
-
