@@ -1,5 +1,3 @@
-// Context  API for managing cart items
-
 import PropTypes from "prop-types";
 import { createContext, useContext, useEffect, useState } from "react";
 

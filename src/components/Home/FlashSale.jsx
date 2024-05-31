@@ -7,25 +7,18 @@ import calculateTimeLeft from "../common/functions/calculateTimeLeft";
 import i18n from "../common/components/LangConfig";
 import { ITEMS } from "../common/functions/items";
 const FlashSale = () => {
-  // Calculate the future date 5 hours from now
-  const startTime = new Date();
-  startTime.setHours(startTime.getHours() + 5);
-
-  const [timeLeft, setTimeLeft] = useState(calculateTimeLeft(startTime));
-
-  const dealItem = ITEMS.find(
-    (item) => item.title === i18n.t("itemsArray.15.title")
+  const [timeLeft, setTimeLeft] = useState(
+    calculateTimeLeft(new Date("2024-05-27T00:00:00"))
   );
+  const saleItems = ITEMS.filter((item) => item.discount !== "");
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      setTimeLeft(calculateTimeLeft(startTime));
+      setTimeLeft(calculateTimeLeft(new Date("2024-05-27T00:00:00")));
     }, 1000);
 
     return () => clearTimeout(timer);
-  }, [startTime]);
-
-  const saleItems = ITEMS.filter((item) => item.discount !== "");
+  });
 
   return (
     <div className=" p-4 ">
