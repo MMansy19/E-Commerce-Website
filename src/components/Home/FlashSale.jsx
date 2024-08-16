@@ -8,13 +8,13 @@ import i18n from "../common/components/LangConfig";
 import { ITEMS } from "../common/functions/items";
 const FlashSale = () => {
   const [timeLeft, setTimeLeft] = useState(
-    calculateTimeLeft(new Date("2024-07-27T00:00:00"))
+    calculateTimeLeft(new Date("2024-10-27T00:00:00"))
   );
   const saleItems = ITEMS.filter((item) => item.discount !== "");
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      setTimeLeft(calculateTimeLeft(new Date("2024-07-27T00:00:00")));
+      setTimeLeft(calculateTimeLeft(new Date("2024-10-27T00:00:00")));
     }, 1000);
 
     return () => clearTimeout(timer);
