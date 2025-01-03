@@ -41,7 +41,7 @@ const Featured = () => {
   );
 
   return (
-    <div className="flex flex-col my-24">
+    <div className="flex flex-col my-24 mx-auto">
       <div className="mx-2">
         <RedTitle title={i18n.t("featured.redTitle")} />
         <h2 className="text-2xl md:text-3xl font-semibold mb-14">

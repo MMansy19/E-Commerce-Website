@@ -30,7 +30,7 @@ function App() {
 
   return (
     <Router>
-      <div dir={i18n.t("dir")} className={i18n.t("font")}>
+      <div dir={i18n.t("dir")} className={`${i18n.t("font")} max-w-[2536px] mx-auto`}>
         <LangProvider>
           {/* <SelectedProductProvider> */}
           <CartProvider>
