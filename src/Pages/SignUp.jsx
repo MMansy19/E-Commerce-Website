@@ -60,7 +60,7 @@ const SignUp = () => {
   };
 
   return (
-    <div className="relative flex max-lg:flex-col-reverse justify-center xl:justify-center md:justify-start items-center mb-36 gap-12 lg:mt-28 xl:gap-24 ">
+    <div className="relative flex max-lg:flex-col-reverse justify-center xl:justify-center md:justify-start items-center  gap-12 lg:mt-28 xl:gap-24 ">
       <img src={SignImg} alt="Sign Image" />
       <div className="flex flex-col gap-6 md:gap-8 md:mx-10 items-center sm:items-start max-lg:mt-40 justify-center">
         <h1 className="text-4xl font-medium font-inter ">
