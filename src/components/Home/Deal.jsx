@@ -4,9 +4,13 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { ITEMS } from "../common/functions/items";
 
+// Add 24 hours to the current time to calculate the deadline
+const tomorrow = new Date();
+tomorrow.setHours(tomorrow.getHours() + 24);
+
 const Deal = () => {
   const [timeLeft, setTimeLeft] = useState(
-    calculateTimeLeft(new Date("2024-10-27T00:00:00"))
+    calculateTimeLeft(tomorrow)
   );
 
   const dealItem = ITEMS.find(
@@ -15,7 +19,7 @@ const Deal = () => {
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      setTimeLeft(calculateTimeLeft(new Date("2024-10-27T00:00:00")));
+      setTimeLeft(calculateTimeLeft(tomorrow));
     }, 1000);
 
     return () => clearTimeout(timer);

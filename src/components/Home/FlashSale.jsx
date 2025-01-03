@@ -6,15 +6,21 @@ import ViewAll from "../common/components/ViewAll";
 import calculateTimeLeft from "../common/functions/calculateTimeLeft";
 import i18n from "../common/components/LangConfig";
 import { ITEMS } from "../common/functions/items";
+
+// Add 24 hours to the current time to calculate the deadline
+const tomorrow = new Date();
+tomorrow.setHours(tomorrow.getHours() + 24);
+
+
 const FlashSale = () => {
   const [timeLeft, setTimeLeft] = useState(
-    calculateTimeLeft(new Date("2024-10-27T00:00:00"))
+    calculateTimeLeft(tomorrow)
   );
   const saleItems = ITEMS.filter((item) => item.discount !== "");
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      setTimeLeft(calculateTimeLeft(new Date("2024-10-27T00:00:00")));
+      setTimeLeft(calculateTimeLeft(tomorrow));
     }, 1000);
 
     return () => clearTimeout(timer);
