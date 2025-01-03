@@ -7,7 +7,7 @@ const Contact = () => {
       <ActiveLastBreadcrumb
         path={`${i18n.t("home")}/${i18n.t("footer.Contact")}`}
       />
-      <div className="flex flex-col lg:flex-row gap-8">
+      <div className="flex flex-col lg:flex-row gap-8 mx-auto">
         <div className="shadow  w-full lg:w-[340px] h-[457px] flex flex-col gap-8 py-10 px-8 rounded">
           <div className="flex flex-col gap-6">
             <div className="flex flex-row  gap-4  items-center">

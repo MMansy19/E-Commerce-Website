@@ -7,14 +7,14 @@ import i18n from "../components/common/components/LangConfig";
 const About = () => {
   return (
     <>
-      <div className="flex flex-col justify-center items-start mt-48 ">
+      <div className="flex flex-col justify-center items-start mt-48">
         <div className="md:mx-40">
           <ActiveLastBreadcrumb
             path={`${i18n.t("home")}/${i18n.t("aboutPage.title")}`}
           />
         </div>
 
-        <div className="flex justify-center md:justify-between items-center md:mt-10  my-24 md:mb-36 ">
+        <div className="flex justify-center md:justify-between items-center md:mt-10 mx-auto my-24 md:mb-36 ">
           <div className="flex flex-col gap-10 items-center md:items-start justify-center max-w-lg mx-8 md:mx-40">
             <h1 className="text-5xl font-bold font-inter">
               {i18n.t("aboutPage.story")}
