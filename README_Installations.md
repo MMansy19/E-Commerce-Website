@@ -2,7 +2,7 @@
 
 Welcome to the E-Commerce Website repository! This repository contains the source code for an e-commerce website developed using React.js. Below are the steps to set up and run the project locally on your machine.
 
-## Set Up
+## Set Up 
 
 To set up and run the project locally, follow these steps:
 
@@ -40,13 +40,11 @@ To set up and run the project locally, follow these steps:
 
 You can visit the live website by clicking [here](https://e-commerce-website-nine-bice.vercel.app/).
 
-## [Project Repo](https://github.com/MMansy19/E-Commerce-Website)
+## [Project Repo](https://github.com/Bhavan-R/INTERNPE-E-COMMERCE-WEB.git)
 
 ## Contact
 
 If you have any questions, feedback, or suggestions, feel free to reach out:
 
-- **Author**: [MMansy19](https://github.com/MMansy19)
-- **Website**: [Mahmoud Mansy Portfolio](https://mahmoud-mansy-portfolio.netlify.app/)
-- **Email**: [mahmoud2abdalfattah@gmail.com](mailto:mahmoud2abdalfattah@gmail.com)
-- **LinkedIn**: [Mahmoud Mansy](https://www.linkedin.com/in/mahmoud-mansy-a189a5232)
+- **Author**: [MMansy19](https://github.com/Bhavan-R/INTERNPE-E-COMMERCE-WEB.git)
+- **LinkedIn**: [Bhavan R](www.linkedin.com/in/bhavanr)
